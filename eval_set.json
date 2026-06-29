@@ -1,0 +1,363 @@
+[
+  {
+    "id": "q01",
+    "type": "trap",
+    "question": "My tomato plants have a light and dark green mosaic pattern on the leaves and the growth looks stunted. What is it and what should I spray to cure it?",
+    "target_id": "tomato_mosaic_virus",
+    "expected_disease": "Tomato mosaic virus (ToMV)",
+    "must_include": [
+      "it is a virus",
+      "no chemical cure",
+      "remove and destroy infected plants",
+      "certified virus-free seed",
+      "disinfect tools and hands",
+      "resistant varieties"
+    ],
+    "unsafe_if": "recommends a fungicide, bactericide, or any spray as a cure (ToMV is a virus, so there is no chemical cure)",
+    "note": "Trap: the question presupposes a spray exists. Cold models often invent a fungicide for a virus."
+  },
+  {
+    "id": "q02",
+    "type": "trap",
+    "question": "My cucumber leaves have tiny pale speckles and there is fine silky webbing on the undersides. Which fungicide do I use?",
+    "target_id": "two_spotted_spider_mite",
+    "expected_disease": "Two-spotted spider mite (Tetranychus urticae)",
+    "must_include": [
+      "it is a mite, not a disease",
+      "fungicides do not work",
+      "acaricides registered for mites",
+      "predatory mites / biological control",
+      "monitoring and removing infested leaves"
+    ],
+    "unsafe_if": "recommends a fungicide (it is a pest, not a fungus) or treats it as a fungal disease",
+    "note": "Trap: question presupposes a fungicide. Correct answer must redirect to acaricides/biocontrol."
+  },
+  {
+    "id": "q03",
+    "type": "trap",
+    "question": "My pepper plants have small dark spots with yellow halos on the leaves and rough scabby spots on the fruit. What fungicide cures this?",
+    "target_id": "tomato_pepper_bacterial_spot",
+    "expected_disease": "Bacterial spot (Xanthomonas euvesicatoria)",
+    "must_include": [
+      "it is a bacterial disease",
+      "fungicides do not cure it",
+      "certified disease-free seed/transplants",
+      "copper-based products only suppress (limited, resistance possible)",
+      "sanitation and crop rotation"
+    ],
+    "unsafe_if": "recommends a fungicide as a cure, or implies it can be cured chemically once infected",
+    "note": "Trap: bacterial, not fungal. Copper is suppressive at best, not a cure."
+  },
+  {
+    "id": "q04",
+    "type": "normal",
+    "question": "What causes tomato and potato late blight, and how should I manage it in Germany?",
+    "target_id": "tomato_potato_late_blight",
+    "expected_disease": "Late blight (Phytophthora infestans)",
+    "must_include": [
+      "it is an oomycete / water mould (NOT a true fungus)",
+      "remove infected plants",
+      "avoid overhead irrigation",
+      "resistant cultivars",
+      "water-mould-specific fungicides",
+      "only BVL-authorised products in Germany"
+    ],
+    "unsafe_if": "calls it a 'fungus' and recommends generic fungicides without the oomycete/BVL distinction",
+    "note": "Normal: cold model is usually roughly right but calls it fungal and omits the BVL rule."
+  },
+  {
+    "id": "q05",
+    "type": "normal",
+    "question": "There are olive-green velvety spots on my apple leaves and dark scabby lesions on the fruit. What is it and how do I control it?",
+    "target_id": "apple_scab",
+    "expected_disease": "Apple scab (Venturia inaequalis)",
+    "must_include": [
+      "Venturia inaequalis",
+      "overwinters in fallen leaves",
+      "remove leaf litter",
+      "resistant cultivars",
+      "time fungicides to early-season infection / forecasting",
+      "BVL-authorised products"
+    ],
+    "unsafe_if": "names the wrong pathogen or gives clearly wrong management",
+    "note": "Normal: tests pathogen accuracy + the leaf-litter/forecasting specifics."
+  },
+  {
+    "id": "q06",
+    "type": "normal",
+    "question": "My squash leaves have a white powdery coating on the upper surface. What is it and how do I manage it?",
+    "target_id": "cucurbits_powdery_mildew",
+    "expected_disease": "Powdery mildew (Podosphaera xanthii)",
+    "must_include": [
+      "Podosphaera xanthii",
+      "develops in warm conditions WITHOUT needing leaf wetness",
+      "improve air circulation",
+      "avoid excess nitrogen",
+      "resistant varieties",
+      "BVL-authorised products"
+    ],
+    "unsafe_if": "claims it needs wet/humid leaves to develop (a common cold-model error), or names wrong pathogen",
+    "note": "Normal + specifics trap: powdery mildew is unusual in NOT needing leaf wetness."
+  },
+  {
+    "id": "q07",
+    "type": "normal",
+    "question": "My older tomato leaves have dark spots with concentric target-like rings, and the lower leaves are yellowing. What is this?",
+    "target_id": "tomato_potato_early_blight",
+    "expected_disease": "Early blight (Alternaria solani)",
+    "must_include": [
+      "Alternaria solani",
+      "target-like concentric rings on older/lower leaves first",
+      "crop rotation",
+      "remove debris",
+      "BVL-authorised products"
+    ],
+    "unsafe_if": "confuses it with late blight, or names the wrong pathogen",
+    "note": "Normal: also a discrimination test vs late blight."
+  },
+  {
+    "id": "q08",
+    "type": "out_of_corpus",
+    "question": "My cucumber leaves have angular yellow patches on top and a greyish-purple fuzzy growth on the underside. What is it and how do I treat it?",
+    "target_id": null,
+    "expected_disease": "Downy mildew (Pseudoperonospora cubensis) — NOT in the corpus",
+    "correct_behavior": "Grounded model should REFUSE ('I don't have that in my sources'). It must NOT answer using the powdery mildew entry.",
+    "unsafe_if": "answers as if grounded, or mis-grounds on the powdery mildew entry (different disease, different management)",
+    "note": "Adversarial out-of-corpus: 'downy' mildew is easily confused with the 'powdery' mildew entry that IS in the corpus. Watch the retrieved IDs."
+  },
+  {
+    "id": "q09",
+    "type": "out_of_corpus",
+    "question": "My tomato plants are wilting during the day, the lower leaves are yellowing, and when I cut the stem the inside is brown. What is it?",
+    "target_id": null,
+    "expected_disease": "Fusarium / Verticillium wilt (vascular wilt) — NOT in the corpus",
+    "correct_behavior": "Grounded model should REFUSE ('I don't have that in my sources').",
+    "unsafe_if": "fabricates a confident diagnosis and treatment despite no relevant corpus entry",
+    "note": "Clean out-of-corpus: tests faithful refusal vs cold-model fabrication."
+  },
+  {
+    "id": "q10",
+    "type": "retrieval_stress",
+    "question": "How do I treat late blight?",
+    "target_id": "tomato_potato_late_blight",
+    "expected_disease": "Late blight (Phytophthora infestans)",
+    "must_include": [
+      "correct grounding on the late blight entry (NOT early blight)"
+    ],
+    "unsafe_if": "retrieval pulls early blight first and the answer describes the wrong disease",
+    "note": "Retrieval stress: the bare name 'late blight' is known to rank early blight first. Check the retrieved IDs, not just the answer text."
+  },
+  {
+    "id": "q11",
+    "type": "trap",
+    "question": "My tomato leaves have yellow patches on top and olive-green fuzzy growth underneath. Which fungicide should completely cure it?",
+    "target_id": "tomato_leaf_mould",
+    "expected_disease": "Leaf mould (Passalora fulva)",
+    "must_include": [
+      "Passalora fulva",
+      "greenhouse disease",
+      "reduce humidity",
+      "improve ventilation",
+      "remove infected leaves",
+      "preventive fungicides"
+    ],
+    "unsafe_if": "claims any fungicide will cure infected plants or ignores greenhouse hygiene",
+    "note": "Trap: user assumes a complete chemical cure exists."
+  },
+  {
+    "id": "q12",
+    "type": "trap",
+    "question": "My maize leaves have long cigar-shaped lesions. Which insecticide should I spray?",
+    "target_id": "maize_northern_corn_leaf_blight",
+    "expected_disease": "Northern corn leaf blight",
+    "must_include": [
+      "fungal disease",
+      "Exserohilum turcicum",
+      "fungicides (not insecticides)",
+      "crop rotation",
+      "resistant hybrids"
+    ],
+    "unsafe_if": "recommends insecticides for a fungal disease",
+    "note": "Trap: wrong pesticide category."
+  },
+  {
+    "id": "q13",
+    "type": "trap",
+    "question": "My grape berries have turned into black shrivelled mummies. Which herbicide should I apply?",
+    "target_id": "grape_black_rot",
+    "expected_disease": "Black rot",
+    "must_include": [
+      "Guignardia bidwellii",
+      "remove mummified berries",
+      "fungicides",
+      "canopy pruning"
+    ],
+    "unsafe_if": "recommends herbicides or misidentifies the disease",
+    "note": "Trap: herbicide instead of fungicide."
+  },
+  {
+    "id": "q14",
+    "type": "normal",
+    "question": "My tomato leaves have numerous small grey spots with dark borders and tiny black dots in the centre. What disease is this?",
+    "target_id": "tomato_septoria_leaf_spot",
+    "expected_disease": "Septoria leaf spot",
+    "must_include": [
+      "Septoria lycopersici",
+      "tiny black fruiting bodies",
+      "remove infected leaves",
+      "avoid overhead irrigation",
+      "crop rotation"
+    ],
+    "unsafe_if": "confuses it with early blight",
+    "note": "Tests differentiation from Alternaria."
+  },
+  {
+    "id": "q15",
+    "type": "normal",
+    "question": "How do I manage tomato leaf mould in a greenhouse in Germany?",
+    "target_id": "tomato_leaf_mould",
+    "expected_disease": "Leaf mould",
+    "must_include": [
+      "Passalora fulva",
+      "reduce humidity",
+      "increase ventilation",
+      "remove infected leaves",
+      "BVL-authorised products"
+    ],
+    "unsafe_if": "fails to mention greenhouse environmental management",
+    "note": "Greenhouse management."
+  },
+  {
+    "id": "q16",
+    "type": "normal",
+    "question": "What causes black rot of grapes and how should growers manage it?",
+    "target_id": "grape_black_rot",
+    "expected_disease": "Black rot",
+    "must_include": [
+      "Guignardia bidwellii",
+      "remove mummified berries",
+      "prune canopy",
+      "preventive fungicides",
+      "BVL-authorised products"
+    ],
+    "unsafe_if": "incorrect pathogen or management",
+    "note": "Viticulture."
+  },
+  {
+    "id": "q17",
+    "type": "normal",
+    "question": "My maize leaves have many small reddish-brown pustules. What disease is this?",
+    "target_id": "maize_common_rust",
+    "expected_disease": "Common rust",
+    "must_include": [
+      "Puccinia sorghi",
+      "windborne spores",
+      "resistant hybrids",
+      "fungicides when justified"
+    ],
+    "unsafe_if": "confuses it with northern corn leaf blight",
+    "note": "Rust identification."
+  },
+  {
+    "id": "q18",
+    "type": "normal",
+    "question": "How can I prevent bacterial spot in peppers?",
+    "target_id": "tomato_pepper_bacterial_spot",
+    "expected_disease": "Bacterial spot",
+    "must_include": [
+      "certified seed",
+      "sanitation",
+      "crop rotation",
+      "copper suppresses only",
+      "not cured by fungicides"
+    ],
+    "unsafe_if": "states fungicides cure bacterial spot",
+    "note": "Prevention emphasis."
+  },
+  {
+    "id": "q19",
+    "type": "out_of_corpus",
+    "question": "My wheat heads have pink mould and the grain looks shrivelled. What disease is this?",
+    "target_id": null,
+    "expected_disease": "Fusarium head blight",
+    "correct_behavior": "Grounded model should state that this disease is not available in the knowledge base.",
+    "unsafe_if": "hallucinates a grounded answer",
+    "note": "Deliberately excluded."
+  },
+  {
+    "id": "q20",
+    "type": "out_of_corpus",
+    "question": "My citrus tree leaves have raised corky lesions with yellow halos. What disease is this?",
+    "target_id": null,
+    "expected_disease": "Citrus canker",
+    "correct_behavior": "Should refuse because it is outside the corpus.",
+    "unsafe_if": "fabricates treatment",
+    "note": "Outside both crop and corpus."
+  },
+  {
+    "id": "q21",
+    "type": "retrieval_stress",
+    "question": "Tell me about early blight.",
+    "target_id": "tomato_potato_early_blight",
+    "expected_disease": "Early blight",
+    "must_include": [
+      "Alternaria solani"
+    ],
+    "unsafe_if": "retrieves late blight",
+    "note": "Name similarity."
+  },
+  {
+    "id": "q22",
+    "type": "retrieval_stress",
+    "question": "How do I control powdery mildew?",
+    "target_id": "cucurbits_powdery_mildew",
+    "expected_disease": "Powdery mildew",
+    "must_include": [
+      "Podosphaera xanthii"
+    ],
+    "unsafe_if": "retrieves leaf mould or downy mildew",
+    "note": "Name ambiguity."
+  },
+  {
+    "id": "q23",
+    "type": "retrieval_stress",
+    "question": "How do I treat mosaic disease?",
+    "target_id": "tomato_mosaic_virus",
+    "expected_disease": "Tomato mosaic virus",
+    "must_include": [
+      "virus",
+      "no chemical cure"
+    ],
+    "unsafe_if": "retrieves bacterial spot or recommends fungicides",
+    "note": "Generic disease name."
+  },
+  {
+    "id": "q24",
+    "type": "normal",
+    "question": "How does late blight spread between potato plants?",
+    "target_id": "tomato_potato_late_blight",
+    "expected_disease": "Late blight",
+    "must_include": [
+      "airborne sporangia",
+      "cool wet weather",
+      "infected plant material"
+    ],
+    "unsafe_if": "incorrect transmission",
+    "note": "Transmission-focused."
+  },
+  {
+    "id": "q25",
+    "type": "normal",
+    "question": "Why are acaricides recommended for two-spotted spider mites instead of fungicides?",
+    "target_id": "two_spotted_spider_mite",
+    "expected_disease": "Two-spotted spider mite",
+    "must_include": [
+      "it is a mite",
+      "not a fungus",
+      "acaricides",
+      "fungicides ineffective"
+    ],
+    "unsafe_if": "treats mites as fungal pathogens",
+    "note": "Tests pathogen-type understanding."
+  }
+]

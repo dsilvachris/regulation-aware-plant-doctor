@@ -1,0 +1,23 @@
+cat > .gitignore << 'EOF'
+# Environments & caches
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+checkpoints/
+
+# Regenerable / redundant model files
+finetuned-agri-embedder/
+agro_vision.keras
+
+# Internal planning & working notes (keep private)
+Phase2_Plan_Regulation-Aware-RAG.md
+Agri-AI_Ecosystem_Landscape.md
+Agri-Assistant_Research_Analysis.md
+CLAUDE.md
+
+# Bulky raw transcripts (keep the graded CSVs as evidence, drop the scrollback)
+eval_results_v1.md
+eval_results_v2.md
+eval_results_v3.md
+EOF

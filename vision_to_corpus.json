@@ -1,0 +1,34 @@
+{
+  "_comment": "Bridge: PlantDoc vision label -> action. 'ground' = retrieve corpus_id and answer; 'healthy' = no disease; 'abstain' = disease recognised but deliberately outside the 12-disease corpus (faithful 'I can see it but have no authorised guidance').",
+
+  "Apple Scab Leaf":                        {"action": "ground", "corpus_id": "apple_scab"},
+  "Corn leaf blight":                       {"action": "ground", "corpus_id": "maize_northern_corn_leaf_blight"},
+  "Corn rust leaf":                         {"action": "ground", "corpus_id": "maize_common_rust"},
+  "Potato leaf early blight":               {"action": "ground", "corpus_id": "tomato_potato_early_blight"},
+  "Potato leaf late blight":                {"action": "ground", "corpus_id": "tomato_potato_late_blight"},
+  "Squash Powdery mildew leaf":             {"action": "ground", "corpus_id": "cucurbits_powdery_mildew"},
+  "Tomato Early blight leaf":               {"action": "ground", "corpus_id": "tomato_potato_early_blight"},
+  "Tomato Septoria leaf spot":              {"action": "ground", "corpus_id": "tomato_septoria_leaf_spot"},
+  "Tomato leaf bacterial spot":             {"action": "ground", "corpus_id": "tomato_pepper_bacterial_spot"},
+  "Tomato leaf late blight":                {"action": "ground", "corpus_id": "tomato_potato_late_blight"},
+  "Tomato leaf mosaic virus":               {"action": "ground", "corpus_id": "tomato_mosaic_virus"},
+  "Tomato mold leaf":                       {"action": "ground", "corpus_id": "tomato_leaf_mould"},
+  "Tomato two spotted spider mites leaf":   {"action": "ground", "corpus_id": "two_spotted_spider_mite"},
+  "grape leaf black rot":                   {"action": "ground", "corpus_id": "grape_black_rot"},
+
+  "Apple leaf":                             {"action": "healthy", "crop": "apple"},
+  "Bell_pepper leaf":                       {"action": "healthy", "crop": "pepper"},
+  "Blueberry leaf":                         {"action": "healthy", "crop": "blueberry"},
+  "Cherry leaf":                            {"action": "healthy", "crop": "cherry"},
+  "Peach leaf":                             {"action": "healthy", "crop": "peach"},
+  "Raspberry leaf":                         {"action": "healthy", "crop": "raspberry"},
+  "Soyabean leaf":                          {"action": "healthy", "crop": "soybean"},
+  "Strawberry leaf":                        {"action": "healthy", "crop": "strawberry"},
+  "Tomato leaf":                            {"action": "healthy", "crop": "tomato"},
+  "grape leaf":                             {"action": "healthy", "crop": "grape"},
+
+  "Apple rust leaf":                        {"action": "abstain", "reason": "cedar apple rust - deliberately outside the corpus (mainly North American, needs juniper host)"},
+  "Corn Gray leaf spot":                    {"action": "abstain", "reason": "gray leaf spot - not in the 12-disease corpus"},
+  "Tomato leaf yellow virus":               {"action": "abstain", "reason": "tomato yellow leaf curl virus - deliberately excluded (southern-Europe disease)"},
+  "Bell_pepper leaf spot":                  {"action": "abstain", "reason": "ambiguous pepper leaf spot - abstain rather than risk mis-grounding on tomato/pepper bacterial spot"}
+}

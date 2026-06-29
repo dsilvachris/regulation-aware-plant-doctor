@@ -1,0 +1,442 @@
+[
+  {
+    "query": "What are those weird grey-green spots on my tomato leaves?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "Why is my entire crop suddenly rotting?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "Is there a specific fungicide I should use for this problem?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "Can you tell me what's causing the brown patches on my potato tubers?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "How do I prevent water-soaked lesions from forming on my plants in the first place?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "What temperature range is ideal for avoiding this disease?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "My plants are looking pretty miserable - how can I rescue them?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "Is there a way to get rid of infected leaves without spreading the problem further?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "Why does my crop seem to be more susceptible during humid weather?",
+    "disease_id": "tomato_potato_late_blight"
+  },
+  {
+    "query": "What's causing those brown spots with rings on my tomato leaves?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "How do I prevent this fungal disease from spreading to the rest of my plants?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "I've got yellowing leaves and black sunken lesions on my potato stems - what can I do?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "My older leaves are getting these weird dark brown targets - is that normal for tomatoes?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "Why does it seem like this disease only hits my plants when it's been raining a lot lately?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "Can you recommend some good fungicides to use against this problem?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "I'm rotating my crops, but should I still remove any leftover infected debris from last season?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "Is there anything I can do to reduce stress on my plants and make them less susceptible?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "How often should I be inspecting my plants for signs of this disease, especially during warm weather?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "Are resistant varieties of tomatoes or potatoes available anywhere in the US?",
+    "disease_id": "tomato_potato_early_blight"
+  },
+  {
+    "query": "What's causing those weird green spots on my apple leaves?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "How do I stop these fungal lesions from spreading to other parts of the tree?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "My apples are turning brown and velvety - is this a normal part of growth?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "What can I do about the fallen leaves that seem to be causing so many problems?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "Is there a specific time frame when fungicide applications are most effective?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "Can you recommend any apple cultivars that are resistant to certain diseases?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "Why does it seem like my orchard gets hit with fungal issues every spring?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "How do I use pruning to help prevent these types of infections in the future?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "I'm new to growing apples - can you suggest a simple management plan for this disease?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "What's the best way to balance using fungicides and promoting healthy tree growth?",
+    "disease_id": "apple_scab"
+  },
+  {
+    "query": "What's causing those little grey spots on my tomato leaves?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "I have small circular lesions with dark borders and tiny black dots in the centre - what is it and how do I get rid of it?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "How can I prevent this disease from spreading to more plants?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "The leafy greens are getting all yellowed and dropping off - any idea what's going on?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "My tomatoes are okay but the leaves look like they've been peppered with tiny grey darts. Help!",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "Is there a way to control this without using fungicides?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "It's only happening under the sprinklers - is that related to the problem?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "I'm seeing those black dots in the centre of some leaf spots - what do I need to do about them?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "The plants look healthy but I'm worried the disease will affect fruit quality. What can I do to prevent this?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "Can I just use a general fungicide or do I need something specific for this issue?",
+    "disease_id": "tomato_septoria_leaf_spot"
+  },
+  {
+    "query": "What's causing those yellow spots on my tomato leaves?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "I've got a fungal problem with my tomatoes - how can I tell if it's serious?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "Why are the undersides of my tomato leaves turning brown and fuzzy?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "Can you help me figure out what's going wrong with my greenhouse-grown tomatoes?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "How do I prevent this disease from spreading to other plants in my greenhouse?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "I've noticed some velvety growth on the bottom of my tomato leaves - is that a problem?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "What temperature range is ideal for preventing this fungal issue?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "Is there anything I can do about the leaf curling and premature defoliation I'm seeing?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "Can you recommend any fungicides that are safe to use in my greenhouse?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "How do I manage the humidity levels in my greenhouse to prevent this disease?",
+    "disease_id": "tomato_leaf_mould"
+  },
+  {
+    "query": "What's causing all this white stuff on my cucumber leaves?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "I see a powdery coating on my squash plants - how do I get rid of it?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "Are those little patches on my pumpkin leaves a sign of something serious?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "What does it look like when this disease takes hold of a plant - are there any distinctive signs?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "My cucurbit plants have yellowed and died prematurely, is that just old age or something more?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "Why do the infected areas on my melon leaves feel sticky to the touch?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "How effective are fungicide sprays at controlling this particular problem?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "Can you recommend some varieties of cucurbits that resist this common issue?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "I have a greenhouse with high humidity - does that make it easier for this disease to develop?",
+    "disease_id": "cucurbits_powdery_mildew"
+  },
+  {
+    "query": "What's causing those small brown spots on my grape leaves?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "I have grapes with tiny black fruiting bodies inside the lesions - what's going on?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "How can I treat a disease that makes my grape berries turn into hard black mummies?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "Is there anything I can do to prevent this disease from taking over my vineyard?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "What temperature range is ideal for growing grapes without worrying about this fungal problem?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "Can you tell me how long it takes for the fungus to infect my grape plants after they're exposed to wet weather?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "How often should I be pruning my vines to help prevent this disease?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "I've got a bunch of dead berries on my vine - do I need to remove them right away or can I just leave them there?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "Is there any fungicide that's effective against this particular fungal pathogen, and where can I buy it?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "Can resistant grape cultivars really make a big difference in managing this disease?",
+    "disease_id": "grape_black_rot"
+  },
+  {
+    "query": "What's causing the long grey-green lesions on my corn leaves?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "Can you tell me how to prevent tan cigar-shaped spots from forming on my corn leaves?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "Are there any specific factors that make this disease worse in certain growing conditions?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "What are some signs of a severe infection, and how can I mitigate the damage?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "How often should I be scouting for this issue, especially during critical growth stages?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "Can you explain why fungicides might not always be the best solution, even when needed?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "I'm planning to use crop rotation as part of my management strategy - does it really help prevent re-infestation?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "If I notice some leaves dying off early, could that be related to this disease, and how can I tell for sure?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "What are some good fungicide options available in the US market that I should consider if needed?",
+    "disease_id": "maize_northern_corn_leaf_blight"
+  },
+  {
+    "query": "What are those small brown spots on my maize leaves?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "How can I prevent these brown pustules from forming on my maize plants?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "What causes the yellowing and weakening of maize plants if left unchecked?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "Are there any hybrid maize varieties that are resistant to this fungal disease?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "My maize crop is looking worse than usual, could it be related to those small spots?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "Why does the disease seem to spread so quickly in cool and humid conditions?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "Is it safe to use fungicides on my maize crop, or will they harm the environment?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "How can I balance crop nutrition to help prevent this fungal issue from taking over?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "What are some warning signs that indicate treatment with a fungicide is necessary for my maize crop?",
+    "disease_id": "maize_common_rust"
+  },
+  {
+    "query": "What's causing those dark brown spots on my tomato leaves?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "I have some weird water-soaked dots on my pepper stems - what could it be?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "How do I get rid of these yellow rings around the black spots on my tomatoes?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "Is there a way to stop this disease from spreading through irrigation water?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "I just got some new seeds and I'm worried they might be infected. What can I do about it?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "The weather has been pretty warm lately, is that making my plant problem worse?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "Can you tell me more about how to use copper-based sprays to prevent this disease?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "What's the best way to clean my gardening tools so they don't spread this thing around?",
+    "disease_id": "tomato_pepper_bacterial_spot"
+  },
+  {
+    "query": "What's causing those weird green patterns on my tomato leaves?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "I've got a bunch of plants with distorted growth - could that be related to the seed I'm using?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "Is there any way to fix it once it's infected, or is prevention key?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "What are some ways to prevent spread if one plant gets infected?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "Leaf distortion and stunted growth sound like a match for this, but can you confirm?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "Are there any resistant tomato varieties that would help prevent the problem altogether?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "What's the best way to disinfect tools and equipment to keep it from spreading further?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "Is washing my hands before handling plants really enough to prevent infection?",
+    "disease_id": "tomato_mosaic_virus"
+  },
+  {
+    "query": "What's causing those tiny yellow spots on my tomato leaves?",
+    "disease_id": "two_spotted_spider_mite"
+  },
+  {
+    "query": "Is this a common pest problem in greenhouses during warm weather?",
+    "disease_id": "two_spotted_spider_mite"
+  },
+  {
+    "query": "Why are some of my lettuce leaves turning bronzy and falling off?",
+    "disease_id": "two_spotted_spider_mite"
+  },
+  {
+    "query": "I see webbing on my pepper stems, is it safe to remove it myself or do I need help?",
+    "disease_id": "two_spotted_spider_mite"
+  },
+  {
+    "query": "What's the best way to control these pests without using insecticides if possible?",
+    "disease_id": "two_spotted_spider_mite"
+  },
+  {
+    "query": "How often should I inspect my crops for signs of this pest and what should I look for?",
+    "disease_id": "two_spotted_spider_mite"
+  },
+  {
+    "query": "I've tried removing infested leaves but the problem persists, what else can I try?",
+    "disease_id": "two_spotted_spider_mite"
+  },
+  {
+    "query": "Are there any natural predators that I can introduce to control these pests?",
+    "disease_id": "two_spotted_spider_mite"
+  }
+]
