@@ -2,42 +2,42 @@
 plant_doctor_app.py — Step 6: multimodal front-end (TFLite version, no TensorFlow needed).
 Image -> disease (MobileNetV2, TFLite) -> bridge -> grounded, BVL-aware advice (local LLM).
 
-Faithfulness built in at two points:
-  - confidence gate : if the vision model is unsure, ABSTAIN
-  - bridge          : 'healthy' and out-of-corpus diseases ABSTAIN instead of mis-advising
-
-Needs in the same folder:
-  agro_vision.tflite, agro_vision_classes.json, vision_to_corpus.json, corpus.json
+Runs from the reorganised layout: this file lives in src/, data in data/, model in models/.
 Prereqs: Ollama running; pip install ai-edge-litert gradio pillow ollama numpy
 """
 import json
+from pathlib import Path
 import numpy as np
 from PIL import Image
 import ollama
 import gradio as gr
-from ai_edge_litert.interpreter import Interpreter   # light TFLite runtime (no TensorFlow)
+from ai_edge_litert.interpreter import Interpreter
 
-# --- config (tune these) ---
+# --- resolve project paths relative to this file (works from anywhere) ---
+ROOT   = Path(__file__).resolve().parent.parent
+DATA   = ROOT / "data"
+MODELS = ROOT / "models"
+
+# --- config ---
 MODEL_LLM      = "llama3.2:3b"   # snappy for a demo; "llama3.1:8b" for richer advice (slower)
-CONF_THRESHOLD = 0.50           # below this, abstain. Field model is ~50% acc, so it WILL abstain often (honest).
+CONF_THRESHOLD = 0.50            # below this, abstain
 IMG            = 128
 
 # --- load the TFLite model ---
-interpreter = Interpreter(model_path="agro_vision.tflite")
+interpreter = Interpreter(model_path=str(MODELS / "agro_vision.tflite"))
 interpreter.allocate_tensors()
-inp_detail  = interpreter.get_input_details()[0]
-out_detail  = interpreter.get_output_details()[0]
+inp_detail = interpreter.get_input_details()[0]
+out_detail = interpreter.get_output_details()[0]
 
-class_names = json.load(open("agro_vision_classes.json", encoding="utf-8"))
-bridge      = {k: v for k, v in json.load(open("vision_to_corpus.json", encoding="utf-8")).items()
+class_names = json.load(open(DATA / "agro_vision_classes.json", encoding="utf-8"))
+bridge      = {k: v for k, v in json.load(open(DATA / "vision_to_corpus.json", encoding="utf-8")).items()
                if not k.startswith("_")}
-corpus      = {r["id"]: r for r in json.load(open("corpus.json", encoding="utf-8"))}
+corpus      = {r["id"]: r for r in json.load(open(DATA / "corpus.json", encoding="utf-8"))}
 print(f"Loaded TFLite model ({len(class_names)} classes), bridge ({len(bridge)}), corpus ({len(corpus)})")
 
 def classify(pil_img):
-    """Return top-3 (label, prob). The model's first layer rescales internally, so feed raw 0-255 float32."""
     im = pil_img.convert("RGB").resize((IMG, IMG))
-    x = np.array(im, dtype=np.float32)[None, ...]          # (1,128,128,3)
+    x = np.array(im, dtype=np.float32)[None, ...]
     interpreter.set_tensor(inp_detail["index"], x)
     interpreter.invoke()
     probs = interpreter.get_tensor(out_detail["index"])[0]
@@ -63,7 +63,6 @@ def diagnose(pil_img):
     top3 = classify(pil_img)
     label, conf = top3[0]
 
-    # (1) CONFIDENCE GATE
     if conf < CONF_THRESHOLD:
         out = [f"### Not confident enough to advise",
                f"Top guess: **{label}** ({conf:.0%}) - below the {CONF_THRESHOLD:.0%} confidence bar.",
@@ -85,7 +84,6 @@ def diagnose(pil_img):
                 f"({entry.get('reason','out of scope')}), so I will not give treatment advice. "
                 f"Please consult official local guidance or an expert.")
 
-    # action == "ground"
     rec = corpus[entry["corpus_id"]]
     advice = ground_with_llm(rec)
     return (f"### {rec['disease']} - {rec['pathogen']} ({rec['pathogen_type']})\n"
@@ -105,4 +103,4 @@ demo = gr.Interface(
 )
 
 if __name__ == "__main__":
-    demo.launch()   # add share=True for a temporary public link
+    demo.launch()

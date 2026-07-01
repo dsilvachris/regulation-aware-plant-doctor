@@ -9,13 +9,16 @@ every OTHER disease text in the batch is treated as a negative to push away.
 Prereqs: pip install sentence-transformers torch
 Trains in ~1-2 min on a Mac (CPU/MPS); no GPU needed. Saves to ./finetuned-agri-embedder
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json
 from sentence_transformers import SentenceTransformer, InputExample, losses
 from torch.utils.data import DataLoader
 
 # --- Data: pair each training query with its disease's corpus text ---
-corpus = {r["id"]: r["text"] for r in json.load(open("corpus.json", encoding="utf-8"))}
-train  = json.load(open("train_queries.json", encoding="utf-8"))
+corpus = {r["id"]: r["text"] for r in json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))}
+train  = json.load(open(str(DATA / "train_queries.json"), encoding="utf-8"))
 
 examples = [InputExample(texts=[t["query"], corpus[t["disease_id"]]]) for t in train]
 print(f"{len(examples)} training pairs across {len(corpus)} diseases")
@@ -34,7 +37,7 @@ model.fit(
     show_progress_bar=True,
 )
 
-OUT = "finetuned-agri-embedder"
+OUT = str(MODELS / "finetuned-agri-embedder")
 model.save(OUT)
 print(f"\nSaved fine-tuned model -> ./{OUT}")
 

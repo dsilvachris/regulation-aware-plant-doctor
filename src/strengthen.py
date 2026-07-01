@@ -12,6 +12,9 @@ Conditions: v1 = 3B + strict prompt; v3 = 8B + revised prompt (the two key contr
 Prereqs: Ollama running; corpus.json + eval_set.json present. Writes strengthen_results.json + .md.
 Runtime: N x 25 x 2 conditions model calls. ~1-3 h unattended (8B is the slow half).
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json, time, statistics, re
 import numpy as np
 import ollama
@@ -21,8 +24,8 @@ N_RUNS  = 10
 EMB_MOD = "all-MiniLM-L6-v2"
 K       = 3
 
-corpus    = json.load(open("corpus.json", encoding="utf-8"))
-evalset   = json.load(open("eval_set.json", encoding="utf-8"))
+corpus    = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
+evalset   = json.load(open(str(DATA / "eval_set.json"), encoding="utf-8"))
 doc_ids   = [r["id"] for r in corpus]
 doc_texts = [r["text"] for r in corpus]
 
@@ -104,7 +107,7 @@ for cond in CONDITIONS:
         print(f"  run {r:>2}/{N_RUNS}: over-refusal {over}/{len(incorpus)}  ooc-refused {ref}/{len(ooc)}  ({time.time()-t0:.0f}s)", flush=True)
     results[cond["label"]] = {"over_refusal": overs, "ooc_refused": refs}
     # save after each condition so nothing is lost
-    json.dump(results, open("strengthen_results.json", "w"), indent=2)
+    json.dump(results, open(str(RESULTS / "strengthen_results.json"), "w"), indent=2)
 
 # --- summary ---
 def fmt(vals, n):
@@ -120,5 +123,5 @@ for cond in CONDITIONS:
     f = fmt(r["ooc_refused"], len(ooc))
     block = f"\n**{lab}** ({cond['model']})\n- over-refusal (in-corpus wrongly refused): {o}\n- ooc-refused (correctly refused): {f}\n- raw over-refusal counts: {r['over_refusal']}"
     print(block); lines.append(block)
-open("strengthen_results.md", "w").write("\n".join(lines))
+open(str(RESULTS / "strengthen_results.md"), "w").write("\n".join(lines))
 print("\nSaved strengthen_results.json and strengthen_results.md")

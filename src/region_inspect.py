@@ -3,6 +3,9 @@ region_inspect.py — print the ACTUAL grounded answers (not just flags) so we c
 whether the authority problem is real LLM leakage or just the auto-scorer miscounting paraphrases.
 Prints, per question: retrieved region, what authority we EXPECTED, and the full answer text.
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json
 import numpy as np
 import ollama
@@ -11,8 +14,8 @@ from sentence_transformers import SentenceTransformer
 LLM = "llama3.2:3b"
 K = 3
 emb = SentenceTransformer("all-MiniLM-L6-v2")
-corpus  = json.load(open("corpus.json", encoding="utf-8"))
-evalset = json.load(open("region_eval_set.json", encoding="utf-8"))
+corpus  = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
+evalset = json.load(open(str(DATA / "region_eval_set.json"), encoding="utf-8"))
 doc_emb = emb.encode([r["text"] for r in corpus], normalize_embeddings=True)
 
 def retrieve(question, country, k=K):

@@ -13,6 +13,9 @@ Metric (auto, no grading): did the GROUNDED answer cite the correct authority fo
 grower's region (BVL for DE, Mattilsynet for NO) and NOT the wrong one?
 Prereqs: Ollama running; corpus.json + region_eval_set.json present.
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json, re
 import numpy as np
 import ollama
@@ -22,8 +25,8 @@ LLM = "llama3.2:3b"
 K = 3
 emb = SentenceTransformer("all-MiniLM-L6-v2")
 
-corpus  = json.load(open("corpus.json", encoding="utf-8"))
-evalset = json.load(open("region_eval_set.json", encoding="utf-8"))
+corpus  = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
+evalset = json.load(open(str(DATA / "region_eval_set.json"), encoding="utf-8"))
 texts   = [r["text"] for r in corpus]
 doc_emb = emb.encode(texts, normalize_embeddings=True)
 
@@ -91,5 +94,5 @@ for r in rows_a:
     print(f"    {flag}{r[0]} {r[1]} | top1={r[2]} | right_auth={r[4]} wrong_auth={r[5]}")
 
 json.dump({"blind": {"correct": cb, "wrong": wb}, "aware": {"correct": ca, "wrong": wa}},
-          open("region_eval_results.json", "w"), indent=2)
+          open(str(RESULTS / "region_eval_results.json"), "w"), indent=2)
 print("\nSaved region_eval_results.json")

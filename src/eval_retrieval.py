@@ -7,12 +7,15 @@ This is the real test: the eval questions were NEVER in training.
 
 Prereqs: corpus.json, eval_set.json, and the ./finetuned-agri-embedder folder present.
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-corpus  = json.load(open("corpus.json", encoding="utf-8"))
-evalset = json.load(open("eval_set.json", encoding="utf-8"))
+corpus  = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
+evalset = json.load(open(str(DATA / "eval_set.json"), encoding="utf-8"))
 doc_ids   = [r["id"] for r in corpus]
 doc_texts = [r["text"] for r in corpus]
 incorpus  = [q for q in evalset if q.get("target_id")]   # only questions with a known answer
@@ -37,7 +40,7 @@ def evaluate(model_name_or_path, label):
     return {r[0]: r for r in rows}, t1, t3, n
 
 base, b1, b3, n = evaluate("all-MiniLM-L6-v2", "BASELINE (general MiniLM)")
-ft,   f1, f3, _ = evaluate("finetuned-agri-embedder", "FINE-TUNED (domain)")
+ft,   f1, f3, _ = evaluate(str(MODELS / "finetuned-agri-embedder"), "FINE-TUNED (domain)")
 
 print("\n=== HEAD-TO-HEAD ===")
 print(f"top-1: baseline {b1}/{n}  ->  fine-tuned {f1}/{n}   ({f1-b1:+d})")

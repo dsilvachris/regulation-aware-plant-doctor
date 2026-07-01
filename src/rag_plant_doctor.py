@@ -7,6 +7,9 @@ Prereqs:
   - pip install ollama sentence-transformers numpy
   - corpus.json in the same folder as this file
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json
 import numpy as np
 import ollama
@@ -16,7 +19,7 @@ MODEL   = "llama3.2:3b"
 EMB_MOD = "all-MiniLM-L6-v2"
 
 # --- Load corpus (data separate from code: growing the corpus = editing JSON only) ---
-records   = json.load(open("corpus.json", encoding="utf-8"))
+records   = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
 doc_ids   = [r["id"]   for r in records]
 doc_texts = [r["text"] for r in records]
 doc_meta  = {r["id"]: r for r in records}     # id -> full record (crop, eppo, source, ...)

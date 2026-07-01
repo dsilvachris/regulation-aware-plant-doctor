@@ -9,6 +9,9 @@ Prereqs: Ollama running + `ollama pull llama3.2:3b`; corpus.json and eval_set.js
          pip install ollama sentence-transformers numpy
 Note: this makes ~50 model calls (25 questions x 2 conditions). Expect a few minutes.
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json, csv
 import numpy as np
 import ollama
@@ -21,10 +24,10 @@ EMB_MOD = "all-MiniLM-L6-v2"
 K       = 3
 
 # --- Load corpus + eval set ---
-corpus    = json.load(open("corpus.json", encoding="utf-8"))
+corpus    = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
 doc_ids   = [r["id"] for r in corpus]
 doc_texts = [r["text"] for r in corpus]
-evalset   = json.load(open("eval_set.json", encoding="utf-8"))
+evalset   = json.load(open(str(DATA / "eval_set.json"), encoding="utf-8"))
 print(f"{len(corpus)} corpus records, {len(evalset)} eval questions")
 
 # --- Embed corpus + retrieval ---
@@ -112,7 +115,7 @@ for i, q in enumerate(evalset, 1):
 
 # --- Write CSV scoring sheet ---
 cols = list(rows[0].keys())
-with open("eval_scores.csv", "w", newline="", encoding="utf-8") as f:
+with open(str(RESULTS / "eval_scores.csv"), "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=cols)
     w.writeheader()
     w.writerows(rows)
@@ -127,7 +130,7 @@ legend = (
     "- **refused_ok** — (out-of-corpus only) correctly said 'not in my sources' instead of fabricating\n\n"
     "Retrieval columns (top-1 / top-3 hit) are filled automatically.\n\n---\n\n"
 )
-with open("eval_results.md", "w", encoding="utf-8") as f:
+with open(str(RESULTS / "eval_results.md"), "w", encoding="utf-8") as f:
     f.write(legend + "\n".join(md))
 
 # --- Quick auto-summary of retrieval (the objective half) ---

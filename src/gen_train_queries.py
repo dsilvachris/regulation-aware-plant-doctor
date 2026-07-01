@@ -7,13 +7,16 @@ Never let an eval question into this file.
 
 Prereqs: Ollama running + llama3.1:8b; corpus.json present; pip install ollama
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json, re, random
 import ollama
 
 MODEL = "llama3.1:8b"
 N_PER_DISEASE = 10
 
-corpus = json.load(open("corpus.json", encoding="utf-8"))
+corpus = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
 
 def gen_queries(rec, n=N_PER_DISEASE):
     prompt = f"""A grower notices a plant problem and asks an online assistant about it.
@@ -47,7 +50,7 @@ for rec in corpus:
         pairs.append({"query": q, "disease_id": rec["id"]})
     print(f"  {rec['id']:34s} {len(qs)} queries")
 
-json.dump(pairs, open("train_queries.json", "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+json.dump(pairs, open(str(DATA / "train_queries.json"), "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 print(f"\nTotal: {len(pairs)} training pairs -> train_queries.json")
 
 print("\n--- random sample to INSPECT (do these look like real, varied, unnamed queries?) ---")

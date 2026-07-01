@@ -4,6 +4,9 @@ they've proven unreliable). For each question: if a region is given, retrieve re
 (filter to that country); if not, retrieve blind (over all 15) — which is the realistic
 behaviour when the country is unknown or only implied.
 """
+from pathlib import Path as _Path
+_ROOT = _Path(__file__).resolve().parent.parent
+DATA, MODELS, RESULTS = _ROOT/'data', _ROOT/'models', _ROOT/'results'
 import json
 import numpy as np
 import ollama
@@ -11,8 +14,8 @@ from sentence_transformers import SentenceTransformer
 
 LLM = "llama3.2:3b"; K = 3
 emb = SentenceTransformer("all-MiniLM-L6-v2")
-corpus = json.load(open("corpus.json", encoding="utf-8"))
-probes = json.load(open("region_probe_set.json", encoding="utf-8"))
+corpus = json.load(open(str(DATA / "corpus.json"), encoding="utf-8"))
+probes = json.load(open(str(DATA / "region_probe_set.json"), encoding="utf-8"))
 doc_emb = emb.encode([r["text"] for r in corpus], normalize_embeddings=True)
 
 def retrieve(question, region, k=K):
