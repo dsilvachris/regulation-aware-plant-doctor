@@ -120,8 +120,12 @@ Plantevernguiden — a German authorisation doesn't carry over"), and even infer
 (Germany). The mechanism is corpus imbalance leaking through retrieval into generation. It's the project's
 signature failure — *confident where it should be uncertain* — reappearing on the geographic axis.
 
-**Proposed fix:** a region gate that detects a missing country and asks or abstains instead of guessing —
-the geographic analogue of the retrieval threshold above.
+**The fix (built):** a **region gate** that determines the region by an explicit, auditable rule —
+explicit country words, then a curated place gazetteer — and *asks* the grower which country they're in
+when the region can't be determined, instead of guessing. The region decision is deliberately kept out of
+the LLM (its geography is uneven and unverifiable); the model only writes the advice. On the probe set the
+gate asks exactly on the true no-region cases and never guesses a region wrongly — the geographic analogue
+of the retrieval threshold above.
 
 ---
 
