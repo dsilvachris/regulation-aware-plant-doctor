@@ -96,9 +96,32 @@ A four-condition experiment plus a retrieval fine-tuning study, all on the held-
 | Fine-tuned domain embedder | Retrieval top-1 **76% → 86%** (zero regressions)… |
 | …but | …it **recalibrated the score scale**, breaking the fixed threshold — the two fixes don't compose |
 | Repeated runs (×10) | Confirmed the trade-off with error bars; revealed an apparent single-run gain was noise |
+| **Multi-region (Germany→Norway)** | Region-faithful when the region is known or inferable — **but silently defaults to the majority region when none is given** (see below) |
 
 The recurring theme: most "wins" hid a catch one layer down, and the eval set is what surfaced them.
 Full write-up with all numbers and caveats in [`docs/Results_Note_Regulation-RAG_Eval-v1.md`](docs/Results_Note_Regulation-RAG_Eval-v1.md).
+
+---
+
+## Multi-region extension: Germany → Norway
+
+Because the system is *regulation-aware*, the sharpest test is whether the **same disease** gets correctly
+**different** advice across a regulatory border. I added a Norwegian corpus slice (authority
+**Mattilsynet** instead of Germany's BVL; products checked against Norway's **Plantevernguiden** database)
+for three shared diseases, and probed the boundary.
+
+**What holds:** given a stated or *inferable* region, the system is region-faithful — it cites the right
+national authority, refuses to transfer a German product recommendation across the border ("check
+Plantevernguiden — a German authorisation doesn't carry over"), and even infers region from a place name
+("near Hardanger" → Norway).
+
+**What breaks (the finding):** when **no region is given at all**, behaviour is unsafe — the system
+*silently assumes* a region rather than asking, defaulting to whichever region dominates the corpus
+(Germany). The mechanism is corpus imbalance leaking through retrieval into generation. It's the project's
+signature failure — *confident where it should be uncertain* — reappearing on the geographic axis.
+
+**Proposed fix:** a region gate that detects a missing country and asks or abstains instead of guessing —
+the geographic analogue of the retrieval threshold above.
 
 ---
 

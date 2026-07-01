@@ -1,0 +1,10 @@
+{
+  "blind": {
+    "correct": 3,
+    "wrong": 4
+  },
+  "aware": {
+    "correct": 4,
+    "wrong": 3
+  }
+}

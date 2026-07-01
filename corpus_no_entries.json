@@ -1,0 +1,41 @@
+[
+  {
+    "id": "tomato_potato_late_blight_no",
+    "crops": "Tomato, Potato",
+    "disease": "Late blight",
+    "pathogen": "Phytophthora infestans",
+    "pathogen_type": "Oomycete (water mould)",
+    "eppo_code": "PHYTIN",
+    "country": "NO",
+    "source": "EPPO Global Database; Mattilsynet (Norwegian Food Safety Authority); NIBIO Plantevernguiden",
+    "source_url": "https://www.mattilsynet.no/en/plants/authorisation",
+    "date_accessed": "2026-06-29",
+    "text": "Late blight of tomato and potato is caused by Phytophthora infestans, an oomycete (a water mould rather than a true fungus). Symptoms begin as water-soaked grey-green lesions that rapidly enlarge into brown necrotic patches, often with white sporulation on the underside of infected leaves during humid weather. Fruit and tubers may also become infected, leading to rapid crop losses. The disease develops under cool, wet conditions, typically between 15 and 21 degrees Celsius, and spreads through windborne sporangia and infected plant material. It is a major potato disease in Norway's cool, moist climate. Management includes regular crop scouting, prompt removal of infected plants, good field ventilation, avoiding overhead irrigation, and planting resistant cultivars where available. Because the pathogen is an oomycete, effective control requires fungicides specifically active against water moulds, applied preventively and rotated by mode of action to reduce resistance. In Norway, plant-protection products must be authorised by the Norwegian Food Safety Authority (Mattilsynet), not the German BVL. Although active substances are approved jointly at EU level, each product must be nationally authorised, and Norway (which assesses in the Northern Zone, unlike Germany's Central Zone) may restrict products that are authorised elsewhere in the EU. The authorised product for a given use may therefore differ from Germany's: consult the current Norwegian approved-products database (Plantevernguiden, maintained by Mattilsynet and NIBIO) rather than assuming a German authorisation applies."
+  },
+  {
+    "id": "apple_scab_no",
+    "crops": "Apple",
+    "disease": "Apple scab",
+    "pathogen": "Venturia inaequalis",
+    "pathogen_type": "Fungus",
+    "eppo_code": "VENTIN",
+    "country": "NO",
+    "source": "EPPO Global Database; Mattilsynet (Norwegian Food Safety Authority); NIBIO Plantevernguiden",
+    "source_url": "https://www.mattilsynet.no/en/plants/authorisation",
+    "date_accessed": "2026-06-29",
+    "text": "Apple scab is caused by Venturia inaequalis, one of the most economically important fungal diseases of apple, including in Norwegian fruit-growing districts. Symptoms include olive-green to dark brown velvety lesions on leaves and fruits, eventually leading to cracked, deformed, and unmarketable apples. The pathogen overwinters in fallen leaves and releases airborne spores during spring under cool, wet weather conditions. Infection is favoured by extended periods of leaf wetness and moderate temperatures, which are common in Norway's coastal and fjord orchard regions. Management includes removing infected leaf litter, improving canopy airflow through pruning, planting resistant cultivars where suitable, and monitoring infection periods using disease forecasting systems. Preventive fungicide programmes are commonly used during susceptible growth stages, with rotation between fungicide groups to reduce resistance risk. In Norway, only plant-protection products authorised by the Norwegian Food Safety Authority (Mattilsynet) may be used. Active substances are approved jointly at EU level, but each product is nationally authorised through Northern-Zone assessment, and Norway may limit products approved elsewhere in the EU. The specific authorised product may therefore differ from Germany's: check the current Norwegian approved-products database (Plantevernguiden, maintained by Mattilsynet and NIBIO) rather than assuming a German (BVL) authorisation carries over."
+  },
+  {
+    "id": "cucurbits_powdery_mildew_no",
+    "crops": "Squash, Cucumber, Pumpkin, Melon and other cucurbits",
+    "disease": "Powdery mildew",
+    "pathogen": "Podosphaera xanthii",
+    "pathogen_type": "Fungus",
+    "eppo_code": "PODOXA",
+    "country": "NO",
+    "source": "EPPO Global Database; Mattilsynet (Norwegian Food Safety Authority); NIBIO Plantevernguiden",
+    "source_url": "https://www.mattilsynet.no/en/plants/authorisation",
+    "date_accessed": "2026-06-29",
+    "text": "Powdery mildew of cucurbits is primarily caused by Podosphaera xanthii, a fungal pathogen that infects squash, cucumber, pumpkin, melon and other cucurbit crops, both in open fields and in greenhouses (an important production setting in Norway). The disease is recognised by white, powdery fungal growth on the upper surfaces of leaves, stems and occasionally fruits. As infection progresses, leaves turn yellow, dry out and die prematurely, reducing photosynthesis, fruit quality and yield. Unlike many fungal diseases, powdery mildew can develop under relatively dry conditions when humidity is moderate to high. The fungus spreads by airborne spores carried over long distances by wind. Management includes planting resistant cultivars where available, ensuring good air circulation, avoiding excessive nitrogen fertilisation, removing infected plant material and monitoring crops regularly. Preventive fungicide applications are most effective before severe infection develops, with rotation between fungicide groups to minimise resistance. In Norway, plant-protection products must be authorised by the Norwegian Food Safety Authority (Mattilsynet). Because products are nationally authorised through Northern-Zone assessment and Norway may restrict products approved elsewhere in the EU, the authorised product can differ from Germany's. Greenhouse use in particular carries its own authorisation conditions. Consult the current Norwegian approved-products database (Plantevernguiden, maintained by Mattilsynet and NIBIO) rather than assuming a German (BVL) authorisation applies."
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {"id": "r01", "country": "DE", "target_id": "tomato_potato_late_blight",    "expect_authority": "BVL",         "avoid_authority": "Mattilsynet", "question": "I grow potatoes in Germany and my crop has late blight. What should I do and which products can I use?"},
+  {"id": "r02", "country": "NO", "target_id": "tomato_potato_late_blight_no", "expect_authority": "Mattilsynet", "avoid_authority": "BVL",         "question": "I grow potatoes in Norway and my crop has late blight. What should I do and which products can I use?"},
+  {"id": "r03", "country": "DE", "target_id": "apple_scab",                    "expect_authority": "BVL",         "avoid_authority": "Mattilsynet", "question": "My apple orchard in Germany has scab. How do I manage it and what can I legally spray?"},
+  {"id": "r04", "country": "NO", "target_id": "apple_scab_no",                 "expect_authority": "Mattilsynet", "avoid_authority": "BVL",         "question": "My apple orchard in Norway has scab. How do I manage it and what can I legally spray?"},
+  {"id": "r05", "country": "DE", "target_id": "cucurbits_powdery_mildew",      "expect_authority": "BVL",         "avoid_authority": "Mattilsynet", "question": "I have powdery mildew on my cucumbers in Germany. What treatment and which authorised products should I use?"},
+  {"id": "r06", "country": "NO", "target_id": "cucurbits_powdery_mildew_no",   "expect_authority": "Mattilsynet", "avoid_authority": "BVL",         "question": "I have powdery mildew on my cucumbers in Norway. What treatment and which authorised products should I use?"},
+  {"id": "r07", "country": "NO", "target_id": "tomato_potato_late_blight_no", "expect_authority": "Mattilsynet", "avoid_authority": "BVL",         "question": "Potato late blight has appeared on my farm near Trondheim. What do you recommend?"},
+  {"id": "r08", "country": "DE", "target_id": "cucurbits_powdery_mildew",      "expect_authority": "BVL",         "avoid_authority": "Mattilsynet", "question": "White powdery coating on my squash leaves here in Bavaria. How should I treat it?"}
+]
