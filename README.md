@@ -96,7 +96,8 @@ A four-condition experiment plus a retrieval fine-tuning study, all on the held-
 | Fine-tuned domain embedder | Retrieval top-1 **76% → 86%** (zero regressions)… |
 | …but | …it **recalibrated the score scale**, breaking the fixed threshold — the two fixes don't compose |
 | Repeated runs (×10) | Confirmed the trade-off with error bars; revealed an apparent single-run gain was noise |
-| **Multi-region (Germany→Norway)** | Region-faithful when the region is known or inferable — **but silently defaults to the majority region when none is given** (see below) |
+| **Multi-region (Germany→Norway)** | Region-faithful when the region is known or inferable — **but silently defaults to the majority region when none is given** (fixed by a region gate; see below) |
+| **Conversational layer** | Multi-turn chat that tracks region across turns, asks when it's missing, and grounds each answer — the region gate becomes the first dialogue slot |
 
 The recurring theme: most "wins" hid a catch one layer down, and the eval set is what surfaced them.
 Full write-up with all numbers and caveats in [`docs/Results_Note_Regulation-RAG_Eval-v1.md`](docs/Results_Note_Regulation-RAG_Eval-v1.md).
@@ -129,6 +130,24 @@ of the retrieval threshold above.
 
 ---
 
+## Conversational layer
+
+The region gate created a need for multi-turn dialogue: it *asks* which country you're in, so the system
+has to receive the answer and continue. The conversational layer (a **Streamlit chat UI** over the same
+grounded engine) makes that work, tracking dialogue state across turns:
+
+- **region slot** — set once, then *persists*; ask about several crops in a row without repeating your
+  country, and switch region mid-conversation ("actually I'm in Germany") and later answers follow.
+- **pending question** — ask about a disease before giving a region, and the assistant remembers the
+  question, asks for the region, then answers the *original* question.
+- **answer-only-if-asked** — a turn is answered only if it actually contains a question (judged by
+  retrieval relevance); a bare region change is acknowledged, not answered with a fabricated response.
+
+The region decision stays deterministic (gate + gazetteer); the LLM writes the grounded advice. It's a
+task-oriented dialogue agent, not a stateless Q&A wrapper.
+
+---
+
 ## Honest limitations
 
 - Small scale: 25 eval questions, a 12-disease corpus, hand-graded by one person. Directions are clear;
@@ -142,7 +161,8 @@ of the retrieval threshold above.
 ## Tech stack
 
 `Python` · `Ollama` (Llama 3.2 3B / 3.1 8B) · `sentence-transformers` (MiniLM, fine-tuned) ·
-`TensorFlow Lite` (`ai-edge-litert`) · `MobileNetV2` · `Gradio` · all local, zero-budget.
+`TensorFlow Lite` (`ai-edge-litert`) · `MobileNetV2` · `Gradio` (vision app) · `Streamlit` (chat) ·
+all local, zero-budget.
 
 ## Run it
 
@@ -153,23 +173,31 @@ ollama pull llama3.2:3b
 
 # 2. Environment
 python -m venv .venv && source .venv/bin/activate
-pip install ai-edge-litert gradio pillow ollama numpy sentence-transformers
+pip install -r requirements.txt
 
-# 3. Launch the app
-python plant_doctor_app.py   # opens a local Gradio URL
+# 3a. Image-based plant doctor (Gradio)
+python src/plant_doctor_app.py
+
+# 3b. Conversational plant doctor (Streamlit chat)
+streamlit run src/streamlit_app.py
 ```
 
 ## Repo structure
 
 ```
-corpus.json                 12-disease knowledge base (EPPO + BVL)
-eval_set.json               25 held-out evaluation questions
-vision_to_corpus.json       bridge: vision label → action
-plant_doctor_app.py         the multimodal Gradio app
-run_eval.py                 grounded-vs-ungrounded evaluation
-finetune_embedder.py        domain embedder fine-tuning (Step 5)
-strengthen.py               repeated-run rigor pass
-docs/                       results note, reflection, plan
+data/       corpus (DE + NO), eval sets, vision bridge, class labels
+models/     agro_vision.tflite (vision model)
+src/        all code:
+              plant_doctor_app.py     image -> grounded advice (Gradio)
+              streamlit_app.py        conversational chat UI
+              conversational_doctor.py multi-turn dialogue engine
+              region_gate.py          deterministic region resolver
+              run_eval.py             grounded-vs-ungrounded evaluation
+              finetune_embedder.py    domain embedder fine-tuning
+              strengthen.py           repeated-run rigor pass
+              region_eval.py / region_probe.py  multi-region experiments
+results/    graded eval scores, strengthen + region results
+docs/       results note, reflection, plan
 ```
 
 ---
