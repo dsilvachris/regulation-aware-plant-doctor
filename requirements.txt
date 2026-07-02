@@ -1,0 +1,20 @@
+# Regulation-Aware Plant Doctor — Python dependencies
+# Install with:  pip install -r requirements.txt
+# (Also requires Ollama running locally with models llama3.2:3b and llama3.1:8b)
+
+# Core RAG + embeddings
+sentence-transformers
+numpy
+ollama
+
+# Embedder fine-tuning (Step 5)
+datasets
+accelerate
+
+# Vision front-end (TFLite inference — no TensorFlow needed at runtime)
+ai-edge-litert
+pillow
+
+# UIs
+gradio          # image-based plant doctor app
+streamlit       # conversational chat UI
