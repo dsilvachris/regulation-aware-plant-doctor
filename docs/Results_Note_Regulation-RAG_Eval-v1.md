@@ -2,7 +2,12 @@
 
 **Author:** Chris Dsilva
 **Date:** 27 June 2026
-**Status:** Four grounding conditions complete (v1–v4) plus Step 5 (domain embedder). Core findings: a usefulness ↔ faithfulness trade-off that model size shifts but does not eliminate; a retrieval threshold closes the faithfulness regression at a small cost; a fine-tuned embedder improves retrieval top-1 (76%→86%) but recalibrates the score scale, breaking the fixed threshold.
+**Status:** Grounding evaluation (v1–v4) + domain embedder (Step 5) + repeated-run rigor (Strengthen) +
+multi-region extension with a region gate (Phase 3) + conversational layer (Phase 4) + multimodal chat
+(Phase 5). Core through-line across every phase: *faithfulness over confidence* — the system is confident
+where it should be uncertain, and each phase adds a mechanism to make it abstain or ask instead of guess
+(retrieval threshold, region gate, vision confidence gate, answer-only-if-asked). Working end-to-end
+artifact: image or text → region-aware, grounded, regulation-correct advice, with abstention in both modalities.
 **Companion docs:** `Phase2_Plan_Regulation-Aware-RAG.md`, `Reflection_Note_Agri-AI_Exploration.md`.
 
 ---
@@ -305,3 +310,97 @@ controls, not arbitrary LLM behaviour. Extending coverage = extending the list.
 explicit, auditable rule and fall back to asking — don't delegate it to the LLM's parametric knowledge,
 which is uneven and unverifiable. The LLM is used where it is reliable (writing grounded advice), not
 where it is not (knowing every town's country).
+
+---
+
+## Phase 4 — conversational layer
+
+**Nature:** an engineering/integration milestone (building a working dialogue agent), not a formal
+scored experiment. Validated by structured test conversations rather than a metric table.
+
+**Motivation.** The Phase-3b region gate *asks* which country the grower is in — but a single-turn script
+can't receive the answer and continue. Multi-turn dialogue was therefore required to make the gate
+functional. (This is also the MSc thesis topic: multimodal chatbots.)
+
+**What was built.** A `Conversation` engine (Streamlit chat UI over the same grounded pipeline) that tracks
+dialogue state:
+- **region slot** — set once, then *persists*; ask about several crops without repeating the country;
+  can be *switched* mid-conversation ("actually I'm in Germany") and later answers follow.
+- **pending question** — a disease question asked before a region is given is remembered; once the region
+  arrives, the *original* question is answered (not the region word treated as a new query).
+- **answer-only-if-asked** — a turn is answered only if it carries an answerable question, judged by
+  retrieval relevance (top-1 cosine ≥ 0.35). A bare region change is acknowledged, not answered.
+- **history** — recent turns are passed to the model for follow-up context.
+
+**A bug found and fixed by testing (not assumption).** An early version fabricated an answer on a
+region-only turn ("actually I'm in Germany") because it treated every region-known turn as answerable.
+The `answer-only-if-asked` relevance check fixed it — the same retrieval-threshold idea from Phase 2,
+reused to decide "is this turn even a question?".
+
+**A ghost chased and dismissed by looking, not guessing.** A terse follow-up ("and the apple scab
+treatment?") once returned a late-blight answer. A one-line retrieval trace showed retrieval was actually
+correct (top-1 = apple_scab); the wrong answer was 3B run-to-run generation noise, not a retrieval bug.
+No "fix" was applied to a non-existent problem. (Consistent with the standing rule: read the output, not
+the flag.)
+
+**Design.** The region decision stays deterministic (gate + gazetteer); the LLM only writes advice. The
+result is a task-oriented dialogue agent, not a stateless Q&A wrapper.
+
+**Limitation.** Small 3B model → occasional disease-confusion on terse follow-ups and loose paraphrase of
+authority names; reduced (not eliminated) by a tighter prompt. A larger model or a self-check pass would
+tighten this further.
+
+---
+
+## Phase 5 — multimodal chat (image + text in one conversation)
+
+**Nature:** integration milestone; validated live across all branches with real photos.
+
+**What was built.** Image upload *inside* the chat. An uploaded leaf photo runs the vision model
+(`vision.py`, TFLite MobileNetV2) and the result feeds the *same* conversation: an image simply fills the
+"disease" slot the way a text description does, so the region gate and grounding are shared. This unites
+the two previously-separate halves of the project — the vision app and the chatbot — into one assistant.
+
+**Turn logic.** vision.identify() returns a structured result; the conversation acts on it:
+- **low confidence** (< 0.50) → abstain, show top-3, ask for a clearer photo (no region needed).
+- **healthy** → report healthy, no advice.
+- **out-of-corpus** (e.g. cedar apple rust) → recognise but decline (outside authorised corpus).
+- **ground** → a corpus disease: if region unknown, remember the identified disease and *gate*; once the
+  region is given, answer region-aware. If the region is Norway but the disease has no Norwegian entry
+  (a DE-only disease), say so honestly rather than defaulting to German advice.
+
+**Verified live (all branches):**
+- low-confidence abstention — a field photo at 25% top-1 → declined, top-3 shown. ✓
+- out-of-corpus abstention — a leaf at 59% identified as cedar apple rust → recognised, advice declined. ✓
+- **full grounding loop** — a cucurbit leaf identified as **powdery mildew at 91%** → gated for region →
+  answered "Norway" → **region-correct grounded advice citing Mattilsynet** (not BVL). ✓
+
+**Significance.** This is the original pitch realised: identify a disease from an image, give
+region-correct regulation-aware treatment advice, through a conversational chatbot, for Germany and
+Norway. The *faithfulness-over-confidence* through-line now holds in **both modalities** — the system
+abstains on an uncertain or out-of-scope *photo* just as it does on an out-of-corpus *question*, and it
+asks for the region rather than assuming one, whether the disease arrived as text or as an image.
+
+**Limitations.** Vision model ~50% on real field images (documented lab→field gap) — so many genuine field
+photos correctly abstain; cleaner single-leaf images classify most reliably. Norwegian region-specific
+guidance exists for only three diseases (late blight, apple scab, powdery mildew); other diseases identified
+in a Norwegian context are declined honestly rather than answered with German advice.
+
+---
+
+## Where the project stands (summary)
+
+Five phases, one coherent thesis (*faithfulness over confidence*), demonstrated across text grounding,
+model scale, retrieval, geography/regulation, dialogue, and vision:
+
+| phase | what | key result |
+|---|---|---|
+| 1–2 | grounded vs ungrounded RAG, 4 conditions | useful advice 19%→57%; usefulness↔faithfulness trade-off that scale shifts but doesn't remove |
+| Step 5 | domain embedder fine-tune | retrieval top-1 76%→86%, zero regressions; but recalibrates score scale (threshold tension) |
+| Strengthen | repeated runs | over-refusal stable ~33% (not model-dependent); ooc-faithfulness gap robust (92% vs 52%) |
+| 3 / 3b | Norway multi-region + region gate | region-correct divergent advice; silent-default failure found and fixed with a deterministic, auditable gate |
+| 4 | conversational layer | multi-turn dialogue state (region slot, pending question, answer-only-if-asked) |
+| 5 | multimodal chat | image → region-aware grounded advice; abstention in both modalities |
+
+**Remaining (optional):** formal feasibility write-up (this note is the raw material); larger-model or
+self-check pass to tighten generation; broader Norwegian corpus coverage.
