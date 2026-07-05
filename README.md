@@ -142,9 +142,15 @@ grounded engine) makes that work, tracking dialogue state across turns:
   question, asks for the region, then answers the *original* question.
 - **answer-only-if-asked** — a turn is answered only if it actually contains a question (judged by
   retrieval relevance); a bare region change is acknowledged, not answered with a fabricated response.
+- **multimodal turns** — you can *upload a leaf photo inside the chat*: the vision model identifies the
+  disease, the region gate still applies, and the answer is grounded and region-correct. An image simply
+  fills the "disease" slot the way a text description does. This unites the two halves of the project —
+  the vision app and the chatbot — into one assistant. Vision-side abstention carries over: low-confidence
+  or out-of-corpus photos are declined rather than guessed, and a disease with no region-specific entry
+  (e.g. a German-only disease asked about in Norway) is flagged honestly.
 
 The region decision stays deterministic (gate + gazetteer); the LLM writes the grounded advice. It's a
-task-oriented dialogue agent, not a stateless Q&A wrapper.
+task-oriented, multimodal dialogue agent, not a stateless Q&A wrapper.
 
 ---
 
@@ -189,8 +195,9 @@ data/       corpus (DE + NO), eval sets, vision bridge, class labels
 models/     agro_vision.tflite (vision model)
 src/        all code:
               plant_doctor_app.py     image -> grounded advice (Gradio)
-              streamlit_app.py        conversational chat UI
-              conversational_doctor.py multi-turn dialogue engine
+              streamlit_app.py        multimodal chat UI (text + image)
+              conversational_doctor.py multi-turn dialogue engine (text + image turns)
+              vision.py               TFLite leaf-image identifier (shared by the chat)
               region_gate.py          deterministic region resolver
               run_eval.py             grounded-vs-ungrounded evaluation
               finetune_embedder.py    domain embedder fine-tuning
