@@ -5,8 +5,8 @@ Knowledge Graph vs document-RAG study. The baseline serves as the experimental c
 modified during the comparison.
 
 **Git tag:** `baseline-v1.0`
-**Commit:** _(fill in the SHA after tagging: `git rev-parse baseline-v1.0`)_
-**Date frozen:** _(fill in)_
+**Commit:** `33eb3de0cb81da3aca3b674734964c7e1e3a2892`
+**Date frozen:** 21 July 2026
 
 > **Verify before tagging.** Every value below should be checked against the code as it stands, not
 > assumed. A frozen baseline is only useful if the record is accurate.
