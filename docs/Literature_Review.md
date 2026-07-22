@@ -1,52 +1,127 @@
-# Stage 1 — findings to merge into Literature_Review.md (Sections 3, 5)
-# (Claude-run searches #2 vocabularies and #3 legal/regulatory KGs. VERIFY each source before citing.)
+# Stage 1 — Literature Review
 
-## Section 5 — Vocabularies / ontologies to reuse (Stage 3 input)
+**Status:** closed for Stage 1. Citations are tracked in `Literature_Verification_Register_v3.md`; each was
+confirmed against the official publication before inclusion. Two peripheral benchmark entries (MetaQA,
+Self-RAG) remain marked *Partial* in the register pending DOI/BibTeX collection and are cited lightly.
 
-**AGROVOC (FAO).** Multilingual agricultural thesaurus published as linked data: SKOS, dereferenceable
-URIs, aligned to ~10 other agricultural KOS (exact/close match). Queryable via a Skosmos REST API and a
-public SPARQL endpoint; >4.8M resources; mappings to Eurovoc, GEMET, NALT, DBpedia. Multilingual matters
-here (German/Norwegian). → reuse for CROP and general agricultural-concept URIs.
+This review positions the Knowledge-Graph vs document-RAG study; it is not itself an experiment.
 
-**Crop Ontology (CO) + Planteome (PO/TO).** Reference plant-biology ontologies (Plant Ontology, Trait
-Ontology) with crop-specific vocabularies mapped in; FAIR, public URIs, hosted on AgroPortal / OLS.
-BUT these are genomics/phenomics/trait ontologies — NOT disease-treatment or regulatory. Use for crop /
-plant-part identifiers only; build the disease + regulatory layer yourself.
+---
 
-**AgroPortal.** Hosts ~150 agricultural ontologies (incl. Agronomy Ontology, FoodOn). Check here before
-minting any new identifier — reuse-first is the defensible choice.
+## 1. Scope and questions
 
-Open Stage-3 decision: adopt external URIs directly vs. map local ids → external URIs.
+The review covers: agricultural knowledge graphs; domain-specific KG design; knowledge representation for
+regulatory systems; retrieval-augmented generation (RAG); KG-augmented retrieval; evaluation of KGQA and
+RAG; trustworthy and explainable AI and selective prediction (abstention); and reusable agricultural
+vocabularies.
 
-## Section 3 — Prior art and the (revised, narrower, TRUE) gap
+GraphRAG is reviewed to position the work, not as an implementation target: this project uses a **curated**
+regulatory graph queried by **deterministic** logic, not an LLM-constructed graph.
 
-**Plant-protection regulatory KGs already exist — do NOT claim novelty for the idea itself:**
-- **E-PHY / ANSES (France):** open catalogue of ~15,000 authorised/withdrawn products (MA number, trade
-  name, product type, active substances, uses); the E-PHY *ontology* (Bouazzouni & Jonquet, ~2021)
-  represents it. Single-jurisdiction (France). Also integrated by the C3PO crop KG (Frontiers, 2023).
-- **GMRDF (Greece):** crop-pest ontology from the Greek Ministry of Rural Development DB; concepts crop,
-  disease, dose, pesticide treatment, arthropod pest, as a semantic KG. Single-jurisdiction (Greece).
-- **C3PO (Frontiers, 2023):** crop planning/production ontology + KG; integrates chemical-product data
-  (Basagri) via E-PHY. Closest full-system prior work — read it and position against it.
+---
 
-**Why the gap survives (and is sharper now).** Every prior system is SINGLE-JURISDICTION (models one
-country). None represents CROSS-BORDER DIVERGENCE — the same disease requiring different *authorised*
-products across a regulatory boundary. The EU "dual" system explains why this matters and is underexplored:
-the Commission approves ACTIVE SUBSTANCES centrally, but each Member State authorises PRODUCTS on its own
-territory (Reg. (EC) 1107/2009); Norway (EEA, non-EU) diverges further. That structure is inherently a
-multi-jurisdiction relation that single-country ontologies cannot express.
+## 2. Related work
 
-**Revised positioning (true, narrow, defensible):** national plant-protection KGs exist (E-PHY, GMRDF);
-what is missing is (a) an explicit representation of cross-jurisdictional regulatory divergence and (b) a
-benchmark for region-correct comparative queries across a boundary. NOT "first agricultural regulatory KG."
+**Agricultural and regulatory knowledge graphs.** Several systems represent crop-protection and regulatory
+knowledge as ontologies or knowledge graphs. E-PHY (ANSES, France) is an open catalogue of authorised and
+withdrawn plant-protection products, with an ontology representing product, active-substance and use data.
+C3PO (Darnala et al.) is a crop planning and production ontology and knowledge graph that integrates
+chemical-product data via the E-PHY model. The GMRDF crop-pest ontology (Damos et al., 2017) represents the
+Greek Ministry of Rural Development and Food's crop-protection data as a semantic knowledge graph. These
+establish that curating national crop-protection regulatory data as a graph is feasible and useful.
 
-**Stage-3 schema gift.** Reuse E-PHY's validated model (Product → Active substance → Use → Crop) and the
-EU active-substance-vs-product distinction rather than inventing entities. Data obtainability: DE (BVL API)
-+ FR (E-PHY open data) + GR (GMRDF) show EU-side data is reachable; Norway stays manual extraction and is
-the key divergence partner precisely because it is outside the EU authorisation system.
+**Graph-augmented retrieval and reasoning.** PullNet, GraphRAG, and Crop GraphRAG demonstrate that
+structured knowledge can improve retrieval and multi-hop reasoning for domain-specific question answering,
+generally using large language models and, in the GraphRAG lineage, LLM-constructed graphs.
 
-## Must-read before closing Stage 1
-- E-PHY ontology paper (Bouazzouni & Jonquet) — nearest regulatory-ontology prior work.
-- C3PO (Frontiers, 2023) — nearest full crop-KG-with-chemicals system.
-- GMRDF crop-pest ontology paper — second single-jurisdiction precedent.
-- Confirm no cross-jurisdictional-divergence KG exists (pharma / food-safety framings too) before writing the gap as settled.
+**Evaluation.** RAG faithfulness frameworks (e.g. RAGAS, ARES, TruLens) and multi-hop KGQA benchmarks
+(e.g. MetaQA, ComplexWebQuestions, PullNet) provide established metrics — faithfulness and context/answer
+relevance on the RAG side; Hits@1, F1 and exact match on the KGQA side. Selective-prediction work
+(e.g. Self-RAG, SelfCheckGPT) connects to this project's abstention behaviour.
+
+---
+
+## 3. The gap this study addresses
+
+Existing research has demonstrated that agricultural regulations can be represented using ontologies and
+Knowledge Graphs, including systems such as E-PHY (ANSES, France), C3PO (Darnala et al.), and the GMRDF
+crop-pest ontology (Damos et al., 2017, Greece). Likewise, graph-enhanced retrieval approaches, including
+PullNet and Crop GraphRAG, have shown that structured knowledge can improve retrieval and reasoning for
+domain-specific question answering.
+
+However, these regulatory Knowledge Graphs each model a single national jurisdiction. No existing work
+represents *cross-border regulatory divergence* — the situation in which the same crop and disease require
+different authorised treatments depending on the country. This divergence is a direct consequence of the
+EU's dual authorisation structure, in which the Commission approves active substances centrally while each
+Member State authorises products on its own territory (Regulation (EC) No 1107/2009), with non-EU EEA
+states such as Norway diverging further.
+
+Furthermore, no study has systematically compared two alternative representations of identical agricultural
+regulatory knowledge — a curated Knowledge Graph and an unstructured document collection — within an
+otherwise identical Retrieval-Augmented Generation pipeline. Consequently, there is limited evidence on
+whether a curated Knowledge Graph improves retrieval quality, provenance, explainability, and regulatory
+correctness relative to document-based RAG.
+
+This thesis addresses both gaps: it constructs a curated, cross-jurisdiction agricultural regulatory
+Knowledge Graph, and uses it to run a controlled comparison in which identical regulatory content is
+expressed as a graph and as documents — isolating the effect of the knowledge representation itself.
+
+---
+
+## 4. Evaluation approaches worth borrowing
+
+| purpose | precedents | metric convention to mirror |
+|---|---|---|
+| RAG faithfulness | RAGAS, ARES, TruLens | faithfulness, context/answer relevance |
+| multi-hop KGQA | MetaQA, ComplexWebQuestions, PullNet | Hits@1, F1, exact match |
+| hallucination detection | HaluEval, SelfCheckGPT, TruthfulQA | hallucination rate, factual consistency |
+| abstention / selective prediction | Self-RAG, SelfCheckGPT | (connects to this project's faithfulness work) |
+
+**Design note.** Several RAG frameworks (RAGAS, ARES, TruLens) use reference-free LLM-as-judge scoring.
+This study instead uses **deterministic, blind, manual** grading, justified by (a) known LLM-judge biases
+and (b) the safety-critical framing, where a graded human judgment is more defensible than an automated
+one. Mirroring the multi-hop metric convention (Hits@1 / F1 / EM) keeps the relationship-query results
+comparable to prior KGQA work.
+
+---
+
+## 5. Vocabularies / ontologies to reuse (Stage 3 input)
+
+- **AGROVOC (FAO).** Multilingual agricultural thesaurus published as linked data (SKOS, dereferenceable
+  URIs), aligned to ~10 other agricultural knowledge-organisation systems, queryable via a Skosmos REST API
+  and a public SPARQL endpoint. Reuse for crop and general agricultural-concept URIs; multilingual coverage
+  is relevant given German and Norwegian sources.
+- **Crop Ontology + Planteome (Plant Ontology, Trait Ontology).** FAIR reference ontologies with public
+  URIs, hosted on AgroPortal / OLS. These are plant-biology / genomics / trait ontologies, not
+  disease-treatment or regulatory — use for crop and plant-part identifiers only; build the disease and
+  regulatory layer separately.
+- **EPPO ontology / EPPO codes.** Pathogens are already identified by EPPO codes in the baseline; an EPPO
+  ontology exists (Frontiers, 2023). Reuse EPPO identifiers for pathogens rather than minting new ones.
+- **AgroPortal.** Hosts ~150 agricultural ontologies (including FoodOn and the Agronomy Ontology). Consult
+  before introducing any new identifier — reuse-first is the defensible choice.
+
+**Schema reuse (Stage 3).** Reuse E-PHY's validated model (Product → Active substance → Use → Crop) and the
+EU active-substance-vs-product distinction rather than inventing entities.
+
+---
+
+## 6. Data obtainability (feasibility, informing Stage 4)
+
+- **Germany (BVL):** public PSM REST API (`psm-api.bvl.bund.de`), JSON queries, monthly updates, open
+  licence, mandated by Article 57 of Regulation (EC) No 1107/2009. Crops are hierarchical
+  (cereals → wheat → winter wheat) — a native graph-traversal case for the benchmark.
+- **France (E-PHY):** open XML/CSV catalogue (ANSES).
+- **Greece (GMRDF):** open-licensed data underlying the crop-pest ontology.
+- **Norway (Mattilsynet):** primary source `plantevernmidler.mattilsynet.no` (web UI, Norwegian, manual
+  extraction; no API). Plantevernguiden is under redevelopment. Norway (EEA, non-EU) is the key divergence
+  partner precisely because it sits outside the EU authorisation system.
+
+Because the EU-side data is API-accessible while Norway's requires manual extraction, coverage is matched
+deliberately across countries rather than driven by data availability.
+
+---
+
+## 7. Benchmark table (raw survey — appendix)
+
+_Paste the AI_Evaluation_Benchmarks_Table here as an appendix. Every row is tracked and verified in
+`Literature_Verification_Register_v3.md`; entries still marked Partial there are cited lightly._
