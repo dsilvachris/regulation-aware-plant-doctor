@@ -1,0 +1,115 @@
+{
+  "_meta": {
+    "disease": "cucurbit powdery mildew",
+    "pest_codes": [
+      "PODOXA"
+    ],
+    "excluded_codes": [
+      "PODOLE/PODOTR/PODOCL/PODOAP (other crops)",
+      "PODOSP (genus)"
+    ],
+    "valid_only": true,
+    "extracted_on": "2026-07-25",
+    "source": "BVL PSM API (psm-api.bvl.bund.de)",
+    "note": "Authorisation currency taken from the API zul_ende field; not re-confirmed against the human BVL portal.",
+    "stand": [
+      {
+        "m_row$$": "AAA6U1AAEAAAAl1AAA",
+        "datum": "2026-07-16T08:21:21Z"
+      }
+    ],
+    "n_uses": 2,
+    "n_products": 1
+  },
+  "uses": [
+    {
+      "m_row$$": "AAA6TqAAEAAACiMAA3",
+      "awg_id": "00B116-00/00-026",
+      "kennr": "00B116-00",
+      "antragnr": "00",
+      "awgnr": "026",
+      "anwendungen_anz_je_befall": 2,
+      "anwendungen_max_je_vegetation": 2,
+      "anwendungsbereich": "FX",
+      "anwendungstechnik": "SXX",
+      "aw_abstand_bis": null,
+      "aw_abstand_einheit": null,
+      "aw_abstand_von": null,
+      "einsatzgebiet": "Z",
+      "kultur_erl": null,
+      "schadorg_erl": null,
+      "stadium_kultur_bem": null,
+      "stadium_kultur_bis": null,
+      "stadium_kultur_kodeliste": 150,
+      "stadium_kultur_von": "13",
+      "stadium_schadorg_bem": null,
+      "stadium_schadorg_bis": null,
+      "stadium_schadorg_kodeliste": null,
+      "stadium_schadorg_von": null,
+      "wirkungsbereich": "F",
+      "genehmigung": "N",
+      "huk": "N",
+      "anwenderkategorie": "Beruflich",
+      "mittelaufwand": null,
+      "aufwand_pro_jahr_einheit": "LH"
+    },
+    {
+      "m_row$$": "AAA6TqAAEAAACiMAA4",
+      "awg_id": "00B116-00/00-027",
+      "kennr": "00B116-00",
+      "antragnr": "00",
+      "awgnr": "027",
+      "anwendungen_anz_je_befall": 2,
+      "anwendungen_max_je_vegetation": 2,
+      "anwendungsbereich": "UG",
+      "anwendungstechnik": "SXX",
+      "aw_abstand_bis": null,
+      "aw_abstand_einheit": null,
+      "aw_abstand_von": null,
+      "einsatzgebiet": "Z",
+      "kultur_erl": null,
+      "schadorg_erl": null,
+      "stadium_kultur_bem": null,
+      "stadium_kultur_bis": null,
+      "stadium_kultur_kodeliste": 150,
+      "stadium_kultur_von": "13",
+      "stadium_schadorg_bem": null,
+      "stadium_schadorg_bis": null,
+      "stadium_schadorg_kodeliste": null,
+      "stadium_schadorg_von": null,
+      "wirkungsbereich": "F",
+      "genehmigung": "N",
+      "huk": "N",
+      "anwenderkategorie": "Beruflich",
+      "mittelaufwand": null,
+      "aufwand_pro_jahr_einheit": "LH"
+    }
+  ],
+  "products": {
+    "00B116-00": {
+      "m_row$$": "AAA6VGAAEAAAAmkAAA",
+      "kennr": "00B116-00",
+      "versuchsbez": "11992-90185-F-0-SC",
+      "zul_erstmalig_am": "2024-05-01T22:00:00Z",
+      "mittelname": "Fulial",
+      "formulierung_art": "SC",
+      "zul_ende": "2028-05-30T22:00:00Z",
+      "mittel_mit_geringem_risiko": null
+    }
+  },
+  "substances": {
+    "00B116-00": [
+      {
+        "m_row$$": "AAA6VjAAEAAAAr0ACE",
+        "kennr": "00B116-00",
+        "wirknr": "0902",
+        "wirkvar": "X00",
+        "gehalt_rein": 0,
+        "gehalt_rein_grundstruktur": 250,
+        "gehalt_einheit": "GL",
+        "gehalt_bio": null,
+        "gehalt_bio_einheit": null
+      }
+    ]
+  }
+}
