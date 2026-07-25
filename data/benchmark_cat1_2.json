@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "categories": "1 = factual lookup (control, prediction: no KG advantage); 2 = region-specific info",
+    "ground_truth_source": "corpus.json (categories 1-2 need no Stage-4 product data)",
+    "note": "Answers below are drafted from the corpus; VERIFY each against corpus.json before use. Categories 3-7 remain templates until Stage 4."
+  },
+  "category_1_factual": [
+    {"id": "f01", "q": "What pathogen causes late blight?", "answer": "Phytophthora infestans", "prediction": "="},
+    {"id": "f02", "q": "What type of pathogen causes late blight — fungus, oomycete, or bacterium?", "answer": "Oomycete (water mould)", "prediction": "="},
+    {"id": "f03", "q": "Which crops does late blight affect?", "answer": "Tomato and potato", "prediction": "="},
+    {"id": "f04", "q": "What is the EPPO code for the late blight pathogen?", "answer": "PHYTIN", "prediction": "="},
+    {"id": "f05", "q": "What pathogen causes apple scab?", "answer": "Venturia inaequalis", "prediction": "="},
+    {"id": "f06", "q": "What type of pathogen causes apple scab?", "answer": "Fungus", "prediction": "="},
+    {"id": "f07", "q": "What is the EPPO code for the apple scab pathogen?", "answer": "VENTIN", "prediction": "="},
+    {"id": "f08", "q": "What pathogen causes powdery mildew of cucurbits?", "answer": "Podosphaera xanthii", "prediction": "="},
+    {"id": "f09", "q": "Which crops does cucurbit powdery mildew affect?", "answer": "Squash, cucumber, pumpkin, melon and other cucurbits", "prediction": "="},
+    {"id": "f10", "q": "What is the EPPO code for the cucurbit powdery mildew pathogen?", "answer": "PODOXA", "prediction": "="}
+  ],
+  "category_2_region_specific": [
+    {"id": "r01", "q": "Which national authority regulates plant-protection products in Germany?", "answer": "The Federal Office of Consumer Protection and Food Safety (BVL)", "prediction": "="},
+    {"id": "r02", "q": "Which national authority regulates plant-protection products in Norway?", "answer": "The Norwegian Food Safety Authority (Mattilsynet)", "prediction": "="},
+    {"id": "r03", "q": "Where should a grower in Norway check which products are authorised for a disease?", "answer": "The Norwegian approved-products database (Plantevernguiden / Mattilsynet)", "prediction": "="},
+    {"id": "r04", "q": "In Germany, whose authorisation is required before a product may be used against late blight?", "answer": "The BVL — only BVL-authorised products may be used", "prediction": "="},
+    {"id": "r05", "q": "For late blight in Norway, what management practices are recommended?", "answer": "Crop scouting, prompt removal of infected plants, good field ventilation, avoiding overhead irrigation, resistant cultivars; oomycete-active fungicides applied preventively and rotated by mode of action; products must be Mattilsynet-authorised", "prediction": "=/?"},
+    {"id": "r06", "q": "For apple scab in Germany, what management practices are recommended?", "answer": "Remove infected leaf litter, improve canopy airflow by pruning, resistant cultivars, forecasting-based monitoring; preventive fungicide programmes with group rotation; BVL-authorised products only", "prediction": "=/?"},
+    {"id": "r07", "q": "Is late blight economically significant for potato growing in Norway?", "answer": "Yes — a major potato disease in Norway's cool, moist climate", "prediction": "="},
+    {"id": "r08", "q": "Does an authorisation for a late blight product in Germany automatically apply in Norway?", "answer": "No — active substances are EU-approved but each product is nationally authorised; Norway (Northern Zone, EEA) authorises separately and may restrict products allowed elsewhere", "prediction": "=/?"},
+    {"id": "r09", "q": "Which regulatory zone does Norway assess plant-protection products in, and how does it differ from Germany's?", "answer": "Norway assesses in the Northern Zone; Germany is in the Central Zone", "prediction": "=/?"}
+  ]
+}
