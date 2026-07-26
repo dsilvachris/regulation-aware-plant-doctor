@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "country": "NO",
+    "authority": "Mattilsynet",
+    "source": "plantevernmidler.mattilsynet.no",
+    "extracted_on": "2026-07-26",
+    "method": "Semi-automated extraction using the official Mattilsynet database and product records. Entries included only where a matching benchmark disease/product could be identified.",
+    "note": "Registration numbers are included where verified. Label URLs should be completed during final verification.",
+    "scope_match_to_DE": "Same benchmark diseases as the German dataset."
+  },
+  "late_blight_NO": [
+    {
+      "reg_nr": "2015.17",
+      "product": "Ranman TOP",
+      "active_substance": "cyazofamid",
+      "active_substance_g_per_l": 160,
+      "crop": "potato (potet)",
+      "target_disease": "late blight (potettørråte)",
+      "authorisation_period": "Current",
+      "product_type": "fungicide (soppmiddel)",
+      "label_url": "https://plantevernmidler.mattilsynet.no/api/etikett/2015.17",
+      "verified": "Official label confirmed"
+    },
+    {
+      "reg_nr": "2009.75.25",
+      "product": "Revus",
+      "active_substance": "mandipropamid",
+      "crop": "potato",
+      "target_disease": "late blight (potettørråte)",
+      "authorisation_period": "Current",
+      "product_type": "fungicide",
+      "label_url": "",
+      "verified": "Registration verified; label confirmation pending"
+    },
+    {
+      "reg_nr": "2017.13.25",
+      "product": "Revus Top",
+      "active_substance": "mandipropamid + difenoconazole",
+      "crop": "potato",
+      "target_disease": "late blight (potettørråte)",
+      "authorisation_period": "Current",
+      "product_type": "fungicide",
+      "label_url": "",
+      "verified": "Registration verified; label confirmation pending"
+    },
+    {
+      "reg_nr": "2025.41",
+      "product": "Revus Pro",
+      "active_substance": "mandipropamid + oxathiapiprolin",
+      "crop": "potato",
+      "target_disease": "late blight (potettørråte)",
+      "authorisation_period": "Current",
+      "product_type": "fungicide",
+      "label_url": "",
+      "verified": "Registration verified; label confirmation pending"
+    }
+  ],
+  "apple_scab_NO": [
+    {
+      "reg_nr": "2018.2",
+      "product": "Delan Pro",
+      "active_substance": "dithianon + potassium phosphonate",
+      "crop": "apple",
+      "target_disease": "apple scab (epleskurv)",
+      "authorisation_period": "Current",
+      "product_type": "fungicide",
+      "label_url": "",
+      "verified": "Official registration verified; label confirmation pending"
+    }
+  ],
+  "powdery_mildew_NO": [
+    {
+      "reg_nr": "2012.29.19",
+      "product": "Talius",
+      "active_substance": "proquinazid",
+      "crop": "cucumber (agurk), squash",
+      "target_disease": "powdery mildew (mjøldogg)",
+      "authorisation_period": "Current (Minor Use)",
+      "product_type": "fungicide",
+      "label_url": "",
+      "verified": "Official registration with Minor Use for cucumber/squash verified"
+    }
+  ]
+}
