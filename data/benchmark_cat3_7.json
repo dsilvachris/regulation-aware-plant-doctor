@@ -5,7 +5,8 @@
     "disease_assignment": "late blight = rich data (112 DE / 4 NO), carries heavy relational Qs; apple scab (9/1) moderate; powdery mildew (1/1) anchors negative/absence + cross-border showcase",
     "status": "Cross-border + absence answers VERIFIED against Stage-4 data (verify_benchmark_gt.py). Category 7 (hierarchy) still needs BVL kultur-code inspection.",
     "predictions": "3=KG+, 4=KG+, 5=KG+ (sharpest), 6=KG+ (novel/headline), 7=KG+ (strong)",
-    "confirmed_divergence": "DE late blight: 22 active substances / 112 products vs NO: 4 substances / 4 products. DE-only substances incl. fluazinam, kupferhydroxid, cymoxanil. difenoconazole appears in NO (Revus Top) but not in DE late-blight data."
+    "confirmed_divergence": "DE late blight: 22 active substances / 112 products vs NO: 4 substances / 4 products. DE-only substances incl. fluazinam, kupferhydroxid, cymoxanil. difenoconazole appears in NO (Revus Top) but not in DE late-blight data.",
+    "category_7_status": "OPEN — hierarchy-traversal not yet instantiated. Requires inspecting whether BVL kultur (crop) codes in the late-blight data are hierarchical (parent group -> child crop). The three benchmark diseases (potato/tomato/apple/cucurbit) may lack a clear parent-child crop structure; if so, category 7 is marked not-applicable to this disease set rather than dropped silently. Decide during Stage 3 KG design."
   },
   "category_3_multi_hop": [
     {
@@ -139,13 +140,15 @@
       "q": "In the German data, is a product authorised for a specific crop when its authorisation is recorded at a parent crop-group level?",
       "answer": "VERIFY from BVL awg kultur codes — identify a DE late-blight use recorded at a parent group (e.g. a crop group) that applies to a child crop.",
       "prediction": "KG+",
-      "note": "Requires inspecting the kultur values in bvl_late_blight_DE.json for hierarchical (parent/child) crop coding."
+      "note": "Requires inspecting the kultur values in bvl_late_blight_DE.json for hierarchical (parent/child) crop coding.",
+      "status": "OPEN — pending kultur-code hierarchy check"
     },
     {
       "id": "h02",
       "q": "Which specific crops fall under a parent crop group used in a German late-blight authorisation?",
       "answer": "VERIFY from BVL crop taxonomy / kultur codes.",
-      "prediction": "KG+"
+      "prediction": "KG+",
+      "status": "OPEN — pending kultur-code hierarchy check"
     }
   ]
 }
