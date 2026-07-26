@@ -6,7 +6,8 @@
     "status": "Cross-border + absence answers VERIFIED against Stage-4 data (verify_benchmark_gt.py). Category 7 (hierarchy) still needs BVL kultur-code inspection.",
     "predictions": "3=KG+, 4=KG+, 5=KG+ (sharpest), 6=KG+ (novel/headline), 7=KG+ (strong)",
     "confirmed_divergence": "DE late blight: 22 active substances / 112 products vs NO: 4 substances / 4 products. DE-only substances incl. fluazinam, kupferhydroxid, cymoxanil. difenoconazole appears in NO (Revus Top) but not in DE late-blight data.",
-    "category_7_status": "OPEN — hierarchy-traversal not yet instantiated. Requires inspecting whether BVL kultur (crop) codes in the late-blight data are hierarchical (parent group -> child crop). The three benchmark diseases (potato/tomato/apple/cucurbit) may lack a clear parent-child crop structure; if so, category 7 is marked not-applicable to this disease set rather than dropped silently. Decide during Stage 3 KG design."
+    "category_7_status": "OPEN — hierarchy-traversal not yet instantiated. Requires inspecting whether BVL kultur (crop) codes in the late-blight data are hierarchical (parent group -> child crop). The three benchmark diseases (potato/tomato/apple/cucurbit) may lack a clear parent-child crop structure; if so, category 7 is marked not-applicable to this disease set rather than dropped silently. Decide during Stage 3 KG design.",
+    "normalisation_note": "Substance names normalised across DE/NO/English spellings (src/substance_norm.py) before computing cross-border answers. difenoconazole is authorised in BOTH countries (earlier draft wrongly listed it as DE-only due to a spelling mismatch). True DE-only late-blight set = 18 substances."
   },
   "category_3_multi_hop": [
     {
@@ -19,7 +20,7 @@
     {
       "id": "m02",
       "q": "Which Germany-authorised active substance appears in a Norway-authorised late blight product too?",
-      "answer": "cyazofamid, mandipropamid, and oxathiapiprolin all appear in German late-blight products too (confirmed). difenoconazole does NOT appear in the German late-blight data.",
+      "answer": "cyazofamid, mandipropamid, difenoconazole, and oxathiapiprolin all appear in BOTH German and Norwegian late-blight products (confirmed after normalising substance-name spellings across the two sources — the German 'Difenoconazol' and Norwegian 'difenoconazole' are the same substance).",
       "prediction": "KG+",
       "hops": "NO substances ∩ DE substances",
       "verified": true
@@ -27,7 +28,7 @@
     {
       "id": "m03",
       "q": "For late blight, which active substances are authorised in Germany but not in Norway?",
-      "answer": "Germany has 22 active substances for late blight vs Norway's 4. German-only examples include fluazinam, copper hydroxide (kupferhydroxid), cymoxanil, azoxystrobin, ametoctradin, amisulbrom, zoxamide, and others.",
+      "answer": "Germany authorises 18 active substances against late blight that Norway does not, including fluazinam, copper hydroxide, copper oxychloride, cymoxanil, azoxystrobin, ametoctradin, amisulbrom, and zoxamide. (Norway's 4 — cyazofamid, mandipropamid, difenoconazole, oxathiapiprolin — are all also authorised in Germany.)",
       "prediction": "KG+",
       "hops": "DE substances \\ NO substances",
       "verified": true
@@ -130,8 +131,9 @@
     {
       "id": "d06",
       "q": "For late blight, name an active substance authorised in Germany but not in Norway.",
-      "answer": "fluazinam, copper hydroxide (kupferhydroxid), or cymoxanil — each authorised against late blight in Germany but absent from Norway's 4 products. (Confirmed from data.)",
-      "prediction": "KG+"
+      "answer": "fluazinam, copper hydroxide, or cymoxanil — each authorised against late blight in Germany but absent from Norway's authorisations. In total 18 substances are DE-authorised but not NO-authorised (after cross-language name normalisation). NOTE: difenoconazole is NOT one of them — it is authorised in both countries.",
+      "prediction": "KG+",
+      "verified": true
     }
   ],
   "category_7_hierarchy_traversal": [
