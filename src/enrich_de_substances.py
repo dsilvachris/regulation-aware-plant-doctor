@@ -16,7 +16,7 @@ def fetch(table, limit=5000):
     with urllib.request.urlopen(url, timeout=60) as r:
         return json.load(r).get("items", [])
 
-for fname in ["bvl_late_blight_DE.json"]:   # extend to scab/mildew later
+for fname in ["bvl_late_blight_DE.json", "bvl_apple_scab_DE.json", "bvl_powdery_mildew_DE.json"]:
     path = DATA / fname
     if not path.exists():
         print(f"skip {fname} (not found)"); continue

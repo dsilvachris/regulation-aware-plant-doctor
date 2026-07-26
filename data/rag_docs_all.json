@@ -1,0 +1,781 @@
+{
+  "_meta": {
+    "diseases": [
+      "late blight",
+      "apple scab",
+      "cucurbit powdery mildew"
+    ],
+    "source": "Stage-4 data (BVL + Mattilsynet)",
+    "note": "combined 3-disease KG + parallel RAG docs (data-parity)"
+  },
+  "documents": [
+    {
+      "id": "late_blight_NO_1",
+      "country": "NO",
+      "disease": "late blight",
+      "text": "In Mattilsynet (Norwegian Food Safety Authority), the product Ranman TOP (registration 2015.17) is authorised against late blight (Phytophthora infestans) on potato (potet). It contains cyazofamid."
+    },
+    {
+      "id": "late_blight_NO_2",
+      "country": "NO",
+      "disease": "late blight",
+      "text": "In Mattilsynet (Norwegian Food Safety Authority), the product Revus (registration 2009.75.25) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid."
+    },
+    {
+      "id": "late_blight_NO_3",
+      "country": "NO",
+      "disease": "late blight",
+      "text": "In Mattilsynet (Norwegian Food Safety Authority), the product Revus Top (registration 2017.13.25) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid, difenoconazole."
+    },
+    {
+      "id": "late_blight_NO_4",
+      "country": "NO",
+      "disease": "late blight",
+      "text": "In Mattilsynet (Norwegian Food Safety Authority), the product Revus Pro (registration 2025.41) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid, oxathiapiprolin."
+    },
+    {
+      "id": "late_blight_DE_5",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Cuprozin progress (registration 006895-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper hydroxide."
+    },
+    {
+      "id": "late_blight_DE_6",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Funguran progress (registration 006896-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper hydroxide."
+    },
+    {
+      "id": "late_blight_DE_7",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Terminus (registration 006897-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_8",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product BANJO (registration 006899-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_9",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Carneol (registration 006899-60) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_10",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Nando 500 SC (registration 007032-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_11",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product CARIAL FLEX (registration 007646-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, mandipropamid."
+    },
+    {
+      "id": "late_blight_DE_12",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product TERMINUS EXTRA (registration 007957-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, fluazinam."
+    },
+    {
+      "id": "late_blight_DE_13",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Plexus (registration 007957-60) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, fluazinam."
+    },
+    {
+      "id": "late_blight_DE_14",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product GRECALE (registration 007957-61) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, fluazinam."
+    },
+    {
+      "id": "late_blight_DE_15",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product REVUS GARTEN (registration 008182-00) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid."
+    },
+    {
+      "id": "late_blight_DE_16",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COMPO Pilz-frei Revus (registration 008182-60) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid."
+    },
+    {
+      "id": "late_blight_DE_17",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Dr. Stähler Spezial Pilz-Frei Revus (registration 008182-61) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid."
+    },
+    {
+      "id": "late_blight_DE_18",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Vendetta (registration 008246-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam, azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_19",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Cymbal Flow (registration 008260-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_20",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Rival Duo (registration 008541-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, propamocarb."
+    },
+    {
+      "id": "late_blight_DE_21",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product OMIX DUO (registration 008541-60) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, propamocarb."
+    },
+    {
+      "id": "late_blight_DE_22",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product AMBORA DUO (registration 008541-61) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, propamocarb."
+    },
+    {
+      "id": "late_blight_DE_23",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COPFORCE EXTRA (registration 008695-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper hydroxide, cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_24",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product PREV-GOLD (registration 008883-00) is authorised against late blight (Phytophthora infestans) on potato. It contains orange oil."
+    },
+    {
+      "id": "late_blight_DE_25",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product SINALA (registration 008883-60) is authorised against late blight (Phytophthora infestans) on potato. It contains orange oil."
+    },
+    {
+      "id": "late_blight_DE_26",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COMPO- Obst & Gemüse Insekten- und Pilz-frei (registration 008883-61) is authorised against late blight (Phytophthora infestans) on potato. It contains orange oil."
+    },
+    {
+      "id": "late_blight_DE_27",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COMPO OnTrio Obst & Gemüse Insekten- und Pilz-frei (registration 008883-62) is authorised against late blight (Phytophthora infestans) on potato. It contains orange oil."
+    },
+    {
+      "id": "late_blight_DE_28",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Flowbrix (registration 008886-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper oxychloride."
+    },
+    {
+      "id": "late_blight_DE_29",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Zorvec Enicade (registration 008946-00) is authorised against late blight (Phytophthora infestans) on potato. It contains oxathiapiprolin."
+    },
+    {
+      "id": "late_blight_DE_30",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Enervin SC (registration 008966-00) is authorised against late blight (Phytophthora infestans) on potato. It contains ametoctradin."
+    },
+    {
+      "id": "late_blight_DE_31",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Prevint SC (registration 008966-60) is authorised against late blight (Phytophthora infestans) on potato. It contains ametoctradin."
+    },
+    {
+      "id": "late_blight_DE_32",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Azbany (registration 008967-00) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_33",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Tazer (registration 008967-60) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_34",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product VOYAGER (registration 008997-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam, valifenalate."
+    },
+    {
+      "id": "late_blight_DE_35",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Fluazinova (registration 00A024-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_36",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product AZOFIN (registration 00A065-00) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_37",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product ETISSO Universal Gemüse Pilz-frei SC (registration 00A065-60) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_38",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product GADAROCK (registration 00A077-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam, potassium phosphonate."
+    },
+    {
+      "id": "late_blight_DE_39",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product FUNGURAN-OH 50 WP (registration 00A085-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper hydroxide."
+    },
+    {
+      "id": "late_blight_DE_40",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product CURZATE 60WG (registration 00A112-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_41",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Cymox WG (registration 00A112-60) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_42",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COBOX (registration 00A121-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper oxychloride."
+    },
+    {
+      "id": "late_blight_DE_43",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product TAEGRO (registration 00A461-00) is authorised against late blight (Phytophthora infestans) on potato. It contains bacillus amyloliquefaciens."
+    },
+    {
+      "id": "late_blight_DE_44",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product TRIERE (registration 00A524-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_45",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product FytoSol (registration 00A565-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cos-oga."
+    },
+    {
+      "id": "late_blight_DE_46",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Zorvec Entecta (registration 00A762-00) is authorised against late blight (Phytophthora infestans) on potato. It contains amisulbrom, oxathiapiprolin."
+    },
+    {
+      "id": "late_blight_DE_47",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Sporax (registration 00A808-00) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb."
+    },
+    {
+      "id": "late_blight_DE_48",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Tempio (registration 00A833-00) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, benalaxyl-m."
+    },
+    {
+      "id": "late_blight_DE_49",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Pergovia (registration 00A840-00) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid, amisulbrom."
+    },
+    {
+      "id": "late_blight_DE_50",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Proxanil (registration 00A953-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, propamocarb."
+    },
+    {
+      "id": "late_blight_DE_51",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Kelsos (registration 00A979-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_52",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Simpro (registration 00B011-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, propamocarb."
+    },
+    {
+      "id": "late_blight_DE_53",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product CONTROLLA 450 WG (registration 00B026-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_54",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Clayton Linaxo (registration 00B047-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_55",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Mattium (registration 00B047-60) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_56",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Cymofil (registration 00B062-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil."
+    },
+    {
+      "id": "late_blight_DE_57",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Fulial (registration 00B116-00) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_58",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Revus Pro (registration 00B178-00) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb, mandipropamid."
+    },
+    {
+      "id": "late_blight_DE_59",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Nuxine (registration 00B188-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cerevisane."
+    },
+    {
+      "id": "late_blight_DE_60",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Divexo (registration 00B266-00) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb, ametoctradin."
+    },
+    {
+      "id": "late_blight_DE_61",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Arouet® K-Plus (registration 00B276-00) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate."
+    },
+    {
+      "id": "late_blight_DE_62",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Presidium K-Plus (registration 00B276-60) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate."
+    },
+    {
+      "id": "late_blight_DE_63",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Electis K-Plus (registration 00B276-61) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate."
+    },
+    {
+      "id": "late_blight_DE_64",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Observer Pro (registration 00B298-00) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb, zoxamide."
+    },
+    {
+      "id": "late_blight_DE_65",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product PROSIM (registration 00B366-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, propamocarb."
+    },
+    {
+      "id": "late_blight_DE_66",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product FORESIGHT (registration 00B453-00) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb."
+    },
+    {
+      "id": "late_blight_DE_67",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Infinito (registration 025876-00) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb, fluopicolide."
+    },
+    {
+      "id": "late_blight_DE_68",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Bayer Garten Gemüse-Pilzfrei Infinito (registration 025876-60) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb, fluopicolide."
+    },
+    {
+      "id": "late_blight_DE_69",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Phyto Gemüse-Pilzfrei (registration 025876-61) is authorised against late blight (Phytophthora infestans) on potato. It contains propamocarb, fluopicolide."
+    },
+    {
+      "id": "late_blight_DE_70",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product REVUS (registration 026221-00) is authorised against late blight (Phytophthora infestans) on potato. It contains mandipropamid."
+    },
+    {
+      "id": "late_blight_DE_71",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Leimay (registration 026282-00) is authorised against late blight (Phytophthora infestans) on potato. It contains amisulbrom."
+    },
+    {
+      "id": "late_blight_DE_72",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Gachinko (registration 026282-60) is authorised against late blight (Phytophthora infestans) on potato. It contains amisulbrom."
+    },
+    {
+      "id": "late_blight_DE_73",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Genkotsu (registration 026282-61) is authorised against late blight (Phytophthora infestans) on potato. It contains amisulbrom."
+    },
+    {
+      "id": "late_blight_DE_74",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Shinkon (registration 026282-62) is authorised against late blight (Phytophthora infestans) on potato. It contains amisulbrom."
+    },
+    {
+      "id": "late_blight_DE_75",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Sevadas (registration 026282-63) is authorised against late blight (Phytophthora infestans) on potato. It contains amisulbrom."
+    },
+    {
+      "id": "late_blight_DE_76",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product REVUS TOP (registration 027522-00) is authorised against late blight (Phytophthora infestans) on potato. It contains difenoconazole, mandipropamid."
+    },
+    {
+      "id": "late_blight_DE_77",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Reboot (registration 027692-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cymoxanil, zoxamide."
+    },
+    {
+      "id": "late_blight_DE_78",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product BADGE WG (registration 028956-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper oxychloride, copper hydroxide."
+    },
+    {
+      "id": "late_blight_DE_79",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COPRANTOL DUO (registration 028956-60) is authorised against late blight (Phytophthora infestans) on potato. It contains copper oxychloride, copper hydroxide."
+    },
+    {
+      "id": "late_blight_DE_80",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Grifon SC (registration 028972-00) is authorised against late blight (Phytophthora infestans) on potato. It contains copper oxychloride, copper hydroxide."
+    },
+    {
+      "id": "late_blight_DE_81",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Airone SC (registration 028972-60) is authorised against late blight (Phytophthora infestans) on potato. It contains copper oxychloride, copper hydroxide."
+    },
+    {
+      "id": "late_blight_DE_82",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Polygandron WP (registration 02A717-00) is authorised against late blight (Phytophthora infestans) on potato. It contains pythium oligandrum."
+    },
+    {
+      "id": "late_blight_DE_83",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Shirlan (registration 034092-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_84",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Ohayo (registration 034092-60) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_85",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Frowncide (registration 034092-61) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_86",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Winby (registration 034092-62) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_87",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product DALIMO (registration 034092-63) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam."
+    },
+    {
+      "id": "late_blight_DE_88",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product ORTIVA (registration 034560-00) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_89",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Rosen-Pilzfrei Saprol (registration 034560-60) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_90",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Fungisan Rosen-Pilzfrei (registration 034560-61) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_91",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Rosen Pilz-Frei Boccacio (registration 034560-62) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_92",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Fungisan Gemüse-Pilzfrei (registration 034560-63) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_93",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Gemüse-Pilzfrei Saprol (registration 034560-66) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_94",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Fungisan Rosen- und Gemüse-Pilzfrei (registration 034560-69) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_95",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COMPO Ortiva Spezial Pilz-frei (registration 034560-72) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_96",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Boccarcio Rosen Pilz-Frei (registration 034560-73) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_97",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Phytavis Quadris (registration 034560-74) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_98",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Rosen- und Zierpflanzen Pilzfrei Saprol (registration 034560-75) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_99",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product ZAKEO 250 SC (registration 034560-76) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_100",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Fungisan Rosen- und Buxus-Pilzfrei (registration 034560-77) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_101",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Zaftra AZT 250 SC (registration 034560-78) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_102",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product VERTAZA (registration 034560-79) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_103",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Universal-Pilzfrei (registration 034560-80) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_104",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Serraboss (registration 034560-81) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_105",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product ROSEN-PILZFREI (registration 034560-83) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_106",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product ROSENKOMBI (registration 034560-84) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_107",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Curamat AZ Rosen-Pilzfrei (registration 034560-85) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_108",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Curamat AZ Universal-Pilzfrei (registration 034560-86) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_109",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COMPO Universal Pilz-frei Duaxo (registration 034560-87) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_110",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product COMPO Universal Pilz-frei Duaxo N (registration 034560-88) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_111",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Universal Pilzfrei SAPROL N (registration 034560-89) is authorised against late blight (Phytophthora infestans) on potato. It contains azoxystrobin."
+    },
+    {
+      "id": "late_blight_DE_112",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Ranman Top (registration 036860-00) is authorised against late blight (Phytophthora infestans) on potato. It contains cyazofamid."
+    },
+    {
+      "id": "late_blight_DE_113",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Sugoi (registration 036860-60) is authorised against late blight (Phytophthora infestans) on potato. It contains cyazofamid."
+    },
+    {
+      "id": "late_blight_DE_114",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Azuleo (registration 036860-61) is authorised against late blight (Phytophthora infestans) on potato. It contains cyazofamid."
+    },
+    {
+      "id": "late_blight_DE_115",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Karitsu (registration 036860-62) is authorised against late blight (Phytophthora infestans) on potato. It contains cyazofamid."
+    },
+    {
+      "id": "late_blight_DE_116",
+      "country": "DE",
+      "disease": "late blight",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Livarti (registration 036860-63) is authorised against late blight (Phytophthora infestans) on potato. It contains cyazofamid."
+    },
+    {
+      "id": "apple_scab_NO_117",
+      "country": "NO",
+      "disease": "apple scab",
+      "text": "In Mattilsynet (Norwegian Food Safety Authority), the product Delan Pro (registration 2018.2) is authorised against apple scab (Venturia inaequalis) on apple. It contains dithianon, potassium phosphonate."
+    },
+    {
+      "id": "apple_scab_DE_118",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Blossom Protect (registration 007416-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains aureobasidium pullulans, aureobasidium pullulans."
+    },
+    {
+      "id": "apple_scab_DE_119",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Microthiol WG (registration 008467-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains sulfur."
+    },
+    {
+      "id": "apple_scab_DE_120",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Thiopron (registration 00A249-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains sulfur."
+    },
+    {
+      "id": "apple_scab_DE_121",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product CURATIO (registration 00A770-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains lime sulfur."
+    },
+    {
+      "id": "apple_scab_DE_122",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product DITOFLO 700 WG (registration 00A841-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains dithianon."
+    },
+    {
+      "id": "apple_scab_DE_123",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product BOLSTER FLEX (registration 00B384-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains dithianon."
+    },
+    {
+      "id": "apple_scab_DE_124",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Vacciplant (registration 00B457-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains laminarin."
+    },
+    {
+      "id": "apple_scab_DE_125",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Merpan 80 WDG (registration 024519-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains captan."
+    },
+    {
+      "id": "apple_scab_DE_126",
+      "country": "DE",
+      "disease": "apple scab",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Flint (registration 044657-00) is authorised against apple scab (Venturia inaequalis) on apple. It contains trifloxystrobin."
+    },
+    {
+      "id": "powdery_mildew_NO_127",
+      "country": "NO",
+      "disease": "cucurbit powdery mildew",
+      "text": "In Mattilsynet (Norwegian Food Safety Authority), the product Talius (registration 2012.29.19) is authorised against cucurbit powdery mildew (Podosphaera xanthii) on cucumber (agurk), squash. It contains proquinazid."
+    },
+    {
+      "id": "powdery_mildew_DE_128",
+      "country": "DE",
+      "disease": "cucurbit powdery mildew",
+      "text": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Fulial (registration 00B116-00) is authorised against cucurbit powdery mildew (Podosphaera xanthii) on cucurbit. It contains azoxystrobin."
+    }
+  ]
+}

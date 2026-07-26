@@ -39,6 +39,15 @@ ALIASES = {
     "pythium oligandrum":    ["pythium oligandrum m1", "pythium oligandrum"],
     "dithianon":             ["dithianon"],
     "proquinazid":           ["proquinazid"],
+    "captan":                ["captan"],
+    "sulfur":                ["schwefel", "sulfur", "sulphur", "svovel"],
+    "lime sulfur":           ["schwefelkalkbrühe", "schwefelkalkbruehe", "lime sulfur", "lime sulphur",
+                              "calcium polysulfide", "svovelkalk"],
+    "trifloxystrobin":       ["trifloxystrobin"],
+    "laminarin":             ["laminarin"],
+    "aureobasidium pullulans": ["aureobasidium pullulans dsm 14940", "aureobasidium pullulans dsm 14941",
+                                "aureobasidium pullulans"],
+    "bupirimate":            ["bupirimate"],
 }
 
 # build reverse lookup: variant (normalised) -> canonical

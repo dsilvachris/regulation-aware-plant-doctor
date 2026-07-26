@@ -710,5 +710,15 @@
         "gehalt_bio_einheit": null
       }
     ]
+  },
+  "_wirkstoff_names": {
+    "9780": "Aureobasidium pullulans DSM 14940",
+    "0972": "Trifloxystrobin",
+    "1026": "Laminarin",
+    "0045": "Dithianon",
+    "0012": "Captan",
+    "0184": "Schwefel",
+    "9781": "Aureobasidium pullulans DSM 14941",
+    "0768": "Schwefelkalkbrühe"
   }
 }

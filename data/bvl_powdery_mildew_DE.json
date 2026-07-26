@@ -111,5 +111,8 @@
         "gehalt_bio_einheit": null
       }
     ]
+  },
+  "_wirkstoff_names": {
+    "0902": "Azoxystrobin"
   }
 }
