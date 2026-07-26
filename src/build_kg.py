@@ -18,6 +18,8 @@ from rdflib import Graph, Namespace, Literal, RDF, RDFS, URIRef
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
+import sys; sys.path.insert(0, str(Path(__file__).resolve().parent))
+from substance_norm import canonical, is_known   # canonicalise substance names across languages
 
 EX    = Namespace("http://plant-regkg.org/ontology#")   # local ontology terms
 RES   = Namespace("http://plant-regkg.org/resource/")   # local resources
@@ -64,8 +66,14 @@ def add_authorisation(country, product_name, reg_id, substances, crop):
     g.add((prod, RDF.type, EX.Product)); g.add((prod, RDFS.label, Literal(product_name)))
     if reg_id: g.add((prod, EX.registrationId, Literal(str(reg_id))))
     for sub in substances:
-        s_node = RES["substance_"+clean(sub)]
-        g.add((s_node, RDF.type, EX.ActiveSubstance)); g.add((s_node, RDFS.label, Literal(sub)))
+        canon = canonical(sub)                       # cross-language canonical name
+        s_node = RES["substance_"+clean(canon)]       # node keyed by canonical name -> DE/NO match
+        g.add((s_node, RDF.type, EX.ActiveSubstance))
+        g.add((s_node, RDFS.label, Literal(canon)))
+        if canonical(sub) != sub.lower().strip():     # keep the source spelling too, for provenance
+            g.add((s_node, EX.altLabel, Literal(sub)))
+        if not is_known(sub):
+            print(f"    [warn] unknown substance not in alias map: {sub!r}")
         g.add((prod, EX.containsSubstance, s_node))
     a = RES[f"authorisation_{country}_{auth_counter}"]
     g.add((a, RDF.type, EX.Authorisation))
@@ -79,8 +87,9 @@ def add_authorisation(country, product_name, reg_id, substances, crop):
         if crop.lower() in AGROVOC:
             g.add((c_node, EX.agrovocConcept, AGRO[AGROVOC[crop.lower()]]))
         g.add((a, EX.onCrop, c_node))
-    # parallel prose doc (identical facts)
-    subs = ", ".join(substances) if substances else "unspecified active substance"
+    # parallel prose doc (identical facts, canonical substance names for parity with the KG)
+    canon_subs = [canonical(s) for s in substances]
+    subs = ", ".join(canon_subs) if canon_subs else "unspecified active substance"
     crop_txt = f" on {crop}" if crop else ""
     rag_docs.append({
         "id": f"auth_{country}_{auth_counter}",
