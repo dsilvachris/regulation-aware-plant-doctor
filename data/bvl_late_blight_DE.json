@@ -8195,5 +8195,29 @@
         "gehalt_bio_einheit": null
       }
     ]
+  },
+  "_wirkstoff_names": {
+    "9431": "Bacillus amyloliquefaciens Stamm FZB24",
+    "1038": "Benalaxyl-M",
+    "1012": "Cyazofamid",
+    "0347": "Kupferhydroxid",
+    "1109": "Orangenöl",
+    "0513": "Cymoxanil",
+    "1094": "Amisulbrom",
+    "1058": "Fluopicolide",
+    "1090": "Valifenalate",
+    "1215": "Oxathiapiprolin",
+    "1152": "Ametoctradin",
+    "1006": "Zoxamide",
+    "9770": "Pythium oligandrum M1",
+    "0902": "Azoxystrobin",
+    "0849": "Fluazinam",
+    "0147": "Kupferoxychlorid",
+    "1085": "Mandipropamid",
+    "0516": "Propamocarb",
+    "9800": "Cerevisane",
+    "0865": "Difenoconazol",
+    "1041": "Kaliumphosphonat (Kaliumphosphit)",
+    "1198": "COS-OGA"
   }
 }

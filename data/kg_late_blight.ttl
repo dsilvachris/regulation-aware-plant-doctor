@@ -1,0 +1,1539 @@
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix eppo: <https://gd.eppo.int/taxon/> .
+@prefix ex: <http://plant-regkg.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <http://plant-regkg.org/resource/> .
+
+res:authorisation_DE_10 a ex:Authorisation ;
+    ex:hasProduct res:product_007032_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_100 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_77 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_101 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_78 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_102 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_79 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_103 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_80 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_104 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_81 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_105 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_83 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_106 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_84 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_107 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_85 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_108 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_86 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_109 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_87 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_11 a ex:Authorisation ;
+    ex:hasProduct res:product_007646_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_110 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_88 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_111 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_89 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_112 a ex:Authorisation ;
+    ex:hasProduct res:product_036860_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_113 a ex:Authorisation ;
+    ex:hasProduct res:product_036860_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_114 a ex:Authorisation ;
+    ex:hasProduct res:product_036860_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_115 a ex:Authorisation ;
+    ex:hasProduct res:product_036860_62 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_116 a ex:Authorisation ;
+    ex:hasProduct res:product_036860_63 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_12 a ex:Authorisation ;
+    ex:hasProduct res:product_007957_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_13 a ex:Authorisation ;
+    ex:hasProduct res:product_007957_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_14 a ex:Authorisation ;
+    ex:hasProduct res:product_007957_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_15 a ex:Authorisation ;
+    ex:hasProduct res:product_008182_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_16 a ex:Authorisation ;
+    ex:hasProduct res:product_008182_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_17 a ex:Authorisation ;
+    ex:hasProduct res:product_008182_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_18 a ex:Authorisation ;
+    ex:hasProduct res:product_008246_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_19 a ex:Authorisation ;
+    ex:hasProduct res:product_008260_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_20 a ex:Authorisation ;
+    ex:hasProduct res:product_008541_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_21 a ex:Authorisation ;
+    ex:hasProduct res:product_008541_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_22 a ex:Authorisation ;
+    ex:hasProduct res:product_008541_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_23 a ex:Authorisation ;
+    ex:hasProduct res:product_008695_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_24 a ex:Authorisation ;
+    ex:hasProduct res:product_008883_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_25 a ex:Authorisation ;
+    ex:hasProduct res:product_008883_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_26 a ex:Authorisation ;
+    ex:hasProduct res:product_008883_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_27 a ex:Authorisation ;
+    ex:hasProduct res:product_008883_62 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_28 a ex:Authorisation ;
+    ex:hasProduct res:product_008886_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_29 a ex:Authorisation ;
+    ex:hasProduct res:product_008946_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_30 a ex:Authorisation ;
+    ex:hasProduct res:product_008966_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_31 a ex:Authorisation ;
+    ex:hasProduct res:product_008966_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_32 a ex:Authorisation ;
+    ex:hasProduct res:product_008967_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_33 a ex:Authorisation ;
+    ex:hasProduct res:product_008967_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_34 a ex:Authorisation ;
+    ex:hasProduct res:product_008997_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_35 a ex:Authorisation ;
+    ex:hasProduct res:product_00A024_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_36 a ex:Authorisation ;
+    ex:hasProduct res:product_00A065_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_37 a ex:Authorisation ;
+    ex:hasProduct res:product_00A065_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_38 a ex:Authorisation ;
+    ex:hasProduct res:product_00A077_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_39 a ex:Authorisation ;
+    ex:hasProduct res:product_00A085_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_40 a ex:Authorisation ;
+    ex:hasProduct res:product_00A112_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_41 a ex:Authorisation ;
+    ex:hasProduct res:product_00A112_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_42 a ex:Authorisation ;
+    ex:hasProduct res:product_00A121_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_43 a ex:Authorisation ;
+    ex:hasProduct res:product_00A461_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_44 a ex:Authorisation ;
+    ex:hasProduct res:product_00A524_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_45 a ex:Authorisation ;
+    ex:hasProduct res:product_00A565_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_46 a ex:Authorisation ;
+    ex:hasProduct res:product_00A762_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_47 a ex:Authorisation ;
+    ex:hasProduct res:product_00A808_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_48 a ex:Authorisation ;
+    ex:hasProduct res:product_00A833_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_49 a ex:Authorisation ;
+    ex:hasProduct res:product_00A840_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_5 a ex:Authorisation ;
+    ex:hasProduct res:product_006895_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_50 a ex:Authorisation ;
+    ex:hasProduct res:product_00A953_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_51 a ex:Authorisation ;
+    ex:hasProduct res:product_00A979_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_52 a ex:Authorisation ;
+    ex:hasProduct res:product_00B011_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_53 a ex:Authorisation ;
+    ex:hasProduct res:product_00B026_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_54 a ex:Authorisation ;
+    ex:hasProduct res:product_00B047_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_55 a ex:Authorisation ;
+    ex:hasProduct res:product_00B047_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_56 a ex:Authorisation ;
+    ex:hasProduct res:product_00B062_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_57 a ex:Authorisation ;
+    ex:hasProduct res:product_00B116_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_58 a ex:Authorisation ;
+    ex:hasProduct res:product_00B178_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_59 a ex:Authorisation ;
+    ex:hasProduct res:product_00B188_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_6 a ex:Authorisation ;
+    ex:hasProduct res:product_006896_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_60 a ex:Authorisation ;
+    ex:hasProduct res:product_00B266_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_61 a ex:Authorisation ;
+    ex:hasProduct res:product_00B276_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_62 a ex:Authorisation ;
+    ex:hasProduct res:product_00B276_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_63 a ex:Authorisation ;
+    ex:hasProduct res:product_00B276_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_64 a ex:Authorisation ;
+    ex:hasProduct res:product_00B298_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_65 a ex:Authorisation ;
+    ex:hasProduct res:product_00B366_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_66 a ex:Authorisation ;
+    ex:hasProduct res:product_00B453_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_67 a ex:Authorisation ;
+    ex:hasProduct res:product_025876_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_68 a ex:Authorisation ;
+    ex:hasProduct res:product_025876_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_69 a ex:Authorisation ;
+    ex:hasProduct res:product_025876_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_7 a ex:Authorisation ;
+    ex:hasProduct res:product_006897_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_70 a ex:Authorisation ;
+    ex:hasProduct res:product_026221_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_71 a ex:Authorisation ;
+    ex:hasProduct res:product_026282_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_72 a ex:Authorisation ;
+    ex:hasProduct res:product_026282_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_73 a ex:Authorisation ;
+    ex:hasProduct res:product_026282_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_74 a ex:Authorisation ;
+    ex:hasProduct res:product_026282_62 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_75 a ex:Authorisation ;
+    ex:hasProduct res:product_026282_63 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_76 a ex:Authorisation ;
+    ex:hasProduct res:product_027522_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_77 a ex:Authorisation ;
+    ex:hasProduct res:product_027692_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_78 a ex:Authorisation ;
+    ex:hasProduct res:product_028956_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_79 a ex:Authorisation ;
+    ex:hasProduct res:product_028956_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_8 a ex:Authorisation ;
+    ex:hasProduct res:product_006899_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_80 a ex:Authorisation ;
+    ex:hasProduct res:product_028972_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_81 a ex:Authorisation ;
+    ex:hasProduct res:product_028972_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_82 a ex:Authorisation ;
+    ex:hasProduct res:product_02A717_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_83 a ex:Authorisation ;
+    ex:hasProduct res:product_034092_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_84 a ex:Authorisation ;
+    ex:hasProduct res:product_034092_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_85 a ex:Authorisation ;
+    ex:hasProduct res:product_034092_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_86 a ex:Authorisation ;
+    ex:hasProduct res:product_034092_62 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_87 a ex:Authorisation ;
+    ex:hasProduct res:product_034092_63 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_88 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_00 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_89 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_9 a ex:Authorisation ;
+    ex:hasProduct res:product_006899_60 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_90 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_61 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_91 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_62 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_92 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_63 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_93 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_66 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_94 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_69 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_95 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_72 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_96 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_73 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_97 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_74 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_98 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_75 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_DE_99 a ex:Authorisation ;
+    ex:hasProduct res:product_034560_76 ;
+    ex:inCountry res:DE ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_DE ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_NO_1 a ex:Authorisation ;
+    ex:hasProduct res:product_2015_17 ;
+    ex:inCountry res:NO ;
+    ex:onCrop res:crop_potato__potet ;
+    ex:regulatedBy res:authority_NO ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_NO_2 a ex:Authorisation ;
+    ex:hasProduct res:product_2009_75_25 ;
+    ex:inCountry res:NO ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_NO ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_NO_3 a ex:Authorisation ;
+    ex:hasProduct res:product_2017_13_25 ;
+    ex:inCountry res:NO ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_NO ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:authorisation_NO_4 a ex:Authorisation ;
+    ex:hasProduct res:product_2025_41 ;
+    ex:inCountry res:NO ;
+    ex:onCrop res:crop_potato ;
+    ex:regulatedBy res:authority_NO ;
+    ex:targetsPathogen eppo:PHYTIN .
+
+res:late_blight a ex:Disease ;
+    rdfs:label "late blight" ;
+    ex:causedBy eppo:PHYTIN .
+
+res:crop_potato__potet a ex:Crop ;
+    rdfs:label "potato (potet)" .
+
+res:product_006895_00 a ex:Product ;
+    rdfs:label "Cuprozin progress" ;
+    ex:containsSubstance res:substance_Kupferhydroxid ;
+    ex:registrationId "006895-00" .
+
+res:product_006896_00 a ex:Product ;
+    rdfs:label "Funguran progress" ;
+    ex:containsSubstance res:substance_Kupferhydroxid ;
+    ex:registrationId "006896-00" .
+
+res:product_006897_00 a ex:Product ;
+    rdfs:label "Terminus" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "006897-00" .
+
+res:product_006899_00 a ex:Product ;
+    rdfs:label "BANJO" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "006899-00" .
+
+res:product_006899_60 a ex:Product ;
+    rdfs:label "Carneol" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "006899-60" .
+
+res:product_007032_00 a ex:Product ;
+    rdfs:label "Nando 500 SC" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "007032-00" .
+
+res:product_007646_00 a ex:Product ;
+    rdfs:label "CARIAL FLEX" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Mandipropamid ;
+    ex:registrationId "007646-00" .
+
+res:product_007957_00 a ex:Product ;
+    rdfs:label "TERMINUS EXTRA" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Fluazinam ;
+    ex:registrationId "007957-00" .
+
+res:product_007957_60 a ex:Product ;
+    rdfs:label "Plexus" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Fluazinam ;
+    ex:registrationId "007957-60" .
+
+res:product_007957_61 a ex:Product ;
+    rdfs:label "GRECALE" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Fluazinam ;
+    ex:registrationId "007957-61" .
+
+res:product_008182_00 a ex:Product ;
+    rdfs:label "REVUS GARTEN" ;
+    ex:containsSubstance res:substance_Mandipropamid ;
+    ex:registrationId "008182-00" .
+
+res:product_008182_60 a ex:Product ;
+    rdfs:label "COMPO Pilz-frei Revus" ;
+    ex:containsSubstance res:substance_Mandipropamid ;
+    ex:registrationId "008182-60" .
+
+res:product_008182_61 a ex:Product ;
+    rdfs:label "Dr. Stähler Spezial Pilz-Frei Revus" ;
+    ex:containsSubstance res:substance_Mandipropamid ;
+    ex:registrationId "008182-61" .
+
+res:product_008246_00 a ex:Product ;
+    rdfs:label "Vendetta" ;
+    ex:containsSubstance res:substance_Azoxystrobin,
+        res:substance_Fluazinam ;
+    ex:registrationId "008246-00" .
+
+res:product_008260_00 a ex:Product ;
+    rdfs:label "Cymbal Flow" ;
+    ex:containsSubstance res:substance_Cymoxanil ;
+    ex:registrationId "008260-00" .
+
+res:product_008541_00 a ex:Product ;
+    rdfs:label "Rival Duo" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Propamocarb ;
+    ex:registrationId "008541-00" .
+
+res:product_008541_60 a ex:Product ;
+    rdfs:label "OMIX DUO" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Propamocarb ;
+    ex:registrationId "008541-60" .
+
+res:product_008541_61 a ex:Product ;
+    rdfs:label "AMBORA DUO" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Propamocarb ;
+    ex:registrationId "008541-61" .
+
+res:product_008695_00 a ex:Product ;
+    rdfs:label "COPFORCE EXTRA" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Kupferhydroxid ;
+    ex:registrationId "008695-00" .
+
+res:product_008883_00 a ex:Product ;
+    rdfs:label "PREV-GOLD" ;
+    ex:containsSubstance res:substance_Orangenöl ;
+    ex:registrationId "008883-00" .
+
+res:product_008883_60 a ex:Product ;
+    rdfs:label "SINALA" ;
+    ex:containsSubstance res:substance_Orangenöl ;
+    ex:registrationId "008883-60" .
+
+res:product_008883_61 a ex:Product ;
+    rdfs:label "COMPO- Obst & Gemüse Insekten- und Pilz-frei" ;
+    ex:containsSubstance res:substance_Orangenöl ;
+    ex:registrationId "008883-61" .
+
+res:product_008883_62 a ex:Product ;
+    rdfs:label "COMPO OnTrio Obst & Gemüse Insekten- und Pilz-frei" ;
+    ex:containsSubstance res:substance_Orangenöl ;
+    ex:registrationId "008883-62" .
+
+res:product_008886_00 a ex:Product ;
+    rdfs:label "Flowbrix" ;
+    ex:containsSubstance res:substance_Kupferoxychlorid ;
+    ex:registrationId "008886-00" .
+
+res:product_008946_00 a ex:Product ;
+    rdfs:label "Zorvec Enicade" ;
+    ex:containsSubstance res:substance_Oxathiapiprolin ;
+    ex:registrationId "008946-00" .
+
+res:product_008966_00 a ex:Product ;
+    rdfs:label "Enervin SC" ;
+    ex:containsSubstance res:substance_Ametoctradin ;
+    ex:registrationId "008966-00" .
+
+res:product_008966_60 a ex:Product ;
+    rdfs:label "Prevint SC" ;
+    ex:containsSubstance res:substance_Ametoctradin ;
+    ex:registrationId "008966-60" .
+
+res:product_008967_00 a ex:Product ;
+    rdfs:label "Azbany" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "008967-00" .
+
+res:product_008967_60 a ex:Product ;
+    rdfs:label "Tazer" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "008967-60" .
+
+res:product_008997_00 a ex:Product ;
+    rdfs:label "VOYAGER" ;
+    ex:containsSubstance res:substance_Fluazinam,
+        res:substance_Valifenalate ;
+    ex:registrationId "008997-00" .
+
+res:product_00A024_00 a ex:Product ;
+    rdfs:label "Fluazinova" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "00A024-00" .
+
+res:product_00A065_00 a ex:Product ;
+    rdfs:label "AZOFIN" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "00A065-00" .
+
+res:product_00A065_60 a ex:Product ;
+    rdfs:label "ETISSO Universal Gemüse Pilz-frei SC" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "00A065-60" .
+
+res:product_00A077_00 a ex:Product ;
+    rdfs:label "GADAROCK" ;
+    ex:containsSubstance res:substance_Fluazinam,
+        res:substance_Kaliumphosphonat__Kaliumphosphit ;
+    ex:registrationId "00A077-00" .
+
+res:product_00A085_00 a ex:Product ;
+    rdfs:label "FUNGURAN-OH 50 WP" ;
+    ex:containsSubstance res:substance_Kupferhydroxid ;
+    ex:registrationId "00A085-00" .
+
+res:product_00A112_00 a ex:Product ;
+    rdfs:label "CURZATE 60WG" ;
+    ex:containsSubstance res:substance_Cymoxanil ;
+    ex:registrationId "00A112-00" .
+
+res:product_00A112_60 a ex:Product ;
+    rdfs:label "Cymox WG" ;
+    ex:containsSubstance res:substance_Cymoxanil ;
+    ex:registrationId "00A112-60" .
+
+res:product_00A121_00 a ex:Product ;
+    rdfs:label "COBOX" ;
+    ex:containsSubstance res:substance_Kupferoxychlorid ;
+    ex:registrationId "00A121-00" .
+
+res:product_00A461_00 a ex:Product ;
+    rdfs:label "TAEGRO" ;
+    ex:containsSubstance res:substance_Bacillus_amyloliquefaciens_Stamm_FZB24 ;
+    ex:registrationId "00A461-00" .
+
+res:product_00A524_00 a ex:Product ;
+    rdfs:label "TRIERE" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "00A524-00" .
+
+res:product_00A565_00 a ex:Product ;
+    rdfs:label "FytoSol" ;
+    ex:containsSubstance res:substance_COS_OGA ;
+    ex:registrationId "00A565-00" .
+
+res:product_00A762_00 a ex:Product ;
+    rdfs:label "Zorvec Entecta" ;
+    ex:containsSubstance res:substance_Amisulbrom,
+        res:substance_Oxathiapiprolin ;
+    ex:registrationId "00A762-00" .
+
+res:product_00A808_00 a ex:Product ;
+    rdfs:label "Sporax" ;
+    ex:containsSubstance res:substance_Propamocarb ;
+    ex:registrationId "00A808-00" .
+
+res:product_00A833_00 a ex:Product ;
+    rdfs:label "Tempio" ;
+    ex:containsSubstance res:substance_Benalaxyl_M,
+        res:substance_Zoxamide ;
+    ex:registrationId "00A833-00" .
+
+res:product_00A840_00 a ex:Product ;
+    rdfs:label "Pergovia" ;
+    ex:containsSubstance res:substance_Amisulbrom,
+        res:substance_Mandipropamid ;
+    ex:registrationId "00A840-00" .
+
+res:product_00A953_00 a ex:Product ;
+    rdfs:label "Proxanil" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Propamocarb ;
+    ex:registrationId "00A953-00" .
+
+res:product_00A979_00 a ex:Product ;
+    rdfs:label "Kelsos" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "00A979-00" .
+
+res:product_00B011_00 a ex:Product ;
+    rdfs:label "Simpro" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Propamocarb ;
+    ex:registrationId "00B011-00" .
+
+res:product_00B026_00 a ex:Product ;
+    rdfs:label "CONTROLLA 450 WG" ;
+    ex:containsSubstance res:substance_Cymoxanil ;
+    ex:registrationId "00B026-00" .
+
+res:product_00B047_00 a ex:Product ;
+    rdfs:label "Clayton Linaxo" ;
+    ex:containsSubstance res:substance_Cymoxanil ;
+    ex:registrationId "00B047-00" .
+
+res:product_00B047_60 a ex:Product ;
+    rdfs:label "Mattium" ;
+    ex:containsSubstance res:substance_Cymoxanil ;
+    ex:registrationId "00B047-60" .
+
+res:product_00B062_00 a ex:Product ;
+    rdfs:label "Cymofil" ;
+    ex:containsSubstance res:substance_Cymoxanil ;
+    ex:registrationId "00B062-00" .
+
+res:product_00B116_00 a ex:Product ;
+    rdfs:label "Fulial" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "00B116-00" .
+
+res:product_00B178_00 a ex:Product ;
+    rdfs:label "Revus Pro" ;
+    ex:containsSubstance res:substance_Mandipropamid,
+        res:substance_Propamocarb ;
+    ex:registrationId "00B178-00" .
+
+res:product_00B188_00 a ex:Product ;
+    rdfs:label "Nuxine" ;
+    ex:containsSubstance res:substance_Cerevisane ;
+    ex:registrationId "00B188-00" .
+
+res:product_00B266_00 a ex:Product ;
+    rdfs:label "Divexo" ;
+    ex:containsSubstance res:substance_Ametoctradin,
+        res:substance_Propamocarb ;
+    ex:registrationId "00B266-00" .
+
+res:product_00B276_00 a ex:Product ;
+    rdfs:label "Arouet® K-Plus" ;
+    ex:containsSubstance res:substance_Kaliumphosphonat__Kaliumphosphit,
+        res:substance_Zoxamide ;
+    ex:registrationId "00B276-00" .
+
+res:product_00B276_60 a ex:Product ;
+    rdfs:label "Presidium K-Plus" ;
+    ex:containsSubstance res:substance_Kaliumphosphonat__Kaliumphosphit,
+        res:substance_Zoxamide ;
+    ex:registrationId "00B276-60" .
+
+res:product_00B276_61 a ex:Product ;
+    rdfs:label "Electis K-Plus" ;
+    ex:containsSubstance res:substance_Kaliumphosphonat__Kaliumphosphit,
+        res:substance_Zoxamide ;
+    ex:registrationId "00B276-61" .
+
+res:product_00B298_00 a ex:Product ;
+    rdfs:label "Observer Pro" ;
+    ex:containsSubstance res:substance_Propamocarb,
+        res:substance_Zoxamide ;
+    ex:registrationId "00B298-00" .
+
+res:product_00B366_00 a ex:Product ;
+    rdfs:label "PROSIM" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Propamocarb ;
+    ex:registrationId "00B366-00" .
+
+res:product_00B453_00 a ex:Product ;
+    rdfs:label "FORESIGHT" ;
+    ex:containsSubstance res:substance_Propamocarb ;
+    ex:registrationId "00B453-00" .
+
+res:product_025876_00 a ex:Product ;
+    rdfs:label "Infinito" ;
+    ex:containsSubstance res:substance_Fluopicolide,
+        res:substance_Propamocarb ;
+    ex:registrationId "025876-00" .
+
+res:product_025876_60 a ex:Product ;
+    rdfs:label "Bayer Garten Gemüse-Pilzfrei Infinito" ;
+    ex:containsSubstance res:substance_Fluopicolide,
+        res:substance_Propamocarb ;
+    ex:registrationId "025876-60" .
+
+res:product_025876_61 a ex:Product ;
+    rdfs:label "Phyto Gemüse-Pilzfrei" ;
+    ex:containsSubstance res:substance_Fluopicolide,
+        res:substance_Propamocarb ;
+    ex:registrationId "025876-61" .
+
+res:product_026221_00 a ex:Product ;
+    rdfs:label "REVUS" ;
+    ex:containsSubstance res:substance_Mandipropamid ;
+    ex:registrationId "026221-00" .
+
+res:product_026282_00 a ex:Product ;
+    rdfs:label "Leimay" ;
+    ex:containsSubstance res:substance_Amisulbrom ;
+    ex:registrationId "026282-00" .
+
+res:product_026282_60 a ex:Product ;
+    rdfs:label "Gachinko" ;
+    ex:containsSubstance res:substance_Amisulbrom ;
+    ex:registrationId "026282-60" .
+
+res:product_026282_61 a ex:Product ;
+    rdfs:label "Genkotsu" ;
+    ex:containsSubstance res:substance_Amisulbrom ;
+    ex:registrationId "026282-61" .
+
+res:product_026282_62 a ex:Product ;
+    rdfs:label "Shinkon" ;
+    ex:containsSubstance res:substance_Amisulbrom ;
+    ex:registrationId "026282-62" .
+
+res:product_026282_63 a ex:Product ;
+    rdfs:label "Sevadas" ;
+    ex:containsSubstance res:substance_Amisulbrom ;
+    ex:registrationId "026282-63" .
+
+res:product_027522_00 a ex:Product ;
+    rdfs:label "REVUS TOP" ;
+    ex:containsSubstance res:substance_Difenoconazol,
+        res:substance_Mandipropamid ;
+    ex:registrationId "027522-00" .
+
+res:product_027692_00 a ex:Product ;
+    rdfs:label "Reboot" ;
+    ex:containsSubstance res:substance_Cymoxanil,
+        res:substance_Zoxamide ;
+    ex:registrationId "027692-00" .
+
+res:product_028956_00 a ex:Product ;
+    rdfs:label "BADGE WG" ;
+    ex:containsSubstance res:substance_Kupferhydroxid,
+        res:substance_Kupferoxychlorid ;
+    ex:registrationId "028956-00" .
+
+res:product_028956_60 a ex:Product ;
+    rdfs:label "COPRANTOL DUO" ;
+    ex:containsSubstance res:substance_Kupferhydroxid,
+        res:substance_Kupferoxychlorid ;
+    ex:registrationId "028956-60" .
+
+res:product_028972_00 a ex:Product ;
+    rdfs:label "Grifon SC" ;
+    ex:containsSubstance res:substance_Kupferhydroxid,
+        res:substance_Kupferoxychlorid ;
+    ex:registrationId "028972-00" .
+
+res:product_028972_60 a ex:Product ;
+    rdfs:label "Airone SC" ;
+    ex:containsSubstance res:substance_Kupferhydroxid,
+        res:substance_Kupferoxychlorid ;
+    ex:registrationId "028972-60" .
+
+res:product_02A717_00 a ex:Product ;
+    rdfs:label "Polygandron WP" ;
+    ex:containsSubstance res:substance_Pythium_oligandrum_M1 ;
+    ex:registrationId "02A717-00" .
+
+res:product_034092_00 a ex:Product ;
+    rdfs:label "Shirlan" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "034092-00" .
+
+res:product_034092_60 a ex:Product ;
+    rdfs:label "Ohayo" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "034092-60" .
+
+res:product_034092_61 a ex:Product ;
+    rdfs:label "Frowncide" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "034092-61" .
+
+res:product_034092_62 a ex:Product ;
+    rdfs:label "Winby" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "034092-62" .
+
+res:product_034092_63 a ex:Product ;
+    rdfs:label "DALIMO" ;
+    ex:containsSubstance res:substance_Fluazinam ;
+    ex:registrationId "034092-63" .
+
+res:product_034560_00 a ex:Product ;
+    rdfs:label "ORTIVA" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-00" .
+
+res:product_034560_60 a ex:Product ;
+    rdfs:label "Rosen-Pilzfrei Saprol" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-60" .
+
+res:product_034560_61 a ex:Product ;
+    rdfs:label "Fungisan Rosen-Pilzfrei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-61" .
+
+res:product_034560_62 a ex:Product ;
+    rdfs:label "Rosen Pilz-Frei Boccacio" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-62" .
+
+res:product_034560_63 a ex:Product ;
+    rdfs:label "Fungisan Gemüse-Pilzfrei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-63" .
+
+res:product_034560_66 a ex:Product ;
+    rdfs:label "Gemüse-Pilzfrei Saprol" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-66" .
+
+res:product_034560_69 a ex:Product ;
+    rdfs:label "Fungisan Rosen- und Gemüse-Pilzfrei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-69" .
+
+res:product_034560_72 a ex:Product ;
+    rdfs:label "COMPO Ortiva Spezial Pilz-frei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-72" .
+
+res:product_034560_73 a ex:Product ;
+    rdfs:label "Boccarcio Rosen Pilz-Frei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-73" .
+
+res:product_034560_74 a ex:Product ;
+    rdfs:label "Phytavis Quadris" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-74" .
+
+res:product_034560_75 a ex:Product ;
+    rdfs:label "Rosen- und Zierpflanzen Pilzfrei Saprol" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-75" .
+
+res:product_034560_76 a ex:Product ;
+    rdfs:label "ZAKEO 250 SC" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-76" .
+
+res:product_034560_77 a ex:Product ;
+    rdfs:label "Fungisan Rosen- und Buxus-Pilzfrei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-77" .
+
+res:product_034560_78 a ex:Product ;
+    rdfs:label "Zaftra AZT 250 SC" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-78" .
+
+res:product_034560_79 a ex:Product ;
+    rdfs:label "VERTAZA" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-79" .
+
+res:product_034560_80 a ex:Product ;
+    rdfs:label "Universal-Pilzfrei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-80" .
+
+res:product_034560_81 a ex:Product ;
+    rdfs:label "Serraboss" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-81" .
+
+res:product_034560_83 a ex:Product ;
+    rdfs:label "ROSEN-PILZFREI" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-83" .
+
+res:product_034560_84 a ex:Product ;
+    rdfs:label "ROSENKOMBI" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-84" .
+
+res:product_034560_85 a ex:Product ;
+    rdfs:label "Curamat AZ Rosen-Pilzfrei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-85" .
+
+res:product_034560_86 a ex:Product ;
+    rdfs:label "Curamat AZ Universal-Pilzfrei" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-86" .
+
+res:product_034560_87 a ex:Product ;
+    rdfs:label "COMPO Universal Pilz-frei Duaxo" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-87" .
+
+res:product_034560_88 a ex:Product ;
+    rdfs:label "COMPO Universal Pilz-frei Duaxo N" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-88" .
+
+res:product_034560_89 a ex:Product ;
+    rdfs:label "Universal Pilzfrei SAPROL N" ;
+    ex:containsSubstance res:substance_Azoxystrobin ;
+    ex:registrationId "034560-89" .
+
+res:product_036860_00 a ex:Product ;
+    rdfs:label "Ranman Top" ;
+    ex:containsSubstance res:substance_Cyazofamid ;
+    ex:registrationId "036860-00" .
+
+res:product_036860_60 a ex:Product ;
+    rdfs:label "Sugoi" ;
+    ex:containsSubstance res:substance_Cyazofamid ;
+    ex:registrationId "036860-60" .
+
+res:product_036860_61 a ex:Product ;
+    rdfs:label "Azuleo" ;
+    ex:containsSubstance res:substance_Cyazofamid ;
+    ex:registrationId "036860-61" .
+
+res:product_036860_62 a ex:Product ;
+    rdfs:label "Karitsu" ;
+    ex:containsSubstance res:substance_Cyazofamid ;
+    ex:registrationId "036860-62" .
+
+res:product_036860_63 a ex:Product ;
+    rdfs:label "Livarti" ;
+    ex:containsSubstance res:substance_Cyazofamid ;
+    ex:registrationId "036860-63" .
+
+res:product_2009_75_25 a ex:Product ;
+    rdfs:label "Revus" ;
+    ex:containsSubstance res:substance_mandipropamid ;
+    ex:registrationId "2009.75.25" .
+
+res:product_2015_17 a ex:Product ;
+    rdfs:label "Ranman TOP" ;
+    ex:containsSubstance res:substance_cyazofamid ;
+    ex:registrationId "2015.17" .
+
+res:product_2017_13_25 a ex:Product ;
+    rdfs:label "Revus Top" ;
+    ex:containsSubstance res:substance_difenoconazole,
+        res:substance_mandipropamid ;
+    ex:registrationId "2017.13.25" .
+
+res:product_2025_41 a ex:Product ;
+    rdfs:label "Revus Pro" ;
+    ex:containsSubstance res:substance_mandipropamid,
+        res:substance_oxathiapiprolin ;
+    ex:registrationId "2025.41" .
+
+res:substance_Bacillus_amyloliquefaciens_Stamm_FZB24 a ex:ActiveSubstance ;
+    rdfs:label "Bacillus amyloliquefaciens Stamm FZB24" .
+
+res:substance_Benalaxyl_M a ex:ActiveSubstance ;
+    rdfs:label "Benalaxyl-M" .
+
+res:substance_COS_OGA a ex:ActiveSubstance ;
+    rdfs:label "COS-OGA" .
+
+res:substance_Cerevisane a ex:ActiveSubstance ;
+    rdfs:label "Cerevisane" .
+
+res:substance_Difenoconazol a ex:ActiveSubstance ;
+    rdfs:label "Difenoconazol" .
+
+res:substance_Pythium_oligandrum_M1 a ex:ActiveSubstance ;
+    rdfs:label "Pythium oligandrum M1" .
+
+res:substance_Valifenalate a ex:ActiveSubstance ;
+    rdfs:label "Valifenalate" .
+
+res:substance_cyazofamid a ex:ActiveSubstance ;
+    rdfs:label "cyazofamid" .
+
+res:substance_difenoconazole a ex:ActiveSubstance ;
+    rdfs:label "difenoconazole" .
+
+res:substance_oxathiapiprolin a ex:ActiveSubstance ;
+    rdfs:label "oxathiapiprolin" .
+
+res:substance_Oxathiapiprolin a ex:ActiveSubstance ;
+    rdfs:label "Oxathiapiprolin" .
+
+res:substance_Ametoctradin a ex:ActiveSubstance ;
+    rdfs:label "Ametoctradin" .
+
+res:substance_Fluopicolide a ex:ActiveSubstance ;
+    rdfs:label "Fluopicolide" .
+
+res:substance_mandipropamid a ex:ActiveSubstance ;
+    rdfs:label "mandipropamid" .
+
+res:authority_NO a ex:Authority ;
+    rdfs:label "Mattilsynet (Norwegian Food Safety Authority)" ;
+    ex:inCountry res:NO .
+
+res:substance_Kaliumphosphonat__Kaliumphosphit a ex:ActiveSubstance ;
+    rdfs:label "Kaliumphosphonat (Kaliumphosphit)" .
+
+res:substance_Orangenöl a ex:ActiveSubstance ;
+    rdfs:label "Orangenöl" .
+
+res:NO a ex:Country ;
+    rdfs:label "NO" .
+
+res:substance_Cyazofamid a ex:ActiveSubstance ;
+    rdfs:label "Cyazofamid" .
+
+res:substance_Kupferoxychlorid a ex:ActiveSubstance ;
+    rdfs:label "Kupferoxychlorid" .
+
+res:substance_Zoxamide a ex:ActiveSubstance ;
+    rdfs:label "Zoxamide" .
+
+res:substance_Amisulbrom a ex:ActiveSubstance ;
+    rdfs:label "Amisulbrom" .
+
+res:substance_Kupferhydroxid a ex:ActiveSubstance ;
+    rdfs:label "Kupferhydroxid" .
+
+res:substance_Mandipropamid a ex:ActiveSubstance ;
+    rdfs:label "Mandipropamid" .
+
+res:substance_Propamocarb a ex:ActiveSubstance ;
+    rdfs:label "Propamocarb" .
+
+res:substance_Fluazinam a ex:ActiveSubstance ;
+    rdfs:label "Fluazinam" .
+
+res:substance_Cymoxanil a ex:ActiveSubstance ;
+    rdfs:label "Cymoxanil" .
+
+res:substance_Azoxystrobin a ex:ActiveSubstance ;
+    rdfs:label "Azoxystrobin" .
+
+res:authority_DE a ex:Authority ;
+    rdfs:label "BVL (Federal Office of Consumer Protection and Food Safety)" ;
+    ex:inCountry res:DE .
+
+res:DE a ex:Country ;
+    rdfs:label "DE" .
+
+res:crop_potato a ex:Crop ;
+    rdfs:label "potato" ;
+    ex:agrovocConcept agrovoc:c_6377 .
+
+eppo:PHYTIN a ex:Pathogen ;
+    rdfs:label "Phytophthora infestans" ;
+    ex:eppoCode "PHYTIN" .
+
