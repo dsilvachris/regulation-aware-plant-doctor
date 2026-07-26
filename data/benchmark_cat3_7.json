@@ -1,0 +1,151 @@
+{
+  "_meta": {
+    "categories": "3 multi-hop, 4 constraint, 5 negative/absence, 6 cross-border divergence, 7 hierarchy-traversal",
+    "ground_truth_source": "Stage 4 data: bvl_{disease}_DE.json (BVL PSM API) + no_products.json (Mattilsynet labels)",
+    "disease_assignment": "late blight = rich data (112 DE / 4 NO), carries heavy relational Qs; apple scab (9/1) moderate; powdery mildew (1/1) anchors negative/absence + cross-border showcase",
+    "status": "Cross-border + absence answers VERIFIED against Stage-4 data (verify_benchmark_gt.py). Category 7 (hierarchy) still needs BVL kultur-code inspection.",
+    "predictions": "3=KG+, 4=KG+, 5=KG+ (sharpest), 6=KG+ (novel/headline), 7=KG+ (strong)",
+    "confirmed_divergence": "DE late blight: 22 active substances / 112 products vs NO: 4 substances / 4 products. DE-only substances incl. fluazinam, kupferhydroxid, cymoxanil. difenoconazole appears in NO (Revus Top) but not in DE late-blight data."
+  },
+  "category_3_multi_hop": [
+    {
+      "id": "m01",
+      "q": "Which active substances are used in Norway-authorised products against potato late blight?",
+      "answer": "cyazofamid, mandipropamid, difenoconazole, oxathiapiprolin (from Ranman TOP, Revus, Revus Top, Revus Pro)",
+      "prediction": "KG+",
+      "hops": "disease -> NO products -> active substances"
+    },
+    {
+      "id": "m02",
+      "q": "Which Germany-authorised active substance appears in a Norway-authorised late blight product too?",
+      "answer": "cyazofamid, mandipropamid, and oxathiapiprolin all appear in German late-blight products too (confirmed). difenoconazole does NOT appear in the German late-blight data.",
+      "prediction": "KG+",
+      "hops": "NO substances ∩ DE substances",
+      "verified": true
+    },
+    {
+      "id": "m03",
+      "q": "For late blight, which active substances are authorised in Germany but not in Norway?",
+      "answer": "Germany has 22 active substances for late blight vs Norway's 4. German-only examples include fluazinam, copper hydroxide (kupferhydroxid), cymoxanil, azoxystrobin, ametoctradin, amisulbrom, zoxamide, and others.",
+      "prediction": "KG+",
+      "hops": "DE substances \\ NO substances",
+      "verified": true
+    },
+    {
+      "id": "m04",
+      "q": "Which crops are covered by Norway's authorised late blight products?",
+      "answer": "potato only (all 4 NO late-blight products are for potato)",
+      "prediction": "KG+",
+      "hops": "disease -> NO products -> crops"
+    }
+  ],
+  "category_4_constraint": [
+    {
+      "id": "c01",
+      "q": "Which Norway-authorised late blight products contain mandipropamid?",
+      "answer": "Revus, Revus Top, Revus Pro (Ranman TOP does not — it is cyazofamid)",
+      "prediction": "KG+"
+    },
+    {
+      "id": "c02",
+      "q": "Which Norway-authorised late blight product contains a single active substance (not a mixture)?",
+      "answer": "Ranman TOP (cyazofamid) and Revus (mandipropamid); Revus Top and Revus Pro are mixtures",
+      "prediction": "KG+"
+    },
+    {
+      "id": "c03",
+      "q": "Which Norway late blight products combine mandipropamid with a second active substance?",
+      "answer": "Revus Top (+ difenoconazole) and Revus Pro (+ oxathiapiprolin)",
+      "prediction": "KG+"
+    },
+    {
+      "id": "c04",
+      "q": "Is there a copper-based product authorised for late blight in Norway?",
+      "answer": "No copper-based product is among Norway's 4 late-blight products; Germany authorises copper (kupferhydroxid — Cuprozin, Funguran). Confirmed divergence.",
+      "prediction": "KG+",
+      "verified": true
+    }
+  ],
+  "category_5_negative_absence": [
+    {
+      "id": "n01",
+      "q": "Is there more than one authorised product for cucurbit powdery mildew in Germany?",
+      "answer": "No — exactly one (PODOXA scope). A definitive negative.",
+      "prediction": "KG+"
+    },
+    {
+      "id": "n02",
+      "q": "Is the German late blight product BANJO (fluazinam) authorised in Norway?",
+      "answer": "No — fluazinam (BANJO) is authorised for late blight in Germany but is NOT among Norway's 4 authorised late-blight products. Confirmed absence.",
+      "prediction": "KG+",
+      "verified": true
+    },
+    {
+      "id": "n03",
+      "q": "Are copper-hydroxide products (e.g. Cuprozin) authorised for late blight in Norway?",
+      "answer": "No — copper hydroxide (Cuprozin/Funguran) is authorised in Germany but not among Norway's late-blight products. Confirmed absence.",
+      "prediction": "KG+",
+      "verified": true
+    },
+    {
+      "id": "n04",
+      "q": "Is there an authorised apple-scab product in Norway other than Delan Pro?",
+      "answer": "VERIFY: none other collected — Delan Pro is the only one found. A near-absence worth confirming.",
+      "prediction": "KG+"
+    }
+  ],
+  "category_6_cross_border_divergence": [
+    {
+      "id": "d01",
+      "q": "How does the number of authorised late-blight products differ between Germany and Norway?",
+      "answer": "Germany 112 vs Norway 4 — a ~28:1 difference.",
+      "prediction": "KG+"
+    },
+    {
+      "id": "d02",
+      "q": "For apple scab, how many products are authorised in each country?",
+      "answer": "Germany 9 vs Norway 1 (Delan Pro).",
+      "prediction": "KG+"
+    },
+    {
+      "id": "d03",
+      "q": "Is the active substance cyazofamid (Ranman TOP) authorised against late blight in both Germany and Norway?",
+      "answer": "cyazofamid (Ranman TOP) is authorised against late blight in BOTH Germany and Norway. Confirmed present in both.",
+      "prediction": "KG+",
+      "verified": true
+    },
+    {
+      "id": "d04",
+      "q": "A grower moves a potato operation from Germany to Norway. What changes about the range of authorised late-blight products available?",
+      "answer": "It narrows sharply — from 112 authorised German products to 4 in Norway; Norway actively restricts late-blight products.",
+      "prediction": "KG+"
+    },
+    {
+      "id": "d05",
+      "q": "For cucurbit powdery mildew, how do the two countries compare?",
+      "answer": "Both authorise very few — Germany 1, Norway 1 (Talius). A rare case of parity, unlike late blight.",
+      "prediction": "KG+"
+    },
+    {
+      "id": "d06",
+      "q": "For late blight, name an active substance authorised in Germany but not in Norway.",
+      "answer": "fluazinam, copper hydroxide (kupferhydroxid), or cymoxanil — each authorised against late blight in Germany but absent from Norway's 4 products. (Confirmed from data.)",
+      "prediction": "KG+"
+    }
+  ],
+  "category_7_hierarchy_traversal": [
+    {
+      "id": "h01",
+      "q": "In the German data, is a product authorised for a specific crop when its authorisation is recorded at a parent crop-group level?",
+      "answer": "VERIFY from BVL awg kultur codes — identify a DE late-blight use recorded at a parent group (e.g. a crop group) that applies to a child crop.",
+      "prediction": "KG+",
+      "note": "Requires inspecting the kultur values in bvl_late_blight_DE.json for hierarchical (parent/child) crop coding."
+    },
+    {
+      "id": "h02",
+      "q": "Which specific crops fall under a parent crop group used in a German late-blight authorisation?",
+      "answer": "VERIFY from BVL crop taxonomy / kultur codes.",
+      "prediction": "KG+"
+    }
+  ]
+}
