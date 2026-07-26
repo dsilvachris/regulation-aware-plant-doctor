@@ -1,3 +1,51 @@
+# Feasibility Report — One-Page Summary
+
+**Question.** Is a controlled comparison of *knowledge-graph* vs *document-based* retrieval for
+cross-jurisdictional plant-protection regulation a viable, worthwhile basis for a thesis (and possibly a
+publication)?
+
+**Verdict: yes.** A complete 7-stage study was executed end to end on real regulatory data from two
+jurisdictions (Germany, Norway), producing a blind-graded, multi-run result with a defensible, non-trivial
+finding. This is a *completed* investigation, not a proposal.
+
+**What was compared.** The same late-blight regulatory data, from official sources, expressed two ways —
+as a curated knowledge graph and as prose documents — queried through an *identical* pipeline (same LLM,
+same prompt; only the representation differs). Three runs, graded blind against ground truth on two axes.
+
+**Headline result.**
+
+| | Knowledge Graph | Document-RAG |
+|---|---|---|
+| Correctness (overall) | **41%** | 26% |
+| — multi-hop | **67%** | 25% |
+| — negative/absence | **33%** | 8% |
+| — region-specific (control) | 44% | 48% |
+| Faithfulness (overall) | 82% | **92%** |
+| Consistency across runs | **38–46%** | 16–38% |
+
+**What it means.** The knowledge graph roughly **doubles correctness** and is far **more consistent**,
+especially on relational and absence queries — exactly where document retrieval is weakest. But
+faithfulness *inverts*: document-RAG is more faithful, because when retrieval fails it **abstains** rather
+than fabricate (faithful but unhelpful), while the KG's precise facts occasionally tempt the model to
+overclaim. The contribution is not "the KG wins" but a characterisation of **when and why** structure
+helps — a more credible result than a clean sweep.
+
+**Why it's novel.** National plant-protection KGs already exist (E-PHY, C3PO, GMRDF) — each single-country.
+None models **cross-border regulatory divergence** (the same disease, different authorised products by
+country), nor compares the two representations on identical knowledge. This study does both.
+
+**Honest limits.** Absolute accuracy is low (small 3B model, strict grading) — a *relative* comparison, not
+a deployable system; one disease built into the graph; one blind grader; a German-dominated corpus partly
+confounds one category. All are bounded and addressable.
+
+**What a thesis adds.** Extend to all three diseases (data already collected); add a hybrid arm (KG
+precision + abstention discipline) to recover faithfulness; fix the corpus imbalance; multiple graders.
+
+**Reproducibility.** Frozen tagged baseline, scripted extraction, pre-registered benchmark, blind grading
+with published key — all under version control.
+
+---
+
 # Feasibility Report — Knowledge Graph vs Document-RAG for Cross-Jurisdictional Agricultural Regulatory Reasoning
 
 **Question this report answers:** is a controlled comparison of knowledge-graph vs document-based
