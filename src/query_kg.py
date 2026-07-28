@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 EX = Namespace("http://plant-regkg.org/ontology#")
 
-g = Graph(); g.parse(str(DATA / "kg_late_blight.ttl"), format="turtle")
+g = Graph(); g.parse(str(DATA / "kg_all.ttl"), format="turtle")
 print(f"Loaded {len(g)} triples\n")
 
 def q(title, sparql):

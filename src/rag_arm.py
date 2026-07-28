@@ -24,7 +24,7 @@ def _load():
     global _emb, _docs, _doc_emb
     if _emb is None:
         _emb = SentenceTransformer("all-MiniLM-L6-v2")
-        _docs = json.load(open(DATA / "rag_docs_late_blight.json", encoding="utf-8"))["documents"]
+        _docs = json.load(open(DATA / "rag_docs_all.json", encoding="utf-8"))["documents"]
         _doc_emb = _emb.encode([d["text"] for d in _docs], normalize_embeddings=True)
     return _emb, _docs, _doc_emb
 
