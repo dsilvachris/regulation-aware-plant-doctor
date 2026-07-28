@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "purpose": "Phase 1 benchmark expansion — categories 3-7 for apple scab + cucurbit powdery mildew, plus a NEW cross-disease category (8) the combined graph enables.",
+    "ground_truth_source": "kg_all.ttl / Stage-4 data. Apple scab DE 9 / NO 1; cucurbit mildew DE 1 / NO 1.",
+    "disease_tags": "each question carries a 'disease' field so the KG arm routes to the right disease filter.",
+    "note": "Powdery mildew leans on negative/absence + cross-border (only 1 product per country); apple scab supports light multi-hop/constraint.",
+    "status": "VERIFIED against kg_all.ttl. Key finding: cucurbit mildew shows count-parity (1:1) but SUBSTANCE divergence (DE azoxystrobin vs NO proquinazid)."
+  },
+  "apple_scab": {
+    "multi_hop": [
+      {
+        "id": "as_m01",
+        "disease": "apple_scab",
+        "q": "Which active substances are authorised against apple scab in Norway?",
+        "answer": "dithianon and potassium phosphonate (from Delan Pro).",
+        "prediction": "KG+"
+      },
+      {
+        "id": "as_m02",
+        "disease": "apple_scab",
+        "q": "Which active substances are authorised against apple scab in Germany?",
+        "answer": "captan, dithianon, sulfur, lime sulfur, trifloxystrobin, laminarin, and aureobasidium pullulans (7 substances across 9 products).",
+        "prediction": "KG+",
+        "verified": true
+      }
+    ],
+    "constraint": [
+      {
+        "id": "as_c01",
+        "disease": "apple_scab",
+        "q": "Which Norway-authorised apple-scab product contains dithianon?",
+        "answer": "Delan Pro (dithianon + potassium phosphonate).",
+        "prediction": "KG+"
+      },
+      {
+        "id": "as_c02",
+        "disease": "apple_scab",
+        "q": "Which German apple-scab products contain sulfur?",
+        "answer": "CURATIO, Microthiol WG, and Thiopron (the sulfur-based products among the 9).",
+        "prediction": "KG+",
+        "verified": true
+      }
+    ],
+    "negative": [
+      {
+        "id": "as_n01",
+        "disease": "apple_scab",
+        "q": "Is captan authorised against apple scab in Norway?",
+        "answer": "No — Norway's only apple-scab product (Delan Pro) contains dithianon + potassium phosphonate, not captan. Definitive absence.",
+        "prediction": "KG+"
+      }
+    ],
+    "cross_border": [
+      {
+        "id": "as_d01",
+        "disease": "apple_scab",
+        "q": "How does the number of authorised apple-scab products differ between Germany and Norway?",
+        "answer": "Germany 9 vs Norway 1 (Delan Pro). A 9:1 difference.",
+        "prediction": "KG+"
+      },
+      {
+        "id": "as_d02",
+        "disease": "apple_scab",
+        "q": "Is dithianon authorised against apple scab in both Germany and Norway?",
+        "answer": "Yes — dithianon is authorised against apple scab in both Germany and Norway (confirmed).",
+        "prediction": "KG+",
+        "verified": true
+      }
+    ]
+  },
+  "powdery_mildew": {
+    "negative": [
+      {
+        "id": "pm_n01",
+        "disease": "powdery_mildew",
+        "q": "Is there more than one authorised cucurbit powdery mildew product in Germany?",
+        "answer": "No — exactly one. A definitive negative.",
+        "prediction": "KG+"
+      },
+      {
+        "id": "pm_n02",
+        "disease": "powdery_mildew",
+        "q": "Is sulfur authorised against cucurbit powdery mildew in Norway?",
+        "answer": "No — Norway's only cucurbit mildew product (Talius) contains proquinazid, not sulfur. Definitive absence.",
+        "prediction": "KG+",
+        "verified": true
+      }
+    ],
+    "cross_border": [
+      {
+        "id": "pm_d01",
+        "disease": "powdery_mildew",
+        "q": "For cucurbit powdery mildew, how do Germany and Norway compare in number of authorised products?",
+        "answer": "Both authorise exactly one — Germany 1, Norway 1 (Talius). A rare case of parity.",
+        "prediction": "KG+"
+      },
+      {
+        "id": "pm_d02",
+        "disease": "powdery_mildew",
+        "q": "Is the active substance in Norway's cucurbit powdery mildew product also authorised in Germany for that disease?",
+        "answer": "No — Norway's product (Talius) contains proquinazid, but Germany's single cucurbit mildew product contains azoxystrobin. Different substances: a genuine cross-border divergence in authorised treatment despite each country having exactly one product.",
+        "prediction": "KG+",
+        "verified": true
+      },
+      {
+        "id": "pm_d03",
+        "disease": "powdery_mildew",
+        "verified": true,
+        "q": "Germany and Norway each authorise one cucurbit powdery mildew product — do they use the same active substance?",
+        "answer": "No — Germany uses azoxystrobin, Norway uses proquinazid. Count parity (1 vs 1) but complete divergence in chemistry.",
+        "prediction": "KG+"
+      }
+    ]
+  },
+  "cross_disease": {
+    "_note": "NEW category enabled ONLY by the combined graph — document-RAG cannot join a substance across diseases.",
+    "questions": [
+      {
+        "id": "xd_01",
+        "disease": null,
+        "q": "Which active substances are authorised against more than one of the three diseases (late blight, apple scab, cucurbit powdery mildew)?",
+        "answer": "azoxystrobin and potassium phosphonate — each authorised against 2 of the 3 diseases.",
+        "prediction": "KG+"
+      },
+      {
+        "id": "xd_02",
+        "disease": null,
+        "q": "Is azoxystrobin used against only a single disease among the three studied?",
+        "answer": "No — azoxystrobin is authorised against two of the three diseases. (Tests whether the system can reason across diseases, not just within one.)",
+        "prediction": "KG+"
+      }
+    ]
+  }
+}
