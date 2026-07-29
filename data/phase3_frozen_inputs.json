@@ -1,0 +1,33 @@
+{
+  "git_commit": "5b9ea3d",
+  "data": {
+    "kg_all.ttl": "26afd5615e17",
+    "rag_docs_all.json": "8ea96063144a",
+    "benchmark_cat1_2.json": "14a8c1b073f1",
+    "benchmark_cat3_7.json": "e7ac486c4c3b",
+    "benchmark_multidisease.json": "9790c338266e",
+    "comparison_runs.json": "6471676a60e0",
+    "grading_sheet_BLIND.json": "fa1f1fd7ff05",
+    "grading_key.json": "1b26b7d8816d"
+  },
+  "code": {
+    "kg_arm.py": "85568bd692f8",
+    "rag_arm.py": "a2469910adde",
+    "kg_verbalise.py": "51899a3182fe",
+    "eval_pipeline.py": "b9b4af001c08",
+    "phase2_step1_oracle.py": "f919dcd4d2e1",
+    "phase2_step2b_deterministic_router.py": "7c65b22a34c8",
+    "phase2_step4_cost_of_misrouting.py": "b0ec5ed5b3f5"
+  },
+  "checks": {
+    "benchmark loads": true,
+    "all categories present": true,
+    "KG loads with 3 diseases": true,
+    "RAG docs load": true,
+    "kg_answer_by_id() callable end-to-end": true,
+    "rag_answer() callable end-to-end": true,
+    "Phase-2 deterministic router reproduces 52%/95%": true,
+    "fusion_arm.py does not yet exist (Step 0 sanity)": true
+  },
+  "all_inputs_present": true
+}
