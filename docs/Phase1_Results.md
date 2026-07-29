@@ -17,9 +17,6 @@ Two honest observations follow from the real crop data:
   grouping exists implicitly in naming even though the explicit parent-child crop table does not cover the
   studied crops (see below).
 
-Wiring real crops improves the graph's accuracy and completeness. It does **not** change the KG-vs-RAG
-results, because no benchmark question turns on the specific crop — the comparison is unaffected, and this is
-stated rather than implied.
 
 ### Category 7 (hierarchy-traversal): pre-registered but not instantiable
 
@@ -38,3 +35,49 @@ required parent-child structure is absent from the data. This is reported as a *
 the available data could not support**, rather than omitted — the design predicted a KG advantage on crop
 hierarchy, and the honest finding is that the BVL crop coding for these crops is flat. It remains a
 well-defined test for future work on crops (e.g. cereals) whose BVL coding *is* hierarchical.
+
+## Addendum — KG-arm disease-name bug found and corrected (post-hoc, discovered via Phase 3)
+
+A bug was found in `kg_verbalise.py` during Phase 3's Step 1 conflict diagnostic (see
+`docs/Correction_KG_Disease_Name_Bug.md` for full detail): several verbaliser branches hardcoded the
+string "late blight" into the KG arm's facts text regardless of the actual disease queried, affecting all
+12 apple-scab/powdery-mildew extension questions. The underlying SPARQL retrieval was always
+disease-correct; only the phrasing handed to the LLM was wrong. Reading the graded transcripts confirmed
+17 of 24 graded KG-arm items on this subset were marked incorrect specifically because the LLM faithfully
+noticed the mismatch and abstained — a correct response to a broken input, scored as if it were a
+reasoning failure.
+
+The bug was fixed, the 12 affected questions' KG answers were regenerated and blind-graded (same
+convention as the original: independent random seed, System A/B blinded, grader unaware of arm identity
+until scoring), and merged into a new master grading file (`grading_sheet_BLIND_corrected.json` — the
+original file remains on record, unmodified).
+
+**Corrected headline numbers** (129 items total, same n as before):
+
+| metric | before | after | delta |
+|---|---|---|---|
+| KG correctness | 50.4% | **62.0%** | **+11.6 pts** |
+| KG faithfulness | 96.1% | 94.6% | −1.6 pts |
+| RAG correctness | 42.6% | 39.5% | −3.1 pts |
+| RAG faithfulness | 87.6% | 80.6% | −7.0 pts |
+| KG correctness, affected 12-question subset | 29.2% | **91.7%** | **+62.5 pts** |
+| RAG correctness, affected 12-question subset | 70.8% | 54.2% | −16.7 pts |
+
+**KG's advantage over RAG widens substantially** (from +7.8 points to +22.5 points headline correctness)
+once the bug is fixed — the qualitative Phase 1 conclusion (KG is the stronger arm) is not overturned, it
+is strengthened. On the 12-question subset specifically, KG's correctness nearly triples (29.2% → 91.7%),
+confirming the bug had been severely understating its real performance there.
+
+**A caveat, stated honestly:** RAG's own answers were never regenerated (the bug never touched RAG), yet
+RAG's correctness and faithfulness on the 12-question subset also shifted (70.8%→54.2% correctness,
+and −7.0 points faithfulness overall) purely from being blind-graded a second time in a fresh session.
+This is not a change in RAG's actual answers — it reflects ordinary grader judgment variance between
+sessions on the harder, more ambiguous disease-extension questions, the same kind of variance Phase 1's
+original inter-rater-agreement check (Cohen's κ) was designed to catch. It is noted here rather than
+smoothed over; it does not affect the KG-side correction, which is the change this addendum is about.
+
+All downstream Phase 2 numbers were recomputed against the corrected data — see
+`docs/Phase2_Results.md`'s addendum for what changed there (short version: the deterministic-router-vs-LLM
+comparison is qualitatively unchanged, and the cross-disease cost gradient across LLM prompt variants,
+Phase 2's single most load-bearing finding, is untouched by this correction since `xd_01`/`xd_02` were
+never affected by the bug).

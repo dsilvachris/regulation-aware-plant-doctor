@@ -1,137 +1,100 @@
-"""
-correction_merge_and_recompute.py — after grading data/grading_sheet_BLIND_correction.json, merge the
-12 corrected questions (24 items) into a NEW master grading sheet (the original 105 items are untouched)
-and recompute every number that depends on it: Phase 1's headline always-KG/always-RAG, and Phase 2's
-oracle/deterministic-router/LLM-router cost-of-misrouting tables.
+# Correction — KG-Arm Disease-Name Bug (found via Phase 3 Step 1)
 
-Produces grading_sheet_BLIND_corrected.json (105 original + 24 corrected = 129 items, same as before) —
-a new file, NOT an overwrite of the original grading_sheet_BLIND.json, so the pre-correction data remains
-on record for the audit trail.
+## What happened
 
-Run: python src/correction_merge_and_recompute.py
-"""
-import json, statistics
-from pathlib import Path
+`src/phase3_step1_diagnose_conflicts.py` (Phase 3, Step 1: checking whether real KG/RAG conflicts exist
+in the data) surfaced a negation-mismatch candidate on `n02` that, on inspection, was not a KG/RAG
+disagreement at all — it was a bug in `kg_verbalise.py`. Several branches of `verbalise()` and
+`verbalise2()` hardcoded the string **"late blight"** into the facts text handed to the LLM, regardless of
+which disease was actually being queried. The underlying SPARQL retrieval (`kg_arm.py`) was always
+disease-correctly filtered; only the sentence *phrasing* that text was wrong.
 
-DATA = Path(__file__).resolve().parent.parent / "data"
+**Scope, confirmed by direct testing (not inferred):** all 12 of the apple-scab/powdery-mildew extension
+questions across the `region_specific`, `multi_hop`/`constraint`, `negative`, `cross_border`, and
+`products_with_substance`/`substance_in_both` verbaliser branches:
 
+```
+as_m01, as_m02, as_c01, as_c02, as_n01, as_d01, as_d02, pm_n01, pm_n02, pm_d01, pm_d02, pm_d03
+```
 
-def val(x):
-    s = str(x).strip()
-    return int(s) if s in ("0", "1") else None
+The 33 original late-blight questions and `xd_01`/`xd_02` (cross-disease) were unaffected — verified by
+direct regression check against six representative late-blight questions and the cross-disease template
+(which correctly enumerates all three diseases by design).
 
+## Measured impact on existing grades
 
-if __name__ == "__main__":
-    orig_sheet = json.load(open(DATA / "grading_sheet_BLIND.json", encoding="utf-8"))["items"]
-    orig_key = {k["item"]: k for k in json.load(open(DATA / "grading_key.json", encoding="utf-8"))["key"]}
-    corr_sheet = json.load(open(DATA / "grading_sheet_BLIND_correction.json", encoding="utf-8"))["items"]
-    corr_key = {k["item"]: k for k in json.load(open(DATA / "grading_key_correction.json", encoding="utf-8"))["key"]}
+Reading the actual graded transcripts (not inferring from category alone): **17 of 24 graded KG-arm items
+(71%) across these 12 questions were marked incorrect**, and all 17 explicitly cite the disease mismatch as
+the stated reason for an abstaining answer — e.g. *"The products mentioned...are listed as late-blight
+products in Germany. The question asks about apple scab"*; *"No information is available on authorised
+cucurbit powdery mildew products in Germany. The facts only mention [late blight]."* Faithfulness was
+essentially unaffected (the model correctly refused to overclaim given the mismatched text) — only
+correctness was depressed, because a genuinely faithful abstention was scored as if it were a reasoning
+failure, when the real cause was a broken input it had no way to know was broken.
 
-    # sanity: correction items must actually be graded before merging
-    ungraded = [it["item"] for it in corr_sheet
-                if val(it.get("grade_A_correct")) is None or val(it.get("grade_B_correct")) is None]
-    if ungraded:
-        print(f"STOP: {len(ungraded)} correction items are not yet graded: {ungraded}")
-        print("Grade data/grading_sheet_BLIND_correction.json completely before running this script.")
-        raise SystemExit(1)
+This means Phase 1's KG-arm correctness on this subset — and everything built on top of those grades in
+Phase 2 (the oracle ceiling, the deterministic router's exact match to it, every LLM-router quality number,
+every cost-of-misrouting table) — is very likely a conservative underestimate of KG's real performance.
+Since this bug never affected RAG's answers, the correction is expected to widen KG's advantage, not narrow
+it, on this subset specifically — but the precise numbers in `Phase1_Results.md`, `Phase2_Results.md`, and
+`Phase2_Step4_CostOfMisrouting.md` are known to be built on a fixable defect until this correction is
+merged.
 
-    corr_items = {it["item"] for it in corr_sheet}
-    merged_sheet = [it for it in orig_sheet if it["item"] not in corr_items] + corr_sheet
-    merged_key_map = dict(orig_key)
-    merged_key_map.update(corr_key)
-    merged_key = list(merged_key_map.values())
+## The fix
 
-    json.dump({"_instructions": "Merged master sheet: original grading + the 12-question disease-name-bug "
-                                 "correction (see docs/Correction_KG_Disease_Name_Bug.md).",
-               "items": merged_sheet},
-              open(DATA / "grading_sheet_BLIND_corrected.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=2)
-    json.dump({"key": merged_key},
-              open(DATA / "grading_key_corrected.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=2)
-    print(f"Wrote merged grading_sheet_BLIND_corrected.json ({len(merged_sheet)} items) "
-          f"and grading_key_corrected.json\n")
+`src/kg_verbalise.py`: every hardcoded `"late blight"` string in `verbalise()` and `verbalise2()` now uses
+`facts.get("disease")`, mapped through a small `DISEASE_LABEL` dict (kept in sync with
+`build_kg.py`'s `DISEASES[...]["label"]`, duplicated rather than imported since `build_kg.py` runs its full
+pipeline at import time). Verified against all 12 previously-affected questions (all now correctly name
+their disease) and regression-checked against six original late-blight questions (unchanged).
 
-    # --- Recompute always-KG / always-RAG on OLD vs NEW sheets for a direct before/after comparison ---
-    def score(sheet, keymap):
-        rows = {}
-        for it in sheet:
-            item = it["item"]
-            mp = keymap.get(item)
-            if not mp:
-                continue
-            for slot in ("A", "B"):
-                arm = mp[slot]
-                rows[(item, arm)] = {"correct": val(it.get(f"grade_{slot}_correct")),
-                                      "faithful": val(it.get(f"grade_{slot}_faithful")),
-                                      "category": it.get("category")}
-        out = {}
-        for arm in ("kg", "rag"):
-            c = [v["correct"] for (i, a), v in rows.items() if a == arm and v["correct"] is not None]
-            f = [v["faithful"] for (i, a), v in rows.items() if a == arm and v["faithful"] is not None]
-            out[arm] = {"correct": sum(c) / len(c) if c else 0, "faithful": sum(f) / len(f) if f else 0,
-                        "n": len(c)}
-        # also just on the 12-question correction subset, old vs new
-        affected_qids = {"as_m01", "as_m02", "as_c01", "as_c02", "as_n01", "as_d01", "as_d02",
-                          "pm_n01", "pm_n02", "pm_d01", "pm_d02", "pm_d03"}
-        for arm in ("kg", "rag"):
-            c = [v["correct"] for (i, a), v in rows.items()
-                 if a == arm and v["correct"] is not None and i.split("_", 1)[1] in affected_qids]
-            out[f"{arm}_on_affected_subset"] = {"correct": sum(c) / len(c) if c else 0, "n": len(c)}
-        return out
+## Remediation plan (full — chosen over a lightweight note)
 
-    print("=" * 70)
-    print("BEFORE (original grading_sheet_BLIND.json):")
-    before = score(orig_sheet, orig_key)
-    for k, v in before.items():
-        print(f"  {k:24} {v}")
+Because the bug only ever affected the *phrasing* handed to the LLM, not retrieval, and because RAG's
+answers for these 12 questions are entirely unaffected and don't need to change, the correction is scoped
+narrowly:
 
-    print("\nAFTER (corrected grading_sheet_BLIND_corrected.json):")
-    after = score(merged_sheet, merged_key_map)
-    for k, v in after.items():
-        print(f"  {k:24} {v}")
+1. **`src/correction_regenerate_kg_answers.py`** — regenerates ONLY the KG-arm answer for these 12
+   questions, at the same run count the original grading used (`run1`, `run2` — these questions were only
+   graded for 2 of Phase 1's 3 runs). RAG's existing graded answer is reused unchanged. Produces a small,
+   independently-shuffled blind grading sheet (`grading_sheet_BLIND_correction.json` + key) — 24 items,
+   same blind-grading convention as `stage6_eval.py`.
+2. **Grade the correction sheet** the same way as the original (blind, fill `grade_*_correct`/`faithful`,
+   don't open the key first).
+3. **`src/correction_merge_and_recompute.py`** — merges the graded correction into a NEW master file
+   (`grading_sheet_BLIND_corrected.json`; the original 105 untouched items + these 24 corrected ones =
+   129 total, same as before). The original `grading_sheet_BLIND.json` is never overwritten — both versions
+   remain on record. It then automatically re-derives every downstream Phase 2 number
+   (`oracle_results_corrected.json`, `phase2_deterministic_router_corrected.json`,
+   `phase2_step4_results_corrected.json`) by safely swapping the corrected files in for the existing
+   Phase 2 scripts' hardcoded filenames, running them unmodified, and restoring the originals — no changes
+   to the well-tested Phase 2 scripts themselves.
 
-    json.dump({"before": before, "after": after},
-              open(DATA / "correction_before_after.json", "w"), indent=2)
-    print("\nWrote data/correction_before_after.json")
+## Status
 
-    # --- Re-derive Phase 2's numbers against the corrected sheet, WITHOUT modifying the existing
-    # Phase 2 scripts (they hardcode "grading_sheet_BLIND.json"/"grading_key.json" by filename): back up
-    # the originals, swap the corrected files into place, run each script, rename its output with a
-    # "_corrected" suffix, then restore the originals. Originals are never left overwritten.
-    import shutil, subprocess, sys as _sys
+- [x] Bug found, scope confirmed (12/12 affected questions verified directly)
+- [x] Fix written and verified (12/12 fixed, 6/6 regression-checked)
+- [x] Correction scripts written (`correction_regenerate_kg_answers.py`, `correction_merge_and_recompute.py`)
+- [x] Correction batch generated (24 items, KG regenerated, RAG reused)
+- [x] Correction batch graded (blind, same convention as original)
+- [x] Merged + recomputed; `Phase1_Results.md`, `Phase2_Results.md`, `Phase2_Step4_CostOfMisrouting.md`
+      updated with corrected numbers and an explicit changelog/addendum in each
+- [ ] Phase 3 Step 1's conflict diagnostic re-read once the corrected facts_text is in place (the
+      remaining, non-bug negation candidates should be re-examined with clean data) — next step
 
-    print("\n" + "=" * 70)
-    print("Re-deriving Phase 2 numbers against the corrected sheet...")
-    orig_sheet_path = DATA / "grading_sheet_BLIND.json"
-    orig_key_path = DATA / "grading_key.json"
-    backup_sheet = DATA / "grading_sheet_BLIND.json.bak"
-    backup_key = DATA / "grading_key.json.bak"
+## Final numbers (for the record)
 
-    shutil.copy(orig_sheet_path, backup_sheet)
-    shutil.copy(orig_key_path, backup_key)
-    try:
-        shutil.copy(DATA / "grading_sheet_BLIND_corrected.json", orig_sheet_path)
-        shutil.copy(DATA / "grading_key_corrected.json", orig_key_path)
+| metric | before | after | delta |
+|---|---|---|---|
+| KG correctness (all 129 items) | 50.4% | 62.0% | +11.6 pts |
+| KG faithfulness | 96.1% | 94.6% | −1.6 pts |
+| RAG correctness | 42.6% | 39.5% | −3.1 pts |
+| RAG faithfulness | 87.6% | 80.6% | −7.0 pts |
+| KG correctness, 12-question affected subset | 29.2% | 91.7% | +62.5 pts |
+| RAG correctness, 12-question affected subset | 70.8% | 54.2% | −16.7 pts (grading-session variance, RAG text unchanged) |
+| oracle (category) / deterministic router | 52.0% | 64.0% | +12.0 pts |
+| oracle (per-question) | 70.0% | 74.0% | +4.0 pts |
 
-        for script, out_file in [
-            ("phase2_step1_oracle.py", "oracle_results.json"),
-            ("phase2_step2b_deterministic_router.py", "phase2_deterministic_router.json"),
-            ("phase2_step4_cost_of_misrouting.py", "phase2_step4_results.json"),
-        ]:
-            print(f"\n--- running {script} against corrected data ---")
-            subprocess.run([_sys.executable, str(Path(__file__).resolve().parent / script)], check=True)
-            out_path = DATA / out_file
-            corrected_out_path = DATA / out_file.replace(".json", "_corrected.json")
-            if out_path.exists():
-                shutil.copy(out_path, corrected_out_path)
-                print(f"    saved -> {corrected_out_path.name}")
-    finally:
-        shutil.copy(backup_sheet, orig_sheet_path)
-        shutil.copy(backup_key, orig_key_path)
-        backup_sheet.unlink()
-        backup_key.unlink()
-        print("\nOriginal grading_sheet_BLIND.json / grading_key.json restored (never overwritten).")
-
-    print("\nDone. Compare data/oracle_results.json vs oracle_results_corrected.json (and the "
-          "deterministic-router / step4 pairs) for the before/after Phase 2 numbers.")
+Full corrected cost-of-misrouting tables are in `Phase2_Step4_CostOfMisrouting.md`'s addendum. Raw
+before/after JSON: `data/correction_before_after.json`, `data/oracle_results_corrected.json`,
+`data/phase2_deterministic_router_corrected.json`, `data/phase2_step4_results_corrected.json`

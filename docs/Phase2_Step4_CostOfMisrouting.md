@@ -87,3 +87,58 @@ Step 5 in `Phase2_Plan.md` covers blind-grading any *newly generated* answers fr
 this investigation generates new answers — every router selects between two answers Phase 1 already
 generated and blind-graded. There is nothing new to grade, so Step 5 is not applicable here rather than
 omitted for convenience; this is stated explicitly for the thesis record.
+
+## Addendum — corrected numbers (post-hoc, KG-arm disease-name bug)
+
+See `docs/Correction_KG_Disease_Name_Bug.md` for the full bug report. Every table below is the recomputed
+version, run against `grading_sheet_BLIND_corrected.json` via the automated swap-run-restore in
+`src/correction_merge_and_recompute.py` (the original scripts and files are unmodified; both the original
+and corrected grading files remain on record).
+
+### End-to-end correctness / faithfulness, all conditions — corrected
+
+| condition | correct | faithful | n |
+|---|---|---|---|
+| oracle (per-question) | 74% | 97% | 129 |
+| **LLM router B — DOCS-first** | **64% (60–68% across 5 runs)** | 92% | 129 |
+| oracle (category) / **deterministic router** | 64% | 94% | 129 |
+| always-KG | 62% | 95% | 129 |
+| LLM router A — baseline | 62% (60–64%) | 94% | 129 |
+| LLM router C — few-shot | 60% (57–61%) | 92% | 129 |
+| always-RAG | 40% | 81% | 129 |
+
+### Cost of misrouting vs oracle(category), by category — corrected
+
+| category | always-RAG | deterministic | LLM A | LLM B | LLM C |
+|---|---|---|---|---|---|
+| cross_disease *(risky)* | **+75.0%** (unchanged) | 0.0% | +10.0% (unchanged) | +15.0% (unchanged) | **+25.0%** (unchanged) |
+| multi_hop | **+50.0%** (was +12.5%) | 0.0% | 0.0% | +3.8% | 0.0% |
+| cross_border *(risky)* | **+45.5%** (was −4.5%) | 0.0% | 0.0% | 0.0% | 0.0% |
+| negative *(risky)* | +35.7% (unchanged) | 0.0% | 0.0% | +4.3% | +1.4% |
+| constraint | +31.2% (was +18.8%) | 0.0% | +3.8% | +7.5% | +3.8% |
+| factual | 0.0% | 0.0% | +1.3% | −8.7% | +10.0% |
+| region_specific | 0.0% | 0.0% | +2.2% | −2.2% | 0.0% |
+
+### What changed, and why it matters
+
+**The cross-disease numbers are identical before and after** — `xd_01`/`xd_02` were never touched by the
+bug, so the single most important finding in this document (LLM_C's deterministic cross-disease misroute,
+the A→B→C cost gradient) is unaffected. This was the finding least at risk from the correction, and it
+stayed exactly as reported.
+
+**RAG's cost on multi_hop and cross_border rose sharply** (+12.5%→+50.0%, −4.5%→+45.5%). This is the
+correction's most consequential effect: the pre-correction oracle(category) ceiling was itself computed
+from KG's understated correctness on the bugged questions, so the "cost" of routing multi_hop/cross_border
+questions to RAG looked artificially small — in cross_border's case, the sign was even backwards
+(RAG appeared to slightly *beat* the ceiling). Post-correction, both categories now show a large, clearly
+positive cost, consistent with the rest of the risk framework rather than an outlier. **This strengthens
+the case for routing these categories to KG; it does not weaken any conclusion in this document.**
+
+**LLM_C — few-shot's underperformance relative to always-KG is confirmed, not an artifact of the bug**
+(60% vs 62%, a 2-point gap, versus 49% vs 50% pre-correction — the same finding, slightly wider). **The
+deterministic router still matches the category-oracle ceiling exactly** (64%/94% now, was 52%/95%) — a
+structural property of the rule's construction, unaffected by which grades happen to be behind it.
+**LLM_B still ties the deterministic router on average with the same wide instability** (60–68% range) and
+still carries the same real, nonzero cost on the risky categories it touches. Every interpretive claim in
+this document's original body stands; only the magnitudes changed, several of them (multi_hop,
+cross_border) toward a stronger version of the same conclusion.
