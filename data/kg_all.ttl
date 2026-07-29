@@ -8,7 +8,7 @@ res:authorisation_apple_scab_DE_118 a ex:Authorisation ;
     ex:forDisease res:apple_scab ;
     ex:hasProduct res:product_007416_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_apple ;
+    ex:onCrop res:crop_pome_fruit ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:VENTIN .
 
@@ -16,7 +16,8 @@ res:authorisation_apple_scab_DE_119 a ex:Authorisation ;
     ex:forDisease res:apple_scab ;
     ex:hasProduct res:product_008467_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_apple ;
+    ex:onCrop res:crop_black_chokeberry,
+        res:crop_pome_fruit ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:VENTIN .
 
@@ -48,7 +49,7 @@ res:authorisation_apple_scab_DE_123 a ex:Authorisation ;
     ex:forDisease res:apple_scab ;
     ex:hasProduct res:product_00B384_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_apple ;
+    ex:onCrop res:crop_pome_fruit ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:VENTIN .
 
@@ -56,7 +57,16 @@ res:authorisation_apple_scab_DE_124 a ex:Authorisation ;
     ex:forDisease res:apple_scab ;
     ex:hasProduct res:product_00B457_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_apple ;
+    ex:onCrop res:crop_apple,
+        res:crop_apricot,
+        res:crop_common_medlar,
+        res:crop_nectarine,
+        res:crop_peach,
+        res:crop_pear,
+        res:crop_plum,
+        res:crop_quince,
+        res:crop_sour_cherry,
+        res:crop_sweet_cherry ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:VENTIN .
 
@@ -64,7 +74,7 @@ res:authorisation_apple_scab_DE_125 a ex:Authorisation ;
     ex:forDisease res:apple_scab ;
     ex:hasProduct res:product_024519_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_apple ;
+    ex:onCrop res:crop_pome_fruit ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:VENTIN .
 
@@ -96,7 +106,7 @@ res:authorisation_late_blight_DE_100 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_77 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -104,7 +114,7 @@ res:authorisation_late_blight_DE_101 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_78 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -112,7 +122,7 @@ res:authorisation_late_blight_DE_102 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_79 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -120,7 +130,7 @@ res:authorisation_late_blight_DE_103 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_80 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -128,7 +138,7 @@ res:authorisation_late_blight_DE_104 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_81 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -136,7 +146,7 @@ res:authorisation_late_blight_DE_105 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_83 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -144,7 +154,7 @@ res:authorisation_late_blight_DE_106 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_84 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -152,7 +162,7 @@ res:authorisation_late_blight_DE_107 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_85 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -160,7 +170,7 @@ res:authorisation_late_blight_DE_108 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_86 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -168,7 +178,7 @@ res:authorisation_late_blight_DE_109 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_87 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -184,7 +194,7 @@ res:authorisation_late_blight_DE_110 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_88 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -192,7 +202,7 @@ res:authorisation_late_blight_DE_111 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_89 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -328,7 +338,7 @@ res:authorisation_late_blight_DE_23 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008695_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -336,7 +346,9 @@ res:authorisation_late_blight_DE_24 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008883_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_aubergine,
+        res:crop_potato,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -344,7 +356,9 @@ res:authorisation_late_blight_DE_25 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008883_60 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_aubergine,
+        res:crop_potato,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -352,7 +366,9 @@ res:authorisation_late_blight_DE_26 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008883_61 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_aubergine,
+        res:crop_potato,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -360,7 +376,9 @@ res:authorisation_late_blight_DE_27 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008883_62 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_aubergine,
+        res:crop_potato,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -368,7 +386,8 @@ res:authorisation_late_blight_DE_28 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008886_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_aubergine,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -400,7 +419,7 @@ res:authorisation_late_blight_DE_32 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008967_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -408,7 +427,7 @@ res:authorisation_late_blight_DE_33 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_008967_60 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -432,7 +451,7 @@ res:authorisation_late_blight_DE_36 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_00A065_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -440,7 +459,7 @@ res:authorisation_late_blight_DE_37 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_00A065_60 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -488,7 +507,7 @@ res:authorisation_late_blight_DE_43 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_00A461_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -528,7 +547,7 @@ res:authorisation_late_blight_DE_48 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_00A833_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -544,7 +563,8 @@ res:authorisation_late_blight_DE_5 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_006895_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_potato,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -600,7 +620,8 @@ res:authorisation_late_blight_DE_56 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_00B062_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_potato,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -608,7 +629,9 @@ res:authorisation_late_blight_DE_57 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_00B116_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_aubergine,
+        res:crop_ornamentals,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -776,7 +799,9 @@ res:authorisation_late_blight_DE_76 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_027522_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_aubergine,
+        res:crop_potato,
+        res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -880,7 +905,7 @@ res:authorisation_late_blight_DE_88 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -888,7 +913,7 @@ res:authorisation_late_blight_DE_89 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_60 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -904,7 +929,7 @@ res:authorisation_late_blight_DE_90 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_61 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -912,7 +937,7 @@ res:authorisation_late_blight_DE_91 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_62 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -920,7 +945,7 @@ res:authorisation_late_blight_DE_92 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_63 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -928,7 +953,7 @@ res:authorisation_late_blight_DE_93 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_66 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -936,7 +961,7 @@ res:authorisation_late_blight_DE_94 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_69 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -944,7 +969,7 @@ res:authorisation_late_blight_DE_95 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_72 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -952,7 +977,7 @@ res:authorisation_late_blight_DE_96 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_73 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -960,7 +985,7 @@ res:authorisation_late_blight_DE_97 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_74 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -968,7 +993,7 @@ res:authorisation_late_blight_DE_98 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_75 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -976,7 +1001,7 @@ res:authorisation_late_blight_DE_99 a ex:Authorisation ;
     ex:forDisease res:late_blight ;
     ex:hasProduct res:product_034560_76 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_potato ;
+    ex:onCrop res:crop_tomato ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PHYTIN .
 
@@ -1016,7 +1041,7 @@ res:authorisation_powdery_mildew_DE_128 a ex:Authorisation ;
     ex:forDisease res:powdery_mildew ;
     ex:hasProduct res:product_00B116_00 ;
     ex:inCountry res:DE ;
-    ex:onCrop res:crop_cucurbit ;
+    ex:onCrop res:crop_ornamentals ;
     ex:regulatedBy res:authority_DE ;
     ex:targetsPathogen eppo:PODOXA .
 
@@ -1028,14 +1053,41 @@ res:authorisation_powdery_mildew_NO_127 a ex:Authorisation ;
     ex:regulatedBy res:authority_NO ;
     ex:targetsPathogen eppo:PODOXA .
 
+res:crop_apricot a ex:Crop ;
+    rdfs:label "apricot" .
+
+res:crop_black_chokeberry a ex:Crop ;
+    rdfs:label "black chokeberry" .
+
+res:crop_common_medlar a ex:Crop ;
+    rdfs:label "common medlar" .
+
 res:crop_cucumber__agurk___squash a ex:Crop ;
     rdfs:label "cucumber (agurk), squash" .
 
-res:crop_cucurbit a ex:Crop ;
-    rdfs:label "cucurbit" .
+res:crop_nectarine a ex:Crop ;
+    rdfs:label "nectarine" .
+
+res:crop_peach a ex:Crop ;
+    rdfs:label "peach" .
+
+res:crop_pear a ex:Crop ;
+    rdfs:label "pear" .
+
+res:crop_plum a ex:Crop ;
+    rdfs:label "plum" .
 
 res:crop_potato__potet a ex:Crop ;
     rdfs:label "potato (potet)" .
+
+res:crop_quince a ex:Crop ;
+    rdfs:label "quince" .
+
+res:crop_sour_cherry a ex:Crop ;
+    rdfs:label "sour cherry" .
+
+res:crop_sweet_cherry a ex:Crop ;
+    rdfs:label "sweet cherry" .
 
 res:product_006895_00 a ex:Product ;
     rdfs:label "Cuprozin progress" ;
@@ -1743,6 +1795,9 @@ res:substance_trifloxystrobin a ex:ActiveSubstance ;
 res:substance_valifenalate a ex:ActiveSubstance ;
     rdfs:label "valifenalate" .
 
+res:crop_ornamentals a ex:Crop ;
+    rdfs:label "ornamentals" .
+
 res:powdery_mildew a ex:Disease ;
     rdfs:label "cucurbit powdery mildew" ;
     ex:causedBy eppo:PODOXA .
@@ -1776,6 +1831,9 @@ eppo:PODOXA a ex:Pathogen ;
     rdfs:label "Podosphaera xanthii" ;
     ex:eppoCode "PODOXA" .
 
+res:crop_pome_fruit a ex:Crop ;
+    rdfs:label "pome fruit" .
+
 res:substance_orange_oil a ex:ActiveSubstance ;
     rdfs:label "orange oil" ;
     ex:altLabel "Orangenöl" .
@@ -1787,6 +1845,9 @@ res:substance_potassium_phosphonate a ex:ActiveSubstance ;
 res:authority_NO a ex:Authority ;
     rdfs:label "Mattilsynet (Norwegian Food Safety Authority)" ;
     ex:inCountry res:NO .
+
+res:crop_apple a ex:Crop ;
+    rdfs:label "apple" .
 
 res:substance_copper_oxychloride a ex:ActiveSubstance ;
     rdfs:label "copper oxychloride" ;
@@ -1801,6 +1862,9 @@ res:substance_zoxamide a ex:ActiveSubstance ;
 res:NO a ex:Country ;
     rdfs:label "NO" .
 
+res:crop_aubergine a ex:Crop ;
+    rdfs:label "aubergine" .
+
 res:substance_amisulbrom a ex:ActiveSubstance ;
     rdfs:label "amisulbrom" .
 
@@ -1811,9 +1875,6 @@ res:substance_copper_hydroxide a ex:ActiveSubstance ;
 res:apple_scab a ex:Disease ;
     rdfs:label "apple scab" ;
     ex:causedBy eppo:VENTIN .
-
-res:crop_apple a ex:Crop ;
-    rdfs:label "apple" .
 
 res:substance_mandipropamid a ex:ActiveSubstance ;
     rdfs:label "mandipropamid" .
@@ -1833,6 +1894,10 @@ res:substance_cymoxanil a ex:ActiveSubstance ;
 
 res:substance_azoxystrobin a ex:ActiveSubstance ;
     rdfs:label "azoxystrobin" .
+
+res:crop_tomato a ex:Crop ;
+    rdfs:label "tomato" ;
+    ex:agrovocConcept agrovoc:c_7758 .
 
 res:crop_potato a ex:Crop ;
     rdfs:label "potato" ;

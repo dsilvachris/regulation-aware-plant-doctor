@@ -62,6 +62,9 @@ warnings = []
 def add_authorisation(dkey, dcfg, country, product_name, reg_id, substances, crop):
     global auth_counter
     auth_counter += 1
+    # crop may be a single string or a list of crop names; normalise to a list
+    crops = [crop] if isinstance(crop, str) else list(crop or [])
+    crops = [c for c in crops if c]
     patho = EPPO[dcfg["eppo"]]
     prod = RES["product_" + clean(reg_id or product_name)]
     g.add((prod, RDF.type, EX.Product)); g.add((prod, RDFS.label, Literal(product_name)))
@@ -82,14 +85,14 @@ def add_authorisation(dkey, dcfg, country, product_name, reg_id, substances, cro
     g.add((a, EX.forDisease, RES[dkey]))
     g.add((a, EX.inCountry, RES[country]))
     g.add((a, EX.regulatedBy, RES["authority_"+country]))
-    if crop:
+    for crop in crops:
         c_node = RES["crop_" + clean(crop)]
         g.add((c_node, RDF.type, EX.Crop)); g.add((c_node, RDFS.label, Literal(crop)))
         if crop.lower() in AGROVOC:
             g.add((c_node, EX.agrovocConcept, AGRO[AGROVOC[crop.lower()]]))
         g.add((a, EX.onCrop, c_node))
     subs = ", ".join(canonical(s) for s in substances) if substances else "unspecified active substance"
-    crop_txt = f" on {crop}" if crop else ""
+    crop_txt = (" on " + ", ".join(crops)) if crops else ""
     rag_docs.append({
         "id": f"{dkey}_{country}_{auth_counter}", "country": country, "disease": dcfg["label"],
         "text": f"In {AUTHORITY[country]}, the product {product_name}"
@@ -121,10 +124,18 @@ for dkey, dcfg in DISEASES.items():
     if de_path.exists():
         de = json.load(open(de_path, encoding="utf-8"))
         names = de.get("_wirkstoff_names", {})
+        crops_by_awg = de.get("_crops", {})
+        # map product kennr -> set of real crops (union across that product's disease-specific uses)
+        crops_by_kennr = {}
+        for u in de.get("uses", []):
+            k = u.get("kennr"); aid = u.get("awg_id")
+            if k and aid:
+                crops_by_kennr.setdefault(k, set()).update(crops_by_awg.get(aid, []))
         for kennr, prod in de.get("products", {}).items():
             subs = [names.get(str(r.get("wirknr")), f"wirknr:{r.get('wirknr')}")
                     for r in de.get("substances", {}).get(kennr, [])]
-            add_authorisation(dkey, dcfg, "DE", prod.get("mittelname", kennr), kennr, subs, dcfg["crop"])
+            real_crops = sorted(crops_by_kennr.get(kennr, [])) or [dcfg["crop"]]  # fallback if none
+            add_authorisation(dkey, dcfg, "DE", prod.get("mittelname", kennr), kennr, subs, real_crops)
             n_de += 1
     else:
         print(f"  [warn] {dcfg['de_file']} not found — run enrich for {dkey} first")

@@ -114,5 +114,16 @@
   },
   "_wirkstoff_names": {
     "0902": "Azoxystrobin"
+  },
+  "_crops": {
+    "00B116-00/00-026": [
+      "ornamentals"
+    ],
+    "00B116-00/00-027": [
+      "ornamentals"
+    ]
+  },
+  "_crop_codes": {
+    "NNNZZ": "ornamentals"
   }
 }

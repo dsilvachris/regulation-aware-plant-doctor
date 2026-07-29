@@ -720,5 +720,72 @@
     "0184": "Schwefel",
     "9781": "Aureobasidium pullulans DSM 14941",
     "0768": "Schwefelkalkbrühe"
+  },
+  "_crops": {
+    "007416-00/00-002": [
+      "pome fruit"
+    ],
+    "008467-00/00-011": [
+      "black chokeberry",
+      "pome fruit"
+    ],
+    "00A249-00/05-001": [
+      "apple"
+    ],
+    "00A770-00/00-001": [
+      "apple"
+    ],
+    "00A841-00/00-001": [
+      "apple"
+    ],
+    "00B384-00/00-003": [
+      "pome fruit"
+    ],
+    "00B384-00/00-004": [
+      "pome fruit"
+    ],
+    "00B384-00/00-005": [
+      "pome fruit"
+    ],
+    "00B457-00/00-001": [
+      "apple",
+      "common medlar",
+      "pear",
+      "quince"
+    ],
+    "00B457-00/01-004": [
+      "sour cherry",
+      "sweet cherry"
+    ],
+    "00B457-00/01-005": [
+      "plum"
+    ],
+    "00B457-00/01-006": [
+      "apricot"
+    ],
+    "00B457-00/01-007": [
+      "nectarine",
+      "peach"
+    ],
+    "024519-00/00-002": [
+      "pome fruit"
+    ],
+    "044657-00/03-003": [
+      "apple"
+    ]
+  },
+  "_crop_codes": {
+    "ABOME": "black chokeberry",
+    "CYDOB": "quince",
+    "MABSD": "apple",
+    "MSPGE": "common medlar",
+    "NNNOK": "pome fruit",
+    "PRNAR": "apricot",
+    "PRNAV": "sweet cherry",
+    "PRNCE": "sour cherry",
+    "PRNDO": "plum",
+    "PRNPN": "nectarine",
+    "PRNPS": "peach",
+    "PYUCO": "pear"
   }
 }
