@@ -1,0 +1,4382 @@
+{
+  "_meta": {
+    "n_runs": 5,
+    "purpose": "multi-run stability + robustness check on step-3b variants"
+  },
+  "summaries": {
+    "A_baseline": {
+      "variant": "A_baseline",
+      "n_runs": 5,
+      "acc_vs_oracle_mean_min_max": [
+        0.8352941176470589,
+        0.7843137254901961,
+        0.8823529411764706
+      ],
+      "rag_wins_caught_per_run": [
+        1,
+        3,
+        2,
+        1,
+        1
+      ],
+      "rag_wins_caught_mean": 1.6,
+      "factual_to_docs_per_run": [
+        3,
+        5,
+        3,
+        2,
+        1
+      ],
+      "factual_to_docs_mean": 2.8,
+      "stable_questions": 39,
+      "total_questions": 51,
+      "flipping_questions": 12,
+      "risky_category_flips": [
+        [
+          "d05",
+          "cross_border",
+          [
+            "kg",
+            "kg",
+            "kg",
+            "kg",
+            "rag"
+          ]
+        ],
+        [
+          "xd_02",
+          "cross_disease",
+          [
+            "rag",
+            "kg",
+            "kg",
+            "kg",
+            "rag"
+          ]
+        ]
+      ],
+      "consistent_risky_misroutes": [],
+      "flip_detail": {
+        "f01": [
+          "rag",
+          "kg",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "f02": [
+          "kg",
+          "rag",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "f04": [
+          "kg",
+          "rag",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "f05": [
+          "rag",
+          "rag",
+          "rag",
+          "kg",
+          "rag"
+        ],
+        "f06": [
+          "rag",
+          "kg",
+          "kg",
+          "rag",
+          "kg"
+        ],
+        "f08": [
+          "kg",
+          "rag",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "f09": [
+          "kg",
+          "rag",
+          "rag",
+          "rag",
+          "kg"
+        ],
+        "r01": [
+          "kg",
+          "kg",
+          "kg",
+          "rag",
+          "kg"
+        ],
+        "r08": [
+          "kg",
+          "rag",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "c01": [
+          "kg",
+          "kg",
+          "kg",
+          "rag",
+          "kg"
+        ],
+        "d05": [
+          "kg",
+          "kg",
+          "kg",
+          "kg",
+          "rag"
+        ],
+        "xd_02": [
+          "rag",
+          "kg",
+          "kg",
+          "kg",
+          "rag"
+        ]
+      }
+    },
+    "B_docs_first": {
+      "variant": "B_docs_first",
+      "n_runs": 5,
+      "acc_vs_oracle_mean_min_max": [
+        0.8117647058823529,
+        0.7450980392156863,
+        0.8627450980392157
+      ],
+      "rag_wins_caught_per_run": [
+        6,
+        4,
+        6,
+        5,
+        5
+      ],
+      "rag_wins_caught_mean": 5.2,
+      "factual_to_docs_per_run": [
+        9,
+        8,
+        10,
+        7,
+        7
+      ],
+      "factual_to_docs_mean": 8.2,
+      "stable_questions": 28,
+      "total_questions": 51,
+      "flipping_questions": 23,
+      "risky_category_flips": [
+        [
+          "n02",
+          "negative",
+          [
+            "kg",
+            "kg",
+            "rag",
+            "kg",
+            "kg"
+          ]
+        ],
+        [
+          "n04",
+          "negative",
+          [
+            "kg",
+            "kg",
+            "kg",
+            "kg",
+            "rag"
+          ]
+        ],
+        [
+          "pm_n02",
+          "negative",
+          [
+            "rag",
+            "kg",
+            "kg",
+            "kg",
+            "kg"
+          ]
+        ],
+        [
+          "pm_d03",
+          "cross_border",
+          [
+            "kg",
+            "kg",
+            "kg",
+            "rag",
+            "rag"
+          ]
+        ],
+        [
+          "xd_02",
+          "cross_disease",
+          [
+            "kg",
+            "kg",
+            "rag",
+            "rag",
+            "rag"
+          ]
+        ]
+      ],
+      "consistent_risky_misroutes": [],
+      "flip_detail": {
+        "f01": [
+          "kg",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "f02": [
+          "rag",
+          "rag",
+          "rag",
+          "rag",
+          "kg"
+        ],
+        "f03": [
+          "rag",
+          "rag",
+          "rag",
+          "kg",
+          "rag"
+        ],
+        "f04": [
+          "rag",
+          "kg",
+          "rag",
+          "kg",
+          "rag"
+        ],
+        "f10": [
+          "rag",
+          "rag",
+          "rag",
+          "rag",
+          "kg"
+        ],
+        "r03": [
+          "kg",
+          "kg",
+          "kg",
+          "rag",
+          "kg"
+        ],
+        "r04": [
+          "rag",
+          "kg",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "r05": [
+          "kg",
+          "rag",
+          "kg",
+          "kg",
+          "rag"
+        ],
+        "r06": [
+          "kg",
+          "kg",
+          "rag",
+          "rag",
+          "kg"
+        ],
+        "r07": [
+          "kg",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "m01": [
+          "kg",
+          "kg",
+          "kg",
+          "rag",
+          "kg"
+        ],
+        "m02": [
+          "kg",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "c01": [
+          "kg",
+          "kg",
+          "kg",
+          "kg",
+          "rag"
+        ],
+        "c02": [
+          "kg",
+          "rag",
+          "kg",
+          "rag",
+          "rag"
+        ],
+        "c03": [
+          "rag",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "c04": [
+          "kg",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "n02": [
+          "kg",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "n04": [
+          "kg",
+          "kg",
+          "kg",
+          "kg",
+          "rag"
+        ],
+        "as_c01": [
+          "rag",
+          "rag",
+          "kg",
+          "rag",
+          "kg"
+        ],
+        "as_c02": [
+          "kg",
+          "kg",
+          "rag",
+          "rag",
+          "kg"
+        ],
+        "pm_n02": [
+          "rag",
+          "kg",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "pm_d03": [
+          "kg",
+          "kg",
+          "kg",
+          "rag",
+          "rag"
+        ],
+        "xd_02": [
+          "kg",
+          "kg",
+          "rag",
+          "rag",
+          "rag"
+        ]
+      }
+    },
+    "C_few_shot": {
+      "variant": "C_few_shot",
+      "n_runs": 5,
+      "acc_vs_oracle_mean_min_max": [
+        0.9058823529411765,
+        0.8431372549019608,
+        0.9607843137254902
+      ],
+      "rag_wins_caught_per_run": [
+        4,
+        3,
+        5,
+        3,
+        4
+      ],
+      "rag_wins_caught_mean": 3.8,
+      "factual_to_docs_per_run": [
+        9,
+        8,
+        9,
+        9,
+        10
+      ],
+      "factual_to_docs_mean": 9,
+      "stable_questions": 40,
+      "total_questions": 51,
+      "flipping_questions": 11,
+      "risky_category_flips": [
+        [
+          "n04",
+          "negative",
+          [
+            "kg",
+            "rag",
+            "kg",
+            "kg",
+            "kg"
+          ]
+        ]
+      ],
+      "consistent_risky_misroutes": [
+        "xd_02"
+      ],
+      "flip_detail": {
+        "f03": [
+          "kg",
+          "kg",
+          "kg",
+          "kg",
+          "rag"
+        ],
+        "f09": [
+          "rag",
+          "kg",
+          "rag",
+          "rag",
+          "rag"
+        ],
+        "r02": [
+          "kg",
+          "rag",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "r05": [
+          "rag",
+          "kg",
+          "kg",
+          "kg",
+          "rag"
+        ],
+        "r06": [
+          "rag",
+          "rag",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "c01": [
+          "kg",
+          "kg",
+          "kg",
+          "kg",
+          "rag"
+        ],
+        "c02": [
+          "kg",
+          "rag",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "c03": [
+          "kg",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "n04": [
+          "kg",
+          "rag",
+          "kg",
+          "kg",
+          "kg"
+        ],
+        "as_c01": [
+          "kg",
+          "kg",
+          "rag",
+          "kg",
+          "kg"
+        ],
+        "as_c02": [
+          "rag",
+          "rag",
+          "rag",
+          "kg",
+          "kg"
+        ]
+      }
+    }
+  },
+  "raw_runs": {
+    "A_baseline": [
+      {
+        "f01": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "rag",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      }
+    ],
+    "B_docs_first": [
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "rag",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "rag",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "rag",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "rag",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "rag",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "rag",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "rag",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      }
+    ],
+    "C_few_shot": [
+      {
+        "f01": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "rag",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "kg",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      },
+      {
+        "f01": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f02": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f03": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f04": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f05": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f06": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f07": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f08": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f09": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "f10": {
+          "routed_to": "rag",
+          "category": "factual",
+          "ambiguous_parse": false
+        },
+        "r01": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r02": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r03": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r04": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r05": {
+          "routed_to": "rag",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r06": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r07": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r08": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "r09": {
+          "routed_to": "kg",
+          "category": "region_specific",
+          "ambiguous_parse": false
+        },
+        "m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m03": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "m04": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "c01": {
+          "routed_to": "rag",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c03": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "c04": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n03": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "n04": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d04": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d05": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "d06": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_m01": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_m02": {
+          "routed_to": "kg",
+          "category": "multi_hop",
+          "ambiguous_parse": false
+        },
+        "as_c01": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_c02": {
+          "routed_to": "kg",
+          "category": "constraint",
+          "ambiguous_parse": false
+        },
+        "as_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "as_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "as_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_n01": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_n02": {
+          "routed_to": "kg",
+          "category": "negative",
+          "ambiguous_parse": false
+        },
+        "pm_d01": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d02": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "pm_d03": {
+          "routed_to": "kg",
+          "category": "cross_border",
+          "ambiguous_parse": false
+        },
+        "xd_01": {
+          "routed_to": "kg",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        },
+        "xd_02": {
+          "routed_to": "rag",
+          "category": "cross_disease",
+          "ambiguous_parse": false
+        }
+      }
+    ]
+  }
+}
