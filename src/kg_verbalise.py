@@ -8,6 +8,13 @@ facts (KG's verified/precise vs RAG's retrieved/approximate), not their format. 
 def verbalise(category, facts):
     c = facts.get("country", "")
     cname = {"NO": "Norway", "DE": "Germany"}.get(c, c)
+    # Kept in sync with build_kg.py's DISEASES[...]["label"] — duplicated here (not imported) because
+    # build_kg.py runs its full KG-build pipeline at import time (side effects), same reason
+    # phase2_step1_oracle.py is not imported elsewhere in this project.
+    DISEASE_LABEL = {"late_blight": "late blight", "apple_scab": "apple scab",
+                      "powdery_mildew": "cucurbit powdery mildew"}
+    dname = DISEASE_LABEL.get(facts.get("disease"), "late blight")  # default preserves old behaviour
+                                                                      # when disease is genuinely unset
 
     if category == "factual":
         return (f"Late blight is caused by the pathogen {facts.get('pathogen','?')} "
@@ -16,26 +23,26 @@ def verbalise(category, facts):
     if category == "region_specific":
         prods = facts.get("products", [])
         if not prods:
-            return f"No products are authorised against late blight in {cname}."
-        return (f"{len(prods)} products are authorised against late blight in {cname}: "
+            return f"No products are authorised against {dname} in {cname}."
+        return (f"{len(prods)} products are authorised against {dname} in {cname}: "
                 + ", ".join(prods) + ".")
 
     if category in ("multi_hop", "constraint"):
         subs = facts.get("substances", [])
         if not subs:
-            return f"No active substances are authorised against late blight in {cname}."
-        return (f"The active substances authorised against late blight in {cname} are: "
+            return f"No active substances are authorised against {dname} in {cname}."
+        return (f"The active substances authorised against {dname} in {cname} are: "
                 + ", ".join(subs) + ".")
 
     if category == "negative":
         sub = facts.get("substance", "the substance")
         if facts.get("authorised"):
-            return (f"{sub} IS authorised against late blight in {cname} "
+            return (f"{sub} IS authorised against {dname} in {cname} "
                     f"(in: {', '.join(facts.get('products', []))}).")
-        return f"{sub} is NOT authorised against late blight in {cname}. There are no such authorised products."
+        return f"{sub} is NOT authorised against {dname} in {cname}. There are no such authorised products."
 
     if category == "cross_border":
-        return (f"The number of products authorised against late blight is "
+        return (f"The number of products authorised against {dname} is "
                 f"{facts.get('DE_count','?')} in Germany and {facts.get('NO_count','?')} in Norway.")
 
     # fallback: dump as readable key: value lines
@@ -51,6 +58,11 @@ if __name__ == "__main__":
 def verbalise2(category, facts):
     """Verbaliser cases for the templates added after the first full run."""
     c = facts.get("country", ""); cname = {"NO":"Norway","DE":"Germany"}.get(c, c)
+    # Same fix and same rationale as verbalise() above — kept duplicated rather than shared to avoid
+    # coupling these two independently-evolving verbaliser functions.
+    DISEASE_LABEL = {"late_blight": "late blight", "apple_scab": "apple scab",
+                      "powdery_mildew": "cucurbit powdery mildew"}
+    dname = DISEASE_LABEL.get(facts.get("disease"), "late blight")
 
     if category == "authority":
         a = facts.get("authority")
@@ -59,23 +71,23 @@ def verbalise2(category, facts):
 
     if category == "de_only":
         subs = facts.get("de_only_substances", [])
-        return (f"{len(subs)} active substances are authorised against late blight in Germany but not in Norway: "
+        return (f"{len(subs)} active substances are authorised against {dname} in Germany but not in Norway: "
                 + ", ".join(subs) + ".") if subs else "No Germany-only substances found."
 
     if category == "products_with_substance":
         prods = facts.get("products", [])
         sub = facts.get("substance","")
-        return (f"In {cname}, the late-blight products containing {sub} are: " + ", ".join(prods) + "."
-                if prods else f"In {cname}, no authorised late-blight product contains {sub}.")
+        return (f"In {cname}, the {dname} products containing {sub} are: " + ", ".join(prods) + "."
+                if prods else f"In {cname}, no authorised {dname} product contains {sub}.")
 
     if category == "single_substance":
         s = facts.get("single_substance", []); m = facts.get("mixtures", [])
-        return (f"In {cname}, the late-blight products with a single active substance are: {', '.join(s) or 'none'}. "
+        return (f"In {cname}, the {dname} products with a single active substance are: {', '.join(s) or 'none'}. "
                 f"Mixtures (two or more substances): {', '.join(m) or 'none'}.")
 
     if category == "substance_in_both":
         sub = facts.get("substance",""); de = facts.get("in_DE"); no = facts.get("in_NO")
-        return (f"{sub} is authorised against late blight in Germany: {'yes' if de else 'no'}; "
+        return (f"{sub} is authorised against {dname} in Germany: {'yes' if de else 'no'}; "
                 f"in Norway: {'yes' if no else 'no'}. "
                 f"{'It is authorised in both countries.' if facts.get('in_both') else ''}")
 
