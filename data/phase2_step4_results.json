@@ -1,0 +1,281 @@
+{
+  "_meta": {
+    "purpose": "Step 4: end-to-end quality + cost-of-misrouting, no new LLM calls/grading"
+  },
+  "results": {
+    "always_kg": {
+      "correct": 0.5038759689922481,
+      "faithful": 0.9612403100775194,
+      "n": 129,
+      "per_category_correct": {
+        "constraint": 0.5,
+        "cross_border": 0.2727272727272727,
+        "multi_hop": 0.3125,
+        "negative": 0.7142857142857143,
+        "factual": 0.26666666666666666,
+        "region_specific": 0.8888888888888888,
+        "cross_disease": 1.0
+      }
+    },
+    "always_rag": {
+      "correct": 0.4263565891472868,
+      "faithful": 0.875968992248062,
+      "n": 129,
+      "per_category_correct": {
+        "constraint": 0.3125,
+        "cross_border": 0.3181818181818182,
+        "multi_hop": 0.1875,
+        "negative": 0.35714285714285715,
+        "factual": 0.3333333333333333,
+        "region_specific": 0.8888888888888888,
+        "cross_disease": 0.25
+      }
+    },
+    "oracle_category": {
+      "correct": 0.5193798449612403,
+      "faithful": 0.9534883720930233,
+      "n": 129,
+      "per_category_correct": {
+        "constraint": 0.5,
+        "cross_border": 0.2727272727272727,
+        "multi_hop": 0.3125,
+        "negative": 0.7142857142857143,
+        "factual": 0.3333333333333333,
+        "region_specific": 0.8888888888888888,
+        "cross_disease": 1.0
+      }
+    },
+    "oracle_per_question": {
+      "correct": 0.6976744186046512,
+      "faithful": 0.9767441860465116,
+      "n": 129,
+      "per_category_correct": {
+        "constraint": 0.6875,
+        "cross_border": 0.5454545454545454,
+        "multi_hop": 0.5,
+        "negative": 0.7857142857142857,
+        "factual": 0.5666666666666667,
+        "region_specific": 1.0,
+        "cross_disease": 1.0
+      }
+    }
+  },
+  "llm_router_per_run": {
+    "A_baseline": [
+      {
+        "correct": 0.49612403100775193,
+        "faithful": 0.9534883720930233,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.26666666666666666,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      },
+      {
+        "correct": 0.4883720930232558,
+        "faithful": 0.9534883720930233,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.3,
+          "region_specific": 0.7777777777777778,
+          "cross_disease": 1.0
+        }
+      },
+      {
+        "correct": 0.5193798449612403,
+        "faithful": 0.9534883720930233,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.3333333333333333,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 1.0
+        }
+      },
+      {
+        "correct": 0.5038759689922481,
+        "faithful": 0.9612403100775194,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.3125,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.36666666666666664,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 1.0
+        }
+      },
+      {
+        "correct": 0.5116279069767442,
+        "faithful": 0.9457364341085271,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.3333333333333333,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      }
+    ],
+    "B_docs_first": [
+      {
+        "correct": 0.5658914728682171,
+        "faithful": 0.937984496124031,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5625,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.4,
+          "region_specific": 1.0,
+          "cross_disease": 1.0
+        }
+      },
+      {
+        "correct": 0.5503875968992248,
+        "faithful": 0.9534883720930233,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.4375,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.5,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 1.0
+        }
+      },
+      {
+        "correct": 0.5038759689922481,
+        "faithful": 0.9224806201550387,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5625,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.5714285714285714,
+          "factual": 0.3333333333333333,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      },
+      {
+        "correct": 0.5271317829457365,
+        "faithful": 0.9457364341085271,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5625,
+          "cross_border": 0.36363636363636365,
+          "multi_hop": 0.125,
+          "negative": 0.7142857142857143,
+          "factual": 0.4,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      },
+      {
+        "correct": 0.5193798449612403,
+        "faithful": 0.9224806201550387,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.25,
+          "cross_border": 0.36363636363636365,
+          "multi_hop": 0.3125,
+          "negative": 0.6428571428571429,
+          "factual": 0.4666666666666667,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      }
+    ],
+    "C_few_shot": [
+      {
+        "correct": 0.5038759689922481,
+        "faithful": 0.9457364341085271,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.625,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.23333333333333334,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      },
+      {
+        "correct": 0.46511627906976744,
+        "faithful": 0.9224806201550387,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5625,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.6428571428571429,
+          "factual": 0.13333333333333333,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      },
+      {
+        "correct": 0.5116279069767442,
+        "faithful": 0.9302325581395349,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.6875,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.23333333333333334,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      },
+      {
+        "correct": 0.4883720930232558,
+        "faithful": 0.9457364341085271,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.5,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.23333333333333334,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      },
+      {
+        "correct": 0.4883720930232558,
+        "faithful": 0.9457364341085271,
+        "n": 129,
+        "per_category_correct": {
+          "constraint": 0.3125,
+          "cross_border": 0.2727272727272727,
+          "multi_hop": 0.3125,
+          "negative": 0.7142857142857143,
+          "factual": 0.3333333333333333,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.75
+        }
+      }
+    ]
+  }
+}
