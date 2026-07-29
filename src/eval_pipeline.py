@@ -15,7 +15,7 @@ import json, sys
 from pathlib import Path
 import ollama
 import kg_arm, rag_arm
-from kg_verbalise import verbalise, verbalise2
+from kg_verbalise import verbalise, verbalise2, verbalise3
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -38,7 +38,7 @@ def explain(question, facts_text):
 def kg_answer_by_id(qid, question):
     query_fn, params, vcat = route(qid)
     facts = query_fn(**params)
-    facts_text = verbalise2(vcat, facts)
+    facts_text = verbalise3(vcat, facts) or verbalise2(vcat, facts)
     if facts_text is None:
         facts_text = verbalise(vcat, facts)
     return explain(question, facts_text), facts
@@ -95,11 +95,40 @@ FN_CATEGORY = {
     "q_substances_de_only": "de_only", "q_products_with_substance": "products_with_substance",
     "q_products_single_substance": "single_substance", "q_is_substance_authorised": "negative",
     "q_divergence_counts": "cross_border", "q_substance_in_both": "substance_in_both",
+    "q_substance_multi_disease": "multi_disease",
 }
 
+# Routing for the Phase-1 expansion questions (apple scab, powdery mildew, cross-disease).
+ROUTING_EXPANSION = {
+    # apple scab
+    "as_m01": ("q_substances_in_country", {"country": "NO", "disease": "apple_scab"}),
+    "as_m02": ("q_substances_in_country", {"country": "DE", "disease": "apple_scab"}),
+    "as_c01": ("q_products_with_substance", {"country": "NO", "substance": "dithianon", "disease": "apple_scab"}),
+    "as_c02": ("q_products_with_substance", {"country": "DE", "substance": "sulfur", "disease": "apple_scab"}),
+    "as_n01": ("q_is_substance_authorised", {"country": "NO", "substance": "captan", "disease": "apple_scab"}),
+    "as_d01": ("q_divergence_counts", {"disease": "apple_scab"}),
+    "as_d02": ("q_substance_in_both", {"substance": "dithianon", "disease": "apple_scab"}),
+    # powdery mildew
+    "pm_n01": ("q_products_in_country", {"country": "DE", "disease": "powdery_mildew"}),
+    "pm_n02": ("q_is_substance_authorised", {"country": "NO", "substance": "sulfur", "disease": "powdery_mildew"}),
+    "pm_d01": ("q_divergence_counts", {"disease": "powdery_mildew"}),
+    "pm_d02": ("q_substance_in_both", {"substance": "proquinazid", "disease": "powdery_mildew"}),
+    "pm_d03": ("q_substances_in_country", {"country": "DE", "disease": "powdery_mildew"}),
+    # cross-disease (the new capability — no single disease)
+    "xd_01": ("q_substance_multi_disease", {}),
+    "xd_02": ("q_substance_multi_disease", {}),
+}
+ROUTING.update(ROUTING_EXPANSION)
+
 def route(qid):
-    """Return (query_fn, params, verbalise_category) for a benchmark question id."""
+    """Return (query_fn, params, verbalise_category) for a benchmark question id.
+    For the original late-blight questions (no disease in params), inject disease='late_blight'
+    so they filter correctly in the combined 3-disease graph."""
     fn_name, params = ROUTING.get(qid, ("q_factual", {}))
+    params = dict(params)
+    # original late-blight ids: f*, r*, m*, c0*, n*, d0* — add the disease filter if absent
+    if "disease" not in params and not qid.startswith(("as_", "pm_", "xd_")):
+        params["disease"] = "late_blight"
     return getattr(_kg, fn_name), params, FN_CATEGORY[fn_name]
 
 DEMO = [
@@ -123,6 +152,18 @@ def load_benchmark():
     for key, cat in catmap.items():
         for q in b37.get(key, []):
             items.append((q["id"], q["q"], cat))
+    # Phase 1 expansion: apple scab + powdery mildew + cross-disease
+    try:
+        bmd = json.load(open(DATA / "benchmark_multidisease.json", encoding="utf-8"))
+        for disease_block in ("apple_scab", "powdery_mildew"):
+            for cat, qs in bmd.get(disease_block, {}).items():
+                if isinstance(qs, list):
+                    for q in qs:
+                        items.append((q["id"], q["q"], cat))
+        for q in bmd.get("cross_disease", {}).get("questions", []):
+            items.append((q["id"], q["q"], "cross_disease"))
+    except FileNotFoundError:
+        pass
     return items
 
 def run_full():

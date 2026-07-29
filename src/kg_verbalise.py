@@ -80,3 +80,14 @@ def verbalise2(category, facts):
                 f"{'It is authorised in both countries.' if facts.get('in_both') else ''}")
 
     return None   # not handled here -> fall back to verbalise()
+
+
+def verbalise3(category, facts):
+    """Verbaliser for the cross-disease query added in Phase 1."""
+    if category == "multi_disease":
+        subs = facts.get("multi_disease_substances", [])
+        if not subs:
+            return "No active substance is authorised against more than one of the three diseases."
+        return ("The active substances authorised against more than one of the three diseases "
+                "(late blight, apple scab, cucurbit powdery mildew) are: " + ", ".join(subs) + ".")
+    return None
