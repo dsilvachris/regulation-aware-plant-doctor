@@ -1,0 +1,31 @@
+{
+  "git_commit": "284cbfc",
+  "data": {
+    "kg_all.ttl": "26afd5615e17",
+    "rag_docs_all.json": "8ea96063144a",
+    "benchmark_cat1_2.json": "14a8c1b073f1",
+    "benchmark_cat3_7.json": "e7ac486c4c3b",
+    "benchmark_multidisease.json": "9790c338266e",
+    "comparison_runs.json": "6471676a60e0",
+    "results_summary.json": "07b63dbbe685",
+    "grading_sheet_BLIND.json": "fa1f1fd7ff05",
+    "grading_key.json": "1b26b7d8816d"
+  },
+  "code": {
+    "kg_arm.py": "85568bd692f8",
+    "rag_arm.py": "a2469910adde",
+    "kg_verbalise.py": "51899a3182fe",
+    "eval_pipeline.py": "b9b4af001c08",
+    "stage6_eval.py": "9deaf146aa14",
+    "score_results.py": "1d340e34329f",
+    "build_kg.py": "fcb38ba9595d"
+  },
+  "checks": {
+    "benchmark loads": true,
+    "all categories present": true,
+    "KG loads with 3 diseases": true,
+    "RAG docs load": true,
+    "Phase-1 runs present": true
+  },
+  "all_inputs_present": true
+}
