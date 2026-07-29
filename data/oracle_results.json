@@ -1,0 +1,28 @@
+{
+  "n_questions": 129,
+  "always_kg": {
+    "correct": 0.5038759689922481,
+    "faithful": 0.9612403100775194
+  },
+  "always_rag": {
+    "correct": 0.4263565891472868,
+    "faithful": 0.875968992248062
+  },
+  "oracle_category": {
+    "correct": 0.5193798449612403,
+    "faithful": 0.9534883720930233
+  },
+  "oracle_perquestion": {
+    "correct": 0.6976744186046512,
+    "faithful": 0.9767441860465116
+  },
+  "category_optimal": {
+    "factual": "rag",
+    "region_specific": "kg",
+    "multi_hop": "kg",
+    "constraint": "kg",
+    "negative": "kg",
+    "cross_border": "kg",
+    "cross_disease": "kg"
+  }
+}
