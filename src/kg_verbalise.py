@@ -98,8 +98,21 @@ def verbalise3(category, facts):
     """Verbaliser for the cross-disease query added in Phase 1."""
     if category == "multi_disease":
         subs = facts.get("multi_disease_substances", [])
+        # Note: this template used to read "...more than one of the three diseases (late blight, apple
+        # scab, cucurbit powdery mildew) are: X, Y." — the parenthetical (naming what "the three diseases"
+        # ARE, as a category label) sat directly next to the substance list, and was found (via Phase 3's
+        # Step 2 fusion demo, cross-checked against Phase 1's original grading data) to be reliably
+        # misread by the LLM as a per-substance disease breakdown — i.e. "azoxystrobin covers late blight,
+        # apple scab, and cucurbit powdery mildew," which is not stated and is not fully true (azoxystrobin
+        # actually covers late blight + powdery mildew, not apple scab). This already caused one confirmed
+        # mis-graded answer in Phase 1's original data (run2_xd_02). Fixed by structurally separating the
+        # category-label sentence from the substance-list sentence, so the disease names never sit
+        # adjacent to "are: X, Y" and cannot be read as describing X and Y specifically.
         if not subs:
-            return "No active substance is authorised against more than one of the three diseases."
-        return ("The active substances authorised against more than one of the three diseases "
-                "(late blight, apple scab, cucurbit powdery mildew) are: " + ", ".join(subs) + ".")
+            return ("Considering the three diseases studied (late blight, apple scab, cucurbit powdery "
+                    "mildew): no active substance is authorised against more than one of them.")
+        return ("Considering the three diseases studied (late blight, apple scab, cucurbit powdery "
+                "mildew), the following active substances are each authorised against more than one of "
+                "them (this statement does not specify which particular diseases each substance covers): "
+                + ", ".join(subs) + ".")
     return None
