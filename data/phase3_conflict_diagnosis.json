@@ -11,14 +11,14 @@
     {
       "qid": "m03",
       "question": "For late blight, which active substances are authorised in Germany but not in Norway?",
-      "entity": "ametoctradin",
+      "entity": "azoxystrobin",
       "kg_facts_text": "18 active substances are authorised against late blight in Germany but not in Norway: ametoctradin, amisulbrom, azoxystrobin, bacillus amyloliquefaciens, benalaxyl-m, cerevisane, copper hydroxide, copper oxychloride, cos-oga, cymoxanil, fluazinam, fluopicolide, orange oil, potassium phosphonate, propamocarb, pythium oligandrum, valifenalate, zoxamide.",
       "rag_snippet": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Presidium K-Plus (registration 00B276-60) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product TRIERE (registration 00A524-00) is authorised against late blight (Phytophthora infestans) "
     },
     {
       "qid": "m03",
       "question": "For late blight, which active substances are authorised in Germany but not in Norway?",
-      "entity": "azoxystrobin",
+      "entity": "ametoctradin",
       "kg_facts_text": "18 active substances are authorised against late blight in Germany but not in Norway: ametoctradin, amisulbrom, azoxystrobin, bacillus amyloliquefaciens, benalaxyl-m, cerevisane, copper hydroxide, copper oxychloride, cos-oga, cymoxanil, fluazinam, fluopicolide, orange oil, potassium phosphonate, propamocarb, pythium oligandrum, valifenalate, zoxamide.",
       "rag_snippet": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Presidium K-Plus (registration 00B276-60) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product TRIERE (registration 00A524-00) is authorised against late blight (Phytophthora infestans) "
     },
@@ -28,6 +28,13 @@
       "entity": "fluazinam",
       "kg_facts_text": "fluazinam is NOT authorised against late blight in Norway. There are no such authorised products.",
       "rag_snippet": "In BVL (Federal Office of Consumer Protection and Food Safety), the product BANJO (registration 006899-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazinam.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product Fluazinova (registration 00A024-00) is authorised against late blight (Phytophthora infestans) on potato. It contains fluazi"
+    },
+    {
+      "qid": "d06",
+      "question": "For late blight, name an active substance authorised in Germany but not in Norway.",
+      "entity": "azoxystrobin",
+      "kg_facts_text": "18 active substances are authorised against late blight in Germany but not in Norway: ametoctradin, amisulbrom, azoxystrobin, bacillus amyloliquefaciens, benalaxyl-m, cerevisane, copper hydroxide, copper oxychloride, cos-oga, cymoxanil, fluazinam, fluopicolide, orange oil, potassium phosphonate, propamocarb, pythium oligandrum, valifenalate, zoxamide.",
+      "rag_snippet": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Presidium K-Plus (registration 00B276-60) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product Vendetta (registration 008246-00) is authorised against late blight (Phytophthora infestans"
     },
     {
       "qid": "d06",
@@ -44,24 +51,17 @@
       "rag_snippet": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Presidium K-Plus (registration 00B276-60) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product Vendetta (registration 008246-00) is authorised against late blight (Phytophthora infestans"
     },
     {
-      "qid": "d06",
-      "question": "For late blight, name an active substance authorised in Germany but not in Norway.",
-      "entity": "azoxystrobin",
-      "kg_facts_text": "18 active substances are authorised against late blight in Germany but not in Norway: ametoctradin, amisulbrom, azoxystrobin, bacillus amyloliquefaciens, benalaxyl-m, cerevisane, copper hydroxide, copper oxychloride, cos-oga, cymoxanil, fluazinam, fluopicolide, orange oil, potassium phosphonate, propamocarb, pythium oligandrum, valifenalate, zoxamide.",
-      "rag_snippet": "In BVL (Federal Office of Consumer Protection and Food Safety), the product Presidium K-Plus (registration 00B276-60) is authorised against late blight (Phytophthora infestans) on potato. It contains zoxamide, potassium phosphonate.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product Vendetta (registration 008246-00) is authorised against late blight (Phytophthora infestans"
-    },
-    {
       "qid": "as_n01",
       "question": "Is captan authorised against apple scab in Norway?",
       "entity": "captan",
-      "kg_facts_text": "captan is NOT authorised against late blight in Norway. There are no such authorised products.",
+      "kg_facts_text": "captan is NOT authorised against apple scab in Norway. There are no such authorised products.",
       "rag_snippet": "In Mattilsynet (Norwegian Food Safety Authority), the product Delan Pro (registration 2018.2) is authorised against apple scab (Venturia inaequalis) on apple. It contains dithianon, potassium phosphonate.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product Merpan 80 WDG (registration 024519-00) is authorised against apple scab (Venturia inaequalis) on pome fruit. It contain"
     },
     {
       "qid": "pm_n02",
       "question": "Is sulfur authorised against cucurbit powdery mildew in Norway?",
       "entity": "sulfur",
-      "kg_facts_text": "sulfur is NOT authorised against late blight in Norway. There are no such authorised products.",
+      "kg_facts_text": "sulfur is NOT authorised against cucurbit powdery mildew in Norway. There are no such authorised products.",
       "rag_snippet": "In Mattilsynet (Norwegian Food Safety Authority), the product Talius (registration 2012.29.19) is authorised against cucurbit powdery mildew (Podosphaera xanthii) on cucumber (agurk), squash. It contains proquinazid.\nIn BVL (Federal Office of Consumer Protection and Food Safety), the product CURATIO (registration 00A770-00) is authorised against apple scab (Venturia inaequalis) on apple. It contai"
     }
   ],
@@ -665,7 +665,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "In Norway, the late-blight products containing mandipropamid are: Revus, Revus Pro, Revus Top."
+      "kg_facts_text": "In Norway, the late blight products containing mandipropamid are: Revus, Revus Pro, Revus Top."
     },
     "c02": {
       "question": "Which Norway-authorised late blight product contains a single active substance (not a mixture)?",
@@ -691,7 +691,7 @@
         "Revus Top"
       ],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "In Norway, the late-blight products with a single active substance are: Ranman TOP, Revus. Mixtures (two or more substances): Revus Top, Revus Pro."
+      "kg_facts_text": "In Norway, the late blight products with a single active substance are: Ranman TOP, Revus. Mixtures (two or more substances): Revus Top, Revus Pro."
     },
     "c03": {
       "question": "Which Norway late blight products combine mandipropamid with a second active substance?",
@@ -715,7 +715,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "In Norway, the late-blight products containing mandipropamid are: Revus, Revus Pro, Revus Top."
+      "kg_facts_text": "In Norway, the late blight products containing mandipropamid are: Revus, Revus Pro, Revus Top."
     },
     "c04": {
       "question": "Is there a copper-based product authorised for late blight in Norway?",
@@ -725,7 +725,7 @@
       "rag_entities_found": [],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "In Norway, no authorised late-blight product contains copper."
+      "kg_facts_text": "In Norway, no authorised late blight product contains copper."
     },
     "n01": {
       "question": "Is there more than one authorised product for cucurbit powdery mildew in Germany?",
@@ -1137,7 +1137,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "The active substances authorised against late blight in Norway are: dithianon, potassium phosphonate."
+      "kg_facts_text": "The active substances authorised against apple scab in Norway are: dithianon, potassium phosphonate."
     },
     "as_m02": {
       "question": "Which active substances are authorised against apple scab in Germany?",
@@ -1163,7 +1163,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "The active substances authorised against late blight in Germany are: aureobasidium pullulans, captan, dithianon, laminarin, lime sulfur, sulfur, trifloxystrobin."
+      "kg_facts_text": "The active substances authorised against apple scab in Germany are: aureobasidium pullulans, captan, dithianon, laminarin, lime sulfur, sulfur, trifloxystrobin."
     },
     "as_c01": {
       "question": "Which Norway-authorised apple-scab product contains dithianon?",
@@ -1179,7 +1179,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "In Norway, the late-blight products containing dithianon are: Delan Pro."
+      "kg_facts_text": "In Norway, the apple scab products containing dithianon are: Delan Pro."
     },
     "as_c02": {
       "question": "Which German apple-scab products contain sulfur?",
@@ -1199,7 +1199,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "In Germany, the late-blight products containing sulfur are: CURATIO, Microthiol WG, Thiopron."
+      "kg_facts_text": "In Germany, the apple scab products containing sulfur are: CURATIO, Microthiol WG, Thiopron."
     },
     "as_n01": {
       "question": "Is captan authorised against apple scab in Norway?",
@@ -1213,7 +1213,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": true,
-      "kg_facts_text": "captan is NOT authorised against late blight in Norway. There are no such authorised products."
+      "kg_facts_text": "captan is NOT authorised against apple scab in Norway. There are no such authorised products."
     },
     "as_d01": {
       "question": "How does the number of authorised apple-scab products differ between Germany and Norway?",
@@ -1223,7 +1223,7 @@
       "rag_entities_found": [],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "The number of products authorised against late blight is 9 in Germany and 1 in Norway."
+      "kg_facts_text": "The number of products authorised against apple scab is 9 in Germany and 1 in Norway."
     },
     "as_d02": {
       "question": "Is dithianon authorised against apple scab in both Germany and Norway?",
@@ -1237,7 +1237,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "dithianon is authorised against late blight in Germany: yes; in Norway: yes. It is authorised in both countries."
+      "kg_facts_text": "dithianon is authorised against apple scab in Germany: yes; in Norway: yes. It is authorised in both countries."
     },
     "pm_n01": {
       "question": "Is there more than one authorised cucurbit powdery mildew product in Germany?",
@@ -1251,7 +1251,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "1 products are authorised against late blight in Germany: Fulial."
+      "kg_facts_text": "1 products are authorised against cucurbit powdery mildew in Germany: Fulial."
     },
     "pm_n02": {
       "question": "Is sulfur authorised against cucurbit powdery mildew in Norway?",
@@ -1265,7 +1265,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": true,
-      "kg_facts_text": "sulfur is NOT authorised against late blight in Norway. There are no such authorised products."
+      "kg_facts_text": "sulfur is NOT authorised against cucurbit powdery mildew in Norway. There are no such authorised products."
     },
     "pm_d01": {
       "question": "For cucurbit powdery mildew, how do Germany and Norway compare in number of authorised products?",
@@ -1275,7 +1275,7 @@
       "rag_entities_found": [],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "The number of products authorised against late blight is 1 in Germany and 1 in Norway."
+      "kg_facts_text": "The number of products authorised against cucurbit powdery mildew is 1 in Germany and 1 in Norway."
     },
     "pm_d02": {
       "question": "Is the active substance in Norway's cucurbit powdery mildew product also authorised in Germany for that disease?",
@@ -1289,7 +1289,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "proquinazid is authorised against late blight in Germany: no; in Norway: yes. "
+      "kg_facts_text": "proquinazid is authorised against cucurbit powdery mildew in Germany: no; in Norway: yes. "
     },
     "pm_d03": {
       "question": "Germany and Norway each authorise one cucurbit powdery mildew product — do they use the same active substance?",
@@ -1303,7 +1303,7 @@
       ],
       "kg_entities_missing_from_rag": [],
       "negation_mismatch_candidate": false,
-      "kg_facts_text": "The active substances authorised against late blight in Germany are: azoxystrobin."
+      "kg_facts_text": "The active substances authorised against cucurbit powdery mildew in Germany are: azoxystrobin."
     },
     "xd_01": {
       "question": "Which active substances are authorised against more than one of the three diseases (late blight, apple scab, cucurbit powdery mildew)?",
