@@ -29,6 +29,20 @@ rag_arm.py's own default K). facts_text is computed WITHOUT calling explain()/Ol
 (same helper pattern as phase3_step1_diagnose_conflicts.py), then both fact sets are handed to Ollama
 together via the fusion prompt.
 
+--- Amendment (before Step 3, before any grading has happened) ---
+The Step 2 demo (3 questions, both variants) surfaced a real fabrication: on xd_02, BOTH naive and
+structured fusion stated azoxystrobin is "authorised against late blight, apple scab, and cucurbit powdery
+mildew" and explicitly attributed this to "the KG facts" — but the KG facts_text for this question only
+says azoxystrobin covers "more than one" of the three diseases, naming none, and none of the 8 retrieved
+RAG documents mention apple scab or powdery mildew at all (all 8 are late-blight-only). Two of the three
+named diseases happen to be correct (verified directly against kg_arm); apple scab is not. This is a
+genuine, confirmed fabrication misattributed to a verified source, not a retrieval-attribution error (the
+retrieved documents don't contain the fabricated content either). STRUCTURED_FUSION_PROMPT's rule 4 below
+was added in direct response to this finding, before any Step 3 generation or grading — the same
+demo-then-refine practice used to develop Phase 2's prompt variants. NAIVE_FUSION_PROMPT is intentionally
+left unchanged (it stays the fixed, deliberately-minimal baseline for the whole phase, same discipline as
+Phase 2's PROMPT_A).
+
 Run: python src/fusion_arm.py   -> demo on a few benchmark questions, both prompt variants
 """
 import sys
@@ -94,7 +108,11 @@ Rules:
    material.
 3. Use a retrieved document only to fill a gap the KG facts do not cover, and only if it is genuinely
    on-topic per rule 1.
-4. If neither source supports an answer, say so plainly — do not guess.
+4. If a source makes only an AGGREGATE claim (e.g. "authorised against more than one disease") without
+   naming specifics, do not supply the specifics yourself unless another provided fact states them
+   explicitly. Do not fill in plausible-sounding detail that isn't actually written in the facts, and
+   never attribute an invented detail to a source that didn't state it.
+5. If neither source supports an answer, say so plainly — do not guess.
 Be concise and precise.
 
 QUESTION: {question}
