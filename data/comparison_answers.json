@@ -1,0 +1,267 @@
+{
+  "_meta": {
+    "model": "llama3.2:3b",
+    "note": "For blind grading, anonymise kg_answer/rag_answer as System A/B, shuffled per question."
+  },
+  "results": [
+    {
+      "id": "f01",
+      "category": "factual",
+      "question": "What pathogen causes late blight?",
+      "kg_answer": "Phytophthora infestans.",
+      "rag_answer": "The pathogen that causes late blight is Phytophthora infestans."
+    },
+    {
+      "id": "f02",
+      "category": "factual",
+      "question": "What type of pathogen causes late blight — fungus, oomycete, or bacterium?",
+      "kg_answer": "The answer cannot be determined based on the provided facts. The fact only states that late blight is caused by Phytophthora infestans (EPPO code PHYTIN), but it does not specify whether it is a fungus, oomycete, or bacterium.",
+      "rag_answer": "There is no information in the provided facts that specifies the type of pathogen causing late blight (Phytophthora infestans)."
+    },
+    {
+      "id": "f03",
+      "category": "factual",
+      "question": "Which crops does late blight affect?",
+      "kg_answer": "No answer is provided, as the question asks for specific crops but no information on which crops are affected by late blight is given.",
+      "rag_answer": "According to the facts, late blight affects potatoes (Phytophthora infestans). There is no information provided about other crops being affected by late blight."
+    },
+    {
+      "id": "f04",
+      "category": "factual",
+      "question": "What is the EPPO code for the late blight pathogen?",
+      "kg_answer": "The EPPO code for the late blight pathogen is PHYTIN.",
+      "rag_answer": "There is no information provided about the EPPO code for the late blight pathogen in the given facts."
+    },
+    {
+      "id": "f05",
+      "category": "factual",
+      "question": "What pathogen causes apple scab?",
+      "kg_answer": "There is no information provided about the pathogen that causes apple scab.",
+      "rag_answer": "There is no information provided about the pathogens causing different diseases in apples or potatoes, including the specific one referred to as \"apple scab\". The facts only mention the product authorisations for late blight on potato and provide information about the active ingredients of those products."
+    },
+    {
+      "id": "f06",
+      "category": "factual",
+      "question": "What type of pathogen causes apple scab?",
+      "kg_answer": "There is no information provided about what type of pathogen causes apple scab. The facts only provide information about late blight and its causative agent, Phytophthora infestans.",
+      "rag_answer": "There is no information provided about the type of pathogen that causes apple scab. The facts only mention the authorizations for products against late blight (Phytophthora infestans) on potato, but do not provide information about other types of diseases or pathogens in apples."
+    },
+    {
+      "id": "f07",
+      "category": "factual",
+      "question": "What is the EPPO code for the apple scab pathogen?",
+      "kg_answer": "There is no information provided about an \"apple scab\" pathogen. The only relevant information is about late blight, which is caused by Phytophthora infestans (EPPO code PHYTIN).",
+      "rag_answer": "There is no information provided about the EPPO code for the apple scab pathogen in the given facts."
+    },
+    {
+      "id": "f08",
+      "category": "factual",
+      "question": "What pathogen causes powdery mildew of cucurbits?",
+      "kg_answer": "There is no information provided about a relationship between Phytophthora infestans and powdery mildew of cucurbits.",
+      "rag_answer": "There is no information provided about the pathogens associated with specific diseases in cucurbit crops. The facts only mention the authorization of products against late blight (Phytophthora infestans) on potato, and do not cover other types of powdery mildew or diseases affecting cucurbits."
+    },
+    {
+      "id": "f09",
+      "category": "factual",
+      "question": "Which crops does cucurbit powdery mildew affect?",
+      "kg_answer": "There is no information provided about cucurbit powdery mildew or its causative agent. The facts only mention late blight and Phytophthora infestans, but do not provide any information about cucurbit powdery mildew.",
+      "rag_answer": "There is no information provided about cucurbit powdery mildew or any related products. The facts only mention authorization of products against late blight (Phytophthora infestans) on potatoes."
+    },
+    {
+      "id": "f10",
+      "category": "factual",
+      "question": "What is the EPPO code for the cucurbit powdery mildew pathogen?",
+      "kg_answer": "The provided facts do not include information about the EPPO code for the cucurbit powdery mildew pathogen.",
+      "rag_answer": "There is no information provided in the facts about the EPPO code for the cucurbit powdery mildew pathogen."
+    },
+    {
+      "id": "r01",
+      "category": "region_specific",
+      "question": "Which national authority regulates plant-protection products in Germany?",
+      "kg_answer": "BVL (Federal Office of Consumer Protection and Food Safety).",
+      "rag_answer": "The BVL (Federal Office of Consumer Protection and Food Safety) is the national authority that regulates plant-protection products in Germany."
+    },
+    {
+      "id": "r02",
+      "category": "region_specific",
+      "question": "Which national authority regulates plant-protection products in Norway?",
+      "kg_answer": "Mattilsynet (Norwegian Food Safety Authority).",
+      "rag_answer": "The national authority that regulates plant-protection products in Norway is Mattilsynet (Norwegian Food Safety Authority)."
+    },
+    {
+      "id": "r03",
+      "category": "region_specific",
+      "question": "Where should a grower in Norway check which products are authorised for a disease?",
+      "kg_answer": "A grower in Norway should check the list of authorized plant-protection products on the website of the Norwegian Food Safety Authority, Mattilsynet.",
+      "rag_answer": "A grower in Norway should check Mattilsynet (Norwegian Food Safety Authority) for information on authorized products against late blight (Phytophthora infestans) on potato."
+    },
+    {
+      "id": "r04",
+      "category": "region_specific",
+      "question": "In Germany, whose authorisation is required before a product may be used against late blight?",
+      "kg_answer": "No information about the authorization requirements for products against late blight is provided.",
+      "rag_answer": "According to the facts provided, no specific authority is mentioned that regulates or requires authorisation for use of products against late blight in general. The information only lists BVL (Federal Office of Consumer Protection and Food Safety) as the relevant authority, but it does not specify what type of product or under what conditions their authorisation is required."
+    },
+    {
+      "id": "r05",
+      "category": "region_specific",
+      "question": "For late blight in Norway, what management practices are recommended?",
+      "kg_answer": "The provided facts do not include any information on management practices for late blight in Norway. They only list four products authorized against the disease.",
+      "rag_answer": "The question does not provide information about management practices for late blight in Norway. The facts only describe authorised products against late blight (Phytophthora infestans) on potato in different countries, but do not mention recommendations for management practices."
+    },
+    {
+      "id": "r06",
+      "category": "region_specific",
+      "question": "For apple scab in Germany, what management practices are recommended?",
+      "kg_answer": "I cannot provide information on the management of apple scab. Can I help you with something else?",
+      "rag_answer": "There is no information provided about the management of apple scab in Germany. The facts only relate to products authorized against late blight (Phytophthora infestans) on potato."
+    },
+    {
+      "id": "r07",
+      "category": "region_specific",
+      "question": "Is late blight economically significant for potato growing in Norway?",
+      "kg_answer": "There is no information provided about the economic significance of late blight for potato growing in Norway. The facts only mention the products authorized against late blight in Norway.",
+      "rag_answer": "There is no information provided about the economic significance of late blight for potato growing in Norway. The facts only describe product authorizations against late blight (Phytophthora infestans) on potato, but do not include any data or statements regarding its economic impact or significance in Norway."
+    },
+    {
+      "id": "r08",
+      "category": "region_specific",
+      "question": "Does an authorisation for a late blight product in Germany automatically apply in Norway?",
+      "kg_answer": "No, the fact that cyazofamid is authorised against late blight in both Germany and Norway does not imply automatic application of one authorisation to another.",
+      "rag_answer": "No information is provided about the authorization of products in Norway, so it cannot be determined if an authorization for a late blight product in Germany automatically applies in Norway."
+    },
+    {
+      "id": "r09",
+      "category": "region_specific",
+      "question": "Which regulatory zone does Norway assess plant-protection products in, and how does it differ from Germany's?",
+      "kg_answer": "I don't have the necessary information to answer this question. The provided facts do not mention which regulatory zone Norway assesses plant-protection products or how it differs from Germany's.",
+      "rag_answer": "Norway assesses plant-protection products in Mattilsynet. \n\nThe difference between Norway and Germany (BVL) lies in the authorization of the product Revus Pro. In Norway, Revus Pro is authorized with two active ingredients: mandipropamid and oxathiapiprolin. In contrast, in Germany, Zorvec Entecta contains amisulbrom and oxathiapiprolin, but not both mandipropamid and oxathiapiprolin."
+    },
+    {
+      "id": "m01",
+      "category": "multi_hop",
+      "question": "Which active substances are used in Norway-authorised products against potato late blight?",
+      "kg_answer": "Cyazofamid, difenoconazole, mandipropamid, and oxathiapiprolin.",
+      "rag_answer": "The active substance used in a Norway-authorised product against potato late blight is cyazofamid, found in the product Ranman TOP."
+    },
+    {
+      "id": "m02",
+      "category": "multi_hop",
+      "question": "Which Germany-authorised active substance appears in a Norway-authorised late blight product too?",
+      "kg_answer": "There is no information provided that would allow me to determine which Germany-authorized active substance also appears in a Norway-authorized late blight product.",
+      "rag_answer": "The answer cannot be determined from the provided facts as they only mention products authorised in Germany and do not include information on products authorised in Norway."
+    },
+    {
+      "id": "m03",
+      "category": "multi_hop",
+      "question": "For late blight, which active substances are authorised in Germany but not in Norway?",
+      "kg_answer": "The active substances authorised in Germany but not in Norway for the treatment of late blight are:\n\n1. Ameotcradin\n2. Amisulbrom\n3. Azoxystrobin\n4. Bacillus amyloliquefaciens\n5. Benalaxyl-m\n6. Cerevisane\n7. Copper hydroxide\n8. Copper oxychloride",
+      "rag_answer": "Based on the provided facts, I can only confirm which active substances are authorized in Germany. Unfortunately, there is no information available about Norwegian regulatory approvals for these products."
+    },
+    {
+      "id": "m04",
+      "category": "multi_hop",
+      "question": "Which crops are covered by Norway's authorised late blight products?",
+      "kg_answer": "I don't have information on the specific crops covered by Norway's authorised late blight products. The facts only mention the four authorised products (Ranman TOP, Revus, Revus Pro, Revus Top), but do not provide details on which crops they are approved for.",
+      "rag_answer": "The answer cannot be determined as the question does not provide information about specific crops other than potatoes (potet)."
+    },
+    {
+      "id": "c01",
+      "category": "constraint",
+      "question": "Which Norway-authorised late blight products contain mandipropamid?",
+      "kg_answer": "The Revus, Revus Pro, and Revus Top products.",
+      "rag_answer": "The Norway-authorised late blight products that contain mandipropamid are:\n\n1. Revus Pro (registration 2025.41)\n2. Revus Top (registration 2017.13.25)"
+    },
+    {
+      "id": "c02",
+      "category": "constraint",
+      "question": "Which Norway-authorised late blight product contains a single active substance (not a mixture)?",
+      "kg_answer": "Ranman TOP.",
+      "rag_answer": "There is no information provided that directly answers the question, as none of the products listed contain a single active substance without another."
+    },
+    {
+      "id": "c03",
+      "category": "constraint",
+      "question": "Which Norway late blight products combine mandipropamid with a second active substance?",
+      "kg_answer": "None of the mentioned products (Revus, Revus Pro, Revus Top) in Norway contain a second active substance. They all contain mandipropamid as the only active ingredient.",
+      "rag_answer": "Based on the provided facts, two Norwegian products combine mandipropamid with a second active substance:\n\n1. Revus Pro (registration 2025.41) contains oxathiapiprolin.\n2. Pergovia (registration 00A840-00) contains amisulbrom.\n\nNo other Norwegian products containing mandipropamid as an active substance are mentioned in the facts as combining it with a second active substance."
+    },
+    {
+      "id": "c04",
+      "category": "constraint",
+      "question": "Is there a copper-based product authorised for late blight in Norway?",
+      "kg_answer": "No information supports an answer to this question. The facts state that no authorized late-blight product contains copper in Norway, but they do not address the existence of any copper-based product specifically for late blight in Norway.",
+      "rag_answer": "No, there is no information provided about the products being authorised for late blight in Norway. The facts only mention authorisations in BVL (Federal Office of Consumer Protection and Food Safety) in Germany."
+    },
+    {
+      "id": "n01",
+      "category": "negative",
+      "question": "Is there more than one authorised product for cucurbit powdery mildew in Germany?",
+      "kg_answer": "No, there is only one authorised product mentioned for late blight in the list, which does not specifically mention powdery mildew.",
+      "rag_answer": "There is no information provided about products authorized against cucurbit powdery mildew. All the mentioned products are authorized against late blight (Phytophthora infestans) on potato."
+    },
+    {
+      "id": "n02",
+      "category": "negative",
+      "question": "Is the German late blight product BANJO (fluazinam) authorised in Norway?",
+      "kg_answer": "No, fluazinam (BANJO) is not authorised in Norway because it is not authorised against late blight in Norway.",
+      "rag_answer": "No information is provided about Norwegian regulatory approvals or authorizations for the product BANJO (fluazinam). The facts only relate to German regulatory approvals."
+    },
+    {
+      "id": "n03",
+      "category": "negative",
+      "question": "Are copper-hydroxide products (e.g. Cuprozin) authorised for late blight in Norway?",
+      "kg_answer": "No, there are no authorised copper products against late blight in Norway.",
+      "rag_answer": "No, the facts do not support an answer about Copper hydroxide products being authorized in Norway. The facts only mention authorization in Germany, as indicated by the \"BVL\" abbreviation."
+    },
+    {
+      "id": "n04",
+      "category": "negative",
+      "question": "Is there an authorised apple-scab product in Norway other than Delan Pro?",
+      "kg_answer": "No information is provided about apple-scab products in Norway.",
+      "rag_answer": "There is no information provided about an apple-scab product, let alone a specific product called \"Delan Pro\", that is authorised for use on apples in Norway. The facts only mention products authorised against late blight (Phytophthora infestans) on potato."
+    },
+    {
+      "id": "d01",
+      "category": "cross_border",
+      "question": "How does the number of authorised late-blight products differ between Germany and Norway?",
+      "kg_answer": "The number of authorised late-blight products differs between Germany and Norway. In Germany, there are 112 authorised products, while in Norway, there are 4.",
+      "rag_answer": "I couldn't find any information about authorized late-blight products in Norway. The question only provides data from BVL (Federal Office of Consumer Protection and Food Safety) in Germany, but it doesn't mention Norway."
+    },
+    {
+      "id": "d02",
+      "category": "cross_border",
+      "question": "For apple scab, how many products are authorised in each country?",
+      "kg_answer": "The provided facts do not mention the number of products authorized for apple scab in either Germany or Norway.",
+      "rag_answer": "There is no information about the authorisation of products for apple scab provided."
+    },
+    {
+      "id": "d03",
+      "category": "cross_border",
+      "question": "Is the active substance cyazofamid (Ranman TOP) authorised against late blight in both Germany and Norway?",
+      "kg_answer": "Yes, it is authorised against late blight in both Germany and Norway.",
+      "rag_answer": "No, the facts do not support an answer to this question. They provide information about the authorisation of Ranman TOP (cyazofamid) against late blight in Norway, but there is no information about its authorisation in Germany."
+    },
+    {
+      "id": "d04",
+      "category": "cross_border",
+      "question": "A grower moves a potato operation from Germany to Norway. What changes about the range of authorised late-blight products available?",
+      "kg_answer": "There are no authorised late-blight products in Norway, as there are only 4 such products authorised.",
+      "rag_answer": "There is no information provided in the facts about the range of authorised late-blight products available outside of Germany or specific countries such as Norway."
+    },
+    {
+      "id": "d05",
+      "category": "cross_border",
+      "question": "For cucurbit powdery mildew, how do the two countries compare?",
+      "kg_answer": "No information is provided about cucurbit powdery mildew or its regulation in either country.",
+      "rag_answer": "No comparison can be made between the two countries regarding control of cucurbit powdery mildew, as no information is provided about products authorized against this specific disease in the given facts. The facts only provide information on products authorized against late blight (Phytophthora infestans) on potato."
+    },
+    {
+      "id": "d06",
+      "category": "cross_border",
+      "question": "For late blight, name an active substance authorised in Germany but not in Norway.",
+      "kg_answer": "Azoxystrobin.",
+      "rag_answer": "Based on the provided facts, azoxystrobin is authorised in both Germany and Norway for late blight on potato. Therefore, I cannot find an answer to the question as it stands."
+    }
+  ]
+}
