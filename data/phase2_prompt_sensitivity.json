@@ -1,0 +1,963 @@
+{
+  "_meta": {
+    "model": "llama3.2:3b",
+    "purpose": "prompt-sensitivity check before concluding LLM routing fails (see docstring)"
+  },
+  "scores": {
+    "A_baseline": {
+      "n": 51,
+      "routing_accuracy_vs_oracle": 0.803921568627451,
+      "systematic_rag_wins_caught": "2/12",
+      "factual_routed_to_docs": "4/10",
+      "risky_category_misroutes_to_rag": [],
+      "ambiguous_parses": 0
+    },
+    "B_docs_first": {
+      "n": 51,
+      "routing_accuracy_vs_oracle": 0.8235294117647058,
+      "systematic_rag_wins_caught": "6/12",
+      "factual_routed_to_docs": "8/10",
+      "risky_category_misroutes_to_rag": [],
+      "ambiguous_parses": 0
+    },
+    "C_few_shot": {
+      "n": 51,
+      "routing_accuracy_vs_oracle": 0.9019607843137255,
+      "systematic_rag_wins_caught": "2/12",
+      "factual_routed_to_docs": "7/10",
+      "risky_category_misroutes_to_rag": [
+        [
+          "xd_02",
+          "cross_disease"
+        ]
+      ],
+      "ambiguous_parses": 0
+    }
+  },
+  "decisions": {
+    "A_baseline": {
+      "f01": {
+        "question": "What pathogen causes late blight?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f02": {
+        "question": "What type of pathogen causes late blight — fungus, oomycete, or bacterium?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f03": {
+        "question": "Which crops does late blight affect?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f04": {
+        "question": "What is the EPPO code for the late blight pathogen?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f05": {
+        "question": "What pathogen causes apple scab?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f06": {
+        "question": "What type of pathogen causes apple scab?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f07": {
+        "question": "What is the EPPO code for the apple scab pathogen?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f08": {
+        "question": "What pathogen causes powdery mildew of cucurbits?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f09": {
+        "question": "Which crops does cucurbit powdery mildew affect?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f10": {
+        "question": "What is the EPPO code for the cucurbit powdery mildew pathogen?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r01": {
+        "question": "Which national authority regulates plant-protection products in Germany?",
+        "category": "region_specific",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r02": {
+        "question": "Which national authority regulates plant-protection products in Norway?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r03": {
+        "question": "Where should a grower in Norway check which products are authorised for a disease?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r04": {
+        "question": "In Germany, whose authorisation is required before a product may be used against late blight?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r05": {
+        "question": "For late blight in Norway, what management practices are recommended?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r06": {
+        "question": "For apple scab in Germany, what management practices are recommended?",
+        "category": "region_specific",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r07": {
+        "question": "Is late blight economically significant for potato growing in Norway?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r08": {
+        "question": "Does an authorisation for a late blight product in Germany automatically apply in Norway?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r09": {
+        "question": "Which regulatory zone does Norway assess plant-protection products in, and how does it differ from Germany's?",
+        "category": "region_specific",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "m01": {
+        "question": "Which active substances are used in Norway-authorised products against potato late blight?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m02": {
+        "question": "Which Germany-authorised active substance appears in a Norway-authorised late blight product too?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m03": {
+        "question": "For late blight, which active substances are authorised in Germany but not in Norway?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m04": {
+        "question": "Which crops are covered by Norway's authorised late blight products?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c01": {
+        "question": "Which Norway-authorised late blight products contain mandipropamid?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c02": {
+        "question": "Which Norway-authorised late blight product contains a single active substance (not a mixture)?",
+        "category": "constraint",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "c03": {
+        "question": "Which Norway late blight products combine mandipropamid with a second active substance?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c04": {
+        "question": "Is there a copper-based product authorised for late blight in Norway?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n01": {
+        "question": "Is there more than one authorised product for cucurbit powdery mildew in Germany?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n02": {
+        "question": "Is the German late blight product BANJO (fluazinam) authorised in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n03": {
+        "question": "Are copper-hydroxide products (e.g. Cuprozin) authorised for late blight in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n04": {
+        "question": "Is there an authorised apple-scab product in Norway other than Delan Pro?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d01": {
+        "question": "How does the number of authorised late-blight products differ between Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d02": {
+        "question": "For apple scab, how many products are authorised in each country?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d03": {
+        "question": "Is the active substance cyazofamid (Ranman TOP) authorised against late blight in both Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d04": {
+        "question": "A grower moves a potato operation from Germany to Norway. What changes about the range of authorised late-blight products available?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d05": {
+        "question": "For cucurbit powdery mildew, how do the two countries compare?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d06": {
+        "question": "For late blight, name an active substance authorised in Germany but not in Norway.",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_m01": {
+        "question": "Which active substances are authorised against apple scab in Norway?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_m02": {
+        "question": "Which active substances are authorised against apple scab in Germany?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_c01": {
+        "question": "Which Norway-authorised apple-scab product contains dithianon?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_c02": {
+        "question": "Which German apple-scab products contain sulfur?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_n01": {
+        "question": "Is captan authorised against apple scab in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_d01": {
+        "question": "How does the number of authorised apple-scab products differ between Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_d02": {
+        "question": "Is dithianon authorised against apple scab in both Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_n01": {
+        "question": "Is there more than one authorised cucurbit powdery mildew product in Germany?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_n02": {
+        "question": "Is sulfur authorised against cucurbit powdery mildew in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d01": {
+        "question": "For cucurbit powdery mildew, how do Germany and Norway compare in number of authorised products?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d02": {
+        "question": "Is the active substance in Norway's cucurbit powdery mildew product also authorised in Germany for that disease?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d03": {
+        "question": "Germany and Norway each authorise one cucurbit powdery mildew product — do they use the same active substance?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "xd_01": {
+        "question": "Which active substances are authorised against more than one of the three diseases (late blight, apple scab, cucurbit powdery mildew)?",
+        "category": "cross_disease",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "xd_02": {
+        "question": "Is azoxystrobin used against only a single disease among the three studied?",
+        "category": "cross_disease",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      }
+    },
+    "B_docs_first": {
+      "f01": {
+        "question": "What pathogen causes late blight?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f02": {
+        "question": "What type of pathogen causes late blight — fungus, oomycete, or bacterium?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f03": {
+        "question": "Which crops does late blight affect?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f04": {
+        "question": "What is the EPPO code for the late blight pathogen?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f05": {
+        "question": "What pathogen causes apple scab?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f06": {
+        "question": "What type of pathogen causes apple scab?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f07": {
+        "question": "What is the EPPO code for the apple scab pathogen?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f08": {
+        "question": "What pathogen causes powdery mildew of cucurbits?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f09": {
+        "question": "Which crops does cucurbit powdery mildew affect?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f10": {
+        "question": "What is the EPPO code for the cucurbit powdery mildew pathogen?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r01": {
+        "question": "Which national authority regulates plant-protection products in Germany?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r02": {
+        "question": "Which national authority regulates plant-protection products in Norway?",
+        "category": "region_specific",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r03": {
+        "question": "Where should a grower in Norway check which products are authorised for a disease?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r04": {
+        "question": "In Germany, whose authorisation is required before a product may be used against late blight?",
+        "category": "region_specific",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r05": {
+        "question": "For late blight in Norway, what management practices are recommended?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r06": {
+        "question": "For apple scab in Germany, what management practices are recommended?",
+        "category": "region_specific",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r07": {
+        "question": "Is late blight economically significant for potato growing in Norway?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r08": {
+        "question": "Does an authorisation for a late blight product in Germany automatically apply in Norway?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r09": {
+        "question": "Which regulatory zone does Norway assess plant-protection products in, and how does it differ from Germany's?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m01": {
+        "question": "Which active substances are used in Norway-authorised products against potato late blight?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m02": {
+        "question": "Which Germany-authorised active substance appears in a Norway-authorised late blight product too?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m03": {
+        "question": "For late blight, which active substances are authorised in Germany but not in Norway?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m04": {
+        "question": "Which crops are covered by Norway's authorised late blight products?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c01": {
+        "question": "Which Norway-authorised late blight products contain mandipropamid?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c02": {
+        "question": "Which Norway-authorised late blight product contains a single active substance (not a mixture)?",
+        "category": "constraint",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "c03": {
+        "question": "Which Norway late blight products combine mandipropamid with a second active substance?",
+        "category": "constraint",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "c04": {
+        "question": "Is there a copper-based product authorised for late blight in Norway?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n01": {
+        "question": "Is there more than one authorised product for cucurbit powdery mildew in Germany?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n02": {
+        "question": "Is the German late blight product BANJO (fluazinam) authorised in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n03": {
+        "question": "Are copper-hydroxide products (e.g. Cuprozin) authorised for late blight in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n04": {
+        "question": "Is there an authorised apple-scab product in Norway other than Delan Pro?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d01": {
+        "question": "How does the number of authorised late-blight products differ between Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d02": {
+        "question": "For apple scab, how many products are authorised in each country?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d03": {
+        "question": "Is the active substance cyazofamid (Ranman TOP) authorised against late blight in both Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d04": {
+        "question": "A grower moves a potato operation from Germany to Norway. What changes about the range of authorised late-blight products available?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d05": {
+        "question": "For cucurbit powdery mildew, how do the two countries compare?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d06": {
+        "question": "For late blight, name an active substance authorised in Germany but not in Norway.",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_m01": {
+        "question": "Which active substances are authorised against apple scab in Norway?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_m02": {
+        "question": "Which active substances are authorised against apple scab in Germany?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_c01": {
+        "question": "Which Norway-authorised apple-scab product contains dithianon?",
+        "category": "constraint",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "as_c02": {
+        "question": "Which German apple-scab products contain sulfur?",
+        "category": "constraint",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "as_n01": {
+        "question": "Is captan authorised against apple scab in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_d01": {
+        "question": "How does the number of authorised apple-scab products differ between Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_d02": {
+        "question": "Is dithianon authorised against apple scab in both Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_n01": {
+        "question": "Is there more than one authorised cucurbit powdery mildew product in Germany?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_n02": {
+        "question": "Is sulfur authorised against cucurbit powdery mildew in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d01": {
+        "question": "For cucurbit powdery mildew, how do Germany and Norway compare in number of authorised products?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d02": {
+        "question": "Is the active substance in Norway's cucurbit powdery mildew product also authorised in Germany for that disease?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d03": {
+        "question": "Germany and Norway each authorise one cucurbit powdery mildew product — do they use the same active substance?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "xd_01": {
+        "question": "Which active substances are authorised against more than one of the three diseases (late blight, apple scab, cucurbit powdery mildew)?",
+        "category": "cross_disease",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "xd_02": {
+        "question": "Is azoxystrobin used against only a single disease among the three studied?",
+        "category": "cross_disease",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      }
+    },
+    "C_few_shot": {
+      "f01": {
+        "question": "What pathogen causes late blight?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f02": {
+        "question": "What type of pathogen causes late blight — fungus, oomycete, or bacterium?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f03": {
+        "question": "Which crops does late blight affect?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f04": {
+        "question": "What is the EPPO code for the late blight pathogen?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f05": {
+        "question": "What pathogen causes apple scab?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f06": {
+        "question": "What type of pathogen causes apple scab?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f07": {
+        "question": "What is the EPPO code for the apple scab pathogen?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f08": {
+        "question": "What pathogen causes powdery mildew of cucurbits?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "f09": {
+        "question": "Which crops does cucurbit powdery mildew affect?",
+        "category": "factual",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "f10": {
+        "question": "What is the EPPO code for the cucurbit powdery mildew pathogen?",
+        "category": "factual",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r01": {
+        "question": "Which national authority regulates plant-protection products in Germany?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r02": {
+        "question": "Which national authority regulates plant-protection products in Norway?",
+        "category": "region_specific",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      },
+      "r03": {
+        "question": "Where should a grower in Norway check which products are authorised for a disease?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r04": {
+        "question": "In Germany, whose authorisation is required before a product may be used against late blight?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r05": {
+        "question": "For late blight in Norway, what management practices are recommended?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r06": {
+        "question": "For apple scab in Germany, what management practices are recommended?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r07": {
+        "question": "Is late blight economically significant for potato growing in Norway?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r08": {
+        "question": "Does an authorisation for a late blight product in Germany automatically apply in Norway?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "r09": {
+        "question": "Which regulatory zone does Norway assess plant-protection products in, and how does it differ from Germany's?",
+        "category": "region_specific",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m01": {
+        "question": "Which active substances are used in Norway-authorised products against potato late blight?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m02": {
+        "question": "Which Germany-authorised active substance appears in a Norway-authorised late blight product too?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m03": {
+        "question": "For late blight, which active substances are authorised in Germany but not in Norway?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "m04": {
+        "question": "Which crops are covered by Norway's authorised late blight products?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c01": {
+        "question": "Which Norway-authorised late blight products contain mandipropamid?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c02": {
+        "question": "Which Norway-authorised late blight product contains a single active substance (not a mixture)?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c03": {
+        "question": "Which Norway late blight products combine mandipropamid with a second active substance?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "c04": {
+        "question": "Is there a copper-based product authorised for late blight in Norway?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n01": {
+        "question": "Is there more than one authorised product for cucurbit powdery mildew in Germany?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n02": {
+        "question": "Is the German late blight product BANJO (fluazinam) authorised in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n03": {
+        "question": "Are copper-hydroxide products (e.g. Cuprozin) authorised for late blight in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "n04": {
+        "question": "Is there an authorised apple-scab product in Norway other than Delan Pro?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d01": {
+        "question": "How does the number of authorised late-blight products differ between Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d02": {
+        "question": "For apple scab, how many products are authorised in each country?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d03": {
+        "question": "Is the active substance cyazofamid (Ranman TOP) authorised against late blight in both Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d04": {
+        "question": "A grower moves a potato operation from Germany to Norway. What changes about the range of authorised late-blight products available?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d05": {
+        "question": "For cucurbit powdery mildew, how do the two countries compare?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "d06": {
+        "question": "For late blight, name an active substance authorised in Germany but not in Norway.",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_m01": {
+        "question": "Which active substances are authorised against apple scab in Norway?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_m02": {
+        "question": "Which active substances are authorised against apple scab in Germany?",
+        "category": "multi_hop",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_c01": {
+        "question": "Which Norway-authorised apple-scab product contains dithianon?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_c02": {
+        "question": "Which German apple-scab products contain sulfur?",
+        "category": "constraint",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_n01": {
+        "question": "Is captan authorised against apple scab in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_d01": {
+        "question": "How does the number of authorised apple-scab products differ between Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "as_d02": {
+        "question": "Is dithianon authorised against apple scab in both Germany and Norway?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_n01": {
+        "question": "Is there more than one authorised cucurbit powdery mildew product in Germany?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_n02": {
+        "question": "Is sulfur authorised against cucurbit powdery mildew in Norway?",
+        "category": "negative",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d01": {
+        "question": "For cucurbit powdery mildew, how do Germany and Norway compare in number of authorised products?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d02": {
+        "question": "Is the active substance in Norway's cucurbit powdery mildew product also authorised in Germany for that disease?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "pm_d03": {
+        "question": "Germany and Norway each authorise one cucurbit powdery mildew product — do they use the same active substance?",
+        "category": "cross_border",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "xd_01": {
+        "question": "Which active substances are authorised against more than one of the three diseases (late blight, apple scab, cucurbit powdery mildew)?",
+        "category": "cross_disease",
+        "routed_to": "kg",
+        "ambiguous_parse": false
+      },
+      "xd_02": {
+        "question": "Is azoxystrobin used against only a single disease among the three studied?",
+        "category": "cross_disease",
+        "routed_to": "rag",
+        "ambiguous_parse": false
+      }
+    }
+  }
+}
