@@ -61,15 +61,23 @@ a *more credible* picture than a broad sweep: the single-disease run was partly 
 German-corpus imbalance, which is diluted across three diseases. The KG's advantage now sits exactly where
 the pre-registered predictions expected it, and not elsewhere.
 
-**3. Faithfulness — note the change from Stage 6.** In the single-disease study, document-RAG was *more*
-faithful (92% vs 82%), because it abstained rather than fabricate. In this three-disease run the ordering
-**reverses**: KG 96% vs RAG 88%. The most likely cause is the pipeline improvements made between the two
-evaluations — cleaner fact-verbalisation and disease-filtered queries reduced the KG's tendency to
-overclaim. The negative/absence category shows this starkly: KG 100% faithful vs RAG 64%, because RAG now
-hallucinates on absence questions while the KG correctly denies. This change between runs should be stated
-explicitly rather than smoothed over: the KG became both more correct and more faithful after the arm was
-better tuned. (It also underlines that the earlier "faithfully unhelpful RAG" finding was specific to the
-earlier, rougher KG arm.)
+**3. Faithfulness — the change from Stage 6, now explained.** In the single-disease study, document-RAG was
+*more* faithful (92% vs 82%), because it abstained rather than fabricate. In this three-disease run the
+ordering **reverses**: KG 96% vs RAG 88%. This change was investigated rather than assumed, using the
+recovered Stage 6 grades: on the **identical late-blight questions** across both evaluations, KG faithfulness
+rose from **82.0% to 95.0% (+13.1 pts)** while RAG's fell slightly (91.9% to 87.1%). Because the question set
+is held constant, the change is isolated to the **pipeline refinement** made between the two runs — cleaner
+fact-verbalisation and disease-filtered queries reduced the KG's tendency to overclaim. The negative/absence
+category shows the effect starkly: KG 100% faithful vs RAG 64%, because RAG hallucinates on absence questions
+while the KG correctly denies.
+
+The improvement was strong but **not uniform**: of the late-blight questions graded in both runs, 12 improved
+in KG faithfulness, 3 regressed, and 22 were unchanged. Notably, the 3 regressions (m02, m03, d04) are
+cross-country/divergence questions whose routing was rewired to fetch *more* facts — and supplying the model
+more precise facts made it more likely to overclaim on them. This is a small in-vivo instance of the
+correctness-versus-faithfulness tension this study documents: the very facts that raise correctness can tempt
+the model to assert beyond them. (It also confirms the earlier "faithfully unhelpful RAG" finding was
+specific to the earlier, rougher KG arm.)
 
 **4. Consistency advantage holds.** The KG remains markedly more stable across runs (48–53%) than
 document-RAG (37–47%) — the reliability property carries over to the multi-disease setting.
@@ -85,16 +93,20 @@ structured representation surfaces cleanly and a count-based view misses.
 
 - Absolute performance remains low — a *relative* comparison under a small local model and strict grading,
   not a deployable system.
-- **Single grader.** This run, like Stage 6, was graded by one assessor (blind). Multiple-grader validation
-  with inter-rater agreement is the key outstanding Phase 1 item and is required before the result is fully
-  defensible.
+- **Grading validated.** A second independent blind grader scored 125 of the 153 items; inter-rater
+  agreement was near-perfect (Cohen's kappa 0.99 for correctness, 1.00 for faithfulness). The grading is
+  reproducible — the result no longer rests on a single assessor.
 - The corpus imbalance is reduced but not eliminated; powdery mildew and apple scab contribute few
   questions each, so their per-category rates rest on small counts.
-- The faithfulness result changed between the two evaluations; the explanation (pipeline tuning) is
-  plausible but should be confirmed, not assumed.
+- The faithfulness change between the two evaluations was traced to pipeline refinement (confirmed on the
+  identical late-blight question set), but the two runs were not a single controlled ablation — the pipeline
+  and the disease set both changed between Stage 6 and Phase 1, so the isolation, while strong, is not a
+  formal A/B test.
 
 ## Status
 
 Phase 1 core complete: three-disease KG, expanded verified benchmark, repeated blind evaluation, new
-cross-disease capability demonstrated. Outstanding: a second independent grader (inter-rater agreement) and
-confirmation of the faithfulness-change explanation.
+cross-disease capability demonstrated, grading validated by a second blind grader (kappa 0.99/1.00), and the
+faithfulness change between evaluations traced to pipeline refinement. Remaining optional items: instantiate
+the open hierarchy-traversal category (requires wiring real German crop codes), and verify the AGROVOC crop
+URIs and remaining Norwegian registration numbers.
