@@ -120,6 +120,13 @@ if __name__ == "__main__":
     ]
     for qid, q in demo:
         print(f"\n=== {qid}: {q} ===")
+        kg_f = kg_facts_text(qid)
+        rag_f = rag_facts_text(q)
+        print(f"\n  KG FACTS:\n    {kg_f}")
+        print(f"\n  RAG FACTS (top-8 retrieved docs):")
+        for line in rag_f.split("\n"):
+            print(f"    {line}")
         for variant in FUSION_PROMPTS:
-            ans, kg_f, rag_f = fusion_answer(qid, q, variant)
-            print(f"\n  [{variant}] {ans}")
+            prompt = FUSION_PROMPTS[variant].format(kg_facts=kg_f, rag_facts=rag_f, question=q)
+            answer = ollama.generate(model=LLM, prompt=prompt)["response"].strip()
+            print(f"\n  [{variant}] {answer}")
