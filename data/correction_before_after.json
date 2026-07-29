@@ -1,0 +1,42 @@
+{
+  "before": {
+    "kg": {
+      "correct": 0.5038759689922481,
+      "faithful": 0.9612403100775194,
+      "n": 129
+    },
+    "rag": {
+      "correct": 0.4263565891472868,
+      "faithful": 0.875968992248062,
+      "n": 129
+    },
+    "kg_on_affected_subset": {
+      "correct": 0.2916666666666667,
+      "n": 24
+    },
+    "rag_on_affected_subset": {
+      "correct": 0.7083333333333334,
+      "n": 24
+    }
+  },
+  "after": {
+    "kg": {
+      "correct": 0.6201550387596899,
+      "faithful": 0.9457364341085271,
+      "n": 129
+    },
+    "rag": {
+      "correct": 0.3953488372093023,
+      "faithful": 0.8062015503875969,
+      "n": 129
+    },
+    "kg_on_affected_subset": {
+      "correct": 0.9166666666666666,
+      "n": 24
+    },
+    "rag_on_affected_subset": {
+      "correct": 0.5416666666666666,
+      "n": 24
+    }
+  }
+}
