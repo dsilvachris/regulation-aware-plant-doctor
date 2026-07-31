@@ -36,12 +36,26 @@ EMA_MEDICINES_URL = "https://www.ema.europa.eu/en/documents/report/medicines-out
 
 
 def fda_lookup(substance):
+    """Returns whether the substance has an ACTUALLY APPROVED FDA application (submission_status "AP"
+    on at least one submission), not just any record matching the search — a 'Discontinued' marketing
+    status still means it WAS approved, so we check submission history, not current marketing status."""
     r = requests.get(FDA_URL, params={"search": f'products.active_ingredients.name:"{substance.upper()}"',
-                                       "limit": 5}, timeout=20)
+                                       "limit": 20}, timeout=20)
     if r.status_code != 200:
-        return {"found": False, "status": r.status_code}
+        return {"found": False, "approved": False, "status": r.status_code}
     data = r.json()
-    return {"found": True, "n": data["meta"]["results"]["total"], "sample": data["results"][:2]}
+    results = data["results"]
+    approved = any(sub.get("submission_status") == "AP"
+                   for app in results for sub in app.get("submissions", []))
+    return {"found": True, "approved": approved, "n": data["meta"]["results"]["total"], "sample": results[:2]}
+
+
+def word_boundary_match(substance, text):
+    """Exact-word match, not substring — prevents 'morphine' matching inside 'apomorphine'."""
+    import re
+    if not text:
+        return False
+    return re.search(r'\b' + re.escape(substance.lower()) + r'\b', text.lower()) is not None
 
 
 def rxcui_lookup(substance):
@@ -71,8 +85,9 @@ def load_ema_data():
 
 
 def ema_lookup(substance, ema_data):
-    hits = [m for m in ema_data if substance.lower() in (m.get("active_substance") or "").lower()
-            or substance.lower() in (m.get("international_non_proprietary_name_common_name") or "").lower()]
+    hits = [m for m in ema_data
+            if word_boundary_match(substance, m.get("active_substance"))
+            or word_boundary_match(substance, m.get("international_non_proprietary_name_common_name"))]
     return hits
 
 
@@ -91,20 +106,24 @@ if __name__ == "__main__":
         atc_codes = atc_via_rxclass(rxcui)
         ema_hits = ema_lookup(sub, ema_data)
         ema_atc = sorted({m["atc_code_human"] for m in ema_hits if m.get("atc_code_human")})
+        ema_statuses = sorted({m.get("medicine_status", "") for m in ema_hits})
+        ema_approved = any(m.get("medicine_status") == "Authorised" for m in ema_hits)
 
-        fda_found = fda.get("found") and fda.get("n", 0) > 0
-        ema_found = len(ema_hits) > 0
-        divergent = fda_found != ema_found  # in one region's data but not the other
+        fda_approved = fda.get("approved", False)
+        divergent = fda_approved != ema_approved  # authorised in one region's regulator, not the other
 
-        print(f"  FDA: {'found (' + str(fda.get('n', 0)) + ' records)' if fda_found else 'NOT FOUND'}")
-        print(f"  EMA: {'found (' + str(len(ema_hits)) + ' records)' if ema_found else 'NOT FOUND'}")
+        print(f"  FDA: found={fda.get('found')}, APPROVED={fda_approved} "
+              f"({fda.get('n', 0)} matching records)")
+        print(f"  EMA: found={len(ema_hits) > 0}, AUTHORISED={ema_approved} "
+              f"(statuses seen: {ema_statuses})")
         print(f"  ATC (via RxClass, FDA-side): {atc_codes}")
         print(f"  ATC (native, EMA-side): {ema_atc}")
-        print(f"  DIVERGENT (in one region's approvals but not the other): {divergent}")
+        print(f"  DIVERGENT (authorised by one regulator, not the other): {divergent}")
 
         results[sub] = {
-            "fda_found": fda_found, "fda_n": fda.get("n", 0),
-            "ema_found": ema_found, "ema_n": len(ema_hits),
+            "fda_found": fda.get("found", False), "fda_approved": fda_approved, "fda_n": fda.get("n", 0),
+            "ema_found": len(ema_hits) > 0, "ema_approved": ema_approved, "ema_n": len(ema_hits),
+            "ema_statuses_seen": ema_statuses,
             "atc_fda_side": atc_codes, "atc_ema_side": ema_atc,
             "divergent": divergent,
         }
