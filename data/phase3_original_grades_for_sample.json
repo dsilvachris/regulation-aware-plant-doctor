@@ -1,0 +1,382 @@
+{
+  "original_grades": {
+    "run1_xd_01": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System B accurately identified Azoxystrobin (late blight + cucurbit PM)."
+    },
+    "run1_xd_02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered 'No'."
+    },
+    "run2_xd_01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems identified Azoxystrobin."
+    },
+    "run2_xd_02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 0,
+      "notes": "System A correctly answered 'No'. System B produced contradictory hedging."
+    },
+    "run3_xd_01": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly identified both multi-disease substances (potassium phosphonate, azoxystrobin). System A generated contradictory reasoning."
+    },
+    "run3_xd_02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered No (it targets late blight and cucurbit powdery mildew)."
+    },
+    "run3_n01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly identified that there is more than one product. System A cited Talius as German (Talius is Norwegian)."
+    },
+    "run1_pm_n01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 0,
+      "notes": "System A correctly identified German authorizations. System B hallucinated Talius as German."
+    },
+    "run3_n04": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "Ground truth is No. System B correctly concluded No/cannot say based on context. System A hallucinated German products into Norway."
+    },
+    "run2_n03": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System A incorrectly said 'Yes'. System B correctly answered 'No'."
+    },
+    "run1_pm_n02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered 'No'."
+    },
+    "run2_pm_n02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered 'No'."
+    },
+    "run2_pm_n01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 0,
+      "notes": "System A correctly answered 'Yes'. System B confused late blight products on tomato."
+    },
+    "run2_as_n01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered 'No'."
+    },
+    "run3_as_n01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered negative ground truth."
+    },
+    "run1_as_n01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered 'No'."
+    },
+    "run2_n02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 0,
+      "notes": "System A correctly answered 'No'. System B hallucinated zero late blight products in Norway."
+    },
+    "run1_n04": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System A confused late blight with apple scab. System B correctly evaluated that no other apple scab product exists in Norway."
+    },
+    "run3_c02": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Ranman TOP / Revus contain a single active substance. Both systems failed to identify them."
+    },
+    "run2_as_c02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly named CURATIO, Microthiol WG, and Thiopron."
+    },
+    "run3_as_c01": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Delan Pro is the sole product in Norway. System A hallucinated DITOFLO 700 WG as a Norwegian product (it is German)."
+    },
+    "run2_c03": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System B listed Revus Pro and Revus Top."
+    },
+    "run3_c03": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 0,
+      "notes": "The correct Norway product is Revus Top / Revus Pro (depending on source context). System A failed to confirm Revus Top; System B incorrectly included Pergovia, which is a German product."
+    },
+    "run2_c04": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems answered 'No'."
+    },
+    "run1_c04": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 0,
+      "notes": "System A correctly answered 'No'. System B was non-committal."
+    },
+    "run1_as_c01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both identified Delan Pro."
+    },
+    "run2_f08": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both accurately stated that the pathogen was omitted."
+    },
+    "run3_f03": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly identified potatoes and other host crops. System A failed to extract crop details."
+    },
+    "run2_f01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly provided Phytophthora infestans."
+    },
+    "run2_f07": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 0,
+      "notes": "System A correctly noted the code was unmentioned. System B hallucinated the species name as the EPPO code."
+    },
+    "run1_f03": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly lists potato, tomato, and aubergine. System A failed to extract non-potato hosts."
+    },
+    "run3_f04": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly extracted the EPPO code PHYTIN."
+    },
+    "run1_f07": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System A gives late blight EPPO code irrelevantly. System B correctly notes that the context omits the EPPO code for Venturia inaequalis."
+    },
+    "run3_f09": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly identified cucumber and squash."
+    },
+    "run2_f05": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 0,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Neither system named Venturia inaequalis."
+    },
+    "run3_f01": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly identified Phytophthora infestans. System A failed to extract the pathogen."
+    },
+    "run1_pm_d02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered 'No'."
+    },
+    "run2_d03": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly answered 'Yes'."
+    },
+    "run3_d04": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly identified the drastic reduction in authorized products (112 in DE vs 4 in NO). System A failed to synthesize this contrast."
+    },
+    "run3_pm_d02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly identified that proquinazid is not authorized in Germany for CPM."
+    },
+    "run1_d02": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System B accurately extracted 9 for Germany (or noted Delan Pro for Norway = 1). System A confused late blight with apple scab totals."
+    },
+    "run3_as_d02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly confirmed authorization of dithianon in both countries."
+    },
+    "run2_d01": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly compared 112 to 4."
+    },
+    "run2_pm_d02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly concluded 'No'."
+    },
+    "run3_m02": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "System B successfully performed the cross-border multi-hop match. System A failed to resolve it."
+    },
+    "run3_as_m01": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly listed dithianon and potassium phosphonate."
+    },
+    "run1_m04": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly extracted potato, aubergine, and tomato."
+    },
+    "run2_as_m02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly identified the active substances."
+    },
+    "run3_m03": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "System B successfully performed the set difference calculation across countries. System A refused to answer."
+    },
+    "run1_r05": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both correctly stated management practices were unmentioned in the text."
+    },
+    "run3_r07": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both systems correctly recognized missing economic context."
+    },
+    "run2_r02": {
+      "grade_A_correct": 1,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 1,
+      "grade_B_faithful": 1,
+      "notes": "Both correctly named Mattilsynet."
+    },
+    "run2_r04": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly identified BVL as the German regulating authority."
+    },
+    "run2_r03": {
+      "grade_A_correct": 0,
+      "grade_B_correct": 1,
+      "grade_A_faithful": 0,
+      "grade_B_faithful": 1,
+      "notes": "System B correctly directed Norwegian growers exclusively to Mattilsynet. System A erroneously included BVL."
+    }
+  }
+}
