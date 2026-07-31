@@ -35,19 +35,47 @@ above, and confirms genuine divergence is findable, the same property that made 
 cross-border category real rather than manufactured. The actual candidate-set divergence check (beyond
 this one anecdote) is left to the Step 0 script's live run — see below.
 
-## Go/no-go: GO
+## Critical scope-boundary finding (confirmed via live rerun + verification)
 
-All three feasibility conditions from `Phase4_Plan.md` Step 0 are met:
-- [x] openFDA returns real, parseable records
-- [x] EMA returns real, parseable records with native ATC codes
-- [x] A genuine divergence case is known to exist (aducanumab), pending confirmation at candidate-set scale
-- [x] ATC hierarchy is real and multi-level (confirmed: `N02AA` = anatomical group N, therapeutic subgroup
-      02, pharmacological subgroup A, chemical subgroup A)
+The first candidate-set run found divergence in 4/9 substances; on inspection, 3 of those 4 (morphine,
+oxycodone, aspirin) are **false positives** — not real regulatory divergence, but an artifact of EMA's
+dataset scope. EMA's medicines JSON file covers only the **centralised procedure**, which is mandatory
+for biotech/ATMP/orphan medicines and new active substances treating cancer, HIV, diabetes,
+neurodegenerative, autoimmune, and viral diseases (confirmed via EMA's own published eligibility
+criteria). Old, universally-authorised generics like morphine went through **national** authorisation
+routes decades before EMA existed and simply never appear in this dataset — their absence means "not
+centrally authorised," not "not authorised in the EU."
 
-## What's left before Step 1 (benchmark design)
+**Only aducanumab is a confirmed real divergence** in this candidate set: its EMA status is "Application
+withdrawn" (Biogen withdrew the EU filing in 2021 after signals the CHMP opinion would be negative — this
+matches the well-documented public record), and it falls squarely in the mandatory-centralised category
+(neurodegenerative disease, new active substance), so its absence from EMA's authorised list is a genuine
+regulatory fact, not a coverage gap.
 
-Run `src/phase4_step0_feasibility.py` (below) against a real candidate set of ~10-15 substances spanning
-2-3 ATC classes, to confirm — at the scale Phase 4 will actually use, not just via one anecdote — that
-divergence and hierarchy richness hold up. This needs to run on a machine with open internet access (the
-three domains above are not on this environment's network allowlist, though every live check documented
-here was performed via this conversation's search/fetch tools).
+**Design implication, not a feasibility failure:** Phase 4's candidate substances must be drawn from
+EMA's centralised-eligible categories (oncology, HIV, diabetes, neurodegenerative, autoimmune, viral,
+orphan designation, biotech/ATMP) for the FDA-vs-EMA comparison to be meaningful. This is directly
+analogous to Phase 1's own scope-bounding (3 diseases, not the whole plant-protection domain) — a
+deliberate, stated boundary, not an oversight. Outside centralised-eligible categories, "not in EMA's
+data" carries no regulatory meaning and must not be used as a divergence signal.
+
+## Go/no-go: GO, with the candidate set restricted to EMA-centralised-eligible categories
+
+- [x] openFDA returns real, status-checkable records
+- [x] EMA returns real, status-checkable records with native ATC codes
+- [x] A genuine, confirmed divergence case exists (aducanumab) within centralised-eligible scope
+- [x] ATC hierarchy is real and multi-level (confirmed shared subgroups: A10, N02, N06 across candidates)
+- [x] **New constraint, now explicit:** candidate substances must be drawn from EMA's centralised-eligible
+      categories (oncology, HIV, diabetes, neurodegenerative, autoimmune, viral, orphan, biotech/ATMP),
+      not general/OTC medicines — confirmed necessary by the morphine/oxycodone/aspirin false-positive
+      pattern above.
+
+## Step 0 complete
+
+Both the initial and corrected candidate-set runs are done (`src/phase4_step0_feasibility.py`, results in
+`data/phase4_step0_feasibility.json`). The corrected run (status-aware, word-boundary matching) found 1
+genuine divergence (aducanumab) among 9 candidates, plus 3 ATC subgroups (A10, N02, N06) shared across
+multiple candidates confirming hierarchy richness. Combined with the scope-boundary finding above, Step 0
+is complete: proceed to Step 1 (benchmark design) using ONLY centralised-eligible substances as the
+candidate pool — e.g. expand along oncology/orphan/biotech lines from lecanemab and aducanumab's category,
+rather than common generics.

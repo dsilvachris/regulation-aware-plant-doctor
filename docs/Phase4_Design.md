@@ -96,6 +96,11 @@ own data), never from either system under test — same principle as every prior
 - Do not attempt full FDA/EMA coverage. Phase 1 scoped to 3 diseases; Phase 4 should scope to a small,
   bounded set of ATC classes or a handful of active substances with clear cross-region divergence, checked
   for real divergence before committing (same "the asymmetry is the finding, not assumed" principle).
+- **Candidate substances must be drawn from EMA's centralised-eligible categories** (oncology, HIV,
+  diabetes, neurodegenerative, autoimmune, viral diseases, orphan designation, biotech/ATMP) — confirmed
+  necessary during Step 0's feasibility check (`Phase4_Step0_Feasibility.md`): EMA's medicines dataset only
+  covers the centralised procedure, so common/old generics (which use national authorisation routes) show
+  false "divergence" that reflects dataset scope, not real regulatory difference.
 - Do not reopen Phase 1–3's plant-protection findings; this phase tests generalisation, not correctness of
   what came before.
 - If Step 0's feasibility gate shows the two data sources cannot be matched cleanly (e.g. genuinely
