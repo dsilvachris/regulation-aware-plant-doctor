@@ -1,0 +1,129 @@
+{
+  "phase2_baselines": {
+    "always_kg": 0.62,
+    "always_rag": 0.395,
+    "oracle_category_/_deterministic_router": 0.64,
+    "oracle_per_question": 0.74
+  },
+  "overall": {
+    "naive": {
+      "correct": 0.6470588235294118,
+      "faithful": 0.7647058823529411,
+      "n": 153,
+      "per_category": {
+        "constraint": 0.3888888888888889,
+        "cross_border": 0.696969696969697,
+        "multi_hop": 0.6111111111111112,
+        "negative": 0.42857142857142855,
+        "factual": 0.7666666666666667,
+        "region_specific": 0.7777777777777778,
+        "cross_disease": 0.8333333333333334
+      }
+    },
+    "structured": {
+      "correct": 0.7647058823529411,
+      "faithful": 0.8366013071895425,
+      "n": 153,
+      "per_category": {
+        "constraint": 0.8333333333333334,
+        "cross_border": 0.7575757575757576,
+        "multi_hop": 0.7222222222222222,
+        "negative": 0.8095238095238095,
+        "factual": 0.6333333333333333,
+        "region_specific": 0.8888888888888888,
+        "cross_disease": 0.6666666666666666
+      }
+    }
+  },
+  "per_run": {
+    "naive": [
+      {
+        "correct": 0.6862745098039216,
+        "faithful": 0.7058823529411765,
+        "n": 51,
+        "per_category": {
+          "constraint": 0.5,
+          "cross_border": 0.9090909090909091,
+          "multi_hop": 0.3333333333333333,
+          "negative": 0.5714285714285714,
+          "factual": 0.7,
+          "region_specific": 0.7777777777777778,
+          "cross_disease": 1.0
+        }
+      },
+      {
+        "correct": 0.6078431372549019,
+        "faithful": 0.6862745098039216,
+        "n": 51,
+        "per_category": {
+          "constraint": 0.3333333333333333,
+          "cross_border": 0.7272727272727273,
+          "multi_hop": 0.5,
+          "negative": 0.2857142857142857,
+          "factual": 0.8,
+          "region_specific": 0.7777777777777778,
+          "cross_disease": 0.5
+        }
+      },
+      {
+        "correct": 0.6470588235294118,
+        "faithful": 0.9019607843137255,
+        "n": 51,
+        "per_category": {
+          "constraint": 0.3333333333333333,
+          "cross_border": 0.45454545454545453,
+          "multi_hop": 1.0,
+          "negative": 0.42857142857142855,
+          "factual": 0.8,
+          "region_specific": 0.7777777777777778,
+          "cross_disease": 1.0
+        }
+      }
+    ],
+    "structured": [
+      {
+        "correct": 0.7647058823529411,
+        "faithful": 0.7843137254901961,
+        "n": 51,
+        "per_category": {
+          "constraint": 0.8333333333333334,
+          "cross_border": 0.7272727272727273,
+          "multi_hop": 1.0,
+          "negative": 0.7142857142857143,
+          "factual": 0.6,
+          "region_specific": 0.8888888888888888,
+          "cross_disease": 0.5
+        }
+      },
+      {
+        "correct": 0.7450980392156863,
+        "faithful": 0.8235294117647058,
+        "n": 51,
+        "per_category": {
+          "constraint": 1.0,
+          "cross_border": 0.7272727272727273,
+          "multi_hop": 0.6666666666666666,
+          "negative": 0.8571428571428571,
+          "factual": 0.5,
+          "region_specific": 0.7777777777777778,
+          "cross_disease": 1.0
+        }
+      },
+      {
+        "correct": 0.7843137254901961,
+        "faithful": 0.9019607843137255,
+        "n": 51,
+        "per_category": {
+          "constraint": 0.6666666666666666,
+          "cross_border": 0.8181818181818182,
+          "multi_hop": 0.5,
+          "negative": 0.8571428571428571,
+          "factual": 0.8,
+          "region_specific": 1.0,
+          "cross_disease": 0.5
+        }
+      }
+    ]
+  },
+  "n_runs": 3
+}
