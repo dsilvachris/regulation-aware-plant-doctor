@@ -1,0 +1,155 @@
+{
+  "candidates": {
+    "aducanumab": {
+      "fda_found": true,
+      "fda_approved": true,
+      "fda_n": 1,
+      "ema_found": true,
+      "ema_approved": false,
+      "ema_n": 1,
+      "ema_statuses_seen": [
+        "Application withdrawn"
+      ],
+      "atc_fda_side": [
+        "N06DX"
+      ],
+      "atc_ema_side": [
+        "N07"
+      ],
+      "divergent": true
+    },
+    "lecanemab": {
+      "fda_found": true,
+      "fda_approved": true,
+      "fda_n": 2,
+      "ema_found": true,
+      "ema_approved": true,
+      "ema_n": 1,
+      "ema_statuses_seen": [
+        "Authorised"
+      ],
+      "atc_fda_side": [
+        "N06DX"
+      ],
+      "atc_ema_side": [
+        "N06DX04"
+      ],
+      "divergent": false
+    },
+    "donanemab": {
+      "fda_found": true,
+      "fda_approved": true,
+      "fda_n": 1,
+      "ema_found": true,
+      "ema_approved": true,
+      "ema_n": 1,
+      "ema_statuses_seen": [
+        "Authorised"
+      ],
+      "atc_fda_side": [
+        "N06DX"
+      ],
+      "atc_ema_side": [
+        "N06DX05"
+      ],
+      "divergent": false
+    },
+    "niraparib": {
+      "fda_found": true,
+      "fda_approved": true,
+      "fda_n": 3,
+      "ema_found": true,
+      "ema_approved": true,
+      "ema_n": 2,
+      "ema_statuses_seen": [
+        "Authorised"
+      ],
+      "atc_fda_side": [
+        "L01XK"
+      ],
+      "atc_ema_side": [
+        "L01",
+        "L01XK02"
+      ],
+      "divergent": false
+    },
+    "isatuximab": {
+      "fda_found": true,
+      "fda_approved": true,
+      "fda_n": 2,
+      "ema_found": true,
+      "ema_approved": true,
+      "ema_n": 1,
+      "ema_statuses_seen": [
+        "Authorised"
+      ],
+      "atc_fda_side": [
+        "L01FC"
+      ],
+      "atc_ema_side": [
+        "L01XC38"
+      ],
+      "divergent": false
+    },
+    "epcoritamab": {
+      "fda_found": true,
+      "fda_approved": true,
+      "fda_n": 1,
+      "ema_found": true,
+      "ema_approved": true,
+      "ema_n": 1,
+      "ema_statuses_seen": [
+        "Authorised"
+      ],
+      "atc_fda_side": [
+        "L01FX"
+      ],
+      "atc_ema_side": [
+        "L01FX27"
+      ],
+      "divergent": false
+    },
+    "dostarlimab": {
+      "fda_found": true,
+      "fda_approved": true,
+      "fda_n": 2,
+      "ema_found": true,
+      "ema_approved": true,
+      "ema_n": 1,
+      "ema_statuses_seen": [
+        "Authorised"
+      ],
+      "atc_fda_side": [
+        "L01FF"
+      ],
+      "atc_ema_side": [
+        "L01FF07"
+      ],
+      "divergent": false
+    },
+    "melphalan flufenamide": {
+      "fda_found": false,
+      "fda_approved": false,
+      "fda_n": 0,
+      "ema_found": true,
+      "ema_approved": true,
+      "ema_n": 1,
+      "ema_statuses_seen": [
+        "Authorised"
+      ],
+      "atc_fda_side": [
+        "L01AA"
+      ],
+      "atc_ema_side": [
+        "L01AA10"
+      ],
+      "divergent": true
+    }
+  },
+  "n_divergent": 2,
+  "shared_atc_subgroups": [
+    "L01",
+    "N06"
+  ],
+  "go": true
+}

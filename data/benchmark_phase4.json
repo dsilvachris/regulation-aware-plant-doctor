@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "categories": "1=factual (control, no KG advantage expected); 2=region-specific; 3=multi-hop (KG+); 4=constraint (KG+); 5=negative/absence (KG+); 6=cross-border divergence (KG+, the novel category); 7=hierarchy-traversal (KG+, not instantiable in Phase 1 - now testable via ATC)",
+    "ground_truth_source": "openFDA (api.fda.gov/drug/drugsfda.json), EMA medicines data (ema.europa.eu), RxClass (rxnav.nlm.nih.gov) - all live-verified, see docs/Phase4_Step0_Feasibility.md for the full verification record",
+    "candidate_roster": "aducanumab, lecanemab, donanemab (ATC N06D, Alzheimer's); niraparib, isatuximab, epcoritamab, dostarlimab, melphalan flufenamide (ATC L01, oncology)",
+    "note": "Draft starter set (13 questions) covering all 7 categories with verified ground truth. Matches Phase 1's convention of an initial benchmark that gets expanded before the full KG/RAG comparison. Answers below were confirmed live during Step 0 - re-verify against source before final use, same discipline as Phase 1's benchmark_cat1_2.json."
+  },
+  "category_1_factual": [
+    {"id": "f1", "q": "What is the ATC code for lecanemab?", "answer": "N06DX04", "prediction": "="},
+    {"id": "f2", "q": "What is the ATC code for niraparib?", "answer": "L01XK02", "prediction": "="},
+    {"id": "f3", "q": "What is the ATC code for isatuximab?", "answer": "L01XC38", "prediction": "="}
+  ],
+  "category_2_region_specific": [
+    {"id": "r1", "q": "Which US regulatory agency approved dostarlimab?", "answer": "The FDA (Food and Drug Administration)", "prediction": "="},
+    {"id": "r2", "q": "Is niraparib authorised via the EU's centralised procedure (EMA), or only at national level?", "answer": "Centralised procedure (EMA)", "prediction": "="}
+  ],
+  "category_3_multi_hop": [
+    {"id": "m1", "q": "Which of the oncology substances in this benchmark (niraparib, isatuximab, epcoritamab, dostarlimab, melphalan flufenamide) fall under the ATC L01F subclass (antibody-based antineoplastic agents)?", "answer": "epcoritamab (L01FX27) and dostarlimab (L01FF07)", "prediction": "KG+"}
+  ],
+  "category_4_constraint": [
+    {"id": "c1", "q": "Which substance in this benchmark holds an EMA orphan-medicine designation?", "answer": "niraparib", "prediction": "KG+"}
+  ],
+  "category_5_negative": [
+    {"id": "n1", "q": "Is aducanumab currently authorised by the EMA?", "answer": "No — the EU marketing-authorisation application was withdrawn", "prediction": "KG+"},
+    {"id": "n2", "q": "Is melphalan flufenamide currently FDA-approved?", "answer": "No — FDA withdrew approval in February 2024 after the confirmatory OCEAN trial failed to confirm clinical benefit", "prediction": "KG+"}
+  ],
+  "category_6_cross_border": [
+    {"id": "d1", "q": "Name a substance in this benchmark that is FDA-approved but not currently EMA-authorised.", "answer": "aducanumab", "prediction": "KG+"},
+    {"id": "d2", "q": "Name a substance in this benchmark that is EMA-authorised but not currently FDA-approved.", "answer": "melphalan flufenamide (marketed in the EU as Pepaxti)", "prediction": "KG+"}
+  ],
+  "category_7_hierarchy": [
+    {"id": "h1", "q": "Which substances in this benchmark share niraparib's top-level ATC group (L01, antineoplastic agents)?", "answer": "isatuximab, epcoritamab, dostarlimab, melphalan flufenamide", "prediction": "KG+"},
+    {"id": "h2", "q": "Which substances in this benchmark share lecanemab's top-level ATC group (N06D, anti-dementia drugs)?", "answer": "aducanumab, donanemab", "prediction": "KG+"}
+  ]
+}

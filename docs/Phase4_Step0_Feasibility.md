@@ -70,12 +70,28 @@ data" carries no regulatory meaning and must not be used as a divergence signal.
       not general/OTC medicines — confirmed necessary by the morphine/oxycodone/aspirin false-positive
       pattern above.
 
+## Final verified candidate roster (locked in for Step 1)
+
+| substance | FDA | EMA | ATC (EMA native) | cluster |
+|---|---|---|---|---|
+| aducanumab | Approved (2021, accelerated) | **Application withdrawn** | N07 | N06D (Alzheimer's) — **DIVERGENT** |
+| lecanemab | Approved | Authorised | N06DX04 | N06D (Alzheimer's) |
+| donanemab | Approved | Authorised (after an initial rejection, later reversed) | N06DX05 | N06D (Alzheimer's) |
+| niraparib | Approved | Authorised, **orphan designation** | L01XK02 | L01 (oncology) |
+| isatuximab | Approved | Authorised | L01XC38 | L01 (oncology) |
+| epcoritamab | Approved | Authorised | L01FX27 | L01 (oncology) |
+| dostarlimab | Approved | Authorised | L01FF07 | L01 (oncology) |
+| melphalan flufenamide | **Withdrawn Feb 2024** (confirmed via FDA press release; absent from current openFDA index) | Authorised (as Pepaxti) | L01AA10 | L01 (oncology) — **DIVERGENT** |
+
+Confirmed 2/8 genuine, non-transient divergence, bidirectional (aducanumab: FDA-yes/EMA-no; melflufen:
+FDA-no/EMA-yes), plus real hierarchy structure across two ATC clusters (L01, N06D). **GO — this is the
+locked candidate set for Step 1's benchmark.**
+
 ## Step 0 complete
 
-Both the initial and corrected candidate-set runs are done (`src/phase4_step0_feasibility.py`, results in
-`data/phase4_step0_feasibility.json`). The corrected run (status-aware, word-boundary matching) found 1
-genuine divergence (aducanumab) among 9 candidates, plus 3 ATC subgroups (A10, N02, N06) shared across
-multiple candidates confirming hierarchy richness. Combined with the scope-boundary finding above, Step 0
-is complete: proceed to Step 1 (benchmark design) using ONLY centralised-eligible substances as the
-candidate pool — e.g. expand along oncology/orphan/biotech lines from lecanemab and aducanumab's category,
-rather than common generics.
+Three iterations of the candidate-set script were needed (initial run: divergence miscounted due to a
+status-checking bug; second run: candidates too settled/convergent, correctly triggering a NO-GO; third
+run: melflufen's actual INN corrected a naming mismatch) before landing on the verified roster above. Each
+iteration is preserved in the commit history rather than silently overwritten — the NO-GO result from the
+second run was reported honestly, not hidden, consistent with this project's standing discipline.
+Proceeding to Step 1 (benchmark design) using exactly the 8-substance roster above.
