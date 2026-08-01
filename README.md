@@ -1,60 +1,65 @@
 # Regulation-Aware Plant Doctor 🌱
 
-A multimodal, regulation-aware plant-disease assistant that runs entirely on a laptop, for free —
-and, more importantly, **knows when *not* to answer.**
+A research program on **grounding language models for regulated, high-stakes advice** — built around one
+question, tested from four different angles: *when does giving an LLM verified structure actually make it
+more trustworthy, and when does that trust break down?*
+
+This repo now holds two connected pieces of work:
+
+- **Programme A** — a working, local, multimodal plant-disease assistant (vision → grounded advice → a
+  region-aware conversational layer), and the evaluation that shows grounding roughly triples useful advice
+  over an ungrounded baseline. This was the original prototype and the source of the project's guiding
+  principle: **faithfulness over confidence.**
+- **Programme B** — a four-phase, rigorously pre-registered research program that takes that principle and
+  stress-tests it properly: does a knowledge graph actually beat document-RAG for regulatory reasoning
+  (Phase 1)? Can an LLM be trusted to *route* between retrieval strategies (Phase 2)? Can it be trusted to
+  *reconcile* two evidence sources into one answer (Phase 3)? Does any of this generalise beyond the
+  original domain (Phase 4)?
+
+> **The through-line across both programmes:** a fluent wrong answer is worse than an honest "I don't
+> know." Programme A built a system around that principle. Programme B spent four phases finding out
+> exactly where that principle holds, where it's harder to guarantee than it looks, and where — as Phase 4
+> discovered — even the "safe" arm turns out to fabricate sometimes.
+
+---
+
+## Quick navigation
+
+- [Programme A: the grounded assistant](#programme-a--the-grounded-plant-disease-assistant)
+- [Programme B: does structure actually help?](#programme-b--does-structure-actually-help-an-llm-get-regulation-right)
+  - [Phase 1 — Retrieval isolation (KG vs RAG)](#phase-1--retrieval-isolation-kg-vs-rag)
+  - [Phase 2 — Adaptive retrieval (can an LLM route safely?)](#phase-2--adaptive-retrieval-can-an-llm-route-safely)
+  - [Phase 3 — Hybrid retrieval & evidence fusion](#phase-3--hybrid-retrieval--evidence-fusion)
+  - [Phase 4 — Generalisation to healthcare](#phase-4--generalisation-to-healthcare-fda-vs-ema)
+  - [What four phases of this add up to](#what-four-phases-of-this-add-up-to)
+- [Repo structure](#repo-structure)
+- [Honest limitations](#honest-limitations)
+- [Run it](#run-it)
+
+---
+
+## Programme A — the grounded plant-disease assistant
 
 Upload a photo of a diseased leaf → it identifies the disease → and returns treatment advice that is
 *grounded in authoritative sources* and *correct for German regulation* (only BVL-authorised products).
 When it isn't sure, or the disease is outside its knowledge, it **abstains instead of guessing.**
 
-> **The through-line of this project is faithfulness over confidence** — a fluent wrong answer is worse
-> than an honest "I don't know," especially when the wrong answer tells a grower to spray an
-> illegal or useless chemical. I built the system, then ran an evaluation to measure exactly when
-> grounding delivers that faithfulness and when it breaks.
+### The headline finding
 
----
-
-## The headline finding
-
-I built a 25-question evaluation set and compared an **ungrounded** LLM against a **grounded** (RAG) one
-on a verified 12-disease corpus:
+A 25-question evaluation set, ungrounded LLM vs grounded (RAG) LLM, on a verified 12-disease corpus:
 
 | Metric (21 in-corpus questions) | Ungrounded | Grounded (RAG) |
 |---|---|---|
 | Gave *useful* advice (correct **and** safe) | **19%** | **57%** |
 | Knew when to abstain (out-of-corpus) | 0 / 4 | **4 / 4** |
 
-Grounding roughly triples useful advice — and only the grounded model refuses to answer questions it
-has no source for (the ungrounded model confidently fabricated all four).
+Grounding roughly triples useful advice — and only the grounded model refuses to answer questions it has
+no source for. Pushing further: **a bigger model (8B vs 3B) gives more useful advice but fabricates more**
+on adversarial out-of-corpus questions (faithful refusal dropped 92% → 52%, confirmed across 10 repeated
+runs). You don't get safety for free by scaling up — a finding Programme B would end up re-confirming from
+a completely different angle in Phase 2.
 
-But the more interesting result came from pushing further:
-
-> **There is a usefulness ↔ faithfulness trade-off that scaling the model *shifts* but does not *eliminate*.**
-> A bigger model (Llama 3.1 8B vs 3.2 3B) gives more useful advice — but, being more confident, it
-> *fabricates more* on adversarial out-of-corpus questions (faithful refusal dropped from **92% → 52%**,
-> confirmed across 10 repeated runs). You don't get safety for free by scaling up.
-
-That trade-off — measured, repeatable, and honestly reported — is the core contribution.
-
----
-
-## Demo
-
-The same faithfulness principle runs through the vision front-end. The app abstains in **two** ways:
-
-1. **Low vision confidence** → it shows the top possibilities and declines to advise.
-2. **Disease outside the authorised corpus** (e.g. a disease I deliberately excluded) → it recognises
-   it but refuses to give treatment advice.
-
-| Grounded advice (confident, in-corpus) | Faithful abstention (unsure or out-of-scope) |
-|---|---|
-| ![advice](docs/screenshot_advice.png) | ![abstain](docs/screenshot_abstain.png) |
-
-*(replace with your screenshots)*
-
----
-
-## How it works
+### How it works
 
 ```
         ┌─────────────┐     ┌──────────────┐     ┌─────────────────┐     ┌──────────────────┐
@@ -66,109 +71,206 @@ The same faithfulness principle runs through the vision front-end. The app absta
               ▼ low confidence → abstain
 ```
 
-- **Vision:** a MobileNetV2 transfer-learned on the PlantDoc (field) dataset, exported to **TFLite** for
-  portable, dependency-light inference. Confidence-gated.
-- **Bridge:** maps the 28 vision classes to one of three actions — **ground** (14 classes → a corpus
-  entry), **healthy** (10 classes), or **abstain** (4 classes deliberately outside the corpus). All 12
-  corpus diseases are reachable from vision. *The vision abstention boundary lines up exactly with the
-  corpus boundary* — the system knows the edge of its knowledge in both modalities.
-- **Corpus:** 12 diseases across **5 pathogen types** (fungus, oomycete, bacterium, virus, pest), each
-  with a verified **EPPO code**, the source, and a **BVL-authorisation** note. (Verifying the EPPO codes
-  caught two real taxonomy errors and one missing code — *don't trust the clean-looking number.*)
-- **Grounding:** sentence-transformers retrieval (cosine, k=3) + a local LLM via **Ollama**, prompted to
-  answer only from the retrieved context and to surface the German regulatory rule.
+- **Vision:** MobileNetV2 transfer-learned on PlantDoc (field images), exported to TFLite, confidence-gated.
+- **Bridge:** maps 28 vision classes to *ground* (14 → corpus entry), *healthy* (10), or *abstain* (4,
+  deliberately outside the corpus). The vision abstention boundary lines up exactly with the corpus
+  boundary.
+- **Corpus:** 12 diseases across 5 pathogen types, each with a verified EPPO code, source, and
+  BVL-authorisation note. (Verifying the EPPO codes caught two real taxonomy errors — the "don't trust the
+  clean-looking number" lesson that recurs throughout Programme B too.)
+- **Grounding:** sentence-transformers retrieval (cosine, k=3) + a local LLM via Ollama, prompted to answer
+  only from retrieved context.
 
-Everything is **local and €0** — no paid APIs, no cloud.
+Everything local, €0 — no paid APIs, no cloud.
 
----
+### Multi-region extension and the conversational layer
 
-## What I measured (and what broke)
+Because the system is *regulation-aware*, the sharpest test is whether the same disease gets correctly
+*different* advice across a regulatory border. A Norwegian corpus slice (Mattilsynet instead of BVL) for
+three shared diseases probed exactly this — and found the project's signature failure reappearing on a new
+axis: with no region stated, the system silently defaulted to the majority region instead of asking. Fixed
+with a deterministic **region gate** (explicit rule, not an LLM judgment) that asks when the region can't be
+determined. A **Streamlit chat layer** then made that gate usable in multi-turn dialogue: region persists
+across turns, pending questions are remembered while the region is requested, and photo uploads fill the
+"disease" slot the same way text does.
 
-A four-condition experiment plus a retrieval fine-tuning study, all on the held-out 25-question set:
-
-| Experiment | Result |
-|---|---|
-| Grounded vs ungrounded | Useful advice 19% → **57%**; abstention 0/4 → **4/4** |
-| Strict prompt | **Over-refuses ~1/3 of answerable questions**, systematically on the hardest (trap) cases |
-| Prompt fix attempt | **Failed** — a sound fix couldn't beat the 3B model's capability limit |
-| Bigger model (8B) | More useful, but **less faithful** on adversarial out-of-corpus (92%→52%) |
-| Retrieval threshold | Restores faithful refusal (2/4 → 4/4) at a small, characterised cost |
-| Fine-tuned domain embedder | Retrieval top-1 **76% → 86%** (zero regressions)… |
-| …but | …it **recalibrated the score scale**, breaking the fixed threshold — the two fixes don't compose |
-| Repeated runs (×10) | Confirmed the trade-off with error bars; revealed an apparent single-run gain was noise |
-| **Multi-region (Germany→Norway)** | Region-faithful when the region is known or inferable — **but silently defaults to the majority region when none is given** (fixed by a region gate; see below) |
-| **Conversational layer** | Multi-turn chat that tracks region across turns, asks when it's missing, and grounds each answer — the region gate becomes the first dialogue slot |
-
-The recurring theme: most "wins" hid a catch one layer down, and the eval set is what surfaced them.
-Full write-up with all numbers and caveats in [`docs/Results_Note_Regulation-RAG_Eval-v1.md`](docs/Results_Note_Regulation-RAG_Eval-v1.md).
+Full write-up: [`docs/Results_Note_Regulation-RAG_Eval-v1.md`](docs/Results_Note_Regulation-RAG_Eval-v1.md).
+Reflection: [`docs/Stage7_Interpretation.md`](docs/Stage7_Interpretation.md).
 
 ---
 
-## Multi-region extension: Germany → Norway
+## Programme B — does structure actually help an LLM get regulation right?
 
-Because the system is *regulation-aware*, the sharpest test is whether the **same disease** gets correctly
-**different** advice across a regulatory border. I added a Norwegian corpus slice (authority
-**Mattilsynet** instead of Germany's BVL; products checked against Norway's **Plantevernguiden** database)
-for three shared diseases, and probed the boundary.
+Programme A showed grounding helps *in general*. Programme B asks the harder, more specific questions a
+supervisor-split thesis chapter needs answered: **which kind of grounding, delegated how much, and does
+any of it hold up outside the one domain it was built in?**
 
-**What holds:** given a stated or *inferable* region, the system is region-faithful — it cites the right
-national authority, refuses to transfer a German product recommendation across the border ("check
-Plantevernguiden — a German authorisation doesn't carry over"), and even infers region from a place name
-("near Hardanger" → Norway).
+Every phase follows the same discipline, carried consistently across all four: **design and pre-register
+predictions before running anything → build → verify against the real, live data (not synthetic
+placeholders) → run multi-run, never trust a single pass → grade blind → report confirmations and
+disconfirmations honestly, including the ones that complicate the story.** Real bugs were found in nearly
+every phase — a hardcoded disease-name bug, an ambiguous KG template, a data-parity gap between two arms —
+and every one is documented in full rather than quietly fixed and forgotten, because how those bugs were
+found is as much a part of the contribution as the headline numbers.
 
-**What breaks (the finding):** when **no region is given at all**, behaviour is unsafe — the system
-*silently assumes* a region rather than asking, defaulting to whichever region dominates the corpus
-(Germany). The mechanism is corpus imbalance leaking through retrieval into generation. It's the project's
-signature failure — *confident where it should be uncertain* — reappearing on the geographic axis.
+### Phase 1 — Retrieval isolation (KG vs RAG)
 
-**The fix (built):** a **region gate** that determines the region by an explicit, auditable rule —
-explicit country words, then a curated place gazetteer — and *asks* the grower which country they're in
-when the region can't be determined, instead of guessing. The region decision is deliberately kept out of
-the LLM (its geography is uneven and unverifiable); the model only writes the advice. On the probe set the
-gate asks exactly on the true no-region cases and never guesses a region wrongly — the geographic analogue
-of the retrieval threshold above.
+**Question:** for a plant-protection regulation domain (Germany vs Norway authorisation data), does a
+curated knowledge graph produce more correct, more faithful answers than document-RAG — and if so, on
+which *kinds* of questions?
+
+**Finding:** KG outperforms RAG, and the advantage is concentrated exactly where you'd expect structure to
+matter — relational, absence ("is X *not* authorised"), and cross-border questions — while a simple factual
+lookup shows no advantage either way (a clean bias-check). A pre-registered hierarchy-traversal category
+turned out not to be instantiable in this 3-disease dataset — reported honestly as a real limitation, not
+forced. Corrected mid-project after a downstream diagnostic (Phase 3) found a bug that had been silently
+depressing KG's own scores: KG **62.0%** / RAG **39.5%** correctness, final.
+
+📄 [`docs/Phase1_Results.md`](docs/Phase1_Results.md)
+
+### Phase 2 — Adaptive retrieval: can an LLM route safely?
+
+**Question:** if you could always route a question to whichever arm (KG or RAG) handles it better, could an
+LLM do that routing — and is it worth the cost of asking one to?
+
+**Finding:** a deterministic rule (four lines of regex) matches the achievable ceiling exactly, with
+perfect run-to-run stability and zero risky-category misroutes. No LLM-router variant tested clearly beats
+it once measured honestly under repetition — the prompt variant that looked *best* on proxy metrics
+actually underperformed a naive always-KG baseline on real correctness, and the variant with the largest
+real gain was also the least stable (55% self-consistency across runs). **The core conclusion: for this
+task and this model class, a transparent rule beats LLM-based routing.**
+
+📄 [`docs/Phase2_Results.md`](docs/Phase2_Results.md) · full step-by-step trail in
+[`docs/Phase2_Design.md`](docs/Phase2_Design.md), [`Phase2_Plan.md`](docs/Phase2_Plan.md), and four
+intermediate results docs.
+
+### Phase 3 — Hybrid retrieval & evidence fusion
+
+**Question:** routing only ever picks *one* arm's evidence. What if the system combined both — does that
+close more of the gap to the theoretical ceiling, and can the LLM be trusted to reconcile two sources
+without fabricating or silently resolving disagreement?
+
+**Finding:** genuinely mixed. A minimal ("naive") fusion prompt gives a small, real edge over the
+deterministic router. A more carefully structured fusion prompt gives a much larger apparent edge — but
+that headline result could not be independently validated (a self-regrade came back with suspiciously
+perfect agreement, meaning it confirmed internal consistency, not correctness) and is reported as
+provisional, not confirmed. The phase's most important result wasn't in the win/loss column at all: both
+fusion variants were caught fabricating a specific, wrong detail and **explicitly misattributing it to the
+verified knowledge-graph source** — and a prompt instruction telling the model not to invent things did
+**not** fix it. The real fix required rewriting the ambiguous *source* text the model was reading, not the
+prompt. That's a generalisable methodological finding in its own right: some faithfulness failures live in
+the data, not the instructions.
+
+📄 [`docs/Phase3_Results.md`](docs/Phase3_Results.md) · design, plan, and four step docs alongside it.
+
+### Phase 4 — Generalisation to healthcare (FDA vs EMA)
+
+**Question:** does the Phase 1 finding — structure helps on relational/absence/cross-border/hierarchical
+questions, not on simple lookups — replicate in a second regulated domain, built completely independently?
+
+**Method:** live-sourced data from `openFDA`, the EU's EMA, and NLM's RxClass — 8 real
+pharmaceutical substances (Alzheimer's and oncology drugs, chosen after a feasibility check ruled out
+common generics as unsuitable), a 14-question benchmark spanning all 7 original categories. This finally
+made **hierarchy-traversal testable for the first time in the whole project**, via ATC drug classification
+— the oldest open thread in this thesis, closed here.
+
+**Finding:** yes, directionally, at a comparable-or-larger magnitude (KG 88%/86% vs RAG 45%/76%) — but the
+clean version of that story is wrong. The KG arm itself **hallucinated on a short, unambiguous,
+single-fact question in 2 of 3 runs**, fabricating a detail nowhere in its own source data — caught only
+because of multi-run testing; a single-run demo earlier in the phase would have reported KG as flawless.
+Separately, both arms failed equally at a "list all N matching items" hierarchy question even when the
+KG's facts were complete and correct — a shared small-model limitation, not a knowledge-representation
+difference. A real data-parity bug (one arm's prose was missing a fact the other stated) was found and
+fixed mid-phase rather than left in. **The honest conclusion, four phases in: structure reduces
+fabrication risk and enables real relational/hierarchical reasoning — it does not eliminate fabrication,
+even in the "gold-standard" arm, and some limitations are about the model, not the retrieval strategy.**
+
+📄 [`docs/Phase4_Results.md`](docs/Phase4_Results.md) · feasibility, design, plan, and step docs alongside it.
+
+### What four phases of this add up to
+
+- **Tiered trust, tested rung by rung.** Phase 1 kept the LLM out of retrieval entirely. Phase 2 let it (or
+  a rule) *select* between two verified sources — the rule won. Phase 3 asked it to *reconcile* two
+  sources — genuinely mixed, with one clear new risk found. Phase 4 asked whether any of this holds outside
+  the original domain — mostly yes, with the sharpest caveat of the whole project (the KG hallucination)
+  showing up exactly there.
+- **Multi-run testing repeatedly overturned single-run impressions** — the LLM router's apparent
+  reliability in Phase 2, and the KG arm's apparent flawlessness on `r2` in Phase 4, both looked clean on
+  one pass and were not, once repeated.
+- **Every phase found and fixed a real bug**, documented rather than smoothed over: a hardcoded disease
+  name that had been silently depressing scores since Phase 1 (caught in Phase 3), an ambiguous KG template
+  that caused a confirmed fabrication (Phase 3), and a data-parity gap between two arms (Phase 4). How these
+  were found — mostly by refusing to trust a good-looking number without checking it against source data —
+  is as much the contribution as the headline results.
 
 ---
 
-## Conversational layer
+## Repo structure
 
-The region gate created a need for multi-turn dialogue: it *asks* which country you're in, so the system
-has to receive the answer and continue. The conversational layer (a **Streamlit chat UI** over the same
-grounded engine) makes that work, tracking dialogue state across turns:
+```
+data/       Programme A: DE+NO corpus, eval sets, vision bridge, class labels
+            Programme B: kg_all.ttl / rag_docs_all.json (Phase 1), benchmark files (all phases),
+                          kg_phase4.ttl / rag_docs_phase4.json + sourced FDA/EMA data (Phase 4),
+                          grading sheets + keys (blind, per phase)
+models/     agro_vision.tflite (Programme A vision model)
 
-- **region slot** — set once, then *persists*; ask about several crops in a row without repeating your
-  country, and switch region mid-conversation ("actually I'm in Germany") and later answers follow.
-- **pending question** — ask about a disease before giving a region, and the assistant remembers the
-  question, asks for the region, then answers the *original* question.
-- **answer-only-if-asked** — a turn is answered only if it actually contains a question (judged by
-  retrieval relevance); a bare region change is acknowledged, not answered with a fabricated response.
-- **multimodal turns** — you can *upload a leaf photo inside the chat*: the vision model identifies the
-  disease, the region gate still applies, and the answer is grounded and region-correct. An image simply
-  fills the "disease" slot the way a text description does. This unites the two halves of the project —
-  the vision app and the chatbot — into one assistant. Vision-side abstention carries over: low-confidence
-  or out-of-corpus photos are declined rather than guessed, and a disease with no region-specific entry
-  (e.g. a German-only disease asked about in Norway) is flagged honestly.
+src/        Programme A:
+              plant_doctor_app.py       image -> grounded advice (Gradio)
+              streamlit_app.py          multimodal chat UI (text + image)
+              conversational_doctor.py  multi-turn dialogue engine
+              vision.py                 TFLite leaf-image identifier
+              region_gate.py            deterministic region resolver
+              run_eval.py / finetune_embedder.py / strengthen.py / region_eval.py / region_probe.py
 
-The region decision stays deterministic (gate + gazetteer); the LLM writes the grounded advice. It's a
-task-oriented, multimodal dialogue agent, not a stateless Q&A wrapper.
+            Programme B, Phase 1: build_kg.py, kg_arm.py, kg_verbalise.py, rag_arm.py, eval_pipeline.py,
+                                   stage6_eval.py, verify_*.py (ground-truth verification)
+            Programme B, Phase 2: phase2_step*.py (oracle ceiling, deterministic router, LLM router,
+                                   prompt-sensitivity, multi-run robustness, cost-of-misrouting)
+            Programme B, Phase 3: fusion_arm.py, phase3_step*.py (conflict diagnosis, fusion generation,
+                                   scoring, second-grading agreement check)
+            Programme B, Phase 4: phase4_step0_feasibility.py, phase4_step2_source_data.py,
+                                   build_kg_phase4.py, kg_arm_phase4.py, kg_verbalise_phase4.py,
+                                   rag_arm_phase4.py, eval_pipeline_phase4.py, phase4_step5_generate.py,
+                                   phase4_step6_scoring.py
+            Programme B, corrections: correction_regenerate_kg_answers.py,
+                                   correction_merge_and_recompute.py
+
+results/    Programme A: graded eval scores, strengthen + region results
+
+docs/       Programme A: BASELINE.md, Feasibility_Report.md, Literature_Review.md,
+                          Results_Note_Regulation-RAG_Eval-v1.md, Stage7_Interpretation.md,
+                          RESEARCH_README.md, Benchmark_Design_Stage2.md, Thesis_Chapter_Map.md
+            Programme B: Phase1_Results.md
+                          Phase2_Design.md / Plan.md / Results.md + 4 step docs
+                          Phase3_Design.md / Plan.md / Results.md + 4 step docs
+                          Phase4_Design.md / Plan.md / Results.md + 2 step docs
+                          Correction_KG_Disease_Name_Bug.md (the mid-project data-quality correction)
+```
 
 ---
 
 ## Honest limitations
 
-- Small scale: 25 eval questions, a 12-disease corpus, hand-graded by one person. Directions are clear;
-  exact percentages would firm up with more questions, more graders, and more repeated runs.
-- The vision model is ~50% on real field images (a documented lab→field generalisation gap) — which is
-  *why* the confidence gate matters, and the app abstains often on genuine field photos.
-- This is a research prototype and portfolio project, **not** a deployable agricultural advisory tool.
+**Programme A:** small scale (25 eval questions, 12-disease corpus, hand-graded by one person); the vision
+model is ~50% on real field images (a documented lab→field generalisation gap, which is why the confidence
+gate matters); a research prototype, not a deployable agricultural advisory tool.
+
+**Programme B:** a single grader across Phases 3 and 4, with an attempted independent-validation check in
+Phase 3 that came back uninformative rather than confirmatory — stated as an open limitation, not
+resolved; Phase 4's 14-question benchmark is smaller than Phase 1's 51, producing ceiling effects on some
+categories that couldn't discriminate between arms; every phase's local LLM is a 3B model, and Phase 2's
+own finding (a larger model changes reliability) has not been re-tested against Phases 3 or 4.
+
+**Both programmes:** research and portfolio work, not deployable products, and nothing here is medical,
+agricultural, or regulatory advice.
 
 ---
 
 ## Tech stack
 
-`Python` · `Ollama` (Llama 3.2 3B / 3.1 8B) · `sentence-transformers` (MiniLM, fine-tuned) ·
-`TensorFlow Lite` (`ai-edge-litert`) · `MobileNetV2` · `Gradio` (vision app) · `Streamlit` (chat) ·
-all local, zero-budget.
+`Python` · `Ollama` (Llama 3.2 3B / 3.1 8B) · `sentence-transformers` (MiniLM, fine-tuned) · `rdflib` (KG
+construction and SPARQL) · `TensorFlow Lite` (`ai-edge-litert`) · `MobileNetV2` · `Gradio` (vision app) ·
+`Streamlit` (chat) · live data from `openFDA`, EMA, RxClass, BVL, and Mattilsynet · all local, zero-budget.
 
 ## Run it
 
@@ -181,32 +283,19 @@ ollama pull llama3.2:3b
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-# 3a. Image-based plant doctor (Gradio)
+# 3a. Programme A — image-based plant doctor (Gradio)
 python src/plant_doctor_app.py
 
-# 3b. Conversational plant doctor (Streamlit chat)
+# 3b. Programme A — conversational plant doctor (Streamlit chat)
 streamlit run src/streamlit_app.py
-```
 
-## Repo structure
-
-```
-data/       corpus (DE + NO), eval sets, vision bridge, class labels
-models/     agro_vision.tflite (vision model)
-src/        all code:
-              plant_doctor_app.py     image -> grounded advice (Gradio)
-              streamlit_app.py        multimodal chat UI (text + image)
-              conversational_doctor.py multi-turn dialogue engine (text + image turns)
-              vision.py               TFLite leaf-image identifier (shared by the chat)
-              region_gate.py          deterministic region resolver
-              run_eval.py             grounded-vs-ungrounded evaluation
-              finetune_embedder.py    domain embedder fine-tuning
-              strengthen.py           repeated-run rigor pass
-              region_eval.py / region_probe.py  multi-region experiments
-results/    graded eval scores, strengthen + region results
-docs/       results note, reflection, plan
+# 3c. Programme B — any phase's evaluation pipeline, e.g. Phase 1:
+python src/stage6_eval.py --runs 3
+python src/stage6_eval.py --gradesheet
 ```
 
 ---
 
-*Built as a portfolio project and a research starting point in regulation-aware, multimodal AI assistants.*
+*Built as a portfolio project and a thesis research program in regulation-aware, multimodal AI assistants
+— and in figuring out, empirically, exactly how far you can trust a language model with a decision before
+you shouldn't.*
