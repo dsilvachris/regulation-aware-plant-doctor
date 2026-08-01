@@ -52,7 +52,7 @@ ROUTING = {
     "h1": (kg.q_shares_atc_ancestor, {"substance": "niraparib", "ancestor_code": "L01"}, "shares_atc_ancestor"),
     "h2": (kg.q_shares_atc_ancestor, {"substance": "lecanemab", "ancestor_code": "N06D"}, "shares_atc_ancestor"),
     "h3": (kg.q_shares_atc_ancestor_bool,
-           {"substance_a": "aducanumab", "substance_b": "lecanemab", "ancestor_code": "N06D"},
+           {"substance_a": "aducanumab", "comparators": ["lecanemab", "donanemab"], "ancestor_code": "N06D"},
            "shares_atc_ancestor_bool"),
 }
 

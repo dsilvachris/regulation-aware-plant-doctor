@@ -1,0 +1,44 @@
+{
+  "documents": [
+    {
+      "id": "aducanumab",
+      "substance": "aducanumab",
+      "text": "Aducanumab: US status (FDA (U.S. Food and Drug Administration)) is 'Approved'. EU status (EMA (European Medicines Agency)) is 'Application withdrawn'. Its ATC classification is N07."
+    },
+    {
+      "id": "lecanemab",
+      "substance": "lecanemab",
+      "text": "Lecanemab: US status (FDA (U.S. Food and Drug Administration)) is 'Approved'. EU status (EMA (European Medicines Agency)) is 'Authorised'. Its ATC classification is N06DX04."
+    },
+    {
+      "id": "donanemab",
+      "substance": "donanemab",
+      "text": "Donanemab: US status (FDA (U.S. Food and Drug Administration)) is 'Approved'. EU status (EMA (European Medicines Agency)) is 'Authorised'. Its ATC classification is N06DX05."
+    },
+    {
+      "id": "niraparib",
+      "substance": "niraparib",
+      "text": "Niraparib: US status (FDA (U.S. Food and Drug Administration)) is 'Approved'. EU status (EMA (European Medicines Agency)) is 'Authorised'. Its ATC classification is L01XK02. It holds an EMA orphan-medicine designation."
+    },
+    {
+      "id": "isatuximab",
+      "substance": "isatuximab",
+      "text": "Isatuximab: US status (FDA (U.S. Food and Drug Administration)) is 'Approved'. EU status (EMA (European Medicines Agency)) is 'Authorised'. Its ATC classification is L01XC38."
+    },
+    {
+      "id": "epcoritamab",
+      "substance": "epcoritamab",
+      "text": "Epcoritamab: US status (FDA (U.S. Food and Drug Administration)) is 'Approved'. EU status (EMA (European Medicines Agency)) is 'Authorised'. Its ATC classification is L01FX27."
+    },
+    {
+      "id": "dostarlimab",
+      "substance": "dostarlimab",
+      "text": "Dostarlimab: US status (FDA (U.S. Food and Drug Administration)) is 'Approved'. EU status (EMA (European Medicines Agency)) is 'Authorised'. Its ATC classification is L01FF07."
+    },
+    {
+      "id": "melphalan_flufenamide",
+      "substance": "melphalan flufenamide",
+      "text": "Melphalan flufenamide: US status (FDA (U.S. Food and Drug Administration)) is 'Approved (2021), then withdrawn (February 2024) — no longer in the current FDA index'. EU status (EMA (European Medicines Agency)) is 'Authorised'. Its ATC classification is L01AA10."
+    }
+  ]
+}

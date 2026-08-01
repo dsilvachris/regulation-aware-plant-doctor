@@ -1,0 +1,235 @@
+@prefix ex: <http://pharma-regkg.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <http://pharma-regkg.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:auth_1 a ex:Authorisation ;
+    ex:forSubstance res:aducanumab ;
+    ex:hasStatus "Approved" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:auth_10 a ex:Authorisation ;
+    ex:forSubstance res:isatuximab ;
+    ex:hasStatus "Authorised" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_11 a ex:Authorisation ;
+    ex:forSubstance res:epcoritamab ;
+    ex:hasStatus "Approved" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:auth_12 a ex:Authorisation ;
+    ex:forSubstance res:epcoritamab ;
+    ex:hasStatus "Authorised" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_13 a ex:Authorisation ;
+    ex:forSubstance res:dostarlimab ;
+    ex:hasStatus "Approved" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:auth_14 a ex:Authorisation ;
+    ex:forSubstance res:dostarlimab ;
+    ex:hasStatus "Authorised" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_15 a ex:Authorisation ;
+    ex:forSubstance res:melphalan_flufenamide ;
+    ex:hasStatus "Approved (2021), then withdrawn (February 2024) — no longer in the current FDA index" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:auth_16 a ex:Authorisation ;
+    ex:forSubstance res:melphalan_flufenamide ;
+    ex:hasStatus "Authorised" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_2 a ex:Authorisation ;
+    ex:forSubstance res:aducanumab ;
+    ex:hasStatus "Application withdrawn" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_3 a ex:Authorisation ;
+    ex:forSubstance res:lecanemab ;
+    ex:hasStatus "Approved" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:auth_4 a ex:Authorisation ;
+    ex:forSubstance res:lecanemab ;
+    ex:hasStatus "Authorised" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_5 a ex:Authorisation ;
+    ex:forSubstance res:donanemab ;
+    ex:hasStatus "Approved" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:auth_6 a ex:Authorisation ;
+    ex:forSubstance res:donanemab ;
+    ex:hasStatus "Authorised" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_7 a ex:Authorisation ;
+    ex:forSubstance res:niraparib ;
+    ex:hasStatus "Approved" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:auth_8 a ex:Authorisation ;
+    ex:forSubstance res:niraparib ;
+    ex:hasStatus "Authorised" ;
+    ex:inRegion "EU" ;
+    ex:regulatedBy "EMA (European Medicines Agency)" .
+
+res:auth_9 a ex:Authorisation ;
+    ex:forSubstance res:isatuximab ;
+    ex:hasStatus "Approved" ;
+    ex:inRegion "US" ;
+    ex:regulatedBy "FDA (U.S. Food and Drug Administration)" .
+
+res:atc_L a ex:AtcClass ;
+    rdfs:label "L" .
+
+res:atc_L01A a ex:AtcClass ;
+    rdfs:label "L01A" ;
+    ex:broader res:atc_L01 .
+
+res:atc_L01AA a ex:AtcClass ;
+    rdfs:label "L01AA" ;
+    ex:broader res:atc_L01A .
+
+res:atc_L01AA10 a ex:AtcClass ;
+    rdfs:label "L01AA10" ;
+    ex:broader res:atc_L01AA .
+
+res:atc_L01FF a ex:AtcClass ;
+    rdfs:label "L01FF" ;
+    ex:broader res:atc_L01F .
+
+res:atc_L01FF07 a ex:AtcClass ;
+    rdfs:label "L01FF07" ;
+    ex:broader res:atc_L01FF .
+
+res:atc_L01FX a ex:AtcClass ;
+    rdfs:label "L01FX" ;
+    ex:broader res:atc_L01F .
+
+res:atc_L01FX27 a ex:AtcClass ;
+    rdfs:label "L01FX27" ;
+    ex:broader res:atc_L01FX .
+
+res:atc_L01XC a ex:AtcClass ;
+    rdfs:label "L01XC" ;
+    ex:broader res:atc_L01X .
+
+res:atc_L01XC38 a ex:AtcClass ;
+    rdfs:label "L01XC38" ;
+    ex:broader res:atc_L01XC .
+
+res:atc_L01XK a ex:AtcClass ;
+    rdfs:label "L01XK" ;
+    ex:broader res:atc_L01X .
+
+res:atc_L01XK02 a ex:AtcClass ;
+    rdfs:label "L01XK02" ;
+    ex:broader res:atc_L01XK .
+
+res:atc_N06 a ex:AtcClass ;
+    rdfs:label "N06" ;
+    ex:broader res:atc_N .
+
+res:atc_N06D a ex:AtcClass ;
+    rdfs:label "N06D" ;
+    ex:broader res:atc_N06 .
+
+res:atc_N06DX04 a ex:AtcClass ;
+    rdfs:label "N06DX04" ;
+    ex:broader res:atc_N06DX .
+
+res:atc_N06DX05 a ex:AtcClass ;
+    rdfs:label "N06DX05" ;
+    ex:broader res:atc_N06DX .
+
+res:atc_N07 a ex:AtcClass ;
+    rdfs:label "N07" ;
+    ex:broader res:atc_N .
+
+res:aducanumab a ex:Substance ;
+    rdfs:label "aducanumab" ;
+    ex:hasAtcCode "N07" ;
+    ex:hasOrphanDesignation false ;
+    ex:inAtcClass res:atc_N07 .
+
+res:atc_L01F a ex:AtcClass ;
+    rdfs:label "L01F" ;
+    ex:broader res:atc_L01 .
+
+res:atc_L01X a ex:AtcClass ;
+    rdfs:label "L01X" ;
+    ex:broader res:atc_L01 .
+
+res:atc_N a ex:AtcClass ;
+    rdfs:label "N" .
+
+res:atc_N06DX a ex:AtcClass ;
+    rdfs:label "N06DX" ;
+    ex:broader res:atc_N06D .
+
+res:donanemab a ex:Substance ;
+    rdfs:label "donanemab" ;
+    ex:hasAtcCode "N06DX05" ;
+    ex:hasOrphanDesignation false ;
+    ex:inAtcClass res:atc_N06DX05 .
+
+res:dostarlimab a ex:Substance ;
+    rdfs:label "dostarlimab" ;
+    ex:hasAtcCode "L01FF07" ;
+    ex:hasOrphanDesignation false ;
+    ex:inAtcClass res:atc_L01FF07 .
+
+res:epcoritamab a ex:Substance ;
+    rdfs:label "epcoritamab" ;
+    ex:hasAtcCode "L01FX27" ;
+    ex:hasOrphanDesignation false ;
+    ex:inAtcClass res:atc_L01FX27 .
+
+res:isatuximab a ex:Substance ;
+    rdfs:label "isatuximab" ;
+    ex:hasAtcCode "L01XC38" ;
+    ex:hasOrphanDesignation false ;
+    ex:inAtcClass res:atc_L01XC38 .
+
+res:lecanemab a ex:Substance ;
+    rdfs:label "lecanemab" ;
+    ex:hasAtcCode "N06DX04" ;
+    ex:hasOrphanDesignation false ;
+    ex:inAtcClass res:atc_N06DX04 .
+
+res:melphalan_flufenamide a ex:Substance ;
+    rdfs:label "melphalan flufenamide" ;
+    ex:hasAtcCode "L01AA10" ;
+    ex:hasOrphanDesignation false ;
+    ex:inAtcClass res:atc_L01AA10 .
+
+res:niraparib a ex:Substance ;
+    rdfs:label "niraparib" ;
+    ex:hasAtcCode "L01XK02" ;
+    ex:hasOrphanDesignation true ;
+    ex:inAtcClass res:atc_L01XK02 .
+
+res:atc_L01 a ex:AtcClass ;
+    rdfs:label "L01" ;
+    ex:broader res:atc_L .
+

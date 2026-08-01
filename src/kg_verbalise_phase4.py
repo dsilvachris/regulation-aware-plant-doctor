@@ -82,11 +82,16 @@ def verbalise(category, facts):
         return f"No other substance in this benchmark shares {sub}'s ATC classification at the {ancestor} level."
 
     if category == "shares_atc_ancestor_bool":
-        a, b, ancestor, reaches = (facts["substance_a"], facts["substance_b"], facts["ancestor_code"],
-                                    facts["substance_a_reaches_level"])
+        a, comps, ancestor, reaches, comp_status = (
+            facts["substance_a"], facts["comparators"], facts["ancestor_code"],
+            facts["substance_a_reaches_level"], facts["comparator_status"])
         verdict = "does" if reaches else "does NOT"
+        comp_lines = "; ".join(
+            f"{c} {'does' if comp_status[c] else 'does NOT'} reach {ancestor}" for c in comps)
         return (f"{a}'s own ATC classification {verdict} reach the {ancestor} level. "
-                f"(This determines whether {a} shares that specific ATC subgroup with {b}.)")
+                f"For comparison: {comp_lines}. "
+                f"{a} shares the {ancestor} subgroup only with those comparators for which both "
+                f"conditions are true.")
 
     return None
 
@@ -108,7 +113,7 @@ if __name__ == "__main__":
              "dostarlimab", "melphalan flufenamide"], "US")),
         ("shares_atc_ancestor", kg.q_shares_atc_ancestor("niraparib", "L01")),
         ("shares_atc_ancestor", kg.q_shares_atc_ancestor("lecanemab", "N06D")),
-        ("shares_atc_ancestor_bool", kg.q_shares_atc_ancestor_bool("aducanumab", "lecanemab", "N06D")),
+        ("shares_atc_ancestor_bool", kg.q_shares_atc_ancestor_bool("aducanumab", ["lecanemab", "donanemab"], "N06D")),
     ]
     for cat, facts in tests:
         print(f"[{cat}]")

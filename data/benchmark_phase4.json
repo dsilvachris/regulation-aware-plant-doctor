@@ -30,6 +30,7 @@
   ],
   "category_7_hierarchy": [
     {"id": "h1", "q": "Which substances in this benchmark share niraparib's top-level ATC group (L01, antineoplastic agents)?", "answer": "isatuximab, epcoritamab, dostarlimab, melphalan flufenamide", "prediction": "KG+"},
-    {"id": "h2", "q": "Which substances in this benchmark share lecanemab's top-level ATC group (N06D, anti-dementia drugs)?", "answer": "aducanumab, donanemab", "prediction": "KG+"}
+    {"id": "h2", "q": "Which substances in this benchmark share lecanemab's ATC pharmacological subgroup, N06D?", "answer": "donanemab only — aducanumab is NOT included: its EMA classification never went beyond the broader N07 group, since its specific N06DX subclass was never finalised amid the withdrawn EU application", "prediction": "KG+"},
+    {"id": "h3", "q": "Does aducanumab belong to the same ATC pharmacological subgroup (N06D) as lecanemab and donanemab?", "answer": "No — aducanumab's EMA classification is only N07 (a broader group), not N06D; it shares only the top-level anatomical group N with the other two, not the more specific N06D subgroup", "prediction": "KG+"}
   ]
 }

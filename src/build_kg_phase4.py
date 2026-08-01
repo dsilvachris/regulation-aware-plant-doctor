@@ -131,10 +131,12 @@ if __name__ == "__main__":
         # Name_Bug.md and Phase3_Step2_FusionArm.md applied from the start) ---
         atc_prose = f" Its ATC classification is {primary_atc}." if primary_atc else ""
         orphan_prose = f" It holds an EMA orphan-medicine designation." if orphan else ""
-        rag_docs.append(
-            f"{sub_name.capitalize()}: US status ({AUTHORITY['US']}) is '{status}'. "
-            f"EU status ({AUTHORITY['EU']}) is '{eu_status}'.{atc_prose}{orphan_prose}"
-        )
+        rag_docs.append({
+            "id": slug(sub_name),
+            "substance": sub_name,
+            "text": (f"{sub_name.capitalize()}: US status ({AUTHORITY['US']}) is '{status}'. "
+                     f"EU status ({AUTHORITY['EU']}) is '{eu_status}'.{atc_prose}{orphan_prose}"),
+        })
 
     g.serialize(destination=str(DATA / "kg_phase4.ttl"), format="turtle")
     json.dump({"documents": rag_docs}, open(DATA / "rag_docs_phase4.json", "w", encoding="utf-8"),
@@ -144,4 +146,4 @@ if __name__ == "__main__":
     print(f"Wrote data/rag_docs_phase4.json ({len(rag_docs)} documents)")
     print("\nSample RAG docs:")
     for doc in rag_docs[:3]:
-        print(f"  - {doc}")
+        print(f"  - {doc['text']}")
