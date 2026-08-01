@@ -37,6 +37,14 @@ CASES = [
     ("What type of pathogen causes apple scab?", "DE", "apple_scab", "rag"),
     ("What can I spray on cucurbit powdery mildew in Germany?", "DE", "cucurbits_powdery_mildew", "kg"),
     ("Which crops does cucurbit powdery mildew affect?", "DE", "cucurbits_powdery_mildew", "rag"),
+    # --- Round 2: added after round 1 found a real late/early-blight confusion (caught safely by the
+    # scope check, since early blight isn't validated). These specifically test confusion BETWEEN the
+    # 3 validated diseases, where the scope-check safety net would NOT catch a misidentification, plus
+    # symptom-based (not disease-name) phrasing, which is how real users are likely to actually ask. ---
+    ("My apple leaves have dark scabby spots, what's authorised in Germany?", "DE", "apple_scab", "kg"),
+    ("There's white powder on my cucumber leaves in Germany, what can I use?", "DE", "cucurbits_powdery_mildew", "kg"),
+    ("My potato leaves are rotting fast, what's authorised in Norway?", "NO", "tomato_potato_late_blight", "kg"),
+    ("What's responsible for the white coating on my squash plants?", "DE", "cucurbits_powdery_mildew", "kg"),
 ]
 
 if __name__ == "__main__":
