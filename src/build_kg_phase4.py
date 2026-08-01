@@ -131,11 +131,19 @@ if __name__ == "__main__":
         # Name_Bug.md and Phase3_Step2_FusionArm.md applied from the start) ---
         atc_prose = f" Its ATC classification is {primary_atc}." if primary_atc else ""
         orphan_prose = f" It holds an EMA orphan-medicine designation." if orphan else ""
+        # Data-parity fix: the KG states explicitly whether EU authorisation went through EMA's
+        # centralised procedure (q_is_centralised in kg_arm_phase4.py) - the RAG prose must state the
+        # same fact in words, or RAG can never possibly answer a question about it (not a reasoning
+        # gap, a missing-fact gap - confirmed via r2's graded results: RAG correctly declined every run
+        # because the word "centralised" never appeared anywhere in its documents).
+        centralised_prose = (f" This EU authorisation was granted via the EMA's centralised procedure."
+                              if eu_status not in ("No EMA centralised-procedure record", "") else "")
         rag_docs.append({
             "id": slug(sub_name),
             "substance": sub_name,
             "text": (f"{sub_name.capitalize()}: US status ({AUTHORITY['US']}) is '{status}'. "
-                     f"EU status ({AUTHORITY['EU']}) is '{eu_status}'.{atc_prose}{orphan_prose}"),
+                     f"EU status ({AUTHORITY['EU']}) is '{eu_status}'.{centralised_prose}"
+                     f"{atc_prose}{orphan_prose}"),
         })
 
     g.serialize(destination=str(DATA / "kg_phase4.ttl"), format="turtle")
