@@ -20,13 +20,15 @@ import requests
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 
-# A small, deliberately mixed candidate set: some likely-divergent (aducanumab: FDA yes, EMA refused),
-# some likely-convergent (common generics), spanning a few ATC classes to test hierarchy richness.
+# Curated candidate set, refined after Step 0's initial run. Drawn from real EMA centralised-procedure
+# records (confirmed live) spanning two ATC clusters for genuine hierarchy testing (Category 7):
+#   N06D (anti-dementia) — aducanumab, lecanemab, donanemab: known FDA/EMA divergence candidates
+#   L01  (antineoplastic) — niraparib, isatuximab, epcoritamab, dostarlimab: all EMA-confirmed
+#     orphan/oncology biologics sharing the L01 parent class, for hierarchy-traversal richness
+# FDA-side status for the L01 cluster has NOT yet been live-confirmed — that's what this run checks.
 CANDIDATES = [
-    "aducanumab", "lecanemab",              # Alzheimer's — known FDA/EMA divergence candidates
-    "morphine", "oxycodone", "fentanyl",     # opioids — same ATC class (N02A), tests hierarchy
-    "metformin", "sitagliptin",              # diabetes — common, likely convergent
-    "ibuprofen", "aspirin",                  # common OTC — likely convergent, factual-category control
+    "aducanumab", "lecanemab", "donanemab",              # N06D cluster (Alzheimer's)
+    "niraparib", "isatuximab", "epcoritamab", "dostarlimab",  # L01 cluster (oncology)
 ]
 
 FDA_URL = "https://api.fda.gov/drug/drugsfda.json"
