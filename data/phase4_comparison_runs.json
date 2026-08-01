@@ -1,0 +1,263 @@
+{
+  "n_runs": 3,
+  "runs": [
+    {
+      "f1": {
+        "question": "What is the ATC code for lecanemab?",
+        "category": "factual",
+        "kg": "N06DX04.",
+        "rag": "There is no mention of the ATC code for lecanemab in the provided facts."
+      },
+      "f2": {
+        "question": "What is the ATC code for niraparib?",
+        "category": "factual",
+        "kg": "L01XK02.",
+        "rag": "L01XK02."
+      },
+      "f3": {
+        "question": "What is the ATC code for isatuximab?",
+        "category": "factual",
+        "kg": "L01XC38",
+        "rag": "L01XC38."
+      },
+      "r1": {
+        "question": "Which US regulatory agency approved dostarlimab?",
+        "category": "region_specific",
+        "kg": "The U.S. Food and Drug Administration (FDA) approved dostarlimab.",
+        "rag": "There is no information provided about which US regulatory agency approved dostarlimab. The facts only state that Dostarlimab is 'Approved' by the FDA (U.S. Food and Drug Administration), but do not specify the specific approval process or agency."
+      },
+      "r2": {
+        "question": "Is niraparib authorised via the EU's centralised procedure (EMA), or only at national level?",
+        "category": "region_specific",
+        "kg": "Niraparib is authorised via both the EU's centralised procedure (EMA) and at the national level.",
+        "rag": "The question cannot be answered with certainty from the provided facts. The status of niraparib as \"Authorised\" by the EMA is not explicitly stated as having been granted via the centralised procedure, nor is it explicitly stated as being granted at the national level. Only the status and classification are mentioned."
+      },
+      "m1": {
+        "question": "Which of the oncology substances in this benchmark (niraparib, isatuximab, epcoritamab, dostarlimab, melphalan flufenamide) fall under the ATC L01F subclass (antibody-based antineoplastic agents)?",
+        "category": "multi_hop",
+        "kg": "Based on the provided facts, the substance that falls under the ATC prefix L01F is:\n\n1. epcoritamab\n2. dostarlimab\n\nThese are both classified as antibody-based antineoplastic agents. The other substances do not have a specified classification under ATC prefix L01F.",
+        "rag": "Based on the provided facts, the following substances fall under the ATC L01F subclass:\n\n1. Dostarlimab\n2. Isatuximab"
+      },
+      "c1": {
+        "question": "Which substance in this benchmark holds an EMA orphan-medicine designation?",
+        "category": "constraint",
+        "kg": "Niraparib holds an EMA orphan-medicine designation.",
+        "rag": "Niraparib."
+      },
+      "n1": {
+        "question": "Is aducanumab currently authorised by the EMA?",
+        "category": "negative",
+        "kg": "No, aducanumab is not currently authorised by the EMA as its application has been withdrawn.",
+        "rag": "No, aducanumab's EU status (EMA) is 'Application withdrawn', indicating it never had an authorisation granted via the EMA's centralised procedure."
+      },
+      "n2": {
+        "question": "Is melphalan flufenamide currently FDA-approved?",
+        "category": "negative",
+        "kg": "No, melphalan flufenamide was previously approved but has been withdrawn from the current FDA index as of February 2024.",
+        "rag": "No, melphalan flufenamide is no longer in the current FDA index and its status was withdrawn (February 2024)."
+      },
+      "d1": {
+        "question": "Name a substance in this benchmark that is FDA-approved but not currently EMA-authorised.",
+        "category": "cross_border",
+        "kg": "Aducanumab.",
+        "rag": "There is no information provided about substances being FDA-approved and subsequently losing their approval or status, so we can only identify substances currently approved by the FDA but with different status. \n\nDostarlimab and Epcoritamab have EU authorisation via the centralised procedure, whereas they are FDA-approved."
+      },
+      "d2": {
+        "question": "Name a substance in this benchmark that is EMA-authorised but not currently FDA-approved.",
+        "category": "cross_border",
+        "kg": "Melphalan flufenamide.",
+        "rag": "Epcoritamab is EMA-authorised but not currently FDA-approved, as its US status is 'Not Available' (since the question only provides information on FDA approval status for Isatuximab and Dostarlimab)."
+      },
+      "h1": {
+        "question": "Which substances in this benchmark share niraparib's top-level ATC group (L01, antineoplastic agents)?",
+        "category": "hierarchy",
+        "kg": "Based on the provided facts, none of the substances mentioned specifically share niraparib's top-level ATC group (L01). The fact only mentions that they share the same L01 classification, not the top-level classification.",
+        "rag": "Based on the provided facts, none of the mentioned substances (niraparib, isatuximab, and melphalan flufenamide) share niraparib's top-level ATC group (L01). They have different top-level ATC classifications."
+      },
+      "h2": {
+        "question": "Which substances in this benchmark share lecanemab's ATC pharmacological subgroup, N06D?",
+        "category": "hierarchy",
+        "kg": "According to the facts provided, only one substance shares lecanemab's ATC classification at the N06D level:\n\nDonanemab.",
+        "rag": "None of the substances listed have an ATC classification of 'N06D'."
+      },
+      "h3": {
+        "question": "Does aducanumab belong to the same ATC pharmacological subgroup (N06D) as lecanemab and donanemab?",
+        "category": "hierarchy",
+        "kg": "No, aducanumab does not belong to the same N06D subgroup as lecanemab and donanemab. According to the facts, aducanumab shares the N06D subgroup only with those comparators for which both conditions are true, but it does not reach this level of classification itself.",
+        "rag": "No, aducanumab belongs to a different ATC class than lecanemab and donanemab. Its ATC classification is N07, whereas the ATC classifications of lecanemab (N06DX04) and donanemab (N06DX05) are in the N06D subgroup."
+      }
+    },
+    {
+      "f1": {
+        "question": "What is the ATC code for lecanemab?",
+        "category": "factual",
+        "kg": "N06DX04",
+        "rag": "The ATC code for lecanemab is N06DX04."
+      },
+      "f2": {
+        "question": "What is the ATC code for niraparib?",
+        "category": "factual",
+        "kg": "L01XK02.",
+        "rag": "L01XK02"
+      },
+      "f3": {
+        "question": "What is the ATC code for isatuximab?",
+        "category": "factual",
+        "kg": "L01XC38.",
+        "rag": "The ATC code for Isatuximab is L01XC38."
+      },
+      "r1": {
+        "question": "Which US regulatory agency approved dostarlimab?",
+        "category": "region_specific",
+        "kg": "The U.S. Food and Drug Administration (FDA).",
+        "rag": "The question does not provide information on which US regulatory agency approved Dostarlimab, only that it is \"Approved\" by the FDA."
+      },
+      "r2": {
+        "question": "Is niraparib authorised via the EU's centralised procedure (EMA), or only at national level?",
+        "category": "region_specific",
+        "kg": "Niraparib is authorised via the EU's centralised procedure (EMA).",
+        "rag": "According to the facts, both niraparib and donanemab have an 'Authorised' status in the EU, which was granted via the EMA's centralised procedure. There is no distinction between \"centralised\" and \"national\" levels for these two medications. The fact only indicates that they have an EU-wide authorisation, but does not provide information about national-level authorisations."
+      },
+      "m1": {
+        "question": "Which of the oncology substances in this benchmark (niraparib, isatuximab, epcoritamab, dostarlimab, melphalan flufenamide) fall under the ATC L01F subclass (antibody-based antineoplastic agents)?",
+        "category": "multi_hop",
+        "kg": "The answer is epcoritamab and dostarlimab. Both of these substances are classified under ATC prefix L01F as antibody-based antineoplastic agents.",
+        "rag": "Based on the provided facts, the answer is:\n\n- Dostarlimab: This substance falls under the ATC L01FF07 classification, which is a subset of the L01F subclass."
+      },
+      "c1": {
+        "question": "Which substance in this benchmark holds an EMA orphan-medicine designation?",
+        "category": "constraint",
+        "kg": "Niraparib.",
+        "rag": "Niraparib holds an EMA orphan-medicine designation."
+      },
+      "n1": {
+        "question": "Is aducanumab currently authorised by the EMA?",
+        "category": "negative",
+        "kg": "No, aducanumab is not currently authorised by the EMA. Its application was withdrawn.",
+        "rag": "No, aducanumab's EU status (EMA) is 'Application withdrawn', which means it has lost its existing authorisation."
+      },
+      "n2": {
+        "question": "Is melphalan flufenamide currently FDA-approved?",
+        "category": "negative",
+        "kg": "No, melphalan flufenamide is not currently FDA-approved. It was previously approved in 2021 but had its authorization status withdrawn in February 2024.",
+        "rag": "No, Melphalan flufenamide is no longer in the current FDA index after being withdrawn (February 2024)."
+      },
+      "d1": {
+        "question": "Name a substance in this benchmark that is FDA-approved but not currently EMA-authorised.",
+        "category": "cross_border",
+        "kg": "Aducanumab.",
+        "rag": "Based on the provided facts, there are multiple substances (Isatuximab, Dostarlimab, and Epcoritamab) that are both FDA-approved and EU-authorised. Therefore, I must say that there is no substance in this benchmark that meets the criteria of being FDA-approved but not currently EMA-authorised."
+      },
+      "d2": {
+        "question": "Name a substance in this benchmark that is EMA-authorised but not currently FDA-approved.",
+        "category": "cross_border",
+        "kg": "Melphalan flufenamide.",
+        "rag": "There are three substances listed, and two of them (Dostarlimab and Epcoritamab) have the same status as Isatuximab: both are approved by both the FDA and EMA. \n\nHowever, Dostarlimab has an EU ATC classification (L01FF07), which is not present in the provided information for Isatuximab."
+      },
+      "h1": {
+        "question": "Which substances in this benchmark share niraparib's top-level ATC group (L01, antineoplastic agents)?",
+        "category": "hierarchy",
+        "kg": "None of the listed substances share niraparib's top-level ATC group (L01) as they are classified at a different level.",
+        "rag": "Based on the facts provided, melphalan flufenamide shares niraparib's top-level ATC group (L01) as it also has an ATC classification of L01AA10."
+      },
+      "h2": {
+        "question": "Which substances in this benchmark share lecanemab's ATC pharmacological subgroup, N06D?",
+        "category": "hierarchy",
+        "kg": "Donanemab.",
+        "rag": "Based on the provided facts, there is no information to support that any of the listed substances (Lecanemab, Isatuximab, and Melphalan flufenamide) share the ATC pharmacological subgroup N06D. The question's subgroup is not mentioned in the fact summary for these substances."
+      },
+      "h3": {
+        "question": "Does aducanumab belong to the same ATC pharmacological subgroup (N06D) as lecanemab and donanemab?",
+        "category": "hierarchy",
+        "kg": "No, according to the facts, aducanumab does not reach the N06D level and shares this subgroup only with comparators that also meet this condition. Since it does not reach N06D, it does not belong to the same ATC pharmacological subgroup as lecanemab and donanemab, who do.",
+        "rag": "No, according to the provided facts, aducanumab belongs to the subclassification N07, while lecanemab and donanemab both belong to the subclassification N06DX04 (for lecanemab) and N06DX05 (for donanemab)."
+      }
+    },
+    {
+      "f1": {
+        "question": "What is the ATC code for lecanemab?",
+        "category": "factual",
+        "kg": "N06DX04",
+        "rag": "The ATC code for lecanemab is N06DX04."
+      },
+      "f2": {
+        "question": "What is the ATC code for niraparib?",
+        "category": "factual",
+        "kg": "L01XK02.",
+        "rag": "L01XK02."
+      },
+      "f3": {
+        "question": "What is the ATC code for isatuximab?",
+        "category": "factual",
+        "kg": "L01XC38",
+        "rag": "The ATC code for Isatuximab is not specified in the provided facts."
+      },
+      "r1": {
+        "question": "Which US regulatory agency approved dostarlimab?",
+        "category": "region_specific",
+        "kg": "The U.S. Food and Drug Administration (FDA) approved dostarlimab.",
+        "rag": "There is no mention of a US regulatory agency approving Dostarlimab in the provided facts. The FDA (U.S. Food and Drug Administration) status of Dostarlimab is only stated as \"Approved\", but it does not specify which FDA approval."
+      },
+      "r2": {
+        "question": "Is niraparib authorised via the EU's centralised procedure (EMA), or only at national level?",
+        "category": "region_specific",
+        "kg": "Niraparib is authorised via both the EU's centralised procedure (EMA) and national levels.",
+        "rag": "The facts do not specify whether niraparib's EU authorisation was granted via the EMA's centralised procedure at a national level, or if it has been approved for all European countries through this process. The fact only states that its EU authorisation was granted via the EMA's centralised procedure, but does not provide further information on whether this is at a national level or for all EU countries."
+      },
+      "m1": {
+        "question": "Which of the oncology substances in this benchmark (niraparib, isatuximab, epcoritamab, dostarlimab, melphalan flufenamide) fall under the ATC L01F subclass (antibody-based antineoplastic agents)?",
+        "category": "multi_hop",
+        "kg": "The substances that fall under the ATC prefix L01F are:\n\n* Epcoritamab\n* Dostarlimab",
+        "rag": "The answer to the question cannot be determined based on the provided facts. The relevant information about each substance's ATC classification does not indicate whether it falls under the L01F subclass (antibody-based antineoplastic agents)."
+      },
+      "c1": {
+        "question": "Which substance in this benchmark holds an EMA orphan-medicine designation?",
+        "category": "constraint",
+        "kg": "Niraparib.",
+        "rag": "Niraparib holds an EMA orphan-medicine designation."
+      },
+      "n1": {
+        "question": "Is aducanumab currently authorised by the EMA?",
+        "category": "negative",
+        "kg": "No, aducanumab is not currently authorised by the EMA. Its application has been withdrawn.",
+        "rag": "No, aducanumab's EU status (EMA) is 'Application withdrawn', not 'Authorised'."
+      },
+      "n2": {
+        "question": "Is melphalan flufenamide currently FDA-approved?",
+        "category": "negative",
+        "kg": "No. Melphalan flufenamide was previously approved by the FDA but had its authorization status withdrawn in February 2024.",
+        "rag": "No, melphalan flufenamide is no longer in the current FDA index since it was withdrawn in February 2024."
+      },
+      "d1": {
+        "question": "Name a substance in this benchmark that is FDA-approved but not currently EMA-authorised.",
+        "category": "cross_border",
+        "kg": "Aducanumab.",
+        "rag": "There are no substances listed as being FDA-approved but not currently EMA-authorised. All three substances (Isatuximab, Dostarlimab, and Epcoritamab) have both FDA approval and EU authorisation."
+      },
+      "d2": {
+        "question": "Name a substance in this benchmark that is EMA-authorised but not currently FDA-approved.",
+        "category": "cross_border",
+        "kg": "Melphalan flufenamide.",
+        "rag": "Dostarlimab and Epcoritamab are both EMA-authorised but there is no information on their current US status."
+      },
+      "h1": {
+        "question": "Which substances in this benchmark share niraparib's top-level ATC group (L01, antineoplastic agents)?",
+        "category": "hierarchy",
+        "kg": "The substances dostarlimab and epcoritamab share niraparib's top-level ATC group (L01).",
+        "rag": "Isatuximab and Melphalan flufenamide share niraparib's top-level ATC group (L01)."
+      },
+      "h2": {
+        "question": "Which substances in this benchmark share lecanemab's ATC pharmacological subgroup, N06D?",
+        "category": "hierarchy",
+        "kg": "Donanemab.",
+        "rag": "The answer cannot be determined based on the provided facts, as none of them include information about the ATC pharmacological subgroup \"N06D\" for any of the listed substances."
+      },
+      "h3": {
+        "question": "Does aducanumab belong to the same ATC pharmacological subgroup (N06D) as lecanemab and donanemab?",
+        "category": "hierarchy",
+        "kg": "No, aducanumab does not share the N06D subgroup with lecanemab and donanemab, since its own ATC classification does NOT reach the N06D level.",
+        "rag": "No, it does not. According to the facts, while lecanemab and donanemab have an ATC classification of N06DX04 and N06DX05 respectively, aducanumab has an ATC classification of N07."
+      }
+    }
+  ]
+}

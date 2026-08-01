@@ -1,0 +1,33 @@
+{
+  "overall": {
+    "kg": {
+      "correct": 0.9285714285714286,
+      "faithful": 0.9285714285714286,
+      "n": 42,
+      "per_category": {
+        "constraint": 1.0,
+        "cross_border": 1.0,
+        "factual": 1.0,
+        "hierarchy": 0.6666666666666666,
+        "multi_hop": 1.0,
+        "negative": 1.0,
+        "region_specific": 1.0
+      }
+    },
+    "rag": {
+      "correct": 0.5,
+      "faithful": 0.6666666666666666,
+      "n": 42,
+      "per_category": {
+        "constraint": 1.0,
+        "cross_border": 0.0,
+        "factual": 0.8888888888888888,
+        "hierarchy": 0.3333333333333333,
+        "multi_hop": 0.0,
+        "negative": 1.0,
+        "region_specific": 0.16666666666666666
+      }
+    }
+  },
+  "n_runs": 3
+}
