@@ -1,7 +1,7 @@
 """
 conversational_doctor.py — Phase 4/5: conversational engine (text + image turns).
 
-Multi-turn chat over the regulation-aware RAG. Dialogue state:
+Multi-turn chat over the regulation-aware retrieval backend. Dialogue state:
   - region slot: persists once set; can change mid-conversation.
   - pending text question / pending image-identified disease: remembered until a region is given.
   - history: recent turns for follow-up context.
@@ -9,13 +9,20 @@ Multi-turn chat over the regulation-aware RAG. Dialogue state:
 Text turns retrieve the disease from the query. Image turns receive a disease already identified
 by vision.py and ground the region-appropriate corpus entry directly. The LLM writes the advice;
 the region is decided deterministically (region_gate). This module has no vision dependency.
+
+Phase 5, Step 1 (Work Package A): retrieval is now KG-primary for the 3 diseases Programme B
+validated (late blight, apple scab, cucurbit powdery mildew), via kg_retrieval_bridge.py, which
+reuses Phase 1's KG and Phase 2's validated deterministic router unchanged. Every other disease
+falls back to the original RAG pipeline, with an explicit notice surfaced in the reply — the
+integration boundary from docs/Phase5_Design.md is enforced here, not just documented.
 """
 from region_gate import detect_region, retrieve, corpus, GATE_MESSAGE, LLM, emb, doc_emb
+import kg_retrieval_bridge as bridge
 import numpy as np
 import ollama
 
 RELEVANCE = 0.35   # top-1 cosine below this = the turn isn't an answerable question
-DEBUG = False      # set True to print retrieval traces to the terminal
+DEBUG = False      # set True to print retrieval traces (including kg/rag source) to the terminal
 CORPUS_BY_ID = {r["id"]: r for r in corpus}
 
 class Conversation:
@@ -64,11 +71,13 @@ Assistant:"""
 
     # ---------- text turns ----------
     def _grounded_answer(self, query):
-        top = retrieve(query, self.region)
+        ctx, source, notice = bridge.get_context_for_query(query, self.region)
         if DEBUG:
-            print(f"   [trace] query={query!r} -> {[r['id'] for r in top]}")
-        ctx = "\n\n".join(f"[{r['id']} | {r['country']}] {r['text']}" for r in top)
-        return self._generate(query, ctx)
+            print(f"   [trace] query={query!r} -> source={source}")
+        reply = self._generate(query, ctx)
+        if notice:
+            reply += notice
+        return reply
 
     def turn(self, message):
         old_region = self.region
@@ -107,8 +116,12 @@ Assistant:"""
             return (f"I identified **{dname}**, but I only have Norway-specific authorised guidance for "
                     f"late blight, apple scab, and powdery mildew. For this disease I can't give "
                     f"Norway-correct product advice - please consult Mattilsynet / Plantevernguiden.")
-        ctx = f"[{rec['id']} | {rec['country']}] {rec['text']}"
+        ctx, source, notice = bridge.get_context(rec["disease"], self.region, base_id)
+        if DEBUG:
+            print(f"   [trace] image disease={rec['disease']!r} base_id={base_id!r} -> source={source}")
         reply = self._generate(rec["disease"], ctx)
+        if notice:
+            reply += notice
         self.history.append((f"[photo identified as {rec['disease']}]", reply))
         return reply
 
