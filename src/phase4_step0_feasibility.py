@@ -38,7 +38,7 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 # is FDA=withdrawn/EMA=authorised, confirmed via public record, overriding the automated check.
 CANDIDATES = [
     "aducanumab", "lecanemab", "donanemab",              # N06D cluster (Alzheimer's)
-    "niraparib", "isatuximab", "epcoritamab", "dostarlimab", "melflufen",  # L01 cluster (oncology)
+    "niraparib", "isatuximab", "epcoritamab", "dostarlimab", "melphalan flufenamide",  # L01 cluster (oncology)
 ]
 
 FDA_URL = "https://api.fda.gov/drug/drugsfda.json"
@@ -49,7 +49,7 @@ EMA_MEDICINES_URL = "https://www.ema.europa.eu/en/documents/report/medicines-out
 # Manual overrides for cases confirmed via public record where the automated status check is known to be
 # wrong (see CANDIDATES comment above for melflufen's case). Each entry documents WHY, not just WHAT.
 MANUAL_OVERRIDES = {
-    "melflufen": {
+    "melphalan flufenamide": {
         "fda_approved": False,  # formally withdrawn Feb 2024 per FDA's own announcement; the automated
                                  # check sees only the original 2021 "AP" submission and can't detect the
                                  # later withdrawal, which openFDA's drugsfda endpoint doesn't cleanly expose
