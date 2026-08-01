@@ -23,18 +23,41 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 # Curated candidate set, refined after Step 0's initial run. Drawn from real EMA centralised-procedure
 # records (confirmed live) spanning two ATC clusters for genuine hierarchy testing (Category 7):
 #   N06D (anti-dementia) — aducanumab, lecanemab, donanemab: known FDA/EMA divergence candidates
-#   L01  (antineoplastic) — niraparib, isatuximab, epcoritamab, dostarlimab: all EMA-confirmed
+#     (donanemab confirmed CONVERGED as of this data snapshot - an initial EMA rejection was reversed;
+#     kept in the set as a documented example of TRANSIENT divergence, not excluded)
+#   L01  (antineoplastic) — niraparib, isatuximab, epcoritamab, dostarlimab, melflufen: EMA-confirmed
 #     orphan/oncology biologics sharing the L01 parent class, for hierarchy-traversal richness
-# FDA-side status for the L01 cluster has NOT yet been live-confirmed — that's what this run checks.
+#
+# KNOWN LIMITATION, documented rather than silently wrong: melflufen (Pepaxto/Pepaxti) is a CONFIRMED,
+# permanent divergence case via public record (FDA formally withdrew approval Feb 2024 after the OCEAN
+# trial failed to confirm clinical benefit; EMA still authorises it under the name Pepaxti) — but
+# fda_lookup() below can only detect whether an "AP" submission EVER existed, not whether a later
+# withdrawal superseded it (openFDA's drugsfda endpoint does not cleanly expose withdrawal as a queryable
+# status). The script will likely report fda_approved=True for melflufen despite the real-world
+# withdrawal. This is flagged here, not silently trusted — melflufen's true status for benchmark purposes
+# is FDA=withdrawn/EMA=authorised, confirmed via public record, overriding the automated check.
 CANDIDATES = [
     "aducanumab", "lecanemab", "donanemab",              # N06D cluster (Alzheimer's)
-    "niraparib", "isatuximab", "epcoritamab", "dostarlimab",  # L01 cluster (oncology)
+    "niraparib", "isatuximab", "epcoritamab", "dostarlimab", "melflufen",  # L01 cluster (oncology)
 ]
 
 FDA_URL = "https://api.fda.gov/drug/drugsfda.json"
 RXCLASS_BASE = "https://rxnav.nlm.nih.gov/REST/rxclass"
 RXNORM_FINDRXCUI = "https://rxnav.nlm.nih.gov/REST/rxcui.json"
 EMA_MEDICINES_URL = "https://www.ema.europa.eu/en/documents/report/medicines-output-medicines_json-report_en.json"
+
+# Manual overrides for cases confirmed via public record where the automated status check is known to be
+# wrong (see CANDIDATES comment above for melflufen's case). Each entry documents WHY, not just WHAT.
+MANUAL_OVERRIDES = {
+    "melflufen": {
+        "fda_approved": False,  # formally withdrawn Feb 2024 per FDA's own announcement; the automated
+                                 # check sees only the original 2021 "AP" submission and can't detect the
+                                 # later withdrawal, which openFDA's drugsfda endpoint doesn't cleanly expose
+        "reason": "FDA withdrew approval Feb 2024 (OCEAN trial failed to confirm benefit) - confirmed via "
+                  "FDA's own press release and multiple independent oncology news sources, not inferred "
+                  "from API data alone.",
+    },
+}
 
 
 def fda_lookup(substance):
@@ -112,6 +135,11 @@ if __name__ == "__main__":
         ema_approved = any(m.get("medicine_status") == "Authorised" for m in ema_hits)
 
         fda_approved = fda.get("approved", False)
+        override = MANUAL_OVERRIDES.get(sub)
+        if override is not None and override["fda_approved"] != fda_approved:
+            print(f"  MANUAL OVERRIDE: automated check said fda_approved={fda_approved}, "
+                  f"overriding to {override['fda_approved']} — {override['reason']}")
+            fda_approved = override["fda_approved"]
         divergent = fda_approved != ema_approved  # authorised in one region's regulator, not the other
 
         print(f"  FDA: found={fda.get('found')}, APPROVED={fda_approved} "
