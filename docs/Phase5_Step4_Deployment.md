@@ -83,24 +83,28 @@ happen on your machine or HF's own build infrastructure.**
 **Step 2 is no longer possible on a free account** (confirmed via the actual Space-creation UI). The rest
 of the file-push steps remain accurate for whichever platform is chosen below.
 
-## Decision
+## Decision — MADE: Option 3, local-only, reported honestly
 
-Given the corrected finding, three real paths forward — this is a real decision, not made unilaterally:
+Given the corrected finding, three real paths forward were laid out for the researcher to choose, not
+decided unilaterally:
 
-1. **HF PRO ($9/month)** — likely unlocks Docker + CPU Basic Space creation (based on current
-   documentation patterns, not 100% confirmed without subscribing). Cheapest path to an actual public URL;
-   every artifact built in this step (Dockerfile, entrypoint.sh, file manifest) works unchanged.
-2. **A hybrid architecture** — keep KG/RAG/verification fully local, swap only LLM generation for a
-   free-tier hosted inference API over the network. Would fit Render/Koyeb's small memory budgets, since
-   the model would no longer need to live in the container's own memory. A real architectural change, not
-   a small tweak — would need its own design pass, not assumed to be a drop-in swap.
-3. **Report this as the honest Work Package D finding and stop here.** The assistant is fully built,
-   integrated, and validated (Steps 1–3 complete, all real measurements and real evaluations). No
-   genuinely free, always-on hosting for this architecture was found among the platforms checked. The
-   system remains fully demonstrable locally, exactly as it has run throughout this entire project.
+1. HF PRO ($9/month) — likely unlocks Docker + CPU Basic Space creation, not 100% confirmed without
+   subscribing. Every artifact built in this step remains valid should this be revisited later.
+2. A hybrid architecture (local KG/RAG/verification, hosted LLM API for generation only) — a real
+   architectural change, not decided here; flagged for separate discussion.
+3. **Chosen**: report the local-only result as Work Package D's honest finding. The assistant is fully
+   built, integrated, and validated (Steps 1–3 complete, all real measurements and evaluations). No
+   genuinely free, always-on public hosting for this architecture was found among the platforms checked
+   (Streamlit Community Cloud, Hugging Face Spaces, Render, Koyeb). The system remains fully demonstrable
+   locally, exactly as it has run throughout this entire project — this is not a lesser outcome, it is the
+   honest one given what was actually found.
+
+Option 2 (hybrid architecture) is being discussed separately as a possible follow-on, not folded into this
+phase's conclusion.
 
 ## Status
 
-Build artifacts complete and locally verified as far as this sandbox allows (file existence, import-chain
-accuracy, one real bug found and fixed along the way — see above). Hosting platform decision above is
-open, pending the researcher's choice among the three paths, rather than assumed.
+Work Package D complete. Build artifacts verified as far as this sandbox allows (file existence,
+import-chain accuracy, one real bug found and fixed along the way). Hosting decision made: local-only,
+reported honestly (Option 3, above). Proceeding to Step 5: final interpretation and write-up
+(`docs/Phase5_Results.md`), closing out the whole Phase 5 arc.
