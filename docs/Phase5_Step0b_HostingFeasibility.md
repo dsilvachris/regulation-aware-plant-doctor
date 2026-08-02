@@ -45,16 +45,42 @@ Checked directly against HF's own current official documentation
 3. **Free-tier Spaces sleep on idle**, same as Streamlit — expect a cold-start delay (KG + model reload)
    after a quiet period. A real, reportable UX property for Work Package C/D's write-up, not a blocker.
 
-## Decision
+## CORRECTION (post-Step 4): Hugging Face Spaces is no longer a valid GO
 
-**GO for Hugging Face Spaces, Docker SDK, CPU Basic tier.** This is the target platform for Work Package
-D's actual deployment attempt. Streamlit Community Cloud is ruled out for the full backend, though
-Programme A's existing Streamlit chat UI could still call a separately-hosted HF Space as its backend if a
-Streamlit front-end is preferred — an architecture option worth keeping in mind for Step 4, not decided
-here.
+**This reverses the GO verdict above.** Confirmed live, via the actual HF Space-creation UI and current
+(2026) documentation/community reports, not assumed:
+
+- **Docker SDK is fully paid-gated** for new free accounts — shown as locked ("Paid") directly in the
+  creation UI, not just documented.
+- **CPU Basic hardware is also greyed out for new free accounts.** The only selectable free hardware is
+  **ZeroGPU**.
+- **ZeroGPU is architecturally incompatible with this deployment, not just quota-limited.** It's a
+  burst-access model — code briefly claims a shared GPU for one function call and releases it, with a
+  daily time quota (a few minutes for free accounts). This assistant needs a **persistent background
+  process** (`ollama serve`, kept alive and ready across an entire conversation) — a fundamentally
+  different execution model ZeroGPU was never built for. This is not a limitation that can be worked
+  around with a smaller quota or a leaner image; it's the wrong kind of platform for this architecture.
+- Confirmed (HF community forum, cross-checked): this is a real, recent restriction — "Hugging Face has
+  restricted standard CPU Basic space creation for new free accounts, shifting the free focus toward the
+  ZeroGPU ecosystem."
+- **HF PRO ($9/month)** likely restores Docker + CPU Basic Space creation, based on the pattern in current
+  documentation, but this is not 100% confirmed without actually subscribing — stated as probable, not
+  verified, since confirming it would require spending real money to test.
+
+Render and Koyeb's free tiers were also checked as alternatives (both offer genuine no-credit-card free
+tiers for Docker services) and are **also disqualified**: both cap free-tier RAM at 512MB, far below what's
+needed to hold `llama3.2:3b` in memory alongside the app itself (which alone uses 553MB per
+`Phase5_Step3_LocalDeployability.md`'s real measurement).
+
+**Revised conclusion: no genuinely free, always-on hosting platform checked supports this architecture
+(persistent local LLM inference) as of this check.** This is reported as an honest finding, not
+engineered around — see `docs/Phase5_Step4_Deployment.md` for the three paths forward this leaves open.
 
 ## Status
 
-Step 0b complete via live documentation and precedent verification — no local testing was needed for this
-determination, since HF's own current specs and confirmed working examples were sufficient evidence.
-Proceeding to Step 1 (architecture integration).
+Original Step 0b determination (HF Spaces GO) was superseded during Step 4 when actual Space creation
+revealed a real, current platform restriction that documentation alone hadn't fully surfaced. Corrected
+above rather than left stale. See `docs/Phase5_Step4_Deployment.md` for how the project proceeded given
+this — the build artifacts (Dockerfile, entrypoint.sh) remain valid and reusable the moment a working
+Docker-capable free (or low-cost) tier is available, since nothing about the architecture itself was
+wrong, only the platform's current access policy.

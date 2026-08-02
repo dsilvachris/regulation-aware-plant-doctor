@@ -1,6 +1,20 @@
 # Phase 5, Step 4 — Deployment Feasibility & Deployment (Work Package D)
 
-## Target platform
+## CORRECTION, found during actual Space creation (see `docs/Phase5_Step0b_HostingFeasibility.md`)
+
+Everything below (Dockerfile, entrypoint.sh, file manifest) was built correctly and remains valid, but
+**Hugging Face Spaces' current free tier cannot actually run it**: Docker SDK is paid-gated for new free
+accounts, and the only free hardware option (ZeroGPU) is a burst-access GPU model incompatible with a
+persistent background process like `ollama serve`. Render and Koyeb's genuinely free tiers were checked as
+alternatives and are also disqualified (512MB RAM, far below what's needed). Full detail in
+`Phase5_Step0b_HostingFeasibility.md`'s correction section.
+
+**This does not waste the work done below** — the artifacts are platform-agnostic and would work
+unchanged the moment a Docker-capable tier is available (HF PRO, most likely, or any VPS/PaaS with
+sufficient RAM). The three real paths forward, decided with the researcher rather than assumed, are
+recorded in the "Decision" section at the end of this document.
+
+## Target platform (as originally planned, artifacts below built against this)
 
 Hugging Face Spaces, Docker SDK, CPU Basic tier — confirmed GO in
 `docs/Phase5_Step0b_HostingFeasibility.md` (16GB RAM, genuinely free, real-world Ollama precedent found).
@@ -63,25 +77,30 @@ environment — no Docker daemon, and `ollama.com` isn't reachable from this san
 so the `curl -fsSL https://ollama.com/install.sh` step can't be tested here. **The build itself needs to
 happen on your machine or HF's own build infrastructure.**
 
-## What you need to do
+## What you need to do — superseded, see Decision below
 
-1. **Create a free Hugging Face account** (if you don't have one) at huggingface.co.
-2. **Create a new Space**: Space SDK = **Docker**, hardware = **CPU Basic** (free).
-3. Push these files to the Space's own git repo (a Space is its own git remote, separate from GitHub):
-   - `Dockerfile`
-   - `entrypoint.sh`
-   - `requirements-deploy.txt`
-   - `HF_SPACE_README.md` → **rename to `README.md`** inside the Space (don't overwrite this project's
-     own README — the Space needs its own)
-   - the `src/` files listed in the manifest above
-   - the `data/` and `models/` files listed above
-4. HF will build the Docker image automatically on push — **expect a long first build** (Ollama install +
-   pulling and baking in the ~2GB `llama3.2:3b` model). Subsequent builds only rebuild what changed.
-5. Once built, the Space will be live at a public URL (`https://huggingface.co/spaces/<your-username>/<space-name>`).
+~~1. Create a free Hugging Face account... 2. Create a new Space: Docker/CPU Basic (free)...~~
+**Step 2 is no longer possible on a free account** (confirmed via the actual Space-creation UI). The rest
+of the file-push steps remain accurate for whichever platform is chosen below.
+
+## Decision
+
+Given the corrected finding, three real paths forward — this is a real decision, not made unilaterally:
+
+1. **HF PRO ($9/month)** — likely unlocks Docker + CPU Basic Space creation (based on current
+   documentation patterns, not 100% confirmed without subscribing). Cheapest path to an actual public URL;
+   every artifact built in this step (Dockerfile, entrypoint.sh, file manifest) works unchanged.
+2. **A hybrid architecture** — keep KG/RAG/verification fully local, swap only LLM generation for a
+   free-tier hosted inference API over the network. Would fit Render/Koyeb's small memory budgets, since
+   the model would no longer need to live in the container's own memory. A real architectural change, not
+   a small tweak — would need its own design pass, not assumed to be a drop-in swap.
+3. **Report this as the honest Work Package D finding and stop here.** The assistant is fully built,
+   integrated, and validated (Steps 1–3 complete, all real measurements and real evaluations). No
+   genuinely free, always-on hosting for this architecture was found among the platforms checked. The
+   system remains fully demonstrable locally, exactly as it has run throughout this entire project.
 
 ## Status
 
-Work Package D's build artifacts are complete and locally verified as far as this sandbox allows (file
-existence, import-chain accuracy, one real bug found and fixed along the way). The actual build/deploy
-step requires your Hugging Face account and needs to happen on real infrastructure — paste me the build
-log or any errors once you push, and I'll help debug from there.
+Build artifacts complete and locally verified as far as this sandbox allows (file existence, import-chain
+accuracy, one real bug found and fixed along the way — see above). Hosting platform decision above is
+open, pending the researcher's choice among the three paths, rather than assumed.
