@@ -7,6 +7,9 @@ sentence-transformers
 numpy
 ollama
 
+# Knowledge graph (Phase 1-5: kg_arm.py, build_kg.py, kg_retrieval_bridge.py)
+rdflib
+
 # Embedder fine-tuning (Step 5)
 datasets
 accelerate

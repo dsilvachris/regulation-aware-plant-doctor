@@ -29,8 +29,13 @@ from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import eval_pipeline as ep
-from phase2_step3b_prompt_sensitivity import CATEGORY_OPTIMAL, SYSTEMATIC_RAG_WINS, EXCLUDE
+# NOTE: eval_pipeline / phase2_step3b_prompt_sensitivity imports moved to be LOCAL (inside score() and
+# the __main__ block below) rather than module-level. classify_deterministic() - the only thing this
+# module needs to provide for Phase 5's deployed assistant (kg_retrieval_bridge.py) - only needs `re`.
+# Found while tracing the Docker image's dependency chain for Phase 5 Step 4: importing this module for
+# deployment was unnecessarily dragging in the entire Phase 2 evaluation harness (eval_pipeline.py, which
+# itself pulls in kg_arm/rag_arm/kg_verbalise again, plus phase2_step3b_prompt_sensitivity.py). No
+# behaviour change for classify_deterministic() or for running this script standalone.
 
 # --- PRE-REGISTERED RULE (principled: derived from category definitions, not from grades) ---
 # A question is routed to DOCS only if it is a simple single-disease biology-attribute lookup —
@@ -56,6 +61,7 @@ def score(decisions):
     """Same metric definitions as phase2_step3b_prompt_sensitivity.score(), reproduced here rather than
     imported because that version expects an 'ambiguous_parse' key that doesn't apply to a deterministic
     rule (there is no parsing step to fail)."""
+    from phase2_step3b_prompt_sensitivity import CATEGORY_OPTIMAL, SYSTEMATIC_RAG_WINS  # local: see note above
     n = len(decisions)
     correct_vs_oracle = sum(1 for d in decisions.values()
                              if d["routed_to"] == CATEGORY_OPTIMAL.get(d["category"], "kg"))
@@ -77,6 +83,8 @@ def score(decisions):
 
 
 if __name__ == "__main__":
+    import eval_pipeline as ep
+    from phase2_step3b_prompt_sensitivity import EXCLUDE
     items = [it for it in ep.load_benchmark() if it[2] not in EXCLUDE]
 
     decisions = {}

@@ -1,0 +1,13 @@
+# Minimal dependencies for the DEPLOYED conversational assistant only (Phase 5, Work Package D).
+# Trimmed from the full requirements.txt, which also covers gradio (plant_doctor_app.py, not deployed),
+# datasets/accelerate (embedder fine-tuning, a research step, not needed at deployment runtime).
+# Keeping this separate reduces Docker build time and image size - deployment efficiency is itself
+# one of Work Package D's evaluation criteria (docs/Phase5_Design.md).
+
+sentence-transformers
+numpy
+ollama
+rdflib
+ai-edge-litert
+pillow
+streamlit
