@@ -18,6 +18,7 @@ integration boundary from docs/Phase5_Design.md is enforced here, not just docum
 """
 from region_gate import detect_region, retrieve, corpus, GATE_MESSAGE, LLM, emb, doc_emb
 import kg_retrieval_bridge as bridge
+import verification_layer as vl
 import numpy as np
 import ollama
 
@@ -75,6 +76,11 @@ Assistant:"""
         if DEBUG:
             print(f"   [trace] query={query!r} -> source={source}")
         reply = self._generate(query, ctx)
+        check = vl.verify(reply, ctx, domain="plant_protection", question=query)
+        if check["flagged"]:
+            if DEBUG:
+                print(f"   [trace] verifier flagged: {check['reason']}")
+            reply = vl.disclose(reply, check)
         if notice:
             reply += notice
         return reply
@@ -120,6 +126,11 @@ Assistant:"""
         if DEBUG:
             print(f"   [trace] image disease={rec['disease']!r} base_id={base_id!r} -> source={source}")
         reply = self._generate(rec["disease"], ctx)
+        check = vl.verify(reply, ctx, domain="plant_protection", question=rec["disease"])
+        if check["flagged"]:
+            if DEBUG:
+                print(f"   [trace] verifier flagged: {check['reason']}")
+            reply = vl.disclose(reply, check)
         if notice:
             reply += notice
         self.history.append((f"[photo identified as {rec['disease']}]", reply))
